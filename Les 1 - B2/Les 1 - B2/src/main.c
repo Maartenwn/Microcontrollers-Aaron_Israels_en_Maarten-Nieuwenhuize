@@ -3,15 +3,11 @@
 ** support, and with no warranty, express or implied, as to its usefulness for
 ** any purpose.
 **
-** knipper.c
+** main.c
 **
-** Beschrijving:	Toggle even en oneven leds PORTD  
+** Beschrijving:	Toggle even PORTD.7 en PORTD.6
 ** Target:			AVR mcu
-** Build:			avr-gcc -std=c99 -Wall -O3 -mmcu=atmega128 -D F_CPU=8000000UL -c knipper.c
-**					avr-gcc -g -mmcu=atmega128 -o knipper.elf knipper.o
-**					avr-objcopy -O ihex knipper.elf knipper.hex 
-**					or type 'make'
-** Author: 			dkroeske@gmail.com
+** Author: 			maartenwn@gmail.com en aaron.israëls@home.nl
 ** -------------------------------------------------------------------------*/
 #define F_CPU 8000000
 
@@ -47,22 +43,22 @@ int main( void )
 short:			main() loop, entry point of executable
 inputs:			
 outputs:	
-notes:			Looping forever, flipping bits on PORTD
+notes:			Looping forever, flipping bits on PORTD.6 and PORTE.7
 Version :    	DMK, Initial code
 *******************************************************************/
 {
 	
 	DDRD = 0b11111111;			// All pins PORTD are set to output 
-	DDRE = 0b11111111;			// All pins PORTD are set to output
+	DDRE = 0b11111111;			// All pins PORTE are set to output
 
-	PORTE = 0xFF;
+	PORTE = 0xFF;	
 	
 	while (1)
 	{
-		PORTD = 0xAA;			// Write 10101010b PORTD
-		wait( 1000 );				
-I		PORTD = 0x55;			// Write 01010101b PORTD
-		wait( 1000 );				
+		PORTD = 0x80;
+		wait( 500 );				
+		PORTD = 0x40;
+		wait( 500 );				
 	}
 
 	return 1;
