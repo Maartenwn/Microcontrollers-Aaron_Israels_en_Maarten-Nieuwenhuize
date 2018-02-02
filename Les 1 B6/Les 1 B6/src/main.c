@@ -37,29 +37,29 @@ Version :    	DMK, Initial code
 /******************************************************************/
 int main( void )
 
+/* Video = https://youtu.be/Xs0hB4tKAJY */
 
-/*		https://youtu.be/dEsYkCZcsi8
+/* 
 short:			main() loop, entry point of executable
 inputs:			
 outputs:	
-notes:			Looping forever, turning 1 led at a time and each cycle it turns the next led on.
+notes:			Looping forever, flipping bits on PORTD.7 at 1hz when portc.0 is pressed it flips at 5hz
 Version :    	DMK, Initial code
 *******************************************************************/
 {
 	DDRD = 0b11111111;			// All pins PORTD are set to output 
-	DDRC = 0b11111111;
-	int i = 0x01;
 		
 	while (1)
 	{
-		//i = i << 1;
-		i++;
-		if(i > 0xFF){
-			i = 0x01;
-		}
-		PORTD = i;
-		wait(200);
+		int delay;
+		if(PINC & 1){
+			delay = 200;
+		}else delay = 1000;
 		
+		PORTD = 0x80;
+		wait(delay);
+		PORTD = 0x00;
+		wait(delay);		
 	}
 
 	return 1;
