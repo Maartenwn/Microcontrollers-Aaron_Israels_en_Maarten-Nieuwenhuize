@@ -5,11 +5,20 @@
 **
 ** main.c
 **
-** Beschrijving:	Flash PORTD.7 when PORTC.0 is pressed
 ** Target:			AVR mcu
 ** Author: 			maartenwn@gmail.com en aaron.israëls@home.nl
 ** -------------------------------------------------------------------------*/
 #define F_CPU 8000000
+
+typedef struct {
+	unsigned char data;
+	unsigned int delay ;
+} PATTERN_STRUCT;
+
+PATTERN_STRUCT pattern[] = {
+	{0x07, 100}, {0x0E, 100}, {0x1C, 100}, {0x38, 100}, {0x70, 100}, {0xE0, 100}, {0xC1, 100}, {0x83, 100}, {0x00, 0}
+};	
+
 
 #include <avr/io.h>
 #include <util/delay.h>
@@ -38,27 +47,24 @@ Version :    	DMK, Initial code
 int main( void )
 
 
-/*		https://youtu.be/dEsYkCZcsi8
+/*		https://youtu.be/2xQ5p_-oRwI
 short:			main() loop, entry point of executable
 inputs:			
 outputs:	
-notes:			Looping forever, turning 1 led at a time and each cycle it turns the next led on.
+notes:			Looping forever, showing a preprogrammed pattern
 Version :    	DMK, Initial code
 *******************************************************************/
 {
 	DDRD = 0b11111111;			// All pins PORTD are set to output 
-	DDRC = 0b11111111;
-	int i = 0x01;
 		
 	while (1)
 	{
-		i = i << 1;
-		//i++;
-		if(i > 0xFF){
-			i = 0x01;
-		}
-		PORTD = i;
-		wait(200);
+		int index =0;
+		while(pattern[index].delay != 0){
+			PORTD = pattern[index].data;
+			wait(pattern[index].delay);
+			index++;
+		}	
 		
 	}
 
