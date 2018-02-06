@@ -165,7 +165,7 @@ Version :    	DMK, Initial code
 
 000000da <main>:
 outputs:	
-notes:			Looping forever, turning 1 led at a time and each cycle it turns the next led on.
+notes:			Looping forever, showing a preprogrammed pattern
 Version :    	DMK, Initial code
 *******************************************************************/
 {
