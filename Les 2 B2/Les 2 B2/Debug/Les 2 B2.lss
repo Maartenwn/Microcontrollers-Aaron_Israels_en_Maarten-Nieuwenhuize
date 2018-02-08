@@ -1,0 +1,227 @@
+
+Les 2 B2.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000000  00800100  00800100  00000164  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         00000110  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .comment      00000030  00000000  00000000  00000164  2**0
+                  CONTENTS, READONLY
+  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000194  2**2
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000038  00000000  00000000  000001d0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   000008fb  00000000  00000000  00000208  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 00000827  00000000  00000000  00000b03  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   000004bc  00000000  00000000  0000132a  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000074  00000000  00000000  000017e8  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    0000761a  00000000  00000000  0000185c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    000000e2  00000000  00000000  00008e76  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000028  00000000  00000000  00008f58  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_macro  00000228  00000000  00000000  00008f80  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	45 c0       	rjmp	.+138    	; 0x8c <__ctors_end>
+   2:	00 00       	nop
+   4:	4b c0       	rjmp	.+150    	; 0x9c <__bad_interrupt>
+   6:	00 00       	nop
+   8:	4a c0       	rjmp	.+148    	; 0x9e <__vector_2>
+   a:	00 00       	nop
+   c:	5c c0       	rjmp	.+184    	; 0xc6 <__vector_3>
+   e:	00 00       	nop
+  10:	45 c0       	rjmp	.+138    	; 0x9c <__bad_interrupt>
+  12:	00 00       	nop
+  14:	43 c0       	rjmp	.+134    	; 0x9c <__bad_interrupt>
+  16:	00 00       	nop
+  18:	41 c0       	rjmp	.+130    	; 0x9c <__bad_interrupt>
+  1a:	00 00       	nop
+  1c:	3f c0       	rjmp	.+126    	; 0x9c <__bad_interrupt>
+  1e:	00 00       	nop
+  20:	3d c0       	rjmp	.+122    	; 0x9c <__bad_interrupt>
+  22:	00 00       	nop
+  24:	3b c0       	rjmp	.+118    	; 0x9c <__bad_interrupt>
+  26:	00 00       	nop
+  28:	39 c0       	rjmp	.+114    	; 0x9c <__bad_interrupt>
+  2a:	00 00       	nop
+  2c:	37 c0       	rjmp	.+110    	; 0x9c <__bad_interrupt>
+  2e:	00 00       	nop
+  30:	35 c0       	rjmp	.+106    	; 0x9c <__bad_interrupt>
+  32:	00 00       	nop
+  34:	33 c0       	rjmp	.+102    	; 0x9c <__bad_interrupt>
+  36:	00 00       	nop
+  38:	31 c0       	rjmp	.+98     	; 0x9c <__bad_interrupt>
+  3a:	00 00       	nop
+  3c:	2f c0       	rjmp	.+94     	; 0x9c <__bad_interrupt>
+  3e:	00 00       	nop
+  40:	2d c0       	rjmp	.+90     	; 0x9c <__bad_interrupt>
+  42:	00 00       	nop
+  44:	2b c0       	rjmp	.+86     	; 0x9c <__bad_interrupt>
+  46:	00 00       	nop
+  48:	29 c0       	rjmp	.+82     	; 0x9c <__bad_interrupt>
+  4a:	00 00       	nop
+  4c:	27 c0       	rjmp	.+78     	; 0x9c <__bad_interrupt>
+  4e:	00 00       	nop
+  50:	25 c0       	rjmp	.+74     	; 0x9c <__bad_interrupt>
+  52:	00 00       	nop
+  54:	23 c0       	rjmp	.+70     	; 0x9c <__bad_interrupt>
+  56:	00 00       	nop
+  58:	21 c0       	rjmp	.+66     	; 0x9c <__bad_interrupt>
+  5a:	00 00       	nop
+  5c:	1f c0       	rjmp	.+62     	; 0x9c <__bad_interrupt>
+  5e:	00 00       	nop
+  60:	1d c0       	rjmp	.+58     	; 0x9c <__bad_interrupt>
+  62:	00 00       	nop
+  64:	1b c0       	rjmp	.+54     	; 0x9c <__bad_interrupt>
+  66:	00 00       	nop
+  68:	19 c0       	rjmp	.+50     	; 0x9c <__bad_interrupt>
+  6a:	00 00       	nop
+  6c:	17 c0       	rjmp	.+46     	; 0x9c <__bad_interrupt>
+  6e:	00 00       	nop
+  70:	15 c0       	rjmp	.+42     	; 0x9c <__bad_interrupt>
+  72:	00 00       	nop
+  74:	13 c0       	rjmp	.+38     	; 0x9c <__bad_interrupt>
+  76:	00 00       	nop
+  78:	11 c0       	rjmp	.+34     	; 0x9c <__bad_interrupt>
+  7a:	00 00       	nop
+  7c:	0f c0       	rjmp	.+30     	; 0x9c <__bad_interrupt>
+  7e:	00 00       	nop
+  80:	0d c0       	rjmp	.+26     	; 0x9c <__bad_interrupt>
+  82:	00 00       	nop
+  84:	0b c0       	rjmp	.+22     	; 0x9c <__bad_interrupt>
+  86:	00 00       	nop
+  88:	09 c0       	rjmp	.+18     	; 0x9c <__bad_interrupt>
+	...
+
+0000008c <__ctors_end>:
+  8c:	11 24       	eor	r1, r1
+  8e:	1f be       	out	0x3f, r1	; 63
+  90:	cf ef       	ldi	r28, 0xFF	; 255
+  92:	d0 e1       	ldi	r29, 0x10	; 16
+  94:	de bf       	out	0x3e, r29	; 62
+  96:	cd bf       	out	0x3d, r28	; 61
+  98:	2a d0       	rcall	.+84     	; 0xee <main>
+  9a:	38 c0       	rjmp	.+112    	; 0x10c <_exit>
+
+0000009c <__bad_interrupt>:
+  9c:	b1 cf       	rjmp	.-158    	; 0x0 <__vectors>
+
+0000009e <__vector_2>:
+inputs:			
+outputs:	
+notes:			Set PORTC one futher
+Version :    	DMK, Initial code
+*******************************************************************/
+{
+  9e:	1f 92       	push	r1
+  a0:	0f 92       	push	r0
+  a2:	0f b6       	in	r0, 0x3f	; 63
+  a4:	0f 92       	push	r0
+  a6:	11 24       	eor	r1, r1
+  a8:	8f 93       	push	r24
+    
+	PORTC = PORTC << 1;
+  aa:	85 b3       	in	r24, 0x15	; 21
+  ac:	88 0f       	add	r24, r24
+  ae:	85 bb       	out	0x15, r24	; 21
+	if(PORTC == 0x00){
+  b0:	85 b3       	in	r24, 0x15	; 21
+  b2:	81 11       	cpse	r24, r1
+  b4:	02 c0       	rjmp	.+4      	; 0xba <__vector_2+0x1c>
+		PORTC = 0x01;
+  b6:	81 e0       	ldi	r24, 0x01	; 1
+  b8:	85 bb       	out	0x15, r24	; 21
+	}
+}
+  ba:	8f 91       	pop	r24
+  bc:	0f 90       	pop	r0
+  be:	0f be       	out	0x3f, r0	; 63
+  c0:	0f 90       	pop	r0
+  c2:	1f 90       	pop	r1
+  c4:	18 95       	reti
+
+000000c6 <__vector_3>:
+inputs:			
+outputs:	
+notes:			Set PORTC one back
+Version :    	DMK, Initial code
+*******************************************************************/
+{	
+  c6:	1f 92       	push	r1
+  c8:	0f 92       	push	r0
+  ca:	0f b6       	in	r0, 0x3f	; 63
+  cc:	0f 92       	push	r0
+  ce:	11 24       	eor	r1, r1
+  d0:	8f 93       	push	r24
+    PORTC = PORTC >> 1;
+  d2:	85 b3       	in	r24, 0x15	; 21
+  d4:	86 95       	lsr	r24
+  d6:	85 bb       	out	0x15, r24	; 21
+	if(PORTC == 0x00){
+  d8:	85 b3       	in	r24, 0x15	; 21
+  da:	81 11       	cpse	r24, r1
+  dc:	02 c0       	rjmp	.+4      	; 0xe2 <__vector_3+0x1c>
+		PORTC = 0x80;
+  de:	80 e8       	ldi	r24, 0x80	; 128
+  e0:	85 bb       	out	0x15, r24	; 21
+	}
+	
+}
+  e2:	8f 91       	pop	r24
+  e4:	0f 90       	pop	r0
+  e6:	0f be       	out	0x3f, r0	; 63
+  e8:	0f 90       	pop	r0
+  ea:	1f 90       	pop	r1
+  ec:	18 95       	reti
+
+000000ee <main>:
+notes:			Slow background task after init ISR
+Version :    	DMK, Initial code
+*******************************************************************/
+{
+	// Init I/O
+	DDRD = 0x00;			//set PORTD as input
+  ee:	11 ba       	out	0x11, r1	; 17
+	DDRC = 0xFF;			//set PORTC as output
+  f0:	8f ef       	ldi	r24, 0xFF	; 255
+  f2:	84 bb       	out	0x14, r24	; 20
+
+
+	// Init Interrupt hardware
+	EICRA |= 0x3C;			// INT1 rising edge, INT2 rising edge
+  f4:	ea e6       	ldi	r30, 0x6A	; 106
+  f6:	f0 e0       	ldi	r31, 0x00	; 0
+  f8:	80 81       	ld	r24, Z
+  fa:	8c 63       	ori	r24, 0x3C	; 60
+  fc:	80 83       	st	Z, r24
+	EIMSK |= 0x06;			// Enable INT1 & INT2
+  fe:	89 b7       	in	r24, 0x39	; 57
+ 100:	86 60       	ori	r24, 0x06	; 6
+ 102:	89 bf       	out	0x39, r24	; 57
+	
+	// Enable global interrupt system
+	//SREG = 0x80;			// Of direct via SREG of via wrapper
+	sei();				
+ 104:	78 94       	sei
+
+	PORTC = 0x01;
+ 106:	81 e0       	ldi	r24, 0x01	; 1
+ 108:	85 bb       	out	0x15, r24	; 21
+ 10a:	ff cf       	rjmp	.-2      	; 0x10a <main+0x1c>
+
+0000010c <_exit>:
+ 10c:	f8 94       	cli
+
+0000010e <__stop_program>:
+ 10e:	ff cf       	rjmp	.-2      	; 0x10e <__stop_program>
