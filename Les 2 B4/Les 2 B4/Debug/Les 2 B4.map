@@ -384,35 +384,34 @@ END GROUP
  *(.fini0)
                 0x0000010a                _etext = .
 
-.data           0x00800100       0x46 load address 0x0000010a
+.data           0x00800100       0x18 load address 0x0000010a
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
- .data.pattern  0x00800100       0x45 src/main.o
+ .data.pattern  0x00800100       0x18 src/main.o
                 0x00800100                pattern
  *(.gnu.linkonce.d*)
  *(.rodata)
  *(.rodata*)
  *(.gnu.linkonce.r*)
-                0x00800146                . = ALIGN (0x2)
- *fill*         0x00800145        0x1 
-                0x00800146                _edata = .
-                0x00800146                PROVIDE (__data_end, .)
+                0x00800118                . = ALIGN (0x2)
+                0x00800118                _edata = .
+                0x00800118                PROVIDE (__data_end, .)
 
-.bss            0x00800146        0x0
+.bss            0x00800118        0x0
                 [!provide]                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
  *(COMMON)
                 [!provide]                PROVIDE (__bss_end, .)
                 0x0000010a                __data_load_start = LOADADDR (.data)
-                0x00000150                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00000122                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00800146        0x0
+.noinit         0x00800118        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
  *(.noinit*)
                 [!provide]                PROVIDE (__noinit_end, .)
-                0x00800146                _end = .
+                0x00800118                _end = .
                 [!provide]                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
@@ -495,10 +494,10 @@ END GROUP
  .debug_abbrev  0x00000000      0x718 D:/Program Files (x86)/Atmel studio/7.0/Packs/atmel/ATmega_DFP/1.2.150/gcc/dev/atmega128/avr51/crtatmega128.o
  .debug_abbrev  0x00000718      0x152 src/main.o
 
-.debug_line     0x00000000      0x456
+.debug_line     0x00000000      0x455
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x169 D:/Program Files (x86)/Atmel studio/7.0/Packs/atmel/ATmega_DFP/1.2.150/gcc/dev/atmega128/avr51/crtatmega128.o
- .debug_line    0x00000169      0x2ed src/main.o
+ .debug_line    0x00000169      0x2ec src/main.o
 
 .debug_frame    0x00000000       0x34
  *(.debug_frame)

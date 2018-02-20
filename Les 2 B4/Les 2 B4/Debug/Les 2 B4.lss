@@ -3,31 +3,31 @@ Les 2 B4.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         00000046  00800100  0000010a  0000017e  2**0
+  0 .data         00000018  00800100  0000010a  0000017e  2**0
                   CONTENTS, ALLOC, LOAD, DATA
   1 .text         0000010a  00000000  00000000  00000074  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .comment      00000030  00000000  00000000  000001c4  2**0
+  2 .comment      00000030  00000000  00000000  00000196  2**0
                   CONTENTS, READONLY
-  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000001f4  2**2
+  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000001c8  2**2
                   CONTENTS, READONLY
-  4 .debug_aranges 00000028  00000000  00000000  00000230  2**0
+  4 .debug_aranges 00000028  00000000  00000000  00000204  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_info   0000094f  00000000  00000000  00000258  2**0
+  5 .debug_info   0000094f  00000000  00000000  0000022c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev 0000086a  00000000  00000000  00000ba7  2**0
+  6 .debug_abbrev 0000086a  00000000  00000000  00000b7b  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   00000456  00000000  00000000  00001411  2**0
+  7 .debug_line   00000455  00000000  00000000  000013e5  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_frame  00000034  00000000  00000000  00001868  2**2
+  8 .debug_frame  00000034  00000000  00000000  0000183c  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    000072cc  00000000  00000000  0000189c  2**0
+  9 .debug_str    000072cc  00000000  00000000  00001870  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    0000007e  00000000  00000000  00008b68  2**0
+ 10 .debug_loc    0000007e  00000000  00000000  00008b3c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 00000018  00000000  00000000  00008be6  2**0
+ 11 .debug_ranges 00000018  00000000  00000000  00008bba  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_macro  0000021f  00000000  00000000  00008bfe  2**0
+ 12 .debug_macro  0000021f  00000000  00000000  00008bd2  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -123,7 +123,7 @@ Disassembly of section .text:
   a6:	02 c0       	rjmp	.+4      	; 0xac <__do_copy_data+0x14>
   a8:	07 90       	elpm	r0, Z+
   aa:	0d 92       	st	X+, r0
-  ac:	a6 34       	cpi	r26, 0x46	; 70
+  ac:	a8 31       	cpi	r26, 0x18	; 24
   ae:	b1 07       	cpc	r27, r17
   b0:	d9 f7       	brne	.-10     	; 0xa8 <__do_copy_data+0x10>
   b2:	13 d0       	rcall	.+38     	; 0xda <main>
@@ -165,19 +165,18 @@ Version :    	DMK, Initial code
 
 000000da <main>:
 outputs:	
-notes:			
+notes:			Looping forever, showing a preprogrammed pattern
 Version :    	DMK, Initial code
 *******************************************************************/
 {
-	DDRC = 0b11111111;					// PORTD all output 
+	DDRD = 0b11111111;			// All pins PORTD are set to output 
   da:	8f ef       	ldi	r24, 0xFF	; 255
-  dc:	84 bb       	out	0x14, r24	; 20
-	while (1==1)
+  dc:	81 bb       	out	0x11, r24	; 17
+		
+	while (1)
 	{
-		// Set index to begin of pattern array
-		int index = 0;
-		// as long as delay has meaningful content
-		while( pattern[index].delay != 0 ) {
+		int index =0;
+		while(pattern[index].delay != 0){
   de:	00 e0       	ldi	r16, 0x00	; 0
   e0:	11 e0       	ldi	r17, 0x01	; 1
   e2:	f8 01       	movw	r30, r16
@@ -187,22 +186,20 @@ Version :    	DMK, Initial code
   ea:	d9 f3       	breq	.-10     	; 0xe2 <main+0x8>
   ec:	c0 e0       	ldi	r28, 0x00	; 0
   ee:	d1 e0       	ldi	r29, 0x01	; 1
-			// Write data to PORTD	
-			PORTC = pattern[index].data;
+			PORTD = pattern[index].data;
   f0:	88 81       	ld	r24, Y
-  f2:	85 bb       	out	0x15, r24	; 21
-			// wait
+  f2:	82 bb       	out	0x12, r24	; 18
 			wait(pattern[index].delay);
   f4:	89 81       	ldd	r24, Y+1	; 0x01
   f6:	9a 81       	ldd	r25, Y+2	; 0x02
   f8:	df df       	rcall	.-66     	; 0xb8 <wait>
   fa:	23 96       	adiw	r28, 0x03	; 3
-	while (1==1)
+	DDRD = 0b11111111;			// All pins PORTD are set to output 
+		
+	while (1)
 	{
-		// Set index to begin of pattern array
-		int index = 0;
-		// as long as delay has meaningful content
-		while( pattern[index].delay != 0 ) {
+		int index =0;
+		while(pattern[index].delay != 0){
   fc:	89 81       	ldd	r24, Y+1	; 0x01
   fe:	9a 81       	ldd	r25, Y+2	; 0x02
  100:	89 2b       	or	r24, r25

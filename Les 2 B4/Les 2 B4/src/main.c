@@ -3,43 +3,29 @@
 ** support, and with no warranty, express or implied, as to its usefulness for
 ** any purpose.
 **
-** lookup.c
+** main.c
 **
-** Beschrijving:	Ledpatroon op PORTD dmv table lookup (scheiding logica en data)    
 ** Target:			AVR mcu
-** Build:			avr-gcc -std=c99 -Wall -O3 -mmcu=atmega128 -D F_CPU=8000000UL -c switch.c
-**					avr-gcc -g -mmcu=atmega128 -o lookup.elf lookup.o
-**					avr-objcopy -O ihex lookup.elf lookup.hex 
-**					or type 'make'
-** Author: 			dkroeske@gmail.com
+** Author: 			maartenwn@gmail.com en aaron.israëls@home.nl
 ** -------------------------------------------------------------------------*/
-
 #define F_CPU 8000000
+
+typedef struct {
+	unsigned char data;
+	unsigned int delay ;
+} PATTERN_STRUCT;
+
+PATTERN_STRUCT pattern[] = {
+	{0b00011000, 100}, {0b01010000, 100}, {0b01000010, 100} ,
+	{0b00000011, 100}, {0b00100001, 100}, {0b01100000, 100} ,
+	{0b01000100, 100}, {0b00001100, 100}
+};	
+
 
 #include <avr/io.h>
 #include <util/delay.h>
 
 
-typedef struct { 
-	unsigned char data;
-	unsigned int delay ;
-} PATTERN_STRUCT;  
-
-// 7 seg
-// PORTD dp G F E D C B A
-//        y y y y x x x x
-
-PATTERN_STRUCT pattern[] = { 
-	{0x80, 150}, {0x00, 150}, 
-	{0x80, 150}, {0x00, 150},
-	{0x01, 150}, {0x02, 150}, {0x40, 150}, {0x20, 150},
-	{0x01, 150}, {0x02, 150}, {0x40, 150}, {0x20, 150},
-	{0x00, 150},
-	{0x01, 150}, {0x03, 150}, {0x43, 150}, {0x63, 150},	
-	{0x01, 150}, {0x03, 150}, {0x43, 150}, {0x63, 150},
-	{0x00, 150},
-	{0xFF, 0}
-};
 
 /******************************************************************/
 void wait( int ms )
@@ -59,32 +45,29 @@ Version :    	DMK, Initial code
 	}
 }
 
-
 /******************************************************************/
 int main( void )
-/* 
+
+
+/*		https://youtu.be/jSyIPbVKNgg
 short:			main() loop, entry point of executable
 inputs:			
 outputs:	
-notes:			
+notes:			Looping forever, showing a preprogrammed pattern
 Version :    	DMK, Initial code
 *******************************************************************/
 {
-	DDRC = 0b11111111;					// PORTD all output 
-	
-	while (1==1)
+	DDRD = 0b11111111;			// All pins PORTD are set to output 
+		
+	while (1)
 	{
-		// Set index to begin of pattern array
-		int index = 0;
-		// as long as delay has meaningful content
-		while( pattern[index].delay != 0 ) {
-			// Write data to PORTD	
-			PORTC = pattern[index].data;
-			// wait
+		int index =0;
+		while(pattern[index].delay != 0){
+			PORTD = pattern[index].data;
 			wait(pattern[index].delay);
-			// increment for next round
 			index++;
-		}
+		}	
+		
 	}
 
 	return 1;
