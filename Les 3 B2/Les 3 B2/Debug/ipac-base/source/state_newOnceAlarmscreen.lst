@@ -1,0 +1,92 @@
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccxqRQUj.s 			page 1
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccmZBzd4.s 			page 1
+>>>>>>> BackLightBranch
+
+
+   1               		.file	"state_newOnceAlarmscreen.c"
+   2               		.arch atmega2561
+   3               	__SREG__ = 0x3f
+   4               	__SP_H__ = 0x3e
+   5               	__SP_L__ = 0x3d
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  10               		.text
+  11               	.global	newOnceAlarmscreen_keypressed
+  12               		.type	newOnceAlarmscreen_keypressed, @function
+  13               	newOnceAlarmscreen_keypressed:
+  14               	/* prologue: frame size=0 */
+  15               	/* prologue end (size=0) */
+  16               	/* epilogue: frame size=0 */
+  17 0000 0895      		ret
+  18               	/* epilogue end (size=1) */
+  19               	/* function newOnceAlarmscreen_keypressed size 1 (0) */
+  20               		.size	newOnceAlarmscreen_keypressed, .-newOnceAlarmscreen_keypressed
+  21               	.global	newOnceAlarmscreen_entry
+  22               		.type	newOnceAlarmscreen_entry, @function
+  23               	newOnceAlarmscreen_entry:
+  24               	/* prologue: frame size=0 */
+  25               	/* prologue end (size=0) */
+  26               	/* epilogue: frame size=0 */
+  27 0002 0895      		ret
+  28               	/* epilogue end (size=1) */
+  29               	/* function newOnceAlarmscreen_entry size 1 (0) */
+  30               		.size	newOnceAlarmscreen_entry, .-newOnceAlarmscreen_entry
+  31               	.global	newOnceAlarmscreen_loop
+  32               		.type	newOnceAlarmscreen_loop, @function
+  33               	newOnceAlarmscreen_loop:
+  34               	/* prologue: frame size=0 */
+  35               	/* prologue end (size=0) */
+  36               	/* epilogue: frame size=0 */
+  37 0004 0895      		ret
+  38               	/* epilogue end (size=1) */
+  39               	/* function newOnceAlarmscreen_loop size 1 (0) */
+  40               		.size	newOnceAlarmscreen_loop, .-newOnceAlarmscreen_loop
+  41               	.global	newOnceAlarmscreen_exit
+  42               		.type	newOnceAlarmscreen_exit, @function
+  43               	newOnceAlarmscreen_exit:
+  44               	/* prologue: frame size=0 */
+  45               	/* prologue end (size=0) */
+  46               	/* epilogue: frame size=0 */
+  47 0006 0895      		ret
+  48               	/* epilogue end (size=1) */
+  49               	/* function newOnceAlarmscreen_exit size 1 (0) */
+  50               		.size	newOnceAlarmscreen_exit, .-newOnceAlarmscreen_exit
+  51               	/* File "source/state_newOnceAlarmscreen.c": code    4 = 0x0004 (   0), prologues   0, epilogues   
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccxqRQUj.s 			page 2
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccmZBzd4.s 			page 2
+>>>>>>> BackLightBranch
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 state_newOnceAlarmscreen.c
+<<<<<<< HEAD
+C:\Users\Maarten\AppData\Local\Temp/ccxqRQUj.s:3      *ABS*:0000003f __SREG__
+C:\Users\Maarten\AppData\Local\Temp/ccxqRQUj.s:4      *ABS*:0000003e __SP_H__
+C:\Users\Maarten\AppData\Local\Temp/ccxqRQUj.s:5      *ABS*:0000003d __SP_L__
+C:\Users\Maarten\AppData\Local\Temp/ccxqRQUj.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\Maarten\AppData\Local\Temp/ccxqRQUj.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\Maarten\AppData\Local\Temp/ccxqRQUj.s:13     .text:00000000 newOnceAlarmscreen_keypressed
+C:\Users\Maarten\AppData\Local\Temp/ccxqRQUj.s:23     .text:00000002 newOnceAlarmscreen_entry
+C:\Users\Maarten\AppData\Local\Temp/ccxqRQUj.s:33     .text:00000004 newOnceAlarmscreen_loop
+C:\Users\Maarten\AppData\Local\Temp/ccxqRQUj.s:43     .text:00000006 newOnceAlarmscreen_exit
+=======
+C:\Users\jeffr\AppData\Local\Temp/ccmZBzd4.s:3      *ABS*:0000003f __SREG__
+C:\Users\jeffr\AppData\Local\Temp/ccmZBzd4.s:4      *ABS*:0000003e __SP_H__
+C:\Users\jeffr\AppData\Local\Temp/ccmZBzd4.s:5      *ABS*:0000003d __SP_L__
+C:\Users\jeffr\AppData\Local\Temp/ccmZBzd4.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\jeffr\AppData\Local\Temp/ccmZBzd4.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\jeffr\AppData\Local\Temp/ccmZBzd4.s:13     .text:00000000 newOnceAlarmscreen_keypressed
+C:\Users\jeffr\AppData\Local\Temp/ccmZBzd4.s:23     .text:00000002 newOnceAlarmscreen_entry
+C:\Users\jeffr\AppData\Local\Temp/ccmZBzd4.s:33     .text:00000004 newOnceAlarmscreen_loop
+C:\Users\jeffr\AppData\Local\Temp/ccmZBzd4.s:43     .text:00000006 newOnceAlarmscreen_exit
+>>>>>>> BackLightBranch
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss

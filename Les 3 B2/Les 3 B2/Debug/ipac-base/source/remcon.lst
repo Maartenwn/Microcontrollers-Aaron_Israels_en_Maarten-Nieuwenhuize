@@ -1,0 +1,112 @@
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/cciNgjdu.s 			page 1
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccgNIZ3n.s 			page 1
+>>>>>>> BackLightBranch
+
+
+   1               		.file	"remcon.c"
+   2               		.arch atmega2561
+   3               	__SREG__ = 0x3f
+   4               	__SP_H__ = 0x3e
+   5               	__SP_L__ = 0x3d
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  10               		.text
+  11               		.type	RcInterrupt, @function
+  12               	RcInterrupt:
+  13               	/* prologue: frame size=0 */
+  14               	/* prologue end (size=0) */
+  15               	/* epilogue: frame size=0 */
+  16 0000 0895      		ret
+  17               	/* epilogue end (size=1) */
+  18               	/* function RcInterrupt size 1 (0) */
+  19               		.size	RcInterrupt, .-RcInterrupt
+  20               	.global	RcInit
+  21               		.type	RcInit, @function
+  22               	RcInit:
+  23               	/* prologue: frame size=0 */
+  24               	/* prologue end (size=0) */
+  25 0002 8091 6A00 		lds r24,106
+  26 0006 8C7F      		andi r24,lo8(-4)
+  27 0008 8093 6A00 		sts 106,r24
+  28 000c 40E0      		ldi r20,lo8(0)
+  29 000e 50E0      		ldi r21,hi8(0)
+  30 0010 60E0      		ldi r22,lo8(gs(RcInterrupt))
+  31 0012 70E0      		ldi r23,hi8(gs(RcInterrupt))
+  32 0014 80E0      		ldi r24,lo8(sig_INTERRUPT4)
+  33 0016 90E0      		ldi r25,hi8(sig_INTERRUPT4)
+  34 0018 0E94 0000 		call NutRegisterIrqHandler
+  35 001c 892B      		or r24,r25
+  36 001e 01F4      		brne .L4
+  37 0020 8091 6A00 		lds r24,106
+  38 0024 8260      		ori r24,lo8(2)
+  39 0026 8093 6A00 		sts 106,r24
+  40 002a EC9A      		sbi 61-0x20,4
+  41               	.L4:
+  42 002c 8091 8100 		lds r24,129
+  43 0030 8360      		ori r24,lo8(3)
+  44 0032 8093 8100 		sts 129,r24
+  45 0036 AD9A      		sbi 53-0x20,5
+  46               	/* #APP */
+  47 0038 0FB6      		in  __tmp_reg__, __SREG__
+  48 003a F894      		cli
+  49 003c 0F92      		push __tmp_reg__
+  50               		
+  51               	/* #NOAPP */
+  52 003e 1092 0000 		sts (hRCEvent)+1,__zero_reg__
+  53 0042 1092 0000 		sts hRCEvent,__zero_reg__
+  54               	/* #APP */
+  55 0046 0F90      		pop __tmp_reg__
+  56 0048 0FBE      		out __SREG__, __tmp_reg__
+  57               		
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/cciNgjdu.s 			page 2
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccgNIZ3n.s 			page 2
+>>>>>>> BackLightBranch
+
+
+  58               	/* #NOAPP */
+  59               	/* epilogue: frame size=0 */
+  60 004a 0895      		ret
+  61               	/* epilogue end (size=1) */
+  62               	/* function RcInit size 46 (45) */
+  63               		.size	RcInit, .-RcInit
+  64               		.lcomm hRCEvent,2
+  65               	/* File "source/remcon.c": code   47 = 0x002f (  45), prologues   0, epilogues   2 */
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/cciNgjdu.s 			page 3
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccgNIZ3n.s 			page 3
+>>>>>>> BackLightBranch
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 remcon.c
+<<<<<<< HEAD
+C:\Users\Maarten\AppData\Local\Temp/cciNgjdu.s:3      *ABS*:0000003f __SREG__
+C:\Users\Maarten\AppData\Local\Temp/cciNgjdu.s:4      *ABS*:0000003e __SP_H__
+C:\Users\Maarten\AppData\Local\Temp/cciNgjdu.s:5      *ABS*:0000003d __SP_L__
+C:\Users\Maarten\AppData\Local\Temp/cciNgjdu.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\Maarten\AppData\Local\Temp/cciNgjdu.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\Maarten\AppData\Local\Temp/cciNgjdu.s:12     .text:00000000 RcInterrupt
+C:\Users\Maarten\AppData\Local\Temp/cciNgjdu.s:22     .text:00000002 RcInit
+=======
+C:\Users\jeffr\AppData\Local\Temp/ccgNIZ3n.s:3      *ABS*:0000003f __SREG__
+C:\Users\jeffr\AppData\Local\Temp/ccgNIZ3n.s:4      *ABS*:0000003e __SP_H__
+C:\Users\jeffr\AppData\Local\Temp/ccgNIZ3n.s:5      *ABS*:0000003d __SP_L__
+C:\Users\jeffr\AppData\Local\Temp/ccgNIZ3n.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\jeffr\AppData\Local\Temp/ccgNIZ3n.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\jeffr\AppData\Local\Temp/ccgNIZ3n.s:12     .text:00000000 RcInterrupt
+C:\Users\jeffr\AppData\Local\Temp/ccgNIZ3n.s:22     .text:00000002 RcInit
+>>>>>>> BackLightBranch
+                             .bss:00000000 hRCEvent
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
+sig_INTERRUPT4
+NutRegisterIrqHandler

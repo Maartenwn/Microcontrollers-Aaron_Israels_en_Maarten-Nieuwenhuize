@@ -1,0 +1,385 @@
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/cceof34d.s 			page 1
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccqtIB6N.s 			page 1
+>>>>>>> BackLightBranch
+
+
+   1               		.file	"state_menuscreen.c"
+   2               		.arch atmega2561
+   3               	__SREG__ = 0x3f
+   4               	__SP_H__ = 0x3e
+   5               	__SP_L__ = 0x3d
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  10               		.text
+  11               	.global	menuscreen_loop
+  12               		.type	menuscreen_loop, @function
+  13               	menuscreen_loop:
+  14               	/* prologue: frame size=0 */
+  15               	/* prologue end (size=0) */
+  16               	/* epilogue: frame size=0 */
+  17 0000 0895      		ret
+  18               	/* epilogue end (size=1) */
+  19               	/* function menuscreen_loop size 1 (0) */
+  20               		.size	menuscreen_loop, .-menuscreen_loop
+  21               	.global	menuscreen_exit
+  22               		.type	menuscreen_exit, @function
+  23               	menuscreen_exit:
+  24               	/* prologue: frame size=0 */
+  25               	/* prologue end (size=0) */
+<<<<<<< HEAD
+  26 0002 0E94 0000 		call LcdClear
+  27               	/* epilogue: frame size=0 */
+  28 0006 0895      		ret
+  29               	/* epilogue end (size=1) */
+  30               	/* function menuscreen_exit size 3 (2) */
+  31               		.size	menuscreen_exit, .-menuscreen_exit
+  32               		.data
+  33               	.LC0:
+  34 0000 2563 2563 		.string	"%c%c%s"
+  34      2573 00
+  35               	.LC1:
+  36 0007 2020 00   		.string	"  "
+  37               	.LC2:
+  38 000a 2573 2573 		.string	"%s%s"
+  38      00
+  39               		.text
+  40               	.global	draw
+  41               		.type	draw, @function
+  42               	draw:
+  43               	/* prologue: frame size=28 */
+  44 0008 0F93      		push r16
+  45 000a 1F93      		push r17
+  46 000c CF93      		push r28
+  47 000e DF93      		push r29
+  48 0010 CDB7      		in r28,__SP_L__
+  49 0012 DEB7      		in r29,__SP_H__
+  50 0014 6C97      		sbiw r28,28
+  51 0016 0FB6      		in __tmp_reg__,__SREG__
+  52 0018 F894      		cli
+  53 001a DEBF      		out __SP_H__,r29
+  54 001c 0FBE      		out __SREG__,__tmp_reg__
+  55 001e CDBF      		out __SP_L__,r28
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/cceof34d.s 			page 2
+
+
+  56               	/* prologue end (size=12) */
+  57 0020 0E94 0000 		call LcdClear
+  58 0024 2091 0000 		lds r18,currentNumber
+  59 0028 3091 0000 		lds r19,(currentNumber)+1
+  60 002c 220F      		lsl r18
+  61 002e 331F      		rol r19
+  62 0030 C901      		movw r24,r18
+  63 0032 63E0      		ldi r22,3
+  64 0034 880F      	1:	lsl r24
+  65 0036 991F      		rol r25
+  66 0038 6A95      		dec r22
+  67 003a 01F4      		brne 1b
+  68 003c 821B      		sub r24,r18
+  69 003e 930B      		sbc r25,r19
+  70 0040 8050      		subi r24,lo8(-(menu))
+  71 0042 9040      		sbci r25,hi8(-(menu))
+  72 0044 9F93      		push r25
+  73 0046 8F93      		push r24
+  74 0048 80E2      		ldi r24,lo8(32)
+  75 004a 90E0      		ldi r25,hi8(32)
+  76 004c 9F93      		push r25
+  77 004e 8F93      		push r24
+  78 0050 8EE7      		ldi r24,lo8(126)
+  79 0052 90E0      		ldi r25,hi8(126)
+  80 0054 9F93      		push r25
+  81 0056 8F93      		push r24
+  82 0058 80E0      		ldi r24,lo8(.LC0)
+  83 005a 90E0      		ldi r25,hi8(.LC0)
+  84 005c 9F93      		push r25
+  85 005e 8F93      		push r24
+  86 0060 8E01      		movw r16,r28
+  87 0062 015F      		subi r16,lo8(-(15))
+  88 0064 1F4F      		sbci r17,hi8(-(15))
+  89 0066 1F93      		push r17
+  90 0068 0F93      		push r16
+  91 006a 0E94 0000 		call sprintf
+  92 006e C801      		movw r24,r16
+  93 0070 0E94 0000 		call LcdDisplayStrUpperRow
+  94 0074 2091 0000 		lds r18,currentNumber
+  95 0078 3091 0000 		lds r19,(currentNumber)+1
+  96 007c 8DB7      		in r24,__SP_L__
+  97 007e 9EB7      		in r25,__SP_H__
+  98 0080 0A96      		adiw r24,10
+  99 0082 0FB6      		in __tmp_reg__,__SREG__
+ 100 0084 F894      		cli
+ 101 0086 9EBF      		out __SP_H__,r25
+ 102 0088 0FBE      		out __SREG__,__tmp_reg__
+ 103 008a 8DBF      		out __SP_L__,r24
+ 104 008c 2230      		cpi r18,2
+ 105 008e 3105      		cpc r19,__zero_reg__
+ 106 0090 04F4      		brge .L8
+ 107 0092 220F      		lsl r18
+ 108 0094 331F      		rol r19
+ 109 0096 C901      		movw r24,r18
+ 110 0098 43E0      		ldi r20,3
+ 111 009a 880F      	1:	lsl r24
+ 112 009c 991F      		rol r25
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/cceof34d.s 			page 3
+
+
+ 113 009e 4A95      		dec r20
+ 114 00a0 01F4      		brne 1b
+ 115 00a2 821B      		sub r24,r18
+ 116 00a4 930B      		sbc r25,r19
+ 117 00a6 8050      		subi r24,lo8(-(menu+14))
+ 118 00a8 9040      		sbci r25,hi8(-(menu+14))
+ 119 00aa 9F93      		push r25
+ 120 00ac 8F93      		push r24
+ 121 00ae 80E0      		ldi r24,lo8(.LC1)
+ 122 00b0 90E0      		ldi r25,hi8(.LC1)
+ 123 00b2 9F93      		push r25
+ 124 00b4 8F93      		push r24
+ 125 00b6 80E0      		ldi r24,lo8(.LC2)
+ 126 00b8 90E0      		ldi r25,hi8(.LC2)
+ 127 00ba 9F93      		push r25
+ 128 00bc 8F93      		push r24
+ 129 00be 8E01      		movw r16,r28
+ 130 00c0 0F5F      		subi r16,lo8(-(1))
+ 131 00c2 1F4F      		sbci r17,hi8(-(1))
+ 132 00c4 1F93      		push r17
+ 133 00c6 0F93      		push r16
+ 134 00c8 0E94 0000 		call sprintf
+ 135 00cc C801      		movw r24,r16
+ 136 00ce 0E94 0000 		call LcdDisplayStrLowerRow
+ 137 00d2 8DB7      		in r24,__SP_L__
+ 138 00d4 9EB7      		in r25,__SP_H__
+ 139 00d6 0896      		adiw r24,8
+ 140 00d8 0FB6      		in __tmp_reg__,__SREG__
+ 141 00da F894      		cli
+ 142 00dc 9EBF      		out __SP_H__,r25
+ 143 00de 0FBE      		out __SREG__,__tmp_reg__
+ 144 00e0 8DBF      		out __SP_L__,r24
+ 145               	.L8:
+ 146               	/* epilogue: frame size=28 */
+ 147 00e2 6C96      		adiw r28,28
+ 148 00e4 0FB6      		in __tmp_reg__,__SREG__
+ 149 00e6 F894      		cli
+ 150 00e8 DEBF      		out __SP_H__,r29
+ 151 00ea 0FBE      		out __SREG__,__tmp_reg__
+ 152 00ec CDBF      		out __SP_L__,r28
+ 153 00ee DF91      		pop r29
+ 154 00f0 CF91      		pop r28
+ 155 00f2 1F91      		pop r17
+ 156 00f4 0F91      		pop r16
+ 157 00f6 0895      		ret
+ 158               	/* epilogue end (size=11) */
+ 159               	/* function draw size 120 (97) */
+ 160               		.size	draw, .-draw
+ 161               	.global	menuscreen_entry
+ 162               		.type	menuscreen_entry, @function
+ 163               	menuscreen_entry:
+ 164               	/* prologue: frame size=0 */
+ 165               	/* prologue end (size=0) */
+ 166 00f8 1092 0000 		sts (currentNumber)+1,__zero_reg__
+ 167 00fc 1092 0000 		sts currentNumber,__zero_reg__
+ 168 0100 0E94 0000 		call draw
+ 169               	/* epilogue: frame size=0 */
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/cceof34d.s 			page 4
+
+
+ 170 0104 0895      		ret
+ 171               	/* epilogue end (size=1) */
+ 172               	/* function menuscreen_entry size 7 (6) */
+ 173               		.size	menuscreen_entry, .-menuscreen_entry
+ 174               	.global	menuscreen_keypressed
+ 175               		.type	menuscreen_keypressed, @function
+ 176               	menuscreen_keypressed:
+ 177               	/* prologue: frame size=0 */
+ 178               	/* prologue end (size=0) */
+ 179 0106 FB01      		movw r30,r22
+ 180 0108 8830      		cpi r24,8
+ 181 010a 9105      		cpc r25,__zero_reg__
+ 182 010c 01F0      		breq .L14
+ 183 010e 8930      		cpi r24,9
+ 184 0110 9105      		cpc r25,__zero_reg__
+ 185 0112 04F4      		brge .L17
+ 186 0114 0797      		sbiw r24,7
+ 187 0116 01F0      		breq .+2
+ 188 0118 00C0      		rjmp .L25
+ 189 011a 00C0      		rjmp .L13
+ 190               	.L17:
+ 191 011c 8930      		cpi r24,9
+ 192 011e 9105      		cpc r25,__zero_reg__
+ 193 0120 01F0      		breq .L15
+ 194 0122 0B97      		sbiw r24,11
+ 195 0124 01F0      		breq .+2
+ 196 0126 00C0      		rjmp .L25
+ 197 0128 00C0      		rjmp .L16
+ 198               	.L14:
+ 199 012a 8091 0000 		lds r24,currentNumber
+ 200 012e 9091 0000 		lds r25,(currentNumber)+1
+ 201 0132 0197      		sbiw r24,1
+ 202 0134 9093 0000 		sts (currentNumber)+1,r25
+ 203 0138 8093 0000 		sts currentNumber,r24
+ 204 013c 97FF      		sbrs r25,7
+ 205 013e 00C0      		rjmp .L20
+ 206 0140 1092 0000 		sts (currentNumber)+1,__zero_reg__
+ 207 0144 1092 0000 		sts currentNumber,__zero_reg__
+ 208 0148 00C0      		rjmp .L20
+ 209               	.L16:
+ 210 014a 8091 0000 		lds r24,currentNumber
+ 211 014e 9091 0000 		lds r25,(currentNumber)+1
+ 212 0152 0196      		adiw r24,1
+ 213 0154 9093 0000 		sts (currentNumber)+1,r25
+ 214 0158 8093 0000 		sts currentNumber,r24
+ 215 015c 0397      		sbiw r24,3
+ 216 015e 04F0      		brlt .L20
+ 217 0160 82E0      		ldi r24,lo8(2)
+ 218 0162 90E0      		ldi r25,hi8(2)
+ 219 0164 9093 0000 		sts (currentNumber)+1,r25
+ 220 0168 8093 0000 		sts currentNumber,r24
+ 221               	.L20:
+ 222 016c 0E94 0000 		call draw
+ 223 0170 0895      		ret
+ 224               	.L13:
+ 225 0172 40E0      		ldi r20,lo8(0)
+ 226 0174 50E0      		ldi r21,hi8(0)
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/cceof34d.s 			page 5
+
+
+ 227 0176 60E0      		ldi r22,lo8(0)
+ 228 0178 70E0      		ldi r23,hi8(0)
+ 229 017a 83E0      		ldi r24,lo8(3)
+ 230 017c 90E0      		ldi r25,hi8(3)
+ 231 017e 00C0      		rjmp .L26
+ 232               	.L15:
+ 233 0180 8091 0000 		lds r24,currentNumber
+ 234 0184 9091 0000 		lds r25,(currentNumber)+1
+ 235 0188 8130      		cpi r24,1
+ 236 018a 9105      		cpc r25,__zero_reg__
+ 237 018c 01F0      		breq .L23
+ 238 018e 8230      		cpi r24,2
+ 239 0190 9105      		cpc r25,__zero_reg__
+ 240 0192 01F0      		breq .L24
+ 241 0194 892B      		or r24,r25
+ 242 0196 01F4      		brne .L25
+ 243 0198 40E0      		ldi r20,lo8(0)
+ 244 019a 50E0      		ldi r21,hi8(0)
+ 245 019c 60E0      		ldi r22,lo8(0)
+ 246 019e 70E0      		ldi r23,hi8(0)
+ 247 01a0 85E0      		ldi r24,lo8(5)
+ 248 01a2 90E0      		ldi r25,hi8(5)
+ 249 01a4 00C0      		rjmp .L26
+ 250               	.L23:
+ 251 01a6 40E0      		ldi r20,lo8(0)
+ 252 01a8 50E0      		ldi r21,hi8(0)
+ 253 01aa 60E0      		ldi r22,lo8(0)
+ 254 01ac 70E0      		ldi r23,hi8(0)
+ 255 01ae 8AE0      		ldi r24,lo8(10)
+ 256 01b0 90E0      		ldi r25,hi8(10)
+ 257               	.L26:
+ 258 01b2 1995      		eicall
+ 259 01b4 0895      		ret
+ 260               	.L24:
+ 261 01b6 40E0      		ldi r20,lo8(0)
+ 262 01b8 50E0      		ldi r21,hi8(0)
+ 263 01ba 60E0      		ldi r22,lo8(0)
+ 264 01bc 70E0      		ldi r23,hi8(0)
+ 265 01be 8CE0      		ldi r24,lo8(12)
+ 266 01c0 90E0      		ldi r25,hi8(12)
+ 267 01c2 1995      		eicall
+ 268               	.L25:
+ 269 01c4 0895      		ret
+ 270               	/* epilogue: frame size=0 */
+ 271               	/* epilogue: noreturn */
+ 272               	/* epilogue end (size=0) */
+ 273               	/* function menuscreen_keypressed size 99 (99) */
+ 274               		.size	menuscreen_keypressed, .-menuscreen_keypressed
+ 275               	.global	menu
+ 276               		.data
+ 277               		.type	menu, @object
+ 278               		.size	menu, 42
+ 279               	menu:
+ 280 000f 416C 6172 		.string	"Alarms"
+ 280      6D73 00
+ 281 0016 0000 0000 		.skip 7,0
+ 281      0000 00
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/cceof34d.s 			page 6
+
+
+ 282 001d 5261 6469 		.string	"Radio"
+ 282      6F00 
+ 283 0023 0000 0000 		.skip 8,0
+ 283      0000 0000 
+ 284 002b 5365 7474 		.string	"Settings"
+ 284      696E 6773 
+ 284      00
+ 285 0034 0000 0000 		.skip 5,0
+ 285      00
+ 286               		.comm currentNumber,2,1
+ 287               	/* File "source/state_menuscreen.c": code  230 = 0x00e6 ( 204), prologues  12, epilogues  14 */
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/cceof34d.s 			page 7
+=======
+  26               	/* epilogue: frame size=0 */
+  27 0002 0895      		ret
+  28               	/* epilogue end (size=1) */
+  29               	/* function menuscreen_entry size 1 (0) */
+  30               		.size	menuscreen_entry, .-menuscreen_entry
+  31               	.global	menuscreen_loop
+  32               		.type	menuscreen_loop, @function
+  33               	menuscreen_loop:
+  34               	/* prologue: frame size=0 */
+  35               	/* prologue end (size=0) */
+  36               	/* epilogue: frame size=0 */
+  37 0004 0895      		ret
+  38               	/* epilogue end (size=1) */
+  39               	/* function menuscreen_loop size 1 (0) */
+  40               		.size	menuscreen_loop, .-menuscreen_loop
+  41               	.global	menuscreen_exit
+  42               		.type	menuscreen_exit, @function
+  43               	menuscreen_exit:
+  44               	/* prologue: frame size=0 */
+  45               	/* prologue end (size=0) */
+  46               	/* epilogue: frame size=0 */
+  47 0006 0895      		ret
+  48               	/* epilogue end (size=1) */
+  49               	/* function menuscreen_exit size 1 (0) */
+  50               		.size	menuscreen_exit, .-menuscreen_exit
+  51               	/* File "source/state_menuscreen.c": code    4 = 0x0004 (   0), prologues   0, epilogues   4 */
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccqtIB6N.s 			page 2
+>>>>>>> BackLightBranch
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 state_menuscreen.c
+<<<<<<< HEAD
+C:\Users\Maarten\AppData\Local\Temp/cceof34d.s:3      *ABS*:0000003f __SREG__
+C:\Users\Maarten\AppData\Local\Temp/cceof34d.s:4      *ABS*:0000003e __SP_H__
+C:\Users\Maarten\AppData\Local\Temp/cceof34d.s:5      *ABS*:0000003d __SP_L__
+C:\Users\Maarten\AppData\Local\Temp/cceof34d.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\Maarten\AppData\Local\Temp/cceof34d.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\Maarten\AppData\Local\Temp/cceof34d.s:13     .text:00000000 menuscreen_loop
+C:\Users\Maarten\AppData\Local\Temp/cceof34d.s:23     .text:00000002 menuscreen_exit
+C:\Users\Maarten\AppData\Local\Temp/cceof34d.s:42     .text:00000008 draw
+                            *COM*:00000002 currentNumber
+C:\Users\Maarten\AppData\Local\Temp/cceof34d.s:279    .data:0000000f menu
+C:\Users\Maarten\AppData\Local\Temp/cceof34d.s:163    .text:000000f8 menuscreen_entry
+C:\Users\Maarten\AppData\Local\Temp/cceof34d.s:176    .text:00000106 menuscreen_keypressed
+=======
+C:\Users\jeffr\AppData\Local\Temp/ccqtIB6N.s:3      *ABS*:0000003f __SREG__
+C:\Users\jeffr\AppData\Local\Temp/ccqtIB6N.s:4      *ABS*:0000003e __SP_H__
+C:\Users\jeffr\AppData\Local\Temp/ccqtIB6N.s:5      *ABS*:0000003d __SP_L__
+C:\Users\jeffr\AppData\Local\Temp/ccqtIB6N.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\jeffr\AppData\Local\Temp/ccqtIB6N.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\jeffr\AppData\Local\Temp/ccqtIB6N.s:13     .text:00000000 menuscreen_keypressed
+C:\Users\jeffr\AppData\Local\Temp/ccqtIB6N.s:23     .text:00000002 menuscreen_entry
+C:\Users\jeffr\AppData\Local\Temp/ccqtIB6N.s:33     .text:00000004 menuscreen_loop
+C:\Users\jeffr\AppData\Local\Temp/ccqtIB6N.s:43     .text:00000006 menuscreen_exit
+>>>>>>> BackLightBranch
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
+LcdClear
+sprintf
+LcdDisplayStrUpperRow
+LcdDisplayStrLowerRow

@@ -1,0 +1,284 @@
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccHBtqeY.s 			page 1
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccsYjsYK.s 			page 1
+>>>>>>> BackLightBranch
+
+
+   1               		.file	"main.c"
+   2               		.arch atmega2561
+   3               	__SREG__ = 0x3f
+   4               	__SP_H__ = 0x3e
+   5               	__SP_L__ = 0x3d
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  10               		.text
+  11               	.global	SysInitIO
+  12               		.type	SysInitIO, @function
+  13               	SysInitIO:
+  14               	/* prologue: frame size=0 */
+  15               	/* prologue end (size=0) */
+  16 0000 87EF      		ldi r24,lo8(-9)
+  17 0002 84B9      		out 36-0x20,r24
+  18 0004 8CE0      		ldi r24,lo8(12)
+  19 0006 8AB9      		out 42-0x20,r24
+  20 0008 8BB1      		in r24,43-0x20
+  21 000a 8C70      		andi r24,lo8(12)
+  22 000c 836F      		ori r24,lo8(-13)
+  23 000e 8BB9      		out 43-0x20,r24
+  24 0010 8EE8      		ldi r24,lo8(-114)
+  25 0012 8DB9      		out 45-0x20,r24
+  26 0014 8EB1      		in r24,46-0x20
+  27 0016 8E78      		andi r24,lo8(-114)
+  28 0018 8160      		ori r24,lo8(1)
+  29 001a 8EB9      		out 46-0x20,r24
+  30 001c 85B7      		in r24,85-0x20
+  31 001e 8068      		ori r24,lo8(-128)
+  32 0020 85BF      		out 85-0x20,r24
+  33 0022 85B7      		in r24,85-0x20
+  34 0024 8068      		ori r24,lo8(-128)
+  35 0026 85BF      		out 85-0x20,r24
+  36 0028 8EE0      		ldi r24,lo8(14)
+  37 002a 80BB      		out 48-0x20,r24
+  38 002c 81B3      		in r24,49-0x20
+  39 002e 8E70      		andi r24,lo8(14)
+  40 0030 816F      		ori r24,lo8(-15)
+  41 0032 81BB      		out 49-0x20,r24
+  42 0034 88E1      		ldi r24,lo8(24)
+  43 0036 83BB      		out 51-0x20,r24
+  44               	/* epilogue: frame size=0 */
+  45 0038 0895      		ret
+  46               	/* epilogue end (size=1) */
+  47               	/* function SysInitIO size 29 (28) */
+  48               		.size	SysInitIO, .-SysInitIO
+  49               	.global	NutAppMain
+  50               		.type	NutAppMain, @function
+  51               	NutAppMain:
+  52               	/* prologue: frame size=18 */
+  53 003a 0F93      		push r16
+  54 003c 1F93      		push r17
+  55 003e CF93      		push r28
+  56 0040 DF93      		push r29
+  57 0042 CDB7      		in r28,__SP_L__
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccHBtqeY.s 			page 2
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccsYjsYK.s 			page 2
+>>>>>>> BackLightBranch
+
+
+  58 0044 DEB7      		in r29,__SP_H__
+  59 0046 6297      		sbiw r28,18
+  60 0048 0FB6      		in __tmp_reg__,__SREG__
+  61 004a F894      		cli
+  62 004c DEBF      		out __SP_H__,r29
+  63 004e 0FBE      		out __SREG__,__tmp_reg__
+  64 0050 CDBF      		out __SP_L__,r28
+  65               	/* prologue end (size=12) */
+  66 0052 0E94 0000 		call WatchDogDisable
+  67 0056 84E6      		ldi r24,lo8(100)
+  68 0058 0E94 0000 		call NutDelay
+  69 005c 0E94 0000 		call SysInitIO
+  70 0060 0E94 0000 		call SPIinit
+  71 0064 0E94 0000 		call LedInit
+  72 0068 0E94 0000 		call LcdLowLevelInit
+  73 006c 0E94 0000 		call Uart0DriverInit
+  74 0070 0E94 0000 		call Uart0DriverStart
+  75 0074 0E94 0000 		call LogInit
+  76 0078 80E0      		ldi r24,lo8(__c.2955)
+  77 007a 90E0      		ldi r25,hi8(__c.2955)
+  78 007c 9F93      		push r25
+  79 007e 8F93      		push r24
+  80 0080 06EC      		ldi r16,lo8(-58)
+  81 0082 0F93      		push r16
+  82 0084 0E94 0000 		call LogMsg_P
+  83 0088 0E94 0000 		call CardInit
+  84 008c 0E94 0000 		call X12Init
+  85 0090 CE01      		movw r24,r28
+  86 0092 0196      		adiw r24,1
+  87 0094 0E94 0000 		call X12RtcGetClock
+  88 0098 0F90      		pop __tmp_reg__
+  89 009a 0F90      		pop __tmp_reg__
+  90 009c 0F90      	 	pop __tmp_reg__
+  91 009e 892B      		or r24,r25
+  92 00a0 01F4      		brne .L4
+  93 00a2 8981      		ldd r24,Y+1
+  94 00a4 9A81      		ldd r25,Y+2
+  95 00a6 9F93      		push r25
+  96 00a8 8F93      		push r24
+  97 00aa 8B81      		ldd r24,Y+3
+  98 00ac 9C81      		ldd r25,Y+4
+  99 00ae 9F93      		push r25
+ 100 00b0 8F93      		push r24
+ 101 00b2 8D81      		ldd r24,Y+5
+ 102 00b4 9E81      		ldd r25,Y+6
+ 103 00b6 9F93      		push r25
+ 104 00b8 8F93      		push r24
+ 105 00ba 80E0      		ldi r24,lo8(__c.2957)
+ 106 00bc 90E0      		ldi r25,hi8(__c.2957)
+ 107 00be 9F93      		push r25
+ 108 00c0 8F93      		push r24
+ 109 00c2 0F93      		push r16
+ 110 00c4 0E94 0000 		call LogMsg_P
+ 111 00c8 8DB7      		in r24,__SP_L__
+ 112 00ca 9EB7      		in r25,__SP_H__
+ 113 00cc 0996      		adiw r24,9
+ 114 00ce 0FB6      		in __tmp_reg__,__SREG__
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccHBtqeY.s 			page 3
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccsYjsYK.s 			page 3
+>>>>>>> BackLightBranch
+
+
+ 115 00d0 F894      		cli
+ 116 00d2 9EBF      		out __SP_H__,r25
+ 117 00d4 0FBE      		out __SREG__,__tmp_reg__
+ 118 00d6 8DBF      		out __SP_L__,r24
+ 119               	.L4:
+ 120 00d8 0E94 0000 		call At45dbInit
+ 121 00dc 0E94 0000 		call RcInit
+ 122 00e0 0E94 0000 		call KbInit
+ 123 00e4 40E0      		ldi r20,lo8(0)
+ 124 00e6 50E0      		ldi r21,hi8(0)
+ 125 00e8 60E0      		ldi r22,lo8(gs(SysMainBeatInterrupt))
+ 126 00ea 70E0      		ldi r23,hi8(gs(SysMainBeatInterrupt))
+ 127 00ec 80E0      		ldi r24,lo8(sig_OVERFLOW0)
+ 128 00ee 90E0      		ldi r25,hi8(sig_OVERFLOW0)
+ 129 00f0 0E94 0000 		call NutRegisterIrqHandler
+ 130 00f4 892B      		or r24,r25
+ 131 00f6 01F4      		brne .L6
+ 132 00f8 85B5      		in r24,69-0x20
+ 133 00fa 8460      		ori r24,lo8(4)
+ 134 00fc 85BD      		out 69-0x20,r24
+ 135 00fe A89A      		sbi 53-0x20,0
+ 136 0100 8091 6E00 		lds r24,110
+ 137 0104 8160      		ori r24,lo8(1)
+ 138 0106 8093 6E00 		sts 110,r24
+ 139               	.L6:
+ 140 010a 81E0      		ldi r24,lo8(1)
+ 141 010c 0E94 0000 		call NutThreadSetPriority
+ 142               	/* #APP */
+ 143 0110 7894      		sei
+ 144               	/* #NOAPP */
+ 145 0112 0E94 0000 		call ethernetInit
+ 146 0116 0E94 0000 		call showEthernetDetails
+ 147 011a 0E94 0000 		call sm_init
+ 148               	.L8:
+ 149 011e 6AE0      		ldi r22,lo8(10)
+ 150 0120 70E0      		ldi r23,hi8(10)
+ 151 0122 80E0      		ldi r24,hlo8(10)
+ 152 0124 90E0      		ldi r25,hhi8(10)
+ 153 0126 0E94 0000 		call NutSleep
+ 154 012a 8E01      		movw r16,r28
+ 155 012c 0F5F      		subi r16,lo8(-(1))
+ 156 012e 1F4F      		sbci r17,hi8(-(1))
+ 157 0130 C801      		movw r24,r16
+ 158 0132 0E94 0000 		call X12RtcGetClock
+ 159 0136 C801      		movw r24,r16
+ 160 0138 0E94 0000 		call sm_loop
+ 161 013c 0E94 0000 		call WatchDogRestart
+ 162 0140 00C0      		rjmp .L8
+ 163               	/* epilogue: frame size=18 */
+ 164               	/* epilogue: noreturn */
+ 165               	/* epilogue end (size=0) */
+ 166               	/* function NutAppMain size 133 (121) */
+ 167               		.size	NutAppMain, .-NutAppMain
+ 168               		.type	SysMainBeatInterrupt, @function
+ 169               	SysMainBeatInterrupt:
+ 170               	/* prologue: frame size=0 */
+ 171               	/* prologue end (size=0) */
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccHBtqeY.s 			page 4
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccsYjsYK.s 			page 4
+>>>>>>> BackLightBranch
+
+
+ 172 0142 0E94 0000 		call KbScan
+ 173 0146 0E94 0000 		call CardCheckCard
+ 174               	/* epilogue: frame size=0 */
+ 175 014a 0895      		ret
+ 176               	/* epilogue end (size=1) */
+ 177               	/* function SysMainBeatInterrupt size 5 (4) */
+ 178               		.size	SysMainBeatInterrupt, .-SysMainBeatInterrupt
+ 179               		.section	.progmem.data,"a",@progbits
+ 180               		.type	__c.2957, @object
+ 181               		.size	__c.2957, 26
+ 182               	__c.2957:
+ 183 0000 5254 4320 		.string	"RTC time [%02d:%02d:%02d]"
+ 183      7469 6D65 
+ 183      205B 2530 
+ 183      3264 3A25 
+ 183      3032 643A 
+ 184               		.type	__c.2955, @object
+ 185               		.size	__c.2955, 12
+ 186               	__c.2955:
+ 187 001a 4865 6C6C 		.string	"Hello World"
+ 187      6F20 576F 
+ 187      726C 6400 
+ 188               	/* File "source/main.c": code  167 = 0x00a7 ( 153), prologues  12, epilogues   2 */
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccHBtqeY.s 			page 5
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccsYjsYK.s 			page 5
+>>>>>>> BackLightBranch
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+<<<<<<< HEAD
+C:\Users\Maarten\AppData\Local\Temp/ccHBtqeY.s:3      *ABS*:0000003f __SREG__
+C:\Users\Maarten\AppData\Local\Temp/ccHBtqeY.s:4      *ABS*:0000003e __SP_H__
+C:\Users\Maarten\AppData\Local\Temp/ccHBtqeY.s:5      *ABS*:0000003d __SP_L__
+C:\Users\Maarten\AppData\Local\Temp/ccHBtqeY.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\Maarten\AppData\Local\Temp/ccHBtqeY.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\Maarten\AppData\Local\Temp/ccHBtqeY.s:13     .text:00000000 SysInitIO
+C:\Users\Maarten\AppData\Local\Temp/ccHBtqeY.s:51     .text:0000003a NutAppMain
+C:\Users\Maarten\AppData\Local\Temp/ccHBtqeY.s:186    .progmem.data:0000001a __c.2955
+C:\Users\Maarten\AppData\Local\Temp/ccHBtqeY.s:182    .progmem.data:00000000 __c.2957
+C:\Users\Maarten\AppData\Local\Temp/ccHBtqeY.s:169    .text:00000142 SysMainBeatInterrupt
+=======
+C:\Users\jeffr\AppData\Local\Temp/ccsYjsYK.s:3      *ABS*:0000003f __SREG__
+C:\Users\jeffr\AppData\Local\Temp/ccsYjsYK.s:4      *ABS*:0000003e __SP_H__
+C:\Users\jeffr\AppData\Local\Temp/ccsYjsYK.s:5      *ABS*:0000003d __SP_L__
+C:\Users\jeffr\AppData\Local\Temp/ccsYjsYK.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\jeffr\AppData\Local\Temp/ccsYjsYK.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\jeffr\AppData\Local\Temp/ccsYjsYK.s:13     .text:00000000 SysInitIO
+C:\Users\jeffr\AppData\Local\Temp/ccsYjsYK.s:51     .text:0000003a NutAppMain
+C:\Users\jeffr\AppData\Local\Temp/ccsYjsYK.s:186    .progmem.data:0000001a __c.2955
+C:\Users\jeffr\AppData\Local\Temp/ccsYjsYK.s:182    .progmem.data:00000000 __c.2957
+C:\Users\jeffr\AppData\Local\Temp/ccsYjsYK.s:169    .text:00000142 SysMainBeatInterrupt
+>>>>>>> BackLightBranch
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
+WatchDogDisable
+NutDelay
+SPIinit
+LedInit
+LcdLowLevelInit
+Uart0DriverInit
+Uart0DriverStart
+LogInit
+LogMsg_P
+CardInit
+X12Init
+X12RtcGetClock
+At45dbInit
+RcInit
+KbInit
+sig_OVERFLOW0
+NutRegisterIrqHandler
+NutThreadSetPriority
+ethernetInit
+showEthernetDetails
+sm_init
+NutSleep
+sm_loop
+WatchDogRestart
+KbScan
+CardCheckCard

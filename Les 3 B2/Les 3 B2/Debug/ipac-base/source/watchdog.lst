@@ -1,0 +1,239 @@
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/cccYD8iS.s 			page 1
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccU7hANz.s 			page 1
+>>>>>>> BackLightBranch
+
+
+   1               		.file	"watchdog.c"
+   2               		.arch atmega2561
+   3               	__SREG__ = 0x3f
+   4               	__SP_H__ = 0x3e
+   5               	__SP_L__ = 0x3d
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  10               		.text
+  11               	.global	WatchDogStart
+  12               		.type	WatchDogStart, @function
+  13               	WatchDogStart:
+  14               	/* prologue: frame size=0 */
+  15 0000 EF92      		push r14
+  16 0002 FF92      		push r15
+  17 0004 0F93      		push r16
+  18 0006 1F93      		push r17
+  19               	/* prologue end (size=4) */
+  20 0008 AB01      		movw r20,r22
+  21 000a BC01      		movw r22,r24
+  22               	/* #APP */
+  23 000c A895      		wdr
+  24               	/* #NOAPP */
+  25 000e 21E0      		ldi r18,lo8(1)
+  26 0010 E12C      		mov r14,__zero_reg__
+  27 0012 E8E0      		ldi r30,hi8(2048)
+  28 0014 FE2E      		mov r15,r30
+  29 0016 012D      		mov r16,__zero_reg__
+  30 0018 112D      		mov r17,__zero_reg__
+  31 001a 00C0      		rjmp .L2
+  32               	.L3:
+  33 001c 2F5F      		subi r18,lo8(-(1))
+  34               	.L2:
+  35 001e D801      		movw r26,r16
+  36 0020 C701      		movw r24,r14
+  37 0022 022E      		mov r0,r18
+  38 0024 00C0      		rjmp 2f
+  39 0026 880F      	1:	lsl r24
+  40 0028 991F      		rol r25
+  41 002a AA1F      		rol r26
+  42 002c BB1F      		rol r27
+  43 002e 0A94      	2:	dec r0
+  44 0030 02F4      		brpl 1b
+  45 0032 37E0      		ldi r19,7
+  46 0034 B695      	1:	lsr r27
+  47 0036 A795      		ror r26
+  48 0038 9795      		ror r25
+  49 003a 8795      		ror r24
+  50 003c 3A95      		dec r19
+  51 003e 01F4      		brne 1b
+  52 0040 8417      		cp r24,r20
+  53 0042 9507      		cpc r25,r21
+  54 0044 A607      		cpc r26,r22
+  55 0046 B707      		cpc r27,r23
+  56 0048 00F0      		brlo .L3
+  57 004a 2093 0000 		sts g_byWdtDivider,r18
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/cccYD8iS.s 			page 2
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccU7hANz.s 			page 2
+>>>>>>> BackLightBranch
+
+
+  58 004e 2A30      		cpi r18,lo8(10)
+  59 0050 00F0      		brlo .L5
+  60 0052 2970      		andi r18,lo8(9)
+  61 0054 2093 0000 		sts g_byWdtDivider,r18
+  62               	.L5:
+  63 0058 2091 0000 		lds r18,g_byWdtDivider
+  64 005c 23FF      		sbrs r18,3
+  65 005e 00C0      		rjmp .L7
+  66 0060 38E2      		ldi r19,lo8(40)
+  67 0062 00C0      		rjmp .L9
+  68               	.L7:
+  69 0064 38E0      		ldi r19,lo8(8)
+  70               	.L9:
+  71 0066 88E1      		ldi r24,lo8(24)
+  72 0068 90E0      		ldi r25,hi8(24)
+  73 006a 2770      		andi r18,lo8(7)
+  74 006c 322B      		or r19,r18
+  75               	/* #APP */
+  76 006e 0FB6      		in __tmp_reg__,__SREG__
+  77 0070 F894      		cli
+  78 0072 A895      		wdr
+  79 0074 8093 6000 		sts 96,r24
+  80 0078 0FBE      		out __SREG__,__tmp_reg__
+  81 007a 3093 6000 		sts 96,r19
+  82               	/* #NOAPP */
+  83 007e 81E0      		ldi r24,lo8(1)
+  84 0080 8093 0000 		sts g_byNested,r24
+  85               	/* epilogue: frame size=0 */
+  86 0084 1F91      		pop r17
+  87 0086 0F91      		pop r16
+  88 0088 FF90      		pop r15
+  89 008a EF90      		pop r14
+  90 008c 0895      		ret
+  91               	/* epilogue end (size=5) */
+  92               	/* function WatchDogStart size 76 (67) */
+  93               		.size	WatchDogStart, .-WatchDogStart
+  94               	.global	WatchDogRestart
+  95               		.type	WatchDogRestart, @function
+  96               	WatchDogRestart:
+  97               	/* prologue: frame size=0 */
+  98               	/* prologue end (size=0) */
+  99               	/* #APP */
+ 100 008e A895      		wdr
+ 101               	/* #NOAPP */
+ 102               	/* epilogue: frame size=0 */
+ 103 0090 0895      		ret
+ 104               	/* epilogue end (size=1) */
+ 105               	/* function WatchDogRestart size 3 (2) */
+ 106               		.size	WatchDogRestart, .-WatchDogRestart
+ 107               	.global	WatchDogDisable
+ 108               		.type	WatchDogDisable, @function
+ 109               	WatchDogDisable:
+ 110               	/* prologue: frame size=0 */
+ 111               	/* prologue end (size=0) */
+ 112 0092 8091 0000 		lds r24,g_byNested
+ 113 0096 8823      		tst r24
+ 114 0098 01F0      		breq .L14
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/cccYD8iS.s 			page 3
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccU7hANz.s 			page 3
+>>>>>>> BackLightBranch
+
+
+ 115 009a 8F5F      		subi r24,lo8(-(1))
+ 116 009c 8093 0000 		sts g_byNested,r24
+ 117               	.L14:
+ 118 00a0 88E1      		ldi r24,lo8(24)
+ 119               	/* #APP */
+ 120 00a2 0FB6      		in __tmp_reg__, __SREG__
+ 121 00a4 F894      		cli
+ 122 00a6 8093 6000 		sts 96, r24
+ 123 00aa 1092 6000 		sts 96, __zero_reg__
+ 124 00ae 0FBE      		out __SREG__,__tmp_reg__
+ 125               		
+ 126               	/* #NOAPP */
+ 127               	/* epilogue: frame size=0 */
+ 128 00b0 0895      		ret
+ 129               	/* epilogue end (size=1) */
+ 130               	/* function WatchDogDisable size 21 (20) */
+ 131               		.size	WatchDogDisable, .-WatchDogDisable
+ 132               	.global	WatchDogEnable
+ 133               		.type	WatchDogEnable, @function
+ 134               	WatchDogEnable:
+ 135               	/* prologue: frame size=0 */
+ 136               	/* prologue end (size=0) */
+ 137 00b2 8091 0000 		lds r24,g_byNested
+ 138 00b6 8230      		cpi r24,lo8(2)
+ 139 00b8 00F0      		brlo .L24
+ 140 00ba 8150      		subi r24,lo8(-(-1))
+ 141 00bc 8093 0000 		sts g_byNested,r24
+ 142 00c0 8130      		cpi r24,lo8(1)
+ 143 00c2 01F4      		brne .L24
+ 144 00c4 2091 0000 		lds r18,g_byWdtDivider
+ 145 00c8 23FF      		sbrs r18,3
+ 146 00ca 00C0      		rjmp .L21
+ 147 00cc 38E2      		ldi r19,lo8(40)
+ 148 00ce 00C0      		rjmp .L23
+ 149               	.L21:
+ 150 00d0 38E0      		ldi r19,lo8(8)
+ 151               	.L23:
+ 152 00d2 88E1      		ldi r24,lo8(24)
+ 153 00d4 90E0      		ldi r25,hi8(24)
+ 154 00d6 2770      		andi r18,lo8(7)
+ 155 00d8 322B      		or r19,r18
+ 156               	/* #APP */
+ 157 00da 0FB6      		in __tmp_reg__,__SREG__
+ 158 00dc F894      		cli
+ 159 00de A895      		wdr
+ 160 00e0 8093 6000 		sts 96,r24
+ 161 00e4 0FBE      		out __SREG__,__tmp_reg__
+ 162 00e6 3093 6000 		sts 96,r19
+ 163               	/* #NOAPP */
+ 164               	.L24:
+ 165 00ea 0895      		ret
+ 166               	/* epilogue: frame size=0 */
+ 167               	/* epilogue: noreturn */
+ 168               	/* epilogue end (size=0) */
+ 169               	/* function WatchDogEnable size 33 (33) */
+ 170               		.size	WatchDogEnable, .-WatchDogEnable
+ 171               		.lcomm g_byNested,1
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/cccYD8iS.s 			page 4
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccU7hANz.s 			page 4
+>>>>>>> BackLightBranch
+
+
+ 172               		.lcomm g_byWdtDivider,1
+ 173               	/* File "source/watchdog.c": code  133 = 0x0085 ( 122), prologues   4, epilogues   7 */
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/cccYD8iS.s 			page 5
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccU7hANz.s 			page 5
+>>>>>>> BackLightBranch
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 watchdog.c
+<<<<<<< HEAD
+C:\Users\Maarten\AppData\Local\Temp/cccYD8iS.s:3      *ABS*:0000003f __SREG__
+C:\Users\Maarten\AppData\Local\Temp/cccYD8iS.s:4      *ABS*:0000003e __SP_H__
+C:\Users\Maarten\AppData\Local\Temp/cccYD8iS.s:5      *ABS*:0000003d __SP_L__
+C:\Users\Maarten\AppData\Local\Temp/cccYD8iS.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\Maarten\AppData\Local\Temp/cccYD8iS.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\Maarten\AppData\Local\Temp/cccYD8iS.s:13     .text:00000000 WatchDogStart
+C:\Users\Maarten\AppData\Local\Temp/cccYD8iS.s:171    .bss:00000001 g_byWdtDivider
+                             .bss:00000000 g_byNested
+C:\Users\Maarten\AppData\Local\Temp/cccYD8iS.s:96     .text:0000008e WatchDogRestart
+C:\Users\Maarten\AppData\Local\Temp/cccYD8iS.s:109    .text:00000092 WatchDogDisable
+C:\Users\Maarten\AppData\Local\Temp/cccYD8iS.s:134    .text:000000b2 WatchDogEnable
+=======
+C:\Users\jeffr\AppData\Local\Temp/ccU7hANz.s:3      *ABS*:0000003f __SREG__
+C:\Users\jeffr\AppData\Local\Temp/ccU7hANz.s:4      *ABS*:0000003e __SP_H__
+C:\Users\jeffr\AppData\Local\Temp/ccU7hANz.s:5      *ABS*:0000003d __SP_L__
+C:\Users\jeffr\AppData\Local\Temp/ccU7hANz.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\jeffr\AppData\Local\Temp/ccU7hANz.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\jeffr\AppData\Local\Temp/ccU7hANz.s:13     .text:00000000 WatchDogStart
+C:\Users\jeffr\AppData\Local\Temp/ccU7hANz.s:171    .bss:00000001 g_byWdtDivider
+                             .bss:00000000 g_byNested
+C:\Users\jeffr\AppData\Local\Temp/ccU7hANz.s:96     .text:0000008e WatchDogRestart
+C:\Users\jeffr\AppData\Local\Temp/ccU7hANz.s:109    .text:00000092 WatchDogDisable
+C:\Users\jeffr\AppData\Local\Temp/ccU7hANz.s:134    .text:000000b2 WatchDogEnable
+>>>>>>> BackLightBranch
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss

@@ -1,0 +1,378 @@
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccw5gex1.s 			page 1
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cc41amnw.s 			page 1
+>>>>>>> BackLightBranch
+
+
+   1               		.file	"state_clockscreen.c"
+   2               		.arch atmega2561
+   3               	__SREG__ = 0x3f
+   4               	__SP_H__ = 0x3e
+   5               	__SP_L__ = 0x3d
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  10               		.text
+  11               	.global	clockscreen_keypressed
+  12               		.type	clockscreen_keypressed, @function
+  13               	clockscreen_keypressed:
+  14               	/* prologue: frame size=0 */
+  15               	/* prologue end (size=0) */
+  16 0000 FB01      		movw r30,r22
+  17 0002 0797      		sbiw r24,7
+  18 0004 01F4      		brne .L4
+  19 0006 40E0      		ldi r20,lo8(0)
+  20 0008 50E0      		ldi r21,hi8(0)
+  21 000a 60E0      		ldi r22,lo8(0)
+  22 000c 70E0      		ldi r23,hi8(0)
+  23 000e 84E0      		ldi r24,lo8(4)
+  24 0010 90E0      		ldi r25,hi8(4)
+  25 0012 1995      		eicall
+  26               	.L4:
+  27 0014 0895      		ret
+  28               	/* epilogue: frame size=0 */
+  29               	/* epilogue: noreturn */
+  30               	/* epilogue end (size=0) */
+  31               	/* function clockscreen_keypressed size 12 (12) */
+  32               		.size	clockscreen_keypressed, .-clockscreen_keypressed
+  33               	.global	manageDisplay
+  34               		.type	manageDisplay, @function
+  35               	manageDisplay:
+  36               	/* prologue: frame size=8 */
+  37 0016 0F93      		push r16
+  38 0018 1F93      		push r17
+  39 001a CF93      		push r28
+  40 001c DF93      		push r29
+  41 001e CDB7      		in r28,__SP_L__
+  42 0020 DEB7      		in r29,__SP_H__
+  43 0022 2897      		sbiw r28,8
+  44 0024 0FB6      		in __tmp_reg__,__SREG__
+  45 0026 F894      		cli
+  46 0028 DEBF      		out __SP_H__,r29
+  47 002a 0FBE      		out __SREG__,__tmp_reg__
+  48 002c CDBF      		out __SP_L__,r28
+  49               	/* prologue end (size=12) */
+<<<<<<< HEAD
+  50 002e FC01      		movw r30,r24
+  51 0030 2481      		ldd r18,Z+4
+  52 0032 3581      		ldd r19,Z+5
+  53 0034 C901      		movw r24,r18
+  54 0036 6AE0      		ldi r22,lo8(10)
+  55 0038 70E0      		ldi r23,hi8(10)
+  56 003a 0E94 0000 		call __divmodhi4
+  57 003e 6983      		std Y+1,r22
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccw5gex1.s 			page 2
+=======
+  50 0024 FC01      		movw r30,r24
+  51 0026 2481      		ldd r18,Z+4
+  52 0028 3581      		ldd r19,Z+5
+  53 002a C901      		movw r24,r18
+  54 002c 6AE0      		ldi r22,lo8(10)
+  55 002e 70E0      		ldi r23,hi8(10)
+  56 0030 0E94 0000 		call __divmodhi4
+  57 0034 6983      		std Y+1,r22
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cc41amnw.s 			page 2
+>>>>>>> BackLightBranch
+
+
+  58 0040 2A83      		std Y+2,r18
+  59 0042 2281      		ldd r18,Z+2
+  60 0044 3381      		ldd r19,Z+3
+  61 0046 C901      		movw r24,r18
+  62 0048 6AE0      		ldi r22,lo8(10)
+  63 004a 70E0      		ldi r23,hi8(10)
+  64 004c 0E94 0000 		call __divmodhi4
+  65 0050 6C83      		std Y+4,r22
+  66 0052 2D83      		std Y+5,r18
+  67 0054 2081      		ld r18,Z
+  68 0056 3181      		ldd r19,Z+1
+  69 0058 C901      		movw r24,r18
+  70 005a 6AE0      		ldi r22,lo8(10)
+  71 005c 70E0      		ldi r23,hi8(10)
+  72 005e 0E94 0000 		call __divmodhi4
+  73 0062 6F83      		std Y+7,r22
+  74 0064 2887      		std Y+8,r18
+  75 0066 00E0      		ldi r16,lo8(0)
+  76 0068 10E0      		ldi r17,hi8(0)
+  77               	.L6:
+  78 006a 0230      		cpi r16,2
+  79 006c 1105      		cpc r17,__zero_reg__
+  80 006e 01F0      		breq .L7
+  81 0070 0530      		cpi r16,5
+  82 0072 1105      		cpc r17,__zero_reg__
+  83 0074 01F4      		brne .L9
+  84               	.L7:
+  85 0076 8AE3      		ldi r24,lo8(58)
+  86 0078 00C0      		rjmp .L15
+  87               	.L9:
+  88 007a FE01      		movw r30,r28
+  89 007c E00F      		add r30,r16
+  90 007e F11F      		adc r31,r17
+  91 0080 8181      		ldd r24,Z+1
+  92 0082 6AE0      		ldi r22,lo8(10)
+  93 0084 0E94 0000 		call __divmodqi4
+  94 0088 892F      		mov r24,r25
+  95 008a 805D      		subi r24,lo8(-(48))
+  96               	.L15:
+  97 008c 0E94 0000 		call LcdChar
+  98 0090 0F5F      		subi r16,lo8(-(1))
+  99 0092 1F4F      		sbci r17,hi8(-(1))
+ 100 0094 0830      		cpi r16,8
+ 101 0096 1105      		cpc r17,__zero_reg__
+ 102 0098 01F4      		brne .L6
+ 103               	/* epilogue: frame size=8 */
+<<<<<<< HEAD
+ 104 009a 2896      		adiw r28,8
+ 105 009c 0FB6      		in __tmp_reg__,__SREG__
+ 106 009e F894      		cli
+ 107 00a0 DEBF      		out __SP_H__,r29
+ 108 00a2 0FBE      		out __SREG__,__tmp_reg__
+ 109 00a4 CDBF      		out __SP_L__,r28
+ 110 00a6 DF91      		pop r29
+ 111 00a8 CF91      		pop r28
+ 112 00aa 1F91      		pop r17
+ 113 00ac 0F91      		pop r16
+ 114 00ae 0895      		ret
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccw5gex1.s 			page 3
+=======
+ 104 0090 2896      		adiw r28,8
+ 105 0092 0FB6      		in __tmp_reg__,__SREG__
+ 106 0094 F894      		cli
+ 107 0096 DEBF      		out __SP_H__,r29
+ 108 0098 0FBE      		out __SREG__,__tmp_reg__
+ 109 009a CDBF      		out __SP_L__,r28
+ 110 009c DF91      		pop r29
+ 111 009e CF91      		pop r28
+ 112 00a0 1F91      		pop r17
+ 113 00a2 0F91      		pop r16
+ 114 00a4 0895      		ret
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cc41amnw.s 			page 3
+>>>>>>> BackLightBranch
+
+
+ 115               	/* epilogue end (size=11) */
+ 116               	/* function manageDisplay size 77 (54) */
+ 117               		.size	manageDisplay, .-manageDisplay
+ 118               	.global	clockscreen_exit
+ 119               		.type	clockscreen_exit, @function
+ 120               	clockscreen_exit:
+ 121               	/* prologue: frame size=0 */
+ 122               	/* prologue end (size=0) */
+<<<<<<< HEAD
+ 123 00b0 1092 0000 		sts (amountOf10ms)+1,__zero_reg__
+ 124 00b4 1092 0000 		sts amountOf10ms,__zero_reg__
+ 125 00b8 0E94 0000 		call LcdClear
+ 126               	/* epilogue: frame size=0 */
+ 127 00bc 0895      		ret
+ 128               	/* epilogue end (size=1) */
+ 129               	/* function clockscreen_exit size 7 (6) */
+ 130               		.size	clockscreen_exit, .-clockscreen_exit
+ 131               	.global	clockscreen_loop
+ 132               		.type	clockscreen_loop, @function
+ 133               	clockscreen_loop:
+ 134               	/* prologue: frame size=0 */
+ 135 00be CF93      		push r28
+ 136 00c0 DF93      		push r29
+ 137               	/* prologue end (size=2) */
+ 138 00c2 EA01      		movw r28,r20
+ 139 00c4 8091 0000 		lds r24,amountOf10ms
+ 140 00c8 9091 0000 		lds r25,(amountOf10ms)+1
+ 141 00cc 0196      		adiw r24,1
+ 142 00ce 9093 0000 		sts (amountOf10ms)+1,r25
+ 143 00d2 8093 0000 		sts amountOf10ms,r24
+ 144 00d6 0A97      		sbiw r24,10
+ 145 00d8 04F0      		brlt .L21
+ 146 00da 80E0      		ldi r24,lo8(__c.1849)
+ 147 00dc 90E0      		ldi r25,hi8(__c.1849)
+ 148 00de 9F93      		push r25
+ 149 00e0 8F93      		push r24
+ 150 00e2 86EC      		ldi r24,lo8(-58)
+ 151 00e4 8F93      		push r24
+ 152 00e6 0E94 0000 		call LogMsg_P
+ 153 00ea 1092 0000 		sts (amountOf10ms)+1,__zero_reg__
+ 154 00ee 1092 0000 		sts amountOf10ms,__zero_reg__
+ 155 00f2 0E94 0000 		call LcdClear
+ 156 00f6 CE01      		movw r24,r28
+ 157 00f8 0E94 0000 		call manageDisplay
+ 158 00fc 0F90      		pop __tmp_reg__
+ 159 00fe 0F90      		pop __tmp_reg__
+ 160 0100 0F90      	 	pop __tmp_reg__
+ 161               	.L21:
+ 162               	/* epilogue: frame size=0 */
+ 163 0102 DF91      		pop r29
+ 164 0104 CF91      		pop r28
+ 165 0106 0895      		ret
+ 166               	/* epilogue end (size=3) */
+ 167               	/* function clockscreen_loop size 38 (33) */
+ 168               		.size	clockscreen_loop, .-clockscreen_loop
+ 169               	.global	clockscreen_entry
+ 170               		.type	clockscreen_entry, @function
+ 171               	clockscreen_entry:
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccw5gex1.s 			page 4
+
+
+ 172               	/* prologue: frame size=0 */
+ 173               	/* prologue end (size=0) */
+ 174 0108 80E0      		ldi r24,lo8(__c.1839)
+ 175 010a 90E0      		ldi r25,hi8(__c.1839)
+ 176 010c 9F93      		push r25
+ 177 010e 8F93      		push r24
+ 178 0110 86EC      		ldi r24,lo8(-58)
+ 179 0112 8F93      		push r24
+ 180 0114 0E94 0000 		call LogMsg_P
+ 181 0118 1092 0000 		sts (amountOf10ms)+1,__zero_reg__
+ 182 011c 1092 0000 		sts amountOf10ms,__zero_reg__
+ 183 0120 0E94 0000 		call LcdClear
+ 184 0124 0F90      		pop __tmp_reg__
+ 185 0126 0F90      		pop __tmp_reg__
+ 186 0128 0F90      	 	pop __tmp_reg__
+ 187               	/* epilogue: frame size=0 */
+ 188 012a 0895      		ret
+ 189               	/* epilogue end (size=1) */
+ 190               	/* function clockscreen_entry size 18 (17) */
+ 191               		.size	clockscreen_entry, .-clockscreen_entry
+ 192               		.section	.progmem.data,"a",@progbits
+ 193               		.type	__c.1849, @object
+ 194               		.size	__c.1849, 32
+ 195               	__c.1849:
+ 196 0000 7374 6174 		.string	"state_clockscreen clock refresh"
+ 196      655F 636C 
+ 196      6F63 6B73 
+ 196      6372 6565 
+ 196      6E20 636C 
+ 197               		.type	__c.1839, @object
+ 198               		.size	__c.1839, 24
+ 199               	__c.1839:
+ 200 0020 7374 6174 		.string	"state_clockscreen entry"
+ 200      655F 636C 
+ 200      6F63 6B73 
+ 200      6372 6565 
+ 200      6E20 656E 
+ 201               		.comm amountOf10ms,2,1
+ 202               	/* File "source/state_clockscreen.c": code  152 = 0x0098 ( 122), prologues  14, epilogues  16 */
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccw5gex1.s 			page 5
+=======
+ 123 00a6 80E0      		ldi r24,lo8(__c.1822)
+ 124 00a8 90E0      		ldi r25,hi8(__c.1822)
+ 125 00aa 9F93      		push r25
+ 126 00ac 8F93      		push r24
+ 127 00ae 86EC      		ldi r24,lo8(-58)
+ 128 00b0 8F93      		push r24
+ 129 00b2 0E94 0000 		call LogMsg_P
+ 130 00b6 1092 0000 		sts (amountOf10ms)+1,__zero_reg__
+ 131 00ba 1092 0000 		sts amountOf10ms,__zero_reg__
+ 132 00be 0F90      		pop __tmp_reg__
+ 133 00c0 0F90      		pop __tmp_reg__
+ 134 00c2 0F90      	 	pop __tmp_reg__
+ 135               	/* epilogue: frame size=0 */
+ 136 00c4 0895      		ret
+ 137               	/* epilogue end (size=1) */
+ 138               	/* function clockscreen_entry size 16 (15) */
+ 139               		.size	clockscreen_entry, .-clockscreen_entry
+ 140               	.global	clockscreen_loop
+ 141               		.type	clockscreen_loop, @function
+ 142               	clockscreen_loop:
+ 143               	/* prologue: frame size=0 */
+ 144 00c6 CF93      		push r28
+ 145 00c8 DF93      		push r29
+ 146               	/* prologue end (size=2) */
+ 147 00ca EA01      		movw r28,r20
+ 148 00cc 8091 0000 		lds r24,amountOf10ms
+ 149 00d0 9091 0000 		lds r25,(amountOf10ms)+1
+ 150 00d4 0196      		adiw r24,1
+ 151 00d6 9093 0000 		sts (amountOf10ms)+1,r25
+ 152 00da 8093 0000 		sts amountOf10ms,r24
+ 153 00de 8436      		cpi r24,100
+ 154 00e0 9105      		cpc r25,__zero_reg__
+ 155 00e2 04F0      		brlt .L21
+ 156 00e4 80E0      		ldi r24,lo8(__c.1832)
+ 157 00e6 90E0      		ldi r25,hi8(__c.1832)
+ 158 00e8 9F93      		push r25
+ 159 00ea 8F93      		push r24
+ 160 00ec 86EC      		ldi r24,lo8(-58)
+ 161 00ee 8F93      		push r24
+ 162 00f0 0E94 0000 		call LogMsg_P
+ 163 00f4 1092 0000 		sts (amountOf10ms)+1,__zero_reg__
+ 164 00f8 1092 0000 		sts amountOf10ms,__zero_reg__
+ 165 00fc 0E94 0000 		call LcdClear
+ 166 0100 CE01      		movw r24,r28
+ 167 0102 0E94 0000 		call manageDisplay
+ 168 0106 0F90      		pop __tmp_reg__
+ 169 0108 0F90      		pop __tmp_reg__
+ 170 010a 0F90      	 	pop __tmp_reg__
+ 171               	.L21:
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cc41amnw.s 			page 4
+
+
+ 172               	/* epilogue: frame size=0 */
+ 173 010c DF91      		pop r29
+ 174 010e CF91      		pop r28
+ 175 0110 0895      		ret
+ 176               	/* epilogue end (size=3) */
+ 177               	/* function clockscreen_loop size 38 (33) */
+ 178               		.size	clockscreen_loop, .-clockscreen_loop
+ 179               		.section	.progmem.data,"a",@progbits
+ 180               		.type	__c.1832, @object
+ 181               		.size	__c.1832, 32
+ 182               	__c.1832:
+ 183 0000 7374 6174 		.string	"state_clockscreen clock refresh"
+ 183      655F 636C 
+ 183      6F63 6B73 
+ 183      6372 6565 
+ 183      6E20 636C 
+ 184               		.type	__c.1822, @object
+ 185               		.size	__c.1822, 24
+ 186               	__c.1822:
+ 187 0020 7374 6174 		.string	"state_clockscreen entry"
+ 187      655F 636C 
+ 187      6F63 6B73 
+ 187      6372 6565 
+ 187      6E20 656E 
+ 188               		.comm amountOf10ms,2,1
+ 189               	/* File "source/state_clockscreen.c": code  137 = 0x0089 ( 106), prologues  14, epilogues  17 */
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cc41amnw.s 			page 5
+>>>>>>> BackLightBranch
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 state_clockscreen.c
+<<<<<<< HEAD
+C:\Users\Maarten\AppData\Local\Temp/ccw5gex1.s:3      *ABS*:0000003f __SREG__
+C:\Users\Maarten\AppData\Local\Temp/ccw5gex1.s:4      *ABS*:0000003e __SP_H__
+C:\Users\Maarten\AppData\Local\Temp/ccw5gex1.s:5      *ABS*:0000003d __SP_L__
+C:\Users\Maarten\AppData\Local\Temp/ccw5gex1.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\Maarten\AppData\Local\Temp/ccw5gex1.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\Maarten\AppData\Local\Temp/ccw5gex1.s:13     .text:00000000 clockscreen_keypressed
+C:\Users\Maarten\AppData\Local\Temp/ccw5gex1.s:35     .text:00000016 manageDisplay
+C:\Users\Maarten\AppData\Local\Temp/ccw5gex1.s:120    .text:000000b0 clockscreen_exit
+                            *COM*:00000002 amountOf10ms
+C:\Users\Maarten\AppData\Local\Temp/ccw5gex1.s:133    .text:000000be clockscreen_loop
+C:\Users\Maarten\AppData\Local\Temp/ccw5gex1.s:195    .progmem.data:00000000 __c.1849
+C:\Users\Maarten\AppData\Local\Temp/ccw5gex1.s:171    .text:00000108 clockscreen_entry
+C:\Users\Maarten\AppData\Local\Temp/ccw5gex1.s:199    .progmem.data:00000020 __c.1839
+=======
+C:\Users\jeffr\AppData\Local\Temp/cc41amnw.s:3      *ABS*:0000003f __SREG__
+C:\Users\jeffr\AppData\Local\Temp/cc41amnw.s:4      *ABS*:0000003e __SP_H__
+C:\Users\jeffr\AppData\Local\Temp/cc41amnw.s:5      *ABS*:0000003d __SP_L__
+C:\Users\jeffr\AppData\Local\Temp/cc41amnw.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\jeffr\AppData\Local\Temp/cc41amnw.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\jeffr\AppData\Local\Temp/cc41amnw.s:13     .text:00000000 clockscreen_keypressed
+C:\Users\jeffr\AppData\Local\Temp/cc41amnw.s:23     .text:00000002 clockscreen_exit
+                            *COM*:00000002 amountOf10ms
+C:\Users\jeffr\AppData\Local\Temp/cc41amnw.s:35     .text:0000000c manageDisplay
+C:\Users\jeffr\AppData\Local\Temp/cc41amnw.s:120    .text:000000a6 clockscreen_entry
+C:\Users\jeffr\AppData\Local\Temp/cc41amnw.s:186    .progmem.data:00000020 __c.1822
+C:\Users\jeffr\AppData\Local\Temp/cc41amnw.s:142    .text:000000c6 clockscreen_loop
+C:\Users\jeffr\AppData\Local\Temp/cc41amnw.s:182    .progmem.data:00000000 __c.1832
+>>>>>>> BackLightBranch
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
+__divmodhi4
+__divmodqi4
+LcdChar
+LcdClear
+LogMsg_P

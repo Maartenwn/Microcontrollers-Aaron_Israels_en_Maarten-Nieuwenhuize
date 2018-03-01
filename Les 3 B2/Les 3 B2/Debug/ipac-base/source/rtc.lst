@@ -1,0 +1,1630 @@
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccmaamz9.s 			page 1
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccF7sRU4.s 			page 1
+>>>>>>> BackLightBranch
+
+
+   1               		.file	"rtc.c"
+   2               		.arch atmega2561
+   3               	__SREG__ = 0x3f
+   4               	__SP_H__ = 0x3e
+   5               	__SP_L__ = 0x3d
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  10               		.text
+  11               	.global	X12RtcClearStatus
+  12               		.type	X12RtcClearStatus, @function
+  13               	X12RtcClearStatus:
+  14               	/* prologue: frame size=0 */
+  15               	/* prologue end (size=0) */
+  16 0000 6095      		com r22
+  17 0002 7095      		com r23
+  18 0004 8095      		com r24
+  19 0006 9095      		com r25
+  20 0008 2091 0000 		lds r18,rtc_status
+  21 000c 3091 0000 		lds r19,(rtc_status)+1
+  22 0010 4091 0000 		lds r20,(rtc_status)+2
+  23 0014 5091 0000 		lds r21,(rtc_status)+3
+  24 0018 2623      		and r18,r22
+  25 001a 3723      		and r19,r23
+  26 001c 4823      		and r20,r24
+  27 001e 5923      		and r21,r25
+  28 0020 2093 0000 		sts rtc_status,r18
+  29 0024 3093 0000 		sts (rtc_status)+1,r19
+  30 0028 4093 0000 		sts (rtc_status)+2,r20
+  31 002c 5093 0000 		sts (rtc_status)+3,r21
+  32 0030 80E0      		ldi r24,lo8(0)
+  33 0032 90E0      		ldi r25,hi8(0)
+  34               	/* epilogue: frame size=0 */
+  35 0034 0895      		ret
+  36               	/* epilogue end (size=1) */
+  37               	/* function X12RtcClearStatus size 27 (26) */
+  38               		.size	X12RtcClearStatus, .-X12RtcClearStatus
+  39               	.global	X12EepromRead
+  40               		.type	X12EepromRead, @function
+  41               	X12EepromRead:
+  42               	/* prologue: frame size=2 */
+  43 0036 AF92      		push r10
+  44 0038 BF92      		push r11
+  45 003a CF92      		push r12
+  46 003c DF92      		push r13
+  47 003e EF92      		push r14
+  48 0040 FF92      		push r15
+  49 0042 0F93      		push r16
+  50 0044 1F93      		push r17
+  51 0046 CF93      		push r28
+  52 0048 DF93      		push r29
+  53 004a CDB7      		in r28,__SP_L__
+  54 004c DEB7      		in r29,__SP_H__
+  55 004e 2297      		sbiw r28,2
+  56 0050 0FB6      		in __tmp_reg__,__SREG__
+  57 0052 F894      		cli
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccmaamz9.s 			page 2
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccF7sRU4.s 			page 2
+>>>>>>> BackLightBranch
+
+
+  58 0054 DEBF      		out __SP_H__,r29
+  59 0056 0FBE      		out __SREG__,__tmp_reg__
+  60 0058 CDBF      		out __SP_L__,r28
+  61               	/* prologue end (size=18) */
+  62 005a 9B01      		movw r18,r22
+  63 005c 5A01      		movw r10,r20
+  64 005e 492F      		mov r20,r25
+  65 0060 5527      		clr r21
+  66 0062 4983      		std Y+1,r20
+  67 0064 8A83      		std Y+2,r24
+  68 0066 CC24      		clr r12
+  69 0068 DD24      		clr r13
+  70 006a 7601      		movw r14,r12
+  71 006c 8501      		movw r16,r10
+  72 006e 42E0      		ldi r20,lo8(2)
+  73 0070 50E0      		ldi r21,hi8(2)
+  74 0072 BE01      		movw r22,r28
+  75 0074 6F5F      		subi r22,lo8(-(1))
+  76 0076 7F4F      		sbci r23,hi8(-(1))
+  77 0078 87E5      		ldi r24,lo8(87)
+  78 007a 0E94 0000 		call TwMasterTransact
+  79 007e 8A15      		cp r24,r10
+  80 0080 9B05      		cpc r25,r11
+  81 0082 01F4      		brne .L4
+  82 0084 80E0      		ldi r24,lo8(0)
+  83 0086 90E0      		ldi r25,hi8(0)
+  84 0088 00C0      		rjmp .L6
+  85               	.L4:
+  86 008a 8FEF      		ldi r24,lo8(-1)
+  87 008c 9FEF      		ldi r25,hi8(-1)
+  88               	.L6:
+  89               	/* epilogue: frame size=2 */
+  90 008e 2296      		adiw r28,2
+  91 0090 0FB6      		in __tmp_reg__,__SREG__
+  92 0092 F894      		cli
+  93 0094 DEBF      		out __SP_H__,r29
+  94 0096 0FBE      		out __SREG__,__tmp_reg__
+  95 0098 CDBF      		out __SP_L__,r28
+  96 009a DF91      		pop r29
+  97 009c CF91      		pop r28
+  98 009e 1F91      		pop r17
+  99 00a0 0F91      		pop r16
+ 100 00a2 FF90      		pop r15
+ 101 00a4 EF90      		pop r14
+ 102 00a6 DF90      		pop r13
+ 103 00a8 CF90      		pop r12
+ 104 00aa BF90      		pop r11
+ 105 00ac AF90      		pop r10
+ 106 00ae 0895      		ret
+ 107               	/* epilogue end (size=17) */
+ 108               	/* function X12EepromRead size 61 (26) */
+ 109               		.size	X12EepromRead, .-X12EepromRead
+ 110               	.global	X12RtcReadRegs
+ 111               		.type	X12RtcReadRegs, @function
+ 112               	X12RtcReadRegs:
+ 113               	/* prologue: frame size=2 */
+ 114 00b0 AF92      		push r10
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccmaamz9.s 			page 3
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccF7sRU4.s 			page 3
+>>>>>>> BackLightBranch
+
+
+ 115 00b2 BF92      		push r11
+ 116 00b4 CF92      		push r12
+ 117 00b6 DF92      		push r13
+ 118 00b8 EF92      		push r14
+ 119 00ba FF92      		push r15
+ 120 00bc 0F93      		push r16
+ 121 00be 1F93      		push r17
+ 122 00c0 CF93      		push r28
+ 123 00c2 DF93      		push r29
+ 124 00c4 CDB7      		in r28,__SP_L__
+ 125 00c6 DEB7      		in r29,__SP_H__
+ 126 00c8 2297      		sbiw r28,2
+ 127 00ca 0FB6      		in __tmp_reg__,__SREG__
+ 128 00cc F894      		cli
+ 129 00ce DEBF      		out __SP_H__,r29
+ 130 00d0 0FBE      		out __SREG__,__tmp_reg__
+ 131 00d2 CDBF      		out __SP_L__,r28
+ 132               	/* prologue end (size=18) */
+ 133 00d4 9B01      		movw r18,r22
+ 134 00d6 5A01      		movw r10,r20
+ 135 00d8 1982      		std Y+1,__zero_reg__
+ 136 00da 8A83      		std Y+2,r24
+ 137 00dc CC24      		clr r12
+ 138 00de DD24      		clr r13
+ 139 00e0 7601      		movw r14,r12
+ 140 00e2 8A01      		movw r16,r20
+ 141 00e4 42E0      		ldi r20,lo8(2)
+ 142 00e6 50E0      		ldi r21,hi8(2)
+ 143 00e8 BE01      		movw r22,r28
+ 144 00ea 6F5F      		subi r22,lo8(-(1))
+ 145 00ec 7F4F      		sbci r23,hi8(-(1))
+ 146 00ee 8FE6      		ldi r24,lo8(111)
+ 147 00f0 0E94 0000 		call TwMasterTransact
+ 148 00f4 8A15      		cp r24,r10
+ 149 00f6 9B05      		cpc r25,r11
+ 150 00f8 01F4      		brne .L9
+ 151 00fa 80E0      		ldi r24,lo8(0)
+ 152 00fc 90E0      		ldi r25,hi8(0)
+ 153 00fe 00C0      		rjmp .L11
+ 154               	.L9:
+ 155 0100 8FEF      		ldi r24,lo8(-1)
+ 156 0102 9FEF      		ldi r25,hi8(-1)
+ 157               	.L11:
+ 158               	/* epilogue: frame size=2 */
+ 159 0104 2296      		adiw r28,2
+ 160 0106 0FB6      		in __tmp_reg__,__SREG__
+ 161 0108 F894      		cli
+ 162 010a DEBF      		out __SP_H__,r29
+ 163 010c 0FBE      		out __SREG__,__tmp_reg__
+ 164 010e CDBF      		out __SP_L__,r28
+ 165 0110 DF91      		pop r29
+ 166 0112 CF91      		pop r28
+ 167 0114 1F91      		pop r17
+ 168 0116 0F91      		pop r16
+ 169 0118 FF90      		pop r15
+ 170 011a EF90      		pop r14
+ 171 011c DF90      		pop r13
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccmaamz9.s 			page 4
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccF7sRU4.s 			page 4
+>>>>>>> BackLightBranch
+
+
+ 172 011e CF90      		pop r12
+ 173 0120 BF90      		pop r11
+ 174 0122 AF90      		pop r10
+ 175 0124 0895      		ret
+ 176               	/* epilogue end (size=17) */
+ 177               	/* function X12RtcReadRegs size 59 (24) */
+ 178               		.size	X12RtcReadRegs, .-X12RtcReadRegs
+ 179               	.global	X12RtcGetStatus
+ 180               		.type	X12RtcGetStatus, @function
+ 181               	X12RtcGetStatus:
+ 182               	/* prologue: frame size=1 */
+ 183 0126 0F93      		push r16
+ 184 0128 1F93      		push r17
+ 185 012a CF93      		push r28
+ 186 012c DF93      		push r29
+ 187 012e CDB7      		in r28,__SP_L__
+ 188 0130 DEB7      		in r29,__SP_H__
+ 189 0132 2197      		sbiw r28,1
+ 190 0134 0FB6      		in __tmp_reg__,__SREG__
+ 191 0136 F894      		cli
+ 192 0138 DEBF      		out __SP_H__,r29
+ 193 013a 0FBE      		out __SREG__,__tmp_reg__
+ 194 013c CDBF      		out __SP_L__,r28
+ 195               	/* prologue end (size=12) */
+ 196 013e 8C01      		movw r16,r24
+ 197 0140 41E0      		ldi r20,lo8(1)
+ 198 0142 50E0      		ldi r21,hi8(1)
+ 199 0144 BE01      		movw r22,r28
+ 200 0146 6F5F      		subi r22,lo8(-(1))
+ 201 0148 7F4F      		sbci r23,hi8(-(1))
+ 202 014a 8FE3      		ldi r24,lo8(63)
+ 203 014c 0E94 0000 		call X12RtcReadRegs
+ 204 0150 892B      		or r24,r25
+ 205 0152 01F4      		brne .L14
+ 206 0154 8981      		ldd r24,Y+1
+ 207 0156 9927      		clr r25
+ 208 0158 AA27      		clr r26
+ 209 015a BB27      		clr r27
+ 210 015c 2091 0000 		lds r18,rtc_status
+ 211 0160 3091 0000 		lds r19,(rtc_status)+1
+ 212 0164 4091 0000 		lds r20,(rtc_status)+2
+ 213 0168 5091 0000 		lds r21,(rtc_status)+3
+ 214 016c 822B      		or r24,r18
+ 215 016e 932B      		or r25,r19
+ 216 0170 A42B      		or r26,r20
+ 217 0172 B52B      		or r27,r21
+ 218 0174 8093 0000 		sts rtc_status,r24
+ 219 0178 9093 0000 		sts (rtc_status)+1,r25
+ 220 017c A093 0000 		sts (rtc_status)+2,r26
+ 221 0180 B093 0000 		sts (rtc_status)+3,r27
+ 222 0184 F801      		movw r30,r16
+ 223 0186 8083      		st Z,r24
+ 224 0188 9183      		std Z+1,r25
+ 225 018a A283      		std Z+2,r26
+ 226 018c B383      		std Z+3,r27
+ 227               	.L14:
+ 228 018e 8091 0000 		lds r24,rtc_status
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccmaamz9.s 			page 5
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccF7sRU4.s 			page 5
+>>>>>>> BackLightBranch
+
+
+ 229 0192 9091 0000 		lds r25,(rtc_status)+1
+ 230               	/* epilogue: frame size=1 */
+ 231 0196 2196      		adiw r28,1
+ 232 0198 0FB6      		in __tmp_reg__,__SREG__
+ 233 019a F894      		cli
+ 234 019c DEBF      		out __SP_H__,r29
+ 235 019e 0FBE      		out __SREG__,__tmp_reg__
+ 236 01a0 CDBF      		out __SP_L__,r28
+ 237 01a2 DF91      		pop r29
+ 238 01a4 CF91      		pop r28
+ 239 01a6 1F91      		pop r17
+ 240 01a8 0F91      		pop r16
+ 241 01aa 0895      		ret
+ 242               	/* epilogue end (size=11) */
+ 243               	/* function X12RtcGetStatus size 67 (44) */
+ 244               		.size	X12RtcGetStatus, .-X12RtcGetStatus
+ 245               	.global	X12Init
+ 246               		.type	X12Init, @function
+ 247               	X12Init:
+ 248               	/* prologue: frame size=4 */
+ 249 01ac CF93      		push r28
+ 250 01ae DF93      		push r29
+ 251 01b0 CDB7      		in r28,__SP_L__
+ 252 01b2 DEB7      		in r29,__SP_H__
+ 253 01b4 2497      		sbiw r28,4
+ 254 01b6 0FB6      		in __tmp_reg__,__SREG__
+ 255 01b8 F894      		cli
+ 256 01ba DEBF      		out __SP_H__,r29
+ 257 01bc 0FBE      		out __SREG__,__tmp_reg__
+ 258 01be CDBF      		out __SP_L__,r28
+ 259               	/* prologue end (size=10) */
+ 260 01c0 80E0      		ldi r24,lo8(0)
+ 261 01c2 0E94 0000 		call TwInit
+ 262 01c6 0097      		sbiw r24,0
+ 263 01c8 01F4      		brne .L18
+ 264 01ca CE01      		movw r24,r28
+ 265 01cc 0196      		adiw r24,1
+ 266 01ce 0E94 0000 		call X12RtcGetStatus
+ 267               	.L18:
+ 268               	/* epilogue: frame size=4 */
+ 269 01d2 2496      		adiw r28,4
+ 270 01d4 0FB6      		in __tmp_reg__,__SREG__
+ 271 01d6 F894      		cli
+ 272 01d8 DEBF      		out __SP_H__,r29
+ 273 01da 0FBE      		out __SREG__,__tmp_reg__
+ 274 01dc CDBF      		out __SP_L__,r28
+ 275 01de DF91      		pop r29
+ 276 01e0 CF91      		pop r28
+ 277 01e2 0895      		ret
+ 278               	/* epilogue end (size=9) */
+ 279               	/* function X12Init size 28 (9) */
+ 280               		.size	X12Init, .-X12Init
+ 281               	.global	X12RtcGetClock
+ 282               		.type	X12RtcGetClock, @function
+ 283               	X12RtcGetClock:
+ 284               	/* prologue: frame size=8 */
+ 285 01e4 EF92      		push r14
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccmaamz9.s 			page 6
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccF7sRU4.s 			page 6
+>>>>>>> BackLightBranch
+
+
+ 286 01e6 FF92      		push r15
+ 287 01e8 0F93      		push r16
+ 288 01ea 1F93      		push r17
+ 289 01ec CF93      		push r28
+ 290 01ee DF93      		push r29
+ 291 01f0 CDB7      		in r28,__SP_L__
+ 292 01f2 DEB7      		in r29,__SP_H__
+ 293 01f4 2897      		sbiw r28,8
+ 294 01f6 0FB6      		in __tmp_reg__,__SREG__
+ 295 01f8 F894      		cli
+ 296 01fa DEBF      		out __SP_H__,r29
+ 297 01fc 0FBE      		out __SREG__,__tmp_reg__
+ 298 01fe CDBF      		out __SP_L__,r28
+ 299               	/* prologue end (size=14) */
+ 300 0200 8C01      		movw r16,r24
+ 301 0202 48E0      		ldi r20,lo8(8)
+ 302 0204 50E0      		ldi r21,hi8(8)
+ 303 0206 BE01      		movw r22,r28
+ 304 0208 6F5F      		subi r22,lo8(-(1))
+ 305 020a 7F4F      		sbci r23,hi8(-(1))
+ 306 020c 80E3      		ldi r24,lo8(48)
+ 307 020e 0E94 0000 		call X12RtcReadRegs
+ 308 0212 7C01      		movw r14,r24
+ 309 0214 892B      		or r24,r25
+ 310 0216 01F0      		breq .+2
+ 311 0218 00C0      		rjmp .L22
+ 312 021a 2981      		ldd r18,Y+1
+ 313 021c 822F      		mov r24,r18
+ 314 021e 8295      		swap r24
+ 315 0220 8F70      		andi r24,0x0f
+ 316 0222 6AE0      		ldi r22,lo8(10)
+ 317 0224 869F      		mul r24,r22
+ 318 0226 C001      		movw r24,r0
+ 319 0228 1124      		clr r1
+ 320 022a 2F70      		andi r18,lo8(15)
+ 321 022c 820F      		add r24,r18
+ 322 022e 911D      		adc r25,__zero_reg__
+ 323 0230 D801      		movw r26,r16
+ 324 0232 8D93      		st X+,r24
+ 325 0234 9C93      		st X,r25
+ 326 0236 2A81      		ldd r18,Y+2
+ 327 0238 822F      		mov r24,r18
+ 328 023a 8295      		swap r24
+ 329 023c 8F70      		andi r24,0x0f
+ 330 023e 869F      		mul r24,r22
+ 331 0240 C001      		movw r24,r0
+ 332 0242 1124      		clr r1
+ 333 0244 2F70      		andi r18,lo8(15)
+ 334 0246 820F      		add r24,r18
+ 335 0248 911D      		adc r25,__zero_reg__
+ 336 024a F801      		movw r30,r16
+ 337 024c 9383      		std Z+3,r25
+ 338 024e 8283      		std Z+2,r24
+ 339 0250 2B81      		ldd r18,Y+3
+ 340 0252 3327      		clr r19
+ 341 0254 C901      		movw r24,r18
+ 342 0256 8F73      		andi r24,lo8(63)
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccmaamz9.s 			page 7
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccF7sRU4.s 			page 7
+>>>>>>> BackLightBranch
+
+
+ 343 0258 9070      		andi r25,hi8(63)
+ 344 025a B4E0      		ldi r27,4
+ 345 025c 9595      	1:	asr r25
+ 346 025e 8795      		ror r24
+ 347 0260 BA95      		dec r27
+ 348 0262 01F4      		brne 1b
+ 349 0264 AC01      		movw r20,r24
+ 350 0266 A3E0      		ldi r26,3
+ 351 0268 440F      	1:	lsl r20
+ 352 026a 551F      		rol r21
+ 353 026c AA95      		dec r26
+ 354 026e 01F4      		brne 1b
+ 355 0270 880F      		lsl r24
+ 356 0272 991F      		rol r25
+ 357 0274 840F      		add r24,r20
+ 358 0276 951F      		adc r25,r21
+ 359 0278 2F70      		andi r18,lo8(15)
+ 360 027a 3070      		andi r19,hi8(15)
+ 361 027c 820F      		add r24,r18
+ 362 027e 931F      		adc r25,r19
+ 363 0280 9583      		std Z+5,r25
+ 364 0282 8483      		std Z+4,r24
+ 365 0284 2C81      		ldd r18,Y+4
+ 366 0286 822F      		mov r24,r18
+ 367 0288 8295      		swap r24
+ 368 028a 8F70      		andi r24,0x0f
+ 369 028c 869F      		mul r24,r22
+ 370 028e C001      		movw r24,r0
+ 371 0290 1124      		clr r1
+ 372 0292 2F70      		andi r18,lo8(15)
+ 373 0294 820F      		add r24,r18
+ 374 0296 911D      		adc r25,__zero_reg__
+ 375 0298 9783      		std Z+7,r25
+ 376 029a 8683      		std Z+6,r24
+ 377 029c 2D81      		ldd r18,Y+5
+ 378 029e 822F      		mov r24,r18
+ 379 02a0 8295      		swap r24
+ 380 02a2 8F70      		andi r24,0x0f
+ 381 02a4 869F      		mul r24,r22
+ 382 02a6 C001      		movw r24,r0
+ 383 02a8 1124      		clr r1
+ 384 02aa 2F70      		andi r18,lo8(15)
+ 385 02ac 820F      		add r24,r18
+ 386 02ae 911D      		adc r25,__zero_reg__
+ 387 02b0 0197      		sbiw r24,1
+ 388 02b2 9187      		std Z+9,r25
+ 389 02b4 8087      		std Z+8,r24
+ 390 02b6 8E81      		ldd r24,Y+6
+ 391 02b8 282F      		mov r18,r24
+ 392 02ba 2295      		swap r18
+ 393 02bc 2F70      		andi r18,0x0f
+ 394 02be 269F      		mul r18,r22
+ 395 02c0 A001      		movw r20,r0
+ 396 02c2 1124      		clr r1
+ 397 02c4 9927      		clr r25
+ 398 02c6 8F70      		andi r24,lo8(15)
+ 399 02c8 9070      		andi r25,hi8(15)
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccmaamz9.s 			page 8
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccF7sRU4.s 			page 8
+>>>>>>> BackLightBranch
+
+
+ 400 02ca 8C59      		subi r24,lo8(-(100))
+ 401 02cc 9F4F      		sbci r25,hi8(-(100))
+ 402 02ce 480F      		add r20,r24
+ 403 02d0 591F      		adc r21,r25
+ 404 02d2 5387      		std Z+11,r21
+ 405 02d4 4287      		std Z+10,r20
+ 406 02d6 2885      		ldd r18,Y+8
+ 407 02d8 822F      		mov r24,r18
+ 408 02da 8295      		swap r24
+ 409 02dc 8F70      		andi r24,0x0f
+ 410 02de 869F      		mul r24,r22
+ 411 02e0 C001      		movw r24,r0
+ 412 02e2 1124      		clr r1
+ 413 02e4 2F70      		andi r18,lo8(15)
+ 414 02e6 820F      		add r24,r18
+ 415 02e8 911D      		adc r25,__zero_reg__
+ 416 02ea 4A97      		sbiw r24,26
+ 417 02ec 04F0      		brlt .L24
+ 418 02ee 4C59      		subi r20,lo8(-(100))
+ 419 02f0 5F4F      		sbci r21,hi8(-(100))
+ 420 02f2 5387      		std Z+11,r21
+ 421 02f4 4287      		std Z+10,r20
+ 422               	.L24:
+ 423 02f6 8F81      		ldd r24,Y+7
+ 424 02f8 9927      		clr r25
+ 425 02fa F801      		movw r30,r16
+ 426 02fc 9587      		std Z+13,r25
+ 427 02fe 8487      		std Z+12,r24
+ 428               	.L22:
+ 429 0300 C701      		movw r24,r14
+ 430               	/* epilogue: frame size=8 */
+ 431 0302 2896      		adiw r28,8
+ 432 0304 0FB6      		in __tmp_reg__,__SREG__
+ 433 0306 F894      		cli
+ 434 0308 DEBF      		out __SP_H__,r29
+ 435 030a 0FBE      		out __SREG__,__tmp_reg__
+ 436 030c CDBF      		out __SP_L__,r28
+ 437 030e DF91      		pop r29
+ 438 0310 CF91      		pop r28
+ 439 0312 1F91      		pop r17
+ 440 0314 0F91      		pop r16
+ 441 0316 FF90      		pop r15
+ 442 0318 EF90      		pop r14
+ 443 031a 0895      		ret
+ 444               	/* epilogue end (size=13) */
+ 445               	/* function X12RtcGetClock size 157 (130) */
+ 446               		.size	X12RtcGetClock, .-X12RtcGetClock
+ 447               		.type	X12WriteEnable, @function
+ 448               	X12WriteEnable:
+ 449               	/* prologue: frame size=3 */
+ 450 031c AF92      		push r10
+ 451 031e BF92      		push r11
+ 452 0320 CF92      		push r12
+ 453 0322 DF92      		push r13
+ 454 0324 EF92      		push r14
+ 455 0326 FF92      		push r15
+ 456 0328 0F93      		push r16
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccmaamz9.s 			page 9
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccF7sRU4.s 			page 9
+>>>>>>> BackLightBranch
+
+
+ 457 032a 1F93      		push r17
+ 458 032c CF93      		push r28
+ 459 032e DF93      		push r29
+ 460 0330 CDB7      		in r28,__SP_L__
+ 461 0332 DEB7      		in r29,__SP_H__
+ 462 0334 2397      		sbiw r28,3
+ 463 0336 0FB6      		in __tmp_reg__,__SREG__
+ 464 0338 F894      		cli
+ 465 033a DEBF      		out __SP_H__,r29
+ 466 033c 0FBE      		out __SREG__,__tmp_reg__
+ 467 033e CDBF      		out __SP_L__,r28
+ 468               	/* prologue end (size=18) */
+ 469 0340 1982      		std Y+1,__zero_reg__
+ 470 0342 2FE3      		ldi r18,lo8(63)
+ 471 0344 2A83      		std Y+2,r18
+ 472 0346 5E01      		movw r10,r28
+ 473 0348 0894      		sec
+ 474 034a A11C      		adc r10,__zero_reg__
+ 475 034c B11C      		adc r11,__zero_reg__
+ 476 034e 892B      		or r24,r25
+ 477 0350 01F0      		breq .L28
+ 478 0352 82E0      		ldi r24,lo8(2)
+ 479 0354 8B83      		std Y+3,r24
+ 480 0356 CC24      		clr r12
+ 481 0358 DD24      		clr r13
+ 482 035a 7601      		movw r14,r12
+ 483 035c 00E0      		ldi r16,lo8(0)
+ 484 035e 10E0      		ldi r17,hi8(0)
+ 485 0360 20E0      		ldi r18,lo8(0)
+ 486 0362 30E0      		ldi r19,hi8(0)
+ 487 0364 43E0      		ldi r20,lo8(3)
+ 488 0366 50E0      		ldi r21,hi8(3)
+ 489 0368 B501      		movw r22,r10
+ 490 036a 8FE6      		ldi r24,lo8(111)
+ 491 036c 0E94 0000 		call TwMasterTransact
+ 492 0370 0097      		sbiw r24,0
+ 493 0372 01F4      		brne .L30
+ 494 0374 86E0      		ldi r24,lo8(6)
+ 495 0376 8B83      		std Y+3,r24
+ 496 0378 00C0      		rjmp .L33
+ 497               	.L28:
+ 498 037a 1B82      		std Y+3,__zero_reg__
+ 499 037c CC24      		clr r12
+ 500 037e DD24      		clr r13
+ 501 0380 7601      		movw r14,r12
+ 502 0382 00E0      		ldi r16,lo8(0)
+ 503 0384 10E0      		ldi r17,hi8(0)
+ 504               	.L33:
+ 505 0386 20E0      		ldi r18,lo8(0)
+ 506 0388 30E0      		ldi r19,hi8(0)
+ 507 038a 43E0      		ldi r20,lo8(3)
+ 508 038c 50E0      		ldi r21,hi8(3)
+ 509 038e B501      		movw r22,r10
+ 510 0390 8FE6      		ldi r24,lo8(111)
+ 511 0392 0E94 0000 		call TwMasterTransact
+ 512               	.L30:
+ 513               	/* epilogue: frame size=3 */
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccmaamz9.s 			page 10
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccF7sRU4.s 			page 10
+>>>>>>> BackLightBranch
+
+
+ 514 0396 2396      		adiw r28,3
+ 515 0398 0FB6      		in __tmp_reg__,__SREG__
+ 516 039a F894      		cli
+ 517 039c DEBF      		out __SP_H__,r29
+ 518 039e 0FBE      		out __SREG__,__tmp_reg__
+ 519 03a0 CDBF      		out __SP_L__,r28
+ 520 03a2 DF91      		pop r29
+ 521 03a4 CF91      		pop r28
+ 522 03a6 1F91      		pop r17
+ 523 03a8 0F91      		pop r16
+ 524 03aa FF90      		pop r15
+ 525 03ac EF90      		pop r14
+ 526 03ae DF90      		pop r13
+ 527 03b0 CF90      		pop r12
+ 528 03b2 BF90      		pop r11
+ 529 03b4 AF90      		pop r10
+ 530 03b6 0895      		ret
+ 531               	/* epilogue end (size=17) */
+ 532               	/* function X12WriteEnable size 78 (43) */
+ 533               		.size	X12WriteEnable, .-X12WriteEnable
+ 534               		.type	X12WaitReady, @function
+ 535               	X12WaitReady:
+ 536               	/* prologue: frame size=1 */
+ 537 03b8 AF92      		push r10
+ 538 03ba BF92      		push r11
+ 539 03bc CF92      		push r12
+ 540 03be DF92      		push r13
+ 541 03c0 EF92      		push r14
+ 542 03c2 FF92      		push r15
+ 543 03c4 0F93      		push r16
+ 544 03c6 1F93      		push r17
+ 545 03c8 CF93      		push r28
+ 546 03ca DF93      		push r29
+ 547 03cc CDB7      		in r28,__SP_L__
+ 548 03ce DEB7      		in r29,__SP_H__
+ 549 03d0 2197      		sbiw r28,1
+ 550 03d2 0FB6      		in __tmp_reg__,__SREG__
+ 551 03d4 F894      		cli
+ 552 03d6 DEBF      		out __SP_H__,r29
+ 553 03d8 0FBE      		out __SREG__,__tmp_reg__
+ 554 03da CDBF      		out __SP_L__,r28
+ 555               	/* prologue end (size=18) */
+ 556 03dc 13E1      		ldi r17,lo8(19)
+ 557 03de A12E      		mov r10,r17
+ 558 03e0 B12C      		mov r11,__zero_reg__
+ 559 03e2 00C0      		rjmp .L35
+ 560               	.L36:
+ 561 03e4 61E0      		ldi r22,lo8(1)
+ 562 03e6 70E0      		ldi r23,hi8(1)
+ 563 03e8 80E0      		ldi r24,hlo8(1)
+ 564 03ea 90E0      		ldi r25,hhi8(1)
+ 565 03ec 0E94 0000 		call NutSleep
+ 566 03f0 0894      		sec
+ 567 03f2 A108      		sbc r10,__zero_reg__
+ 568 03f4 B108      		sbc r11,__zero_reg__
+ 569 03f6 A114      		cp r10,__zero_reg__
+ 570 03f8 B104      		cpc r11,__zero_reg__
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccmaamz9.s 			page 11
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccF7sRU4.s 			page 11
+>>>>>>> BackLightBranch
+
+
+ 571 03fa 01F4      		brne .L35
+ 572 03fc 8FEF      		ldi r24,lo8(-1)
+ 573 03fe 9FEF      		ldi r25,hi8(-1)
+ 574 0400 00C0      		rjmp .L38
+ 575               	.L35:
+ 576 0402 CC24      		clr r12
+ 577 0404 DD24      		clr r13
+ 578 0406 7601      		movw r14,r12
+ 579 0408 01E0      		ldi r16,lo8(1)
+ 580 040a 10E0      		ldi r17,hi8(1)
+ 581 040c 9E01      		movw r18,r28
+ 582 040e 2F5F      		subi r18,lo8(-(1))
+ 583 0410 3F4F      		sbci r19,hi8(-(1))
+ 584 0412 40E0      		ldi r20,lo8(0)
+ 585 0414 50E0      		ldi r21,hi8(0)
+ 586 0416 60E0      		ldi r22,lo8(0)
+ 587 0418 70E0      		ldi r23,hi8(0)
+ 588 041a 87E5      		ldi r24,lo8(87)
+ 589 041c 0E94 0000 		call TwMasterTransact
+ 590 0420 8F5F      		subi r24,lo8(-1)
+ 591 0422 9F4F      		sbci r25,hi8(-1)
+ 592 0424 01F0      		breq .L36
+ 593 0426 80E0      		ldi r24,lo8(0)
+ 594 0428 90E0      		ldi r25,hi8(0)
+ 595               	.L38:
+ 596               	/* epilogue: frame size=1 */
+ 597 042a 2196      		adiw r28,1
+ 598 042c 0FB6      		in __tmp_reg__,__SREG__
+ 599 042e F894      		cli
+ 600 0430 DEBF      		out __SP_H__,r29
+ 601 0432 0FBE      		out __SREG__,__tmp_reg__
+ 602 0434 CDBF      		out __SP_L__,r28
+ 603 0436 DF91      		pop r29
+ 604 0438 CF91      		pop r28
+ 605 043a 1F91      		pop r17
+ 606 043c 0F91      		pop r16
+ 607 043e FF90      		pop r15
+ 608 0440 EF90      		pop r14
+ 609 0442 DF90      		pop r13
+ 610 0444 CF90      		pop r12
+ 611 0446 BF90      		pop r11
+ 612 0448 AF90      		pop r10
+ 613 044a 0895      		ret
+ 614               	/* epilogue end (size=17) */
+ 615               	/* function X12WaitReady size 75 (40) */
+ 616               		.size	X12WaitReady, .-X12WaitReady
+ 617               	.global	X12EepromWrite
+ 618               		.type	X12EepromWrite, @function
+ 619               	X12EepromWrite:
+ 620               	/* prologue: frame size=0 */
+ 621 044c 2F92      		push r2
+ 622 044e 3F92      		push r3
+ 623 0450 4F92      		push r4
+ 624 0452 5F92      		push r5
+ 625 0454 6F92      		push r6
+ 626 0456 7F92      		push r7
+ 627 0458 8F92      		push r8
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccmaamz9.s 			page 12
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccF7sRU4.s 			page 12
+>>>>>>> BackLightBranch
+
+
+ 628 045a 9F92      		push r9
+ 629 045c AF92      		push r10
+ 630 045e BF92      		push r11
+ 631 0460 CF92      		push r12
+ 632 0462 DF92      		push r13
+ 633 0464 EF92      		push r14
+ 634 0466 FF92      		push r15
+ 635 0468 0F93      		push r16
+ 636 046a 1F93      		push r17
+ 637 046c CF93      		push r28
+ 638 046e DF93      		push r29
+ 639               	/* prologue end (size=18) */
+ 640 0470 3C01      		movw r6,r24
+ 641 0472 4A01      		movw r8,r20
+ 642 0474 2B01      		movw r4,r22
+ 643 0476 00E0      		ldi r16,lo8(0)
+ 644 0478 10E0      		ldi r17,hi8(0)
+ 645 047a 00C0      		rjmp .L44
+ 646               	.L45:
+ 647 047c C301      		movw r24,r6
+ 648 047e 8F73      		andi r24,lo8(63)
+ 649 0480 9070      		andi r25,hi8(63)
+ 650 0482 20E4      		ldi r18,lo8(64)
+ 651 0484 30E0      		ldi r19,hi8(64)
+ 652 0486 281B      		sub r18,r24
+ 653 0488 390B      		sbc r19,r25
+ 654 048a 5401      		movw r10,r8
+ 655 048c 2815      		cp r18,r8
+ 656 048e 3905      		cpc r19,r9
+ 657 0490 00F4      		brsh .L46
+ 658 0492 5901      		movw r10,r18
+ 659               	.L46:
+ 660 0494 82E0      		ldi r24,lo8(2)
+ 661 0496 282E      		mov r2,r24
+ 662 0498 312C      		mov r3,__zero_reg__
+ 663 049a 2A0C      		add r2,r10
+ 664 049c 3B1C      		adc r3,r11
+ 665 049e C101      		movw r24,r2
+ 666 04a0 0E94 0000 		call malloc
+ 667 04a4 EC01      		movw r28,r24
+ 668 04a6 892B      		or r24,r25
+ 669 04a8 01F0      		breq .L56
+ 670 04aa 872D      		mov r24,r7
+ 671 04ac 9927      		clr r25
+ 672 04ae 8883      		st Y,r24
+ 673 04b0 6982      		std Y+1,r6
+ 674 04b2 A501      		movw r20,r10
+ 675 04b4 B201      		movw r22,r4
+ 676 04b6 CE01      		movw r24,r28
+ 677 04b8 0296      		adiw r24,2
+ 678 04ba 0E94 0000 		call memcpy
+ 679 04be 81E0      		ldi r24,lo8(1)
+ 680 04c0 90E0      		ldi r25,hi8(1)
+ 681 04c2 0E94 0000 		call X12WriteEnable
+ 682 04c6 8C01      		movw r16,r24
+ 683 04c8 892B      		or r24,r25
+ 684 04ca 01F4      		brne .L51
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccmaamz9.s 			page 13
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccF7sRU4.s 			page 13
+>>>>>>> BackLightBranch
+
+
+ 685 04cc CC24      		clr r12
+ 686 04ce DD24      		clr r13
+ 687 04d0 7601      		movw r14,r12
+ 688 04d2 00E0      		ldi r16,lo8(0)
+ 689 04d4 10E0      		ldi r17,hi8(0)
+ 690 04d6 20E0      		ldi r18,lo8(0)
+ 691 04d8 30E0      		ldi r19,hi8(0)
+ 692 04da A101      		movw r20,r2
+ 693 04dc BE01      		movw r22,r28
+ 694 04de 87E5      		ldi r24,lo8(87)
+ 695 04e0 0E94 0000 		call TwMasterTransact
+ 696 04e4 8C01      		movw r16,r24
+ 697 04e6 CE01      		movw r24,r28
+ 698 04e8 0E94 0000 		call free
+ 699 04ec 0115      		cp r16,__zero_reg__
+ 700 04ee 1105      		cpc r17,__zero_reg__
+ 701 04f0 01F4      		brne .L49
+ 702 04f2 0E94 0000 		call X12WaitReady
+ 703 04f6 8C01      		movw r16,r24
+ 704 04f8 892B      		or r24,r25
+ 705 04fa 01F4      		brne .L49
+ 706 04fc 8A18      		sub r8,r10
+ 707 04fe 9B08      		sbc r9,r11
+ 708 0500 6A0C      		add r6,r10
+ 709 0502 7B1C      		adc r7,r11
+ 710 0504 4A0C      		add r4,r10
+ 711 0506 5B1C      		adc r5,r11
+ 712               	.L44:
+ 713 0508 8114      		cp r8,__zero_reg__
+ 714 050a 9104      		cpc r9,__zero_reg__
+ 715 050c 01F0      		breq .+2
+ 716 050e 00C0      		rjmp .L45
+ 717 0510 00C0      		rjmp .L49
+ 718               	.L56:
+ 719 0512 0FEF      		ldi r16,lo8(-1)
+ 720 0514 1FEF      		ldi r17,hi8(-1)
+ 721 0516 00C0      		rjmp .L49
+ 722               	.L51:
+ 723 0518 CE01      		movw r24,r28
+ 724 051a 0E94 0000 		call free
+ 725               	.L49:
+ 726 051e 80E0      		ldi r24,lo8(0)
+ 727 0520 90E0      		ldi r25,hi8(0)
+ 728 0522 0E94 0000 		call X12WriteEnable
+ 729 0526 C801      		movw r24,r16
+ 730               	/* epilogue: frame size=0 */
+ 731 0528 DF91      		pop r29
+ 732 052a CF91      		pop r28
+ 733 052c 1F91      		pop r17
+ 734 052e 0F91      		pop r16
+ 735 0530 FF90      		pop r15
+ 736 0532 EF90      		pop r14
+ 737 0534 DF90      		pop r13
+ 738 0536 CF90      		pop r12
+ 739 0538 BF90      		pop r11
+ 740 053a AF90      		pop r10
+ 741 053c 9F90      		pop r9
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccmaamz9.s 			page 14
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccF7sRU4.s 			page 14
+>>>>>>> BackLightBranch
+
+
+ 742 053e 8F90      		pop r8
+ 743 0540 7F90      		pop r7
+ 744 0542 6F90      		pop r6
+ 745 0544 5F90      		pop r5
+ 746 0546 4F90      		pop r4
+ 747 0548 3F90      		pop r3
+ 748 054a 2F90      		pop r2
+ 749 054c 0895      		ret
+ 750               	/* epilogue end (size=19) */
+ 751               	/* function X12EepromWrite size 129 (92) */
+ 752               		.size	X12EepromWrite, .-X12EepromWrite
+ 753               	.global	X12RtcWrite
+ 754               		.type	X12RtcWrite, @function
+ 755               	X12RtcWrite:
+ 756               	/* prologue: frame size=0 */
+ 757 054e 8F92      		push r8
+ 758 0550 9F92      		push r9
+ 759 0552 AF92      		push r10
+ 760 0554 BF92      		push r11
+ 761 0556 CF92      		push r12
+ 762 0558 DF92      		push r13
+ 763 055a EF92      		push r14
+ 764 055c FF92      		push r15
+ 765 055e 0F93      		push r16
+ 766 0560 1F93      		push r17
+ 767 0562 CF93      		push r28
+ 768 0564 DF93      		push r29
+ 769               	/* prologue end (size=12) */
+ 770 0566 4C01      		movw r8,r24
+ 771 0568 5B01      		movw r10,r22
+ 772 056a EA01      		movw r28,r20
+ 773 056c 81E0      		ldi r24,lo8(1)
+ 774 056e 90E0      		ldi r25,hi8(1)
+ 775 0570 0E94 0000 		call X12WriteEnable
+ 776 0574 8C01      		movw r16,r24
+ 777 0576 892B      		or r24,r25
+ 778 0578 01F4      		brne .L58
+ 779 057a CC24      		clr r12
+ 780 057c DD24      		clr r13
+ 781 057e 7601      		movw r14,r12
+ 782 0580 00E0      		ldi r16,lo8(0)
+ 783 0582 10E0      		ldi r17,hi8(0)
+ 784 0584 20E0      		ldi r18,lo8(0)
+ 785 0586 30E0      		ldi r19,hi8(0)
+ 786 0588 AE01      		movw r20,r28
+ 787 058a B501      		movw r22,r10
+ 788 058c 8FE6      		ldi r24,lo8(111)
+ 789 058e 0E94 0000 		call TwMasterTransact
+ 790 0592 8C01      		movw r16,r24
+ 791 0594 892B      		or r24,r25
+ 792 0596 01F4      		brne .L60
+ 793 0598 8928      		or r8,r9
+ 794 059a 01F0      		breq .L60
+ 795 059c 0E94 0000 		call X12WaitReady
+ 796 05a0 8C01      		movw r16,r24
+ 797               	.L60:
+ 798 05a2 80E0      		ldi r24,lo8(0)
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccmaamz9.s 			page 15
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccF7sRU4.s 			page 15
+>>>>>>> BackLightBranch
+
+
+ 799 05a4 90E0      		ldi r25,hi8(0)
+ 800 05a6 0E94 0000 		call X12WriteEnable
+ 801               	.L58:
+ 802 05aa C801      		movw r24,r16
+ 803               	/* epilogue: frame size=0 */
+ 804 05ac DF91      		pop r29
+ 805 05ae CF91      		pop r28
+ 806 05b0 1F91      		pop r17
+ 807 05b2 0F91      		pop r16
+ 808 05b4 FF90      		pop r15
+ 809 05b6 EF90      		pop r14
+ 810 05b8 DF90      		pop r13
+ 811 05ba CF90      		pop r12
+ 812 05bc BF90      		pop r11
+ 813 05be AF90      		pop r10
+ 814 05c0 9F90      		pop r9
+ 815 05c2 8F90      		pop r8
+ 816 05c4 0895      		ret
+ 817               	/* epilogue end (size=13) */
+ 818               	/* function X12RtcWrite size 60 (35) */
+ 819               		.size	X12RtcWrite, .-X12RtcWrite
+ 820               	.global	X12RtcSetAlarm
+ 821               		.type	X12RtcSetAlarm, @function
+ 822               	X12RtcSetAlarm:
+ 823               	/* prologue: frame size=10 */
+ 824 05c6 EF92      		push r14
+ 825 05c8 FF92      		push r15
+ 826 05ca 0F93      		push r16
+ 827 05cc 1F93      		push r17
+ 828 05ce CF93      		push r28
+ 829 05d0 DF93      		push r29
+ 830 05d2 CDB7      		in r28,__SP_L__
+ 831 05d4 DEB7      		in r29,__SP_H__
+ 832 05d6 2A97      		sbiw r28,10
+ 833 05d8 0FB6      		in __tmp_reg__,__SREG__
+ 834 05da F894      		cli
+ 835 05dc DEBF      		out __SP_H__,r29
+ 836 05de 0FBE      		out __SREG__,__tmp_reg__
+ 837 05e0 CDBF      		out __SP_L__,r28
+ 838               	/* prologue end (size=14) */
+ 839 05e2 8B01      		movw r16,r22
+ 840 05e4 7A01      		movw r14,r20
+ 841 05e6 2AE0      		ldi r18,lo8(10)
+ 842 05e8 FE01      		movw r30,r28
+ 843 05ea 3196      		adiw r30,1
+ 844 05ec 1192      		st Z+,__zero_reg__
+ 845 05ee 2A95      	        dec r18
+ 846 05f0 01F4      		brne .-6
+ 847 05f2 23E0      		ldi r18,3
+ 848 05f4 880F      	1:	lsl r24
+ 849 05f6 991F      		rol r25
+ 850 05f8 2A95      		dec r18
+ 851 05fa 01F4      		brne 1b
+ 852 05fc 8A83      		std Y+2,r24
+ 853 05fe 6115      		cp r22,__zero_reg__
+ 854 0600 7105      		cpc r23,__zero_reg__
+ 855 0602 01F4      		brne .+2
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccmaamz9.s 			page 16
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccF7sRU4.s 			page 16
+>>>>>>> BackLightBranch
+
+
+ 856 0604 00C0      		rjmp .L65
+ 857 0606 40FF      		sbrs r20,0
+ 858 0608 00C0      		rjmp .L67
+ 859 060a FB01      		movw r30,r22
+ 860 060c 4081      		ld r20,Z
+ 861 060e 5181      		ldd r21,Z+1
+ 862 0610 842F      		mov r24,r20
+ 863 0612 6AE0      		ldi r22,lo8(10)
+ 864 0614 0E94 0000 		call __udivmodqi4
+ 865 0618 282F      		mov r18,r24
+ 866 061a 2295      		swap r18
+ 867 061c 207F      		andi r18,0xf0
+ 868 061e CA01      		movw r24,r20
+ 869 0620 6AE0      		ldi r22,lo8(10)
+ 870 0622 70E0      		ldi r23,hi8(10)
+ 871 0624 0E94 0000 		call __divmodhi4
+ 872 0628 280F      		add r18,r24
+ 873 062a 2068      		ori r18,lo8(-128)
+ 874 062c 2B83      		std Y+3,r18
+ 875               	.L67:
+ 876 062e E1FE      		sbrs r14,1
+ 877 0630 00C0      		rjmp .L69
+ 878 0632 F801      		movw r30,r16
+ 879 0634 4281      		ldd r20,Z+2
+ 880 0636 5381      		ldd r21,Z+3
+ 881 0638 842F      		mov r24,r20
+ 882 063a 6AE0      		ldi r22,lo8(10)
+ 883 063c 0E94 0000 		call __udivmodqi4
+ 884 0640 282F      		mov r18,r24
+ 885 0642 2295      		swap r18
+ 886 0644 207F      		andi r18,0xf0
+ 887 0646 CA01      		movw r24,r20
+ 888 0648 6AE0      		ldi r22,lo8(10)
+ 889 064a 70E0      		ldi r23,hi8(10)
+ 890 064c 0E94 0000 		call __divmodhi4
+ 891 0650 280F      		add r18,r24
+ 892 0652 2068      		ori r18,lo8(-128)
+ 893 0654 2C83      		std Y+4,r18
+ 894               	.L69:
+ 895 0656 E2FE      		sbrs r14,2
+ 896 0658 00C0      		rjmp .L71
+ 897 065a F801      		movw r30,r16
+ 898 065c 4481      		ldd r20,Z+4
+ 899 065e 5581      		ldd r21,Z+5
+ 900 0660 842F      		mov r24,r20
+ 901 0662 6AE0      		ldi r22,lo8(10)
+ 902 0664 0E94 0000 		call __udivmodqi4
+ 903 0668 282F      		mov r18,r24
+ 904 066a 2295      		swap r18
+ 905 066c 207F      		andi r18,0xf0
+ 906 066e CA01      		movw r24,r20
+ 907 0670 6AE0      		ldi r22,lo8(10)
+ 908 0672 70E0      		ldi r23,hi8(10)
+ 909 0674 0E94 0000 		call __divmodhi4
+ 910 0678 280F      		add r18,r24
+ 911 067a 2068      		ori r18,lo8(-128)
+ 912 067c 2D83      		std Y+5,r18
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccmaamz9.s 			page 17
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccF7sRU4.s 			page 17
+>>>>>>> BackLightBranch
+
+
+ 913               	.L71:
+ 914 067e E3FE      		sbrs r14,3
+ 915 0680 00C0      		rjmp .L73
+ 916 0682 F801      		movw r30,r16
+ 917 0684 4681      		ldd r20,Z+6
+ 918 0686 5781      		ldd r21,Z+7
+ 919 0688 842F      		mov r24,r20
+ 920 068a 6AE0      		ldi r22,lo8(10)
+ 921 068c 0E94 0000 		call __udivmodqi4
+ 922 0690 282F      		mov r18,r24
+ 923 0692 2295      		swap r18
+ 924 0694 207F      		andi r18,0xf0
+ 925 0696 CA01      		movw r24,r20
+ 926 0698 6AE0      		ldi r22,lo8(10)
+ 927 069a 70E0      		ldi r23,hi8(10)
+ 928 069c 0E94 0000 		call __divmodhi4
+ 929 06a0 280F      		add r18,r24
+ 930 06a2 2068      		ori r18,lo8(-128)
+ 931 06a4 2E83      		std Y+6,r18
+ 932               	.L73:
+ 933 06a6 E4FE      		sbrs r14,4
+ 934 06a8 00C0      		rjmp .L75
+ 935 06aa F801      		movw r30,r16
+ 936 06ac 4085      		ldd r20,Z+8
+ 937 06ae 5185      		ldd r21,Z+9
+ 938 06b0 842F      		mov r24,r20
+ 939 06b2 8F5F      		subi r24,lo8(-(1))
+ 940 06b4 6AE0      		ldi r22,lo8(10)
+ 941 06b6 0E94 0000 		call __udivmodqi4
+ 942 06ba 282F      		mov r18,r24
+ 943 06bc 2295      		swap r18
+ 944 06be 207F      		andi r18,0xf0
+ 945 06c0 CA01      		movw r24,r20
+ 946 06c2 0196      		adiw r24,1
+ 947 06c4 6AE0      		ldi r22,lo8(10)
+ 948 06c6 70E0      		ldi r23,hi8(10)
+ 949 06c8 0E94 0000 		call __divmodhi4
+ 950 06cc 280F      		add r18,r24
+ 951 06ce 2068      		ori r18,lo8(-128)
+ 952 06d0 2F83      		std Y+7,r18
+ 953               	.L75:
+ 954 06d2 E7FE      		sbrs r14,7
+ 955 06d4 00C0      		rjmp .L65
+ 956 06d6 F801      		movw r30,r16
+ 957 06d8 4485      		ldd r20,Z+12
+ 958 06da 5585      		ldd r21,Z+13
+ 959 06dc 842F      		mov r24,r20
+ 960 06de 6AE0      		ldi r22,lo8(10)
+ 961 06e0 0E94 0000 		call __udivmodqi4
+ 962 06e4 282F      		mov r18,r24
+ 963 06e6 2295      		swap r18
+ 964 06e8 207F      		andi r18,0xf0
+ 965 06ea CA01      		movw r24,r20
+ 966 06ec 6AE0      		ldi r22,lo8(10)
+ 967 06ee 70E0      		ldi r23,hi8(10)
+ 968 06f0 0E94 0000 		call __divmodhi4
+ 969 06f4 280F      		add r18,r24
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccmaamz9.s 			page 18
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccF7sRU4.s 			page 18
+>>>>>>> BackLightBranch
+
+
+ 970 06f6 2068      		ori r18,lo8(-128)
+ 971 06f8 2987      		std Y+9,r18
+ 972               	.L65:
+ 973 06fa 4AE0      		ldi r20,lo8(10)
+ 974 06fc 50E0      		ldi r21,hi8(10)
+ 975 06fe BE01      		movw r22,r28
+ 976 0700 6F5F      		subi r22,lo8(-(1))
+ 977 0702 7F4F      		sbci r23,hi8(-(1))
+ 978 0704 81E0      		ldi r24,lo8(1)
+ 979 0706 90E0      		ldi r25,hi8(1)
+ 980 0708 0E94 0000 		call X12RtcWrite
+ 981               	/* epilogue: frame size=10 */
+ 982 070c 2A96      		adiw r28,10
+ 983 070e 0FB6      		in __tmp_reg__,__SREG__
+ 984 0710 F894      		cli
+ 985 0712 DEBF      		out __SP_H__,r29
+ 986 0714 0FBE      		out __SREG__,__tmp_reg__
+ 987 0716 CDBF      		out __SP_L__,r28
+ 988 0718 DF91      		pop r29
+ 989 071a CF91      		pop r28
+ 990 071c 1F91      		pop r17
+ 991 071e 0F91      		pop r16
+ 992 0720 FF90      		pop r15
+ 993 0722 EF90      		pop r14
+ 994 0724 0895      		ret
+ 995               	/* epilogue end (size=13) */
+ 996               	/* function X12RtcSetAlarm size 176 (149) */
+ 997               		.size	X12RtcSetAlarm, .-X12RtcSetAlarm
+ 998               	.global	X12RtcGetAlarm
+ 999               		.type	X12RtcGetAlarm, @function
+ 1000               	X12RtcGetAlarm:
+ 1001               	/* prologue: frame size=8 */
+ 1002 0726 EF92      		push r14
+ 1003 0728 FF92      		push r15
+ 1004 072a 0F93      		push r16
+ 1005 072c 1F93      		push r17
+ 1006 072e CF93      		push r28
+ 1007 0730 DF93      		push r29
+ 1008 0732 CDB7      		in r28,__SP_L__
+ 1009 0734 DEB7      		in r29,__SP_H__
+ 1010 0736 2897      		sbiw r28,8
+ 1011 0738 0FB6      		in __tmp_reg__,__SREG__
+ 1012 073a F894      		cli
+ 1013 073c DEBF      		out __SP_H__,r29
+ 1014 073e 0FBE      		out __SREG__,__tmp_reg__
+ 1015 0740 CDBF      		out __SP_L__,r28
+ 1016               	/* prologue end (size=14) */
+ 1017 0742 7B01      		movw r14,r22
+ 1018 0744 8A01      		movw r16,r20
+ 1019 0746 FA01      		movw r30,r20
+ 1020 0748 1182      		std Z+1,__zero_reg__
+ 1021 074a 1082      		st Z,__zero_reg__
+ 1022 074c 92E1      		ldi r25,lo8(18)
+ 1023 074e FB01      		movw r30,r22
+ 1024 0750 1192      		st Z+,__zero_reg__
+ 1025 0752 9A95      	        dec r25
+ 1026 0754 01F4      		brne .-6
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccmaamz9.s 			page 19
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccF7sRU4.s 			page 19
+>>>>>>> BackLightBranch
+
+
+ 1027 0756 48E0      		ldi r20,lo8(8)
+ 1028 0758 50E0      		ldi r21,hi8(8)
+ 1029 075a BE01      		movw r22,r28
+ 1030 075c 6F5F      		subi r22,lo8(-(1))
+ 1031 075e 7F4F      		sbci r23,hi8(-(1))
+ 1032 0760 880F      		lsl r24
+ 1033 0762 880F      		lsl r24
+ 1034 0764 880F      		lsl r24
+ 1035 0766 0E94 0000 		call X12RtcReadRegs
+ 1036 076a BC01      		movw r22,r24
+ 1037 076c 892B      		or r24,r25
+ 1038 076e 01F0      		breq .+2
+ 1039 0770 00C0      		rjmp .L80
+ 1040 0772 2981      		ldd r18,Y+1
+ 1041 0774 27FF      		sbrs r18,7
+ 1042 0776 00C0      		rjmp .L82
+ 1043 0778 F801      		movw r30,r16
+ 1044 077a 8081      		ld r24,Z
+ 1045 077c 9181      		ldd r25,Z+1
+ 1046 077e 8160      		ori r24,lo8(1)
+ 1047 0780 9183      		std Z+1,r25
+ 1048 0782 8083      		st Z,r24
+ 1049 0784 3327      		clr r19
+ 1050 0786 C901      		movw r24,r18
+ 1051 0788 8F77      		andi r24,lo8(127)
+ 1052 078a 9070      		andi r25,hi8(127)
+ 1053 078c F4E0      		ldi r31,4
+ 1054 078e 9595      	1:	asr r25
+ 1055 0790 8795      		ror r24
+ 1056 0792 FA95      		dec r31
+ 1057 0794 01F4      		brne 1b
+ 1058 0796 AC01      		movw r20,r24
+ 1059 0798 E3E0      		ldi r30,3
+ 1060 079a 440F      	1:	lsl r20
+ 1061 079c 551F      		rol r21
+ 1062 079e EA95      		dec r30
+ 1063 07a0 01F4      		brne 1b
+ 1064 07a2 880F      		lsl r24
+ 1065 07a4 991F      		rol r25
+ 1066 07a6 840F      		add r24,r20
+ 1067 07a8 951F      		adc r25,r21
+ 1068 07aa 2F70      		andi r18,lo8(15)
+ 1069 07ac 3070      		andi r19,hi8(15)
+ 1070 07ae 820F      		add r24,r18
+ 1071 07b0 931F      		adc r25,r19
+ 1072 07b2 F701      		movw r30,r14
+ 1073 07b4 9183      		std Z+1,r25
+ 1074 07b6 8083      		st Z,r24
+ 1075               	.L82:
+ 1076 07b8 3A81      		ldd r19,Y+2
+ 1077 07ba 37FF      		sbrs r19,7
+ 1078 07bc 00C0      		rjmp .L84
+ 1079 07be F801      		movw r30,r16
+ 1080 07c0 8081      		ld r24,Z
+ 1081 07c2 9181      		ldd r25,Z+1
+ 1082 07c4 8260      		ori r24,lo8(2)
+ 1083 07c6 9183      		std Z+1,r25
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccmaamz9.s 			page 20
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccF7sRU4.s 			page 20
+>>>>>>> BackLightBranch
+
+
+ 1084 07c8 8083      		st Z,r24
+ 1085 07ca 832F      		mov r24,r19
+ 1086 07cc 8295      		swap r24
+ 1087 07ce 8F70      		andi r24,0x0f
+ 1088 07d0 2AE0      		ldi r18,lo8(10)
+ 1089 07d2 829F      		mul r24,r18
+ 1090 07d4 C001      		movw r24,r0
+ 1091 07d6 1124      		clr r1
+ 1092 07d8 3F70      		andi r19,lo8(15)
+ 1093 07da 830F      		add r24,r19
+ 1094 07dc 911D      		adc r25,__zero_reg__
+ 1095 07de F701      		movw r30,r14
+ 1096 07e0 9383      		std Z+3,r25
+ 1097 07e2 8283      		std Z+2,r24
+ 1098               	.L84:
+ 1099 07e4 2B81      		ldd r18,Y+3
+ 1100 07e6 27FF      		sbrs r18,7
+ 1101 07e8 00C0      		rjmp .L86
+ 1102 07ea F801      		movw r30,r16
+ 1103 07ec 8081      		ld r24,Z
+ 1104 07ee 9181      		ldd r25,Z+1
+ 1105 07f0 8460      		ori r24,lo8(4)
+ 1106 07f2 9183      		std Z+1,r25
+ 1107 07f4 8083      		st Z,r24
+ 1108 07f6 3327      		clr r19
+ 1109 07f8 C901      		movw r24,r18
+ 1110 07fa 8F77      		andi r24,lo8(127)
+ 1111 07fc 9070      		andi r25,hi8(127)
+ 1112 07fe A4E0      		ldi r26,4
+ 1113 0800 9595      	1:	asr r25
+ 1114 0802 8795      		ror r24
+ 1115 0804 AA95      		dec r26
+ 1116 0806 01F4      		brne 1b
+ 1117 0808 AC01      		movw r20,r24
+ 1118 080a F3E0      		ldi r31,3
+ 1119 080c 440F      	1:	lsl r20
+ 1120 080e 551F      		rol r21
+ 1121 0810 FA95      		dec r31
+ 1122 0812 01F4      		brne 1b
+ 1123 0814 880F      		lsl r24
+ 1124 0816 991F      		rol r25
+ 1125 0818 840F      		add r24,r20
+ 1126 081a 951F      		adc r25,r21
+ 1127 081c 2F70      		andi r18,lo8(15)
+ 1128 081e 3070      		andi r19,hi8(15)
+ 1129 0820 820F      		add r24,r18
+ 1130 0822 931F      		adc r25,r19
+ 1131 0824 F701      		movw r30,r14
+ 1132 0826 9583      		std Z+5,r25
+ 1133 0828 8483      		std Z+4,r24
+ 1134               	.L86:
+ 1135 082a 3C81      		ldd r19,Y+4
+ 1136 082c 37FF      		sbrs r19,7
+ 1137 082e 00C0      		rjmp .L88
+ 1138 0830 F801      		movw r30,r16
+ 1139 0832 8081      		ld r24,Z
+ 1140 0834 9181      		ldd r25,Z+1
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccmaamz9.s 			page 21
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccF7sRU4.s 			page 21
+>>>>>>> BackLightBranch
+
+
+ 1141 0836 8860      		ori r24,lo8(8)
+ 1142 0838 9183      		std Z+1,r25
+ 1143 083a 8083      		st Z,r24
+ 1144 083c 832F      		mov r24,r19
+ 1145 083e 8295      		swap r24
+ 1146 0840 8F70      		andi r24,0x0f
+ 1147 0842 2AE0      		ldi r18,lo8(10)
+ 1148 0844 829F      		mul r24,r18
+ 1149 0846 C001      		movw r24,r0
+ 1150 0848 1124      		clr r1
+ 1151 084a 3F70      		andi r19,lo8(15)
+ 1152 084c 830F      		add r24,r19
+ 1153 084e 911D      		adc r25,__zero_reg__
+ 1154 0850 F701      		movw r30,r14
+ 1155 0852 9783      		std Z+7,r25
+ 1156 0854 8683      		std Z+6,r24
+ 1157               	.L88:
+ 1158 0856 3D81      		ldd r19,Y+5
+ 1159 0858 37FF      		sbrs r19,7
+ 1160 085a 00C0      		rjmp .L90
+ 1161 085c F801      		movw r30,r16
+ 1162 085e 8081      		ld r24,Z
+ 1163 0860 9181      		ldd r25,Z+1
+ 1164 0862 8061      		ori r24,lo8(16)
+ 1165 0864 9183      		std Z+1,r25
+ 1166 0866 8083      		st Z,r24
+ 1167 0868 832F      		mov r24,r19
+ 1168 086a 8295      		swap r24
+ 1169 086c 8F70      		andi r24,0x0f
+ 1170 086e 2AE0      		ldi r18,lo8(10)
+ 1171 0870 829F      		mul r24,r18
+ 1172 0872 C001      		movw r24,r0
+ 1173 0874 1124      		clr r1
+ 1174 0876 3F70      		andi r19,lo8(15)
+ 1175 0878 830F      		add r24,r19
+ 1176 087a 911D      		adc r25,__zero_reg__
+ 1177 087c 0197      		sbiw r24,1
+ 1178 087e F701      		movw r30,r14
+ 1179 0880 9187      		std Z+9,r25
+ 1180 0882 8087      		std Z+8,r24
+ 1181               	.L90:
+ 1182 0884 3F81      		ldd r19,Y+7
+ 1183 0886 37FF      		sbrs r19,7
+ 1184 0888 00C0      		rjmp .L80
+ 1185 088a F801      		movw r30,r16
+ 1186 088c 8081      		ld r24,Z
+ 1187 088e 9181      		ldd r25,Z+1
+ 1188 0890 8068      		ori r24,lo8(128)
+ 1189 0892 9183      		std Z+1,r25
+ 1190 0894 8083      		st Z,r24
+ 1191 0896 832F      		mov r24,r19
+ 1192 0898 8295      		swap r24
+ 1193 089a 8F70      		andi r24,0x0f
+ 1194 089c 2AE0      		ldi r18,lo8(10)
+ 1195 089e 829F      		mul r24,r18
+ 1196 08a0 C001      		movw r24,r0
+ 1197 08a2 1124      		clr r1
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccmaamz9.s 			page 22
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccF7sRU4.s 			page 22
+>>>>>>> BackLightBranch
+
+
+ 1198 08a4 3F70      		andi r19,lo8(15)
+ 1199 08a6 830F      		add r24,r19
+ 1200 08a8 911D      		adc r25,__zero_reg__
+ 1201 08aa F701      		movw r30,r14
+ 1202 08ac 9587      		std Z+13,r25
+ 1203 08ae 8487      		std Z+12,r24
+ 1204               	.L80:
+ 1205 08b0 CB01      		movw r24,r22
+ 1206               	/* epilogue: frame size=8 */
+ 1207 08b2 2896      		adiw r28,8
+ 1208 08b4 0FB6      		in __tmp_reg__,__SREG__
+ 1209 08b6 F894      		cli
+ 1210 08b8 DEBF      		out __SP_H__,r29
+ 1211 08ba 0FBE      		out __SREG__,__tmp_reg__
+ 1212 08bc CDBF      		out __SP_L__,r28
+ 1213 08be DF91      		pop r29
+ 1214 08c0 CF91      		pop r28
+ 1215 08c2 1F91      		pop r17
+ 1216 08c4 0F91      		pop r16
+ 1217 08c6 FF90      		pop r15
+ 1218 08c8 EF90      		pop r14
+ 1219 08ca 0895      		ret
+ 1220               	/* epilogue end (size=13) */
+ 1221               	/* function X12RtcGetAlarm size 211 (184) */
+ 1222               		.size	X12RtcGetAlarm, .-X12RtcGetAlarm
+ 1223               	.global	X12RtcSetClock
+ 1224               		.type	X12RtcSetClock, @function
+ 1225               	X12RtcSetClock:
+ 1226               	/* prologue: frame size=10 */
+ 1227 08cc 0F93      		push r16
+ 1228 08ce 1F93      		push r17
+ 1229 08d0 CF93      		push r28
+ 1230 08d2 DF93      		push r29
+ 1231 08d4 CDB7      		in r28,__SP_L__
+ 1232 08d6 DEB7      		in r29,__SP_H__
+ 1233 08d8 2A97      		sbiw r28,10
+ 1234 08da 0FB6      		in __tmp_reg__,__SREG__
+ 1235 08dc F894      		cli
+ 1236 08de DEBF      		out __SP_H__,r29
+ 1237 08e0 0FBE      		out __SREG__,__tmp_reg__
+ 1238 08e2 CDBF      		out __SP_L__,r28
+ 1239               	/* prologue end (size=12) */
+ 1240 08e4 8C01      		movw r16,r24
+ 1241 08e6 8AE0      		ldi r24,lo8(10)
+ 1242 08e8 FE01      		movw r30,r28
+ 1243 08ea 3196      		adiw r30,1
+ 1244 08ec 1192      		st Z+,__zero_reg__
+ 1245 08ee 8A95      	        dec r24
+ 1246 08f0 01F4      		brne .-6
+ 1247 08f2 0115      		cp r16,__zero_reg__
+ 1248 08f4 1105      		cpc r17,__zero_reg__
+ 1249 08f6 01F4      		brne .+2
+ 1250 08f8 00C0      		rjmp .L95
+ 1251 08fa 80E3      		ldi r24,lo8(48)
+ 1252 08fc 8A83      		std Y+2,r24
+ 1253 08fe F801      		movw r30,r16
+ 1254 0900 4081      		ld r20,Z
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccmaamz9.s 			page 23
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccF7sRU4.s 			page 23
+>>>>>>> BackLightBranch
+
+
+ 1255 0902 5181      		ldd r21,Z+1
+ 1256 0904 842F      		mov r24,r20
+ 1257 0906 6AE0      		ldi r22,lo8(10)
+ 1258 0908 0E94 0000 		call __udivmodqi4
+ 1259 090c 282F      		mov r18,r24
+ 1260 090e 2295      		swap r18
+ 1261 0910 207F      		andi r18,0xf0
+ 1262 0912 CA01      		movw r24,r20
+ 1263 0914 6AE0      		ldi r22,lo8(10)
+ 1264 0916 70E0      		ldi r23,hi8(10)
+ 1265 0918 0E94 0000 		call __divmodhi4
+ 1266 091c 280F      		add r18,r24
+ 1267 091e 2B83      		std Y+3,r18
+ 1268 0920 4281      		ldd r20,Z+2
+ 1269 0922 5381      		ldd r21,Z+3
+ 1270 0924 842F      		mov r24,r20
+ 1271 0926 6AE0      		ldi r22,lo8(10)
+ 1272 0928 0E94 0000 		call __udivmodqi4
+ 1273 092c 282F      		mov r18,r24
+ 1274 092e 2295      		swap r18
+ 1275 0930 207F      		andi r18,0xf0
+ 1276 0932 CA01      		movw r24,r20
+ 1277 0934 6AE0      		ldi r22,lo8(10)
+ 1278 0936 70E0      		ldi r23,hi8(10)
+ 1279 0938 0E94 0000 		call __divmodhi4
+ 1280 093c 280F      		add r18,r24
+ 1281 093e 2C83      		std Y+4,r18
+ 1282 0940 4481      		ldd r20,Z+4
+ 1283 0942 5581      		ldd r21,Z+5
+ 1284 0944 842F      		mov r24,r20
+ 1285 0946 6AE0      		ldi r22,lo8(10)
+ 1286 0948 0E94 0000 		call __udivmodqi4
+ 1287 094c 282F      		mov r18,r24
+ 1288 094e 2295      		swap r18
+ 1289 0950 207F      		andi r18,0xf0
+ 1290 0952 CA01      		movw r24,r20
+ 1291 0954 6AE0      		ldi r22,lo8(10)
+ 1292 0956 70E0      		ldi r23,hi8(10)
+ 1293 0958 0E94 0000 		call __divmodhi4
+ 1294 095c 280F      		add r18,r24
+ 1295 095e 2068      		ori r18,lo8(-128)
+ 1296 0960 2D83      		std Y+5,r18
+ 1297 0962 4681      		ldd r20,Z+6
+ 1298 0964 5781      		ldd r21,Z+7
+ 1299 0966 842F      		mov r24,r20
+ 1300 0968 6AE0      		ldi r22,lo8(10)
+ 1301 096a 0E94 0000 		call __udivmodqi4
+ 1302 096e 282F      		mov r18,r24
+ 1303 0970 2295      		swap r18
+ 1304 0972 207F      		andi r18,0xf0
+ 1305 0974 CA01      		movw r24,r20
+ 1306 0976 6AE0      		ldi r22,lo8(10)
+ 1307 0978 70E0      		ldi r23,hi8(10)
+ 1308 097a 0E94 0000 		call __divmodhi4
+ 1309 097e 280F      		add r18,r24
+ 1310 0980 2E83      		std Y+6,r18
+ 1311 0982 4085      		ldd r20,Z+8
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccmaamz9.s 			page 24
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccF7sRU4.s 			page 24
+>>>>>>> BackLightBranch
+
+
+ 1312 0984 5185      		ldd r21,Z+9
+ 1313 0986 842F      		mov r24,r20
+ 1314 0988 8F5F      		subi r24,lo8(-(1))
+ 1315 098a 6AE0      		ldi r22,lo8(10)
+ 1316 098c 0E94 0000 		call __udivmodqi4
+ 1317 0990 282F      		mov r18,r24
+ 1318 0992 2295      		swap r18
+ 1319 0994 207F      		andi r18,0xf0
+ 1320 0996 CA01      		movw r24,r20
+ 1321 0998 0196      		adiw r24,1
+ 1322 099a 6AE0      		ldi r22,lo8(10)
+ 1323 099c 70E0      		ldi r23,hi8(10)
+ 1324 099e 0E94 0000 		call __divmodhi4
+ 1325 09a2 280F      		add r18,r24
+ 1326 09a4 2F83      		std Y+7,r18
+ 1327 09a6 4285      		ldd r20,Z+10
+ 1328 09a8 5385      		ldd r21,Z+11
+ 1329 09aa 4436      		cpi r20,100
+ 1330 09ac 5105      		cpc r21,__zero_reg__
+ 1331 09ae 04F0      		brlt .L97
+ 1332 09b0 842F      		mov r24,r20
+ 1333 09b2 8456      		subi r24,lo8(-(-100))
+ 1334 09b4 6AE0      		ldi r22,lo8(10)
+ 1335 09b6 0E94 0000 		call __udivmodqi4
+ 1336 09ba 282F      		mov r18,r24
+ 1337 09bc 2295      		swap r18
+ 1338 09be 207F      		andi r18,0xf0
+ 1339 09c0 CA01      		movw r24,r20
+ 1340 09c2 8456      		subi r24,lo8(-(-100))
+ 1341 09c4 9040      		sbci r25,hi8(-(-100))
+ 1342 09c6 6AE0      		ldi r22,lo8(10)
+ 1343 09c8 70E0      		ldi r23,hi8(10)
+ 1344 09ca 0E94 0000 		call __divmodhi4
+ 1345 09ce 280F      		add r18,r24
+ 1346 09d0 2887      		std Y+8,r18
+ 1347 09d2 80E2      		ldi r24,lo8(32)
+ 1348 09d4 00C0      		rjmp .L101
+ 1349               	.L97:
+ 1350 09d6 842F      		mov r24,r20
+ 1351 09d8 6AE0      		ldi r22,lo8(10)
+ 1352 09da 0E94 0000 		call __udivmodqi4
+ 1353 09de 282F      		mov r18,r24
+ 1354 09e0 2295      		swap r18
+ 1355 09e2 207F      		andi r18,0xf0
+ 1356 09e4 CA01      		movw r24,r20
+ 1357 09e6 6AE0      		ldi r22,lo8(10)
+ 1358 09e8 70E0      		ldi r23,hi8(10)
+ 1359 09ea 0E94 0000 		call __divmodhi4
+ 1360 09ee 280F      		add r18,r24
+ 1361 09f0 2887      		std Y+8,r18
+ 1362 09f2 89E1      		ldi r24,lo8(25)
+ 1363               	.L101:
+ 1364 09f4 8A87      		std Y+10,r24
+ 1365 09f6 F801      		movw r30,r16
+ 1366 09f8 8485      		ldd r24,Z+12
+ 1367 09fa 8987      		std Y+9,r24
+ 1368               	.L95:
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccmaamz9.s 			page 25
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccF7sRU4.s 			page 25
+>>>>>>> BackLightBranch
+
+
+ 1369 09fc 4AE0      		ldi r20,lo8(10)
+ 1370 09fe 50E0      		ldi r21,hi8(10)
+ 1371 0a00 BE01      		movw r22,r28
+ 1372 0a02 6F5F      		subi r22,lo8(-(1))
+ 1373 0a04 7F4F      		sbci r23,hi8(-(1))
+ 1374 0a06 80E0      		ldi r24,lo8(0)
+ 1375 0a08 90E0      		ldi r25,hi8(0)
+ 1376 0a0a 0E94 0000 		call X12RtcWrite
+ 1377               	/* epilogue: frame size=10 */
+ 1378 0a0e 2A96      		adiw r28,10
+ 1379 0a10 0FB6      		in __tmp_reg__,__SREG__
+ 1380 0a12 F894      		cli
+ 1381 0a14 DEBF      		out __SP_H__,r29
+ 1382 0a16 0FBE      		out __SREG__,__tmp_reg__
+ 1383 0a18 CDBF      		out __SP_L__,r28
+ 1384 0a1a DF91      		pop r29
+ 1385 0a1c CF91      		pop r28
+ 1386 0a1e 1F91      		pop r17
+ 1387 0a20 0F91      		pop r16
+ 1388 0a22 0895      		ret
+ 1389               	/* epilogue end (size=11) */
+ 1390               	/* function X12RtcSetClock size 172 (149) */
+ 1391               		.size	X12RtcSetClock, .-X12RtcSetClock
+ 1392               		.lcomm rtc_status,4
+ 1393               	/* File "source/rtc.c": code 1300 = 0x0514 ( 951), prologues 178, epilogues 171 */
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccmaamz9.s 			page 26
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccF7sRU4.s 			page 26
+>>>>>>> BackLightBranch
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 rtc.c
+<<<<<<< HEAD
+C:\Users\Maarten\AppData\Local\Temp/ccmaamz9.s:3      *ABS*:0000003f __SREG__
+C:\Users\Maarten\AppData\Local\Temp/ccmaamz9.s:4      *ABS*:0000003e __SP_H__
+C:\Users\Maarten\AppData\Local\Temp/ccmaamz9.s:5      *ABS*:0000003d __SP_L__
+C:\Users\Maarten\AppData\Local\Temp/ccmaamz9.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\Maarten\AppData\Local\Temp/ccmaamz9.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\Maarten\AppData\Local\Temp/ccmaamz9.s:13     .text:00000000 X12RtcClearStatus
+                             .bss:00000000 rtc_status
+C:\Users\Maarten\AppData\Local\Temp/ccmaamz9.s:41     .text:00000036 X12EepromRead
+C:\Users\Maarten\AppData\Local\Temp/ccmaamz9.s:112    .text:000000b0 X12RtcReadRegs
+C:\Users\Maarten\AppData\Local\Temp/ccmaamz9.s:181    .text:00000126 X12RtcGetStatus
+C:\Users\Maarten\AppData\Local\Temp/ccmaamz9.s:247    .text:000001ac X12Init
+C:\Users\Maarten\AppData\Local\Temp/ccmaamz9.s:283    .text:000001e4 X12RtcGetClock
+C:\Users\Maarten\AppData\Local\Temp/ccmaamz9.s:448    .text:0000031c X12WriteEnable
+C:\Users\Maarten\AppData\Local\Temp/ccmaamz9.s:535    .text:000003b8 X12WaitReady
+C:\Users\Maarten\AppData\Local\Temp/ccmaamz9.s:619    .text:0000044c X12EepromWrite
+C:\Users\Maarten\AppData\Local\Temp/ccmaamz9.s:755    .text:0000054e X12RtcWrite
+C:\Users\Maarten\AppData\Local\Temp/ccmaamz9.s:822    .text:000005c6 X12RtcSetAlarm
+C:\Users\Maarten\AppData\Local\Temp/ccmaamz9.s:1000   .text:00000726 X12RtcGetAlarm
+C:\Users\Maarten\AppData\Local\Temp/ccmaamz9.s:1225   .text:000008cc X12RtcSetClock
+=======
+C:\Users\jeffr\AppData\Local\Temp/ccF7sRU4.s:3      *ABS*:0000003f __SREG__
+C:\Users\jeffr\AppData\Local\Temp/ccF7sRU4.s:4      *ABS*:0000003e __SP_H__
+C:\Users\jeffr\AppData\Local\Temp/ccF7sRU4.s:5      *ABS*:0000003d __SP_L__
+C:\Users\jeffr\AppData\Local\Temp/ccF7sRU4.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\jeffr\AppData\Local\Temp/ccF7sRU4.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\jeffr\AppData\Local\Temp/ccF7sRU4.s:13     .text:00000000 X12RtcClearStatus
+                             .bss:00000000 rtc_status
+C:\Users\jeffr\AppData\Local\Temp/ccF7sRU4.s:41     .text:00000036 X12EepromRead
+C:\Users\jeffr\AppData\Local\Temp/ccF7sRU4.s:112    .text:000000b0 X12RtcReadRegs
+C:\Users\jeffr\AppData\Local\Temp/ccF7sRU4.s:181    .text:00000126 X12RtcGetStatus
+C:\Users\jeffr\AppData\Local\Temp/ccF7sRU4.s:247    .text:000001ac X12Init
+C:\Users\jeffr\AppData\Local\Temp/ccF7sRU4.s:283    .text:000001e4 X12RtcGetClock
+C:\Users\jeffr\AppData\Local\Temp/ccF7sRU4.s:448    .text:0000031c X12WriteEnable
+C:\Users\jeffr\AppData\Local\Temp/ccF7sRU4.s:535    .text:000003b8 X12WaitReady
+C:\Users\jeffr\AppData\Local\Temp/ccF7sRU4.s:619    .text:0000044c X12EepromWrite
+C:\Users\jeffr\AppData\Local\Temp/ccF7sRU4.s:755    .text:0000054e X12RtcWrite
+C:\Users\jeffr\AppData\Local\Temp/ccF7sRU4.s:822    .text:000005c6 X12RtcSetAlarm
+C:\Users\jeffr\AppData\Local\Temp/ccF7sRU4.s:1000   .text:00000726 X12RtcGetAlarm
+C:\Users\jeffr\AppData\Local\Temp/ccF7sRU4.s:1225   .text:000008cc X12RtcSetClock
+>>>>>>> BackLightBranch
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
+TwMasterTransact
+TwInit
+NutSleep
+malloc
+memcpy
+free
+__udivmodqi4
+__divmodhi4

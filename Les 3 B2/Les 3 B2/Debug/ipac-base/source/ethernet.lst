@@ -1,0 +1,366 @@
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccsgVltw.s 			page 1
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccDFRFoG.s 			page 1
+>>>>>>> BackLightBranch
+
+
+   1               		.file	"ethernet.c"
+   2               		.arch atmega2561
+   3               	__SREG__ = 0x3f
+   4               	__SP_H__ = 0x3e
+   5               	__SP_L__ = 0x3d
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  10               		.text
+  11               	.global	showEthernetDetails
+  12               		.type	showEthernetDetails, @function
+  13               	showEthernetDetails:
+  14               	/* prologue: frame size=0 */
+  15 0000 1F93      		push r17
+  16               	/* prologue end (size=1) */
+  17 0002 80E0      		ldi r24,lo8(confnet+1)
+  18 0004 90E0      		ldi r25,hi8(confnet+1)
+  19 0006 9F93      		push r25
+  20 0008 8F93      		push r24
+  21 000a 80E0      		ldi r24,lo8(__c.2257)
+  22 000c 90E0      		ldi r25,hi8(__c.2257)
+  23 000e 9F93      		push r25
+  24 0010 8F93      		push r24
+  25 0012 16EC      		ldi r17,lo8(-58)
+  26 0014 1F93      		push r17
+  27 0016 0E94 0000 		call LogMsg_P
+  28 001a 6091 0000 		lds r22,confnet+16
+  29 001e 7091 0000 		lds r23,(confnet+16)+1
+  30 0022 8091 0000 		lds r24,(confnet+16)+2
+  31 0026 9091 0000 		lds r25,(confnet+16)+3
+  32 002a 0E94 0000 		call inet_ntoa
+  33 002e 9F93      		push r25
+  34 0030 8F93      		push r24
+  35 0032 80E0      		ldi r24,lo8(__c.2259)
+  36 0034 90E0      		ldi r25,hi8(__c.2259)
+  37 0036 9F93      		push r25
+  38 0038 8F93      		push r24
+  39 003a 1F93      		push r17
+  40 003c 0E94 0000 		call LogMsg_P
+  41 0040 6091 0000 		lds r22,confnet+20
+  42 0044 7091 0000 		lds r23,(confnet+20)+1
+  43 0048 8091 0000 		lds r24,(confnet+20)+2
+  44 004c 9091 0000 		lds r25,(confnet+20)+3
+  45 0050 0E94 0000 		call inet_ntoa
+  46 0054 9F93      		push r25
+  47 0056 8F93      		push r24
+  48 0058 80E0      		ldi r24,lo8(__c.2261)
+  49 005a 90E0      		ldi r25,hi8(__c.2261)
+  50 005c 9F93      		push r25
+  51 005e 8F93      		push r24
+  52 0060 1F93      		push r17
+  53 0062 0E94 0000 		call LogMsg_P
+  54 0066 6091 0000 		lds r22,confnet+24
+  55 006a 7091 0000 		lds r23,(confnet+24)+1
+  56 006e 8091 0000 		lds r24,(confnet+24)+2
+  57 0072 9091 0000 		lds r25,(confnet+24)+3
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccsgVltw.s 			page 2
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccDFRFoG.s 			page 2
+>>>>>>> BackLightBranch
+
+
+  58 0076 0E94 0000 		call inet_ntoa
+  59 007a 9F93      		push r25
+  60 007c 8F93      		push r24
+  61 007e 80E0      		ldi r24,lo8(__c.2263)
+  62 0080 90E0      		ldi r25,hi8(__c.2263)
+  63 0082 9F93      		push r25
+  64 0084 8F93      		push r24
+  65 0086 1F93      		push r17
+  66 0088 0E94 0000 		call LogMsg_P
+  67 008c 8DB7      		in r24,__SP_L__
+  68 008e 9EB7      		in r25,__SP_H__
+  69 0090 4496      		adiw r24,20
+  70 0092 0FB6      		in __tmp_reg__,__SREG__
+  71 0094 F894      		cli
+  72 0096 9EBF      		out __SP_H__,r25
+  73 0098 0FBE      		out __SREG__,__tmp_reg__
+  74 009a 8DBF      		out __SP_L__,r24
+  75               	/* epilogue: frame size=0 */
+  76 009c 1F91      		pop r17
+  77 009e 0895      		ret
+  78               	/* epilogue end (size=2) */
+  79               	/* function showEthernetDetails size 80 (77) */
+  80               		.size	showEthernetDetails, .-showEthernetDetails
+  81               	.global	ethernetInit
+  82               		.type	ethernetInit, @function
+  83               	ethernetInit:
+  84               	/* prologue: frame size=6 */
+  85 00a0 1F93      		push r17
+  86 00a2 CF93      		push r28
+  87 00a4 DF93      		push r29
+  88 00a6 CDB7      		in r28,__SP_L__
+  89 00a8 DEB7      		in r29,__SP_H__
+  90 00aa 2697      		sbiw r28,6
+  91 00ac 0FB6      		in __tmp_reg__,__SREG__
+  92 00ae F894      		cli
+  93 00b0 DEBF      		out __SP_H__,r29
+  94 00b2 0FBE      		out __SREG__,__tmp_reg__
+  95 00b4 CDBF      		out __SP_L__,r28
+  96               	/* prologue end (size=11) */
+  97 00b6 45E0      		ldi r20,lo8(5)
+  98 00b8 60E0      		ldi r22,lo8(-15616)
+  99 00ba 73EC      		ldi r23,hi8(-15616)
+ 100 00bc 80E0      		ldi r24,lo8(devEth0)
+ 101 00be 90E0      		ldi r25,hi8(devEth0)
+ 102 00c0 0E94 0000 		call NutRegisterDevice
+ 103 00c4 892B      		or r24,r25
+ 104 00c6 01F0      		breq .L4
+ 105 00c8 80E0      		ldi r24,lo8(__c.2240)
+ 106 00ca 90E0      		ldi r25,hi8(__c.2240)
+ 107 00cc 9F93      		push r25
+ 108 00ce 8F93      		push r24
+ 109 00d0 83EC      		ldi r24,lo8(-61)
+ 110 00d2 8F93      		push r24
+ 111 00d4 0E94 0000 		call LogMsg_P
+ 112 00d8 1092 0000 		sts (result)+1,__zero_reg__
+ 113 00dc 1092 0000 		sts result,__zero_reg__
+ 114 00e0 0F90      		pop __tmp_reg__
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccsgVltw.s 			page 3
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccDFRFoG.s 			page 3
+>>>>>>> BackLightBranch
+
+
+ 115 00e2 0F90      		pop __tmp_reg__
+ 116 00e4 0F90      	 	pop __tmp_reg__
+ 117               	.L4:
+ 118 00e6 DE01      		movw r26,r28
+ 119 00e8 1196      		adiw r26,1
+ 120 00ea E0E0      		ldi r30,lo8(C.0.2252)
+ 121 00ec F0E0      		ldi r31,hi8(C.0.2252)
+ 122 00ee 86E0      		ldi r24,lo8(6)
+ 123               	.L6:
+ 124 00f0 0190      		ld r0,Z+
+ 125 00f2 0D92      		st X+,r0
+ 126 00f4 8150      		subi r24,lo8(-(-1))
+ 127 00f6 01F4      		brne .L6
+ 128 00f8 40E1      		ldi r20,lo8(10000)
+ 129 00fa 57E2      		ldi r21,hi8(10000)
+ 130 00fc 60E0      		ldi r22,lo8(0)
+ 131 00fe 70E0      		ldi r23,hi8(0)
+ 132 0100 80E0      		ldi r24,lo8(eth0IfName.2242)
+ 133 0102 90E0      		ldi r25,hi8(eth0IfName.2242)
+ 134 0104 0E94 0000 		call NutDhcpIfConfig
+ 135 0108 892B      		or r24,r25
+ 136 010a 01F0      		breq .L7
+ 137 010c 80E0      		ldi r24,lo8(__c.2245)
+ 138 010e 90E0      		ldi r25,hi8(__c.2245)
+ 139 0110 9F93      		push r25
+ 140 0112 8F93      		push r24
+ 141 0114 13EC      		ldi r17,lo8(-61)
+ 142 0116 1F93      		push r17
+ 143 0118 0E94 0000 		call LogMsg_P
+ 144 011c 40E0      		ldi r20,lo8(0)
+ 145 011e 50E0      		ldi r21,hi8(0)
+ 146 0120 BE01      		movw r22,r28
+ 147 0122 6F5F      		subi r22,lo8(-(1))
+ 148 0124 7F4F      		sbci r23,hi8(-(1))
+ 149 0126 80E0      		ldi r24,lo8(eth0IfName.2242)
+ 150 0128 90E0      		ldi r25,hi8(eth0IfName.2242)
+ 151 012a 0E94 0000 		call NutDhcpIfConfig
+ 152 012e 0F90      		pop __tmp_reg__
+ 153 0130 0F90      		pop __tmp_reg__
+ 154 0132 0F90      	 	pop __tmp_reg__
+ 155 0134 892B      		or r24,r25
+ 156 0136 01F0      		breq .L7
+ 157 0138 80E0      		ldi r24,lo8(__c.2247)
+ 158 013a 90E0      		ldi r25,hi8(__c.2247)
+ 159 013c 9F93      		push r25
+ 160 013e 8F93      		push r24
+ 161 0140 1F93      		push r17
+ 162 0142 0E94 0000 		call LogMsg_P
+ 163 0146 1092 0000 		sts (result)+1,__zero_reg__
+ 164 014a 1092 0000 		sts result,__zero_reg__
+ 165 014e 0F90      		pop __tmp_reg__
+ 166 0150 0F90      		pop __tmp_reg__
+ 167 0152 0F90      	 	pop __tmp_reg__
+ 168               	.L7:
+ 169 0154 80E0      		ldi r24,lo8(__c.2249)
+ 170 0156 90E0      		ldi r25,hi8(__c.2249)
+ 171 0158 9F93      		push r25
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccsgVltw.s 			page 4
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccDFRFoG.s 			page 4
+>>>>>>> BackLightBranch
+
+
+ 172 015a 8F93      		push r24
+ 173 015c 86EC      		ldi r24,lo8(-58)
+ 174 015e 8F93      		push r24
+ 175 0160 0E94 0000 		call LogMsg_P
+ 176 0164 0F90      		pop __tmp_reg__
+ 177 0166 0F90      		pop __tmp_reg__
+ 178 0168 0F90      	 	pop __tmp_reg__
+ 179               	/* epilogue: frame size=6 */
+ 180 016a 2696      		adiw r28,6
+ 181 016c 0FB6      		in __tmp_reg__,__SREG__
+ 182 016e F894      		cli
+ 183 0170 DEBF      		out __SP_H__,r29
+ 184 0172 0FBE      		out __SREG__,__tmp_reg__
+ 185 0174 CDBF      		out __SP_L__,r28
+ 186 0176 DF91      		pop r29
+ 187 0178 CF91      		pop r28
+ 188 017a 1F91      		pop r17
+ 189 017c 0895      		ret
+ 190               	/* epilogue end (size=10) */
+ 191               	/* function ethernetInit size 112 (91) */
+ 192               		.size	ethernetInit, .-ethernetInit
+ 193               	.global	result
+ 194               		.data
+ 195               		.type	result, @object
+ 196               		.size	result, 2
+ 197               	result:
+ 198 0000 0100      		.word	1
+ 199               		.section	.progmem.data,"a",@progbits
+ 200               		.type	__c.2263, @object
+ 201               		.size	__c.2263, 15
+ 202               	__c.2263:
+ 203 0000 6966 5F67 		.string	"if_gateway: %s"
+ 203      6174 6577 
+ 203      6179 3A20 
+ 203      2573 00
+ 204               		.type	__c.2261, @object
+ 205               		.size	__c.2261, 12
+ 206               	__c.2261:
+ 207 000f 6966 5F6D 		.string	"if_mask: %s"
+ 207      6173 6B3A 
+ 207      2025 7300 
+ 208               		.type	__c.2259, @object
+ 209               		.size	__c.2259, 12
+ 210               	__c.2259:
+ 211 001b 6966 5F61 		.string	"if_addr: %s"
+ 211      6464 723A 
+ 211      2025 7300 
+ 212               		.type	__c.2257, @object
+ 213               		.size	__c.2257, 12
+ 214               	__c.2257:
+ 215 0027 6966 5F6E 		.string	"if_name: %s"
+ 215      616D 653A 
+ 215      2025 7300 
+ 216               		.type	__c.2249, @object
+ 217               		.size	__c.2249, 22
+ 218               	__c.2249:
+ 219 0033 4574 6865 		.string	"Ethernet Ready to Use"
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccsgVltw.s 			page 5
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccDFRFoG.s 			page 5
+>>>>>>> BackLightBranch
+
+
+ 219      726E 6574 
+ 219      2052 6561 
+ 219      6479 2074 
+ 219      6F20 5573 
+ 220               		.type	__c.2247, @object
+ 221               		.size	__c.2247, 24
+ 222               	__c.2247:
+ 223 0049 4572 726F 		.string	"Error NutDhcpIfConfig()"
+ 223      7220 4E75 
+ 223      7444 6863 
+ 223      7049 6643 
+ 223      6F6E 6669 
+ 224               		.type	__c.2245, @object
+ 225               		.size	__c.2245, 28
+ 226               	__c.2245:
+ 227 0061 4572 726F 		.string	"Error: no stored Macaddress"
+ 227      723A 206E 
+ 227      6F20 7374 
+ 227      6F72 6564 
+ 227      204D 6163 
+ 228               		.type	__c.2240, @object
+ 229               		.size	__c.2240, 30
+ 230               	__c.2240:
+ 231 007d 4572 726F 		.string	"Error: >> NutRegisterDevice()"
+ 231      723A 203E 
+ 231      3E20 4E75 
+ 231      7452 6567 
+ 231      6973 7465 
+ 232               		.data
+ 233               		.type	eth0IfName.2242, @object
+ 234               		.size	eth0IfName.2242, 9
+ 235               	eth0IfName.2242:
+ 236 0002 6574 6830 		.string	"eth0"
+ 236      00
+ 237 0007 0000 0000 		.skip 4,0
+ 238               		.type	C.0.2252, @object
+ 239               		.size	C.0.2252, 6
+ 240               	C.0.2252:
+ 241 000b 00        		.byte	0
+ 242 000c 07        		.byte	7
+ 243 000d 67        		.byte	103
+ 244 000e 40        		.byte	64
+ 245 000f 04        		.byte	4
+ 246 0010 02        		.byte	2
+ 247               	/* File "source/ethernet.c": code  192 = 0x00c0 ( 168), prologues  12, epilogues  12 */
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccsgVltw.s 			page 6
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccDFRFoG.s 			page 6
+>>>>>>> BackLightBranch
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 ethernet.c
+<<<<<<< HEAD
+C:\Users\Maarten\AppData\Local\Temp/ccsgVltw.s:3      *ABS*:0000003f __SREG__
+C:\Users\Maarten\AppData\Local\Temp/ccsgVltw.s:4      *ABS*:0000003e __SP_H__
+C:\Users\Maarten\AppData\Local\Temp/ccsgVltw.s:5      *ABS*:0000003d __SP_L__
+C:\Users\Maarten\AppData\Local\Temp/ccsgVltw.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\Maarten\AppData\Local\Temp/ccsgVltw.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\Maarten\AppData\Local\Temp/ccsgVltw.s:13     .text:00000000 showEthernetDetails
+C:\Users\Maarten\AppData\Local\Temp/ccsgVltw.s:214    .progmem.data:00000027 __c.2257
+C:\Users\Maarten\AppData\Local\Temp/ccsgVltw.s:210    .progmem.data:0000001b __c.2259
+C:\Users\Maarten\AppData\Local\Temp/ccsgVltw.s:206    .progmem.data:0000000f __c.2261
+C:\Users\Maarten\AppData\Local\Temp/ccsgVltw.s:202    .progmem.data:00000000 __c.2263
+C:\Users\Maarten\AppData\Local\Temp/ccsgVltw.s:83     .text:000000a0 ethernetInit
+C:\Users\Maarten\AppData\Local\Temp/ccsgVltw.s:230    .progmem.data:0000007d __c.2240
+C:\Users\Maarten\AppData\Local\Temp/ccsgVltw.s:197    .data:00000000 result
+C:\Users\Maarten\AppData\Local\Temp/ccsgVltw.s:240    .data:0000000b C.0.2252
+C:\Users\Maarten\AppData\Local\Temp/ccsgVltw.s:235    .data:00000002 eth0IfName.2242
+C:\Users\Maarten\AppData\Local\Temp/ccsgVltw.s:226    .progmem.data:00000061 __c.2245
+C:\Users\Maarten\AppData\Local\Temp/ccsgVltw.s:222    .progmem.data:00000049 __c.2247
+C:\Users\Maarten\AppData\Local\Temp/ccsgVltw.s:218    .progmem.data:00000033 __c.2249
+=======
+C:\Users\jeffr\AppData\Local\Temp/ccDFRFoG.s:3      *ABS*:0000003f __SREG__
+C:\Users\jeffr\AppData\Local\Temp/ccDFRFoG.s:4      *ABS*:0000003e __SP_H__
+C:\Users\jeffr\AppData\Local\Temp/ccDFRFoG.s:5      *ABS*:0000003d __SP_L__
+C:\Users\jeffr\AppData\Local\Temp/ccDFRFoG.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\jeffr\AppData\Local\Temp/ccDFRFoG.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\jeffr\AppData\Local\Temp/ccDFRFoG.s:13     .text:00000000 showEthernetDetails
+C:\Users\jeffr\AppData\Local\Temp/ccDFRFoG.s:214    .progmem.data:00000027 __c.2257
+C:\Users\jeffr\AppData\Local\Temp/ccDFRFoG.s:210    .progmem.data:0000001b __c.2259
+C:\Users\jeffr\AppData\Local\Temp/ccDFRFoG.s:206    .progmem.data:0000000f __c.2261
+C:\Users\jeffr\AppData\Local\Temp/ccDFRFoG.s:202    .progmem.data:00000000 __c.2263
+C:\Users\jeffr\AppData\Local\Temp/ccDFRFoG.s:83     .text:000000a0 ethernetInit
+C:\Users\jeffr\AppData\Local\Temp/ccDFRFoG.s:230    .progmem.data:0000007d __c.2240
+C:\Users\jeffr\AppData\Local\Temp/ccDFRFoG.s:197    .data:00000000 result
+C:\Users\jeffr\AppData\Local\Temp/ccDFRFoG.s:240    .data:0000000b C.0.2252
+C:\Users\jeffr\AppData\Local\Temp/ccDFRFoG.s:235    .data:00000002 eth0IfName.2242
+C:\Users\jeffr\AppData\Local\Temp/ccDFRFoG.s:226    .progmem.data:00000061 __c.2245
+C:\Users\jeffr\AppData\Local\Temp/ccDFRFoG.s:222    .progmem.data:00000049 __c.2247
+C:\Users\jeffr\AppData\Local\Temp/ccDFRFoG.s:218    .progmem.data:00000033 __c.2249
+>>>>>>> BackLightBranch
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
+confnet
+LogMsg_P
+inet_ntoa
+devEth0
+NutRegisterDevice
+NutDhcpIfConfig

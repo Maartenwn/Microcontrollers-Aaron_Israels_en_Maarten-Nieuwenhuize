@@ -1,0 +1,262 @@
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccg4tmbY.s 			page 1
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccoQWVPg.s 			page 1
+>>>>>>> BackLightBranch
+
+
+   1               		.file	"state_welcomescreen.c"
+   2               		.arch atmega2561
+   3               	__SREG__ = 0x3f
+   4               	__SP_H__ = 0x3e
+   5               	__SP_L__ = 0x3d
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  10               		.text
+  11               	.global	welcomescreen_keypressed
+  12               		.type	welcomescreen_keypressed, @function
+  13               	welcomescreen_keypressed:
+  14               	/* prologue: frame size=0 */
+  15               	/* prologue end (size=0) */
+<<<<<<< HEAD
+  16               	/* epilogue: frame size=0 */
+  17 0000 0895      		ret
+  18               	/* epilogue end (size=1) */
+  19               	/* function welcomescreen_keypressed size 1 (0) */
+  20               		.size	welcomescreen_keypressed, .-welcomescreen_keypressed
+  21               	.global	welcomescreen_exit
+  22               		.type	welcomescreen_exit, @function
+  23               	welcomescreen_exit:
+  24               	/* prologue: frame size=0 */
+  25               	/* prologue end (size=0) */
+  26 0002 8091 0000 		lds r24,previousTime
+  27 0006 9091 0000 		lds r25,(previousTime)+1
+  28 000a 0E94 0000 		call free
+  29 000e 80E0      		ldi r24,lo8(0)
+  30 0010 0E94 0000 		call LcdBackLight
+  31               	/* epilogue: frame size=0 */
+  32 0014 0895      		ret
+  33               	/* epilogue end (size=1) */
+  34               	/* function welcomescreen_exit size 10 (9) */
+  35               		.size	welcomescreen_exit, .-welcomescreen_exit
+  36               	.global	welcomescreen_loop
+  37               		.type	welcomescreen_loop, @function
+  38               	welcomescreen_loop:
+  39               	/* prologue: frame size=0 */
+  40 0016 0F93      		push r16
+  41 0018 1F93      		push r17
+  42 001a CF93      		push r28
+  43 001c DF93      		push r29
+  44               	/* prologue end (size=4) */
+  45 001e 8B01      		movw r16,r22
+  46 0020 EA01      		movw r28,r20
+  47 0022 8091 0000 		lds r24,previousTime
+  48 0026 9091 0000 		lds r25,(previousTime)+1
+  49 002a 892B      		or r24,r25
+  50 002c 01F4      		brne .L6
+  51 002e 82E1      		ldi r24,lo8(18)
+  52 0030 90E0      		ldi r25,hi8(18)
+  53 0032 0E94 0000 		call malloc
+  54 0036 9093 0000 		sts (previousTime)+1,r25
+  55 003a 8093 0000 		sts previousTime,r24
+  56 003e DC01      		movw r26,r24
+  57 0040 FE01      		movw r30,r28
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccg4tmbY.s 			page 2
+
+
+  58 0042 82E1      		ldi r24,lo8(18)
+  59               	.L8:
+  60 0044 0190      		ld r0,Z+
+  61 0046 0D92      		st X+,r0
+  62 0048 8150      		subi r24,lo8(-(-1))
+  63 004a 01F4      		brne .L8
+  64               	.L6:
+  65 004c 6091 0000 		lds r22,previousTime
+  66 0050 7091 0000 		lds r23,(previousTime)+1
+  67 0054 CE01      		movw r24,r28
+  68 0056 0E94 0000 		call getSecondsBetween
+  69 005a 0697      		sbiw r24,6
+  70 005c 04F0      		brlt .L11
+  71 005e 40E0      		ldi r20,lo8(0)
+  72 0060 50E0      		ldi r21,hi8(0)
+  73 0062 60E0      		ldi r22,lo8(0)
+  74 0064 70E0      		ldi r23,hi8(0)
+  75 0066 81E0      		ldi r24,lo8(1)
+  76 0068 90E0      		ldi r25,hi8(1)
+  77 006a F801      		movw r30,r16
+  78 006c 1995      		eicall
+  79               	.L11:
+  80               	/* epilogue: frame size=0 */
+  81 006e DF91      		pop r29
+  82 0070 CF91      		pop r28
+  83 0072 1F91      		pop r17
+  84 0074 0F91      		pop r16
+  85 0076 0895      		ret
+  86               	/* epilogue end (size=5) */
+  87               	/* function welcomescreen_loop size 51 (42) */
+  88               		.size	welcomescreen_loop, .-welcomescreen_loop
+  89               	.global	welcomescreen_entry
+  90               		.type	welcomescreen_entry, @function
+  91               	welcomescreen_entry:
+  92               	/* prologue: frame size=0 */
+  93               	/* prologue end (size=0) */
+  94 0078 80E0      		ldi r24,lo8(text)
+  95 007a 90E0      		ldi r25,hi8(text)
+  96 007c 0E94 0000 		call LcdDisplayStr
+  97 0080 81E0      		ldi r24,lo8(1)
+  98 0082 0E94 0000 		call LcdBackLight
+  99               	/* epilogue: frame size=0 */
+ 100 0086 0895      		ret
+ 101               	/* epilogue end (size=1) */
+ 102               	/* function welcomescreen_entry size 8 (7) */
+ 103               		.size	welcomescreen_entry, .-welcomescreen_entry
+ 104               	.global	text
+ 105               		.data
+ 106               		.type	text, @object
+ 107               		.size	text, 32
+ 108               	text:
+ 109 0000 2020 2057 		.string	"   Welcome..."
+ 109      656C 636F 
+ 109      6D65 2E2E 
+ 109      2E00 
+ 110 000e 0000 0000 		.skip 18,0
+ 110      0000 0000 
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccg4tmbY.s 			page 3
+
+
+ 110      0000 0000 
+ 110      0000 0000 
+ 110      0000 
+ 111               		.comm hasChangedSinceLoop,2,1
+ 112               		.comm previousTime,2,1
+ 113               	/* File "source/state_welcomescreen.c": code   70 = 0x0046 (  58), prologues   4, epilogues   8 */
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccg4tmbY.s 			page 4
+=======
+  16 0000 FB01      		movw r30,r22
+  17 0002 0997      		sbiw r24,9
+  18 0004 01F4      		brne .L4
+  19 0006 40E0      		ldi r20,lo8(0)
+  20 0008 50E0      		ldi r21,hi8(0)
+  21 000a 60E0      		ldi r22,lo8(0)
+  22 000c 70E0      		ldi r23,hi8(0)
+  23 000e 83E0      		ldi r24,lo8(3)
+  24 0010 90E0      		ldi r25,hi8(3)
+  25 0012 1995      		eicall
+  26               	.L4:
+  27 0014 0895      		ret
+  28               	/* epilogue: frame size=0 */
+  29               	/* epilogue: noreturn */
+  30               	/* epilogue end (size=0) */
+  31               	/* function welcomescreen_keypressed size 12 (12) */
+  32               		.size	welcomescreen_keypressed, .-welcomescreen_keypressed
+  33               	.global	welcomescreen_loop
+  34               		.type	welcomescreen_loop, @function
+  35               	welcomescreen_loop:
+  36               	/* prologue: frame size=0 */
+  37               	/* prologue end (size=0) */
+  38 0016 8091 0000 		lds r24,hasChangedSinceLoop
+  39 001a 9091 0000 		lds r25,(hasChangedSinceLoop)+1
+  40 001e 892B      		or r24,r25
+  41 0020 01F0      		breq .L8
+  42 0022 1092 0000 		sts (hasChangedSinceLoop)+1,__zero_reg__
+  43 0026 1092 0000 		sts hasChangedSinceLoop,__zero_reg__
+  44               	.L8:
+  45 002a 0895      		ret
+  46               	/* epilogue: frame size=0 */
+  47               	/* epilogue: noreturn */
+  48               	/* epilogue end (size=0) */
+  49               	/* function welcomescreen_loop size 11 (11) */
+  50               		.size	welcomescreen_loop, .-welcomescreen_loop
+  51               	.global	welcomescreen_exit
+  52               		.type	welcomescreen_exit, @function
+  53               	welcomescreen_exit:
+  54               	/* prologue: frame size=0 */
+  55               	/* prologue end (size=0) */
+  56 002c 1092 0000 		sts (amountoOfLoops)+1,__zero_reg__
+  57 0030 1092 0000 		sts amountoOfLoops,__zero_reg__
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccoQWVPg.s 			page 2
+
+
+  58 0034 1092 0000 		sts (hasChangedSinceLoop)+1,__zero_reg__
+  59 0038 1092 0000 		sts hasChangedSinceLoop,__zero_reg__
+  60               	/* epilogue: frame size=0 */
+  61 003c 0895      		ret
+  62               	/* epilogue end (size=1) */
+  63               	/* function welcomescreen_exit size 9 (8) */
+  64               		.size	welcomescreen_exit, .-welcomescreen_exit
+  65               	.global	welcomescreen_entry
+  66               		.type	welcomescreen_entry, @function
+  67               	welcomescreen_entry:
+  68               	/* prologue: frame size=0 */
+  69               	/* prologue end (size=0) */
+  70 003e 1092 0000 		sts (hasChangedSinceLoop)+1,__zero_reg__
+  71 0042 1092 0000 		sts hasChangedSinceLoop,__zero_reg__
+  72 0046 1092 0000 		sts (amountoOfLoops)+1,__zero_reg__
+  73 004a 1092 0000 		sts amountoOfLoops,__zero_reg__
+  74 004e 80E0      		ldi r24,lo8(text)
+  75 0050 90E0      		ldi r25,hi8(text)
+  76 0052 0E94 0000 		call LcdDisplayStr
+  77               	/* epilogue: frame size=0 */
+  78 0056 0895      		ret
+  79               	/* epilogue end (size=1) */
+  80               	/* function welcomescreen_entry size 13 (12) */
+  81               		.size	welcomescreen_entry, .-welcomescreen_entry
+  82               	.global	text
+  83               		.data
+  84               		.type	text, @object
+  85               		.size	text, 32
+  86               	text:
+  87 0000 5765 6C63 		.string	"Welcome"
+  87      6F6D 6500 
+  88 0008 0000 0000 		.skip 24,0
+  88      0000 0000 
+  88      0000 0000 
+  88      0000 0000 
+  88      0000 0000 
+  89               		.comm hasChangedSinceLoop,2,1
+  90               		.comm amountoOfLoops,2,1
+  91               	/* File "source/state_welcomescreen.c": code   45 = 0x002d (  43), prologues   0, epilogues   2 */
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccoQWVPg.s 			page 3
+>>>>>>> BackLightBranch
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 state_welcomescreen.c
+<<<<<<< HEAD
+C:\Users\Maarten\AppData\Local\Temp/ccg4tmbY.s:3      *ABS*:0000003f __SREG__
+C:\Users\Maarten\AppData\Local\Temp/ccg4tmbY.s:4      *ABS*:0000003e __SP_H__
+C:\Users\Maarten\AppData\Local\Temp/ccg4tmbY.s:5      *ABS*:0000003d __SP_L__
+C:\Users\Maarten\AppData\Local\Temp/ccg4tmbY.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\Maarten\AppData\Local\Temp/ccg4tmbY.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\Maarten\AppData\Local\Temp/ccg4tmbY.s:13     .text:00000000 welcomescreen_keypressed
+C:\Users\Maarten\AppData\Local\Temp/ccg4tmbY.s:23     .text:00000002 welcomescreen_exit
+                            *COM*:00000002 previousTime
+C:\Users\Maarten\AppData\Local\Temp/ccg4tmbY.s:38     .text:00000016 welcomescreen_loop
+C:\Users\Maarten\AppData\Local\Temp/ccg4tmbY.s:91     .text:00000078 welcomescreen_entry
+C:\Users\Maarten\AppData\Local\Temp/ccg4tmbY.s:108    .data:00000000 text
+                            *COM*:00000002 hasChangedSinceLoop
+=======
+C:\Users\jeffr\AppData\Local\Temp/ccoQWVPg.s:3      *ABS*:0000003f __SREG__
+C:\Users\jeffr\AppData\Local\Temp/ccoQWVPg.s:4      *ABS*:0000003e __SP_H__
+C:\Users\jeffr\AppData\Local\Temp/ccoQWVPg.s:5      *ABS*:0000003d __SP_L__
+C:\Users\jeffr\AppData\Local\Temp/ccoQWVPg.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\jeffr\AppData\Local\Temp/ccoQWVPg.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\jeffr\AppData\Local\Temp/ccoQWVPg.s:13     .text:00000000 welcomescreen_keypressed
+C:\Users\jeffr\AppData\Local\Temp/ccoQWVPg.s:35     .text:00000016 welcomescreen_loop
+                            *COM*:00000002 hasChangedSinceLoop
+C:\Users\jeffr\AppData\Local\Temp/ccoQWVPg.s:53     .text:0000002c welcomescreen_exit
+                            *COM*:00000002 amountoOfLoops
+C:\Users\jeffr\AppData\Local\Temp/ccoQWVPg.s:67     .text:0000003e welcomescreen_entry
+C:\Users\jeffr\AppData\Local\Temp/ccoQWVPg.s:86     .data:00000000 text
+>>>>>>> BackLightBranch
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
+free
+LcdBackLight
+malloc
+getSecondsBetween
+LcdDisplayStr

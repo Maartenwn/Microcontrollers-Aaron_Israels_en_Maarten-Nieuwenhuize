@@ -1,0 +1,92 @@
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccG9lfpc.s 			page 1
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccVkiagC.s 			page 1
+>>>>>>> BackLightBranch
+
+
+   1               		.file	"state_typeOfAlarmscreen.c"
+   2               		.arch atmega2561
+   3               	__SREG__ = 0x3f
+   4               	__SP_H__ = 0x3e
+   5               	__SP_L__ = 0x3d
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  10               		.text
+  11               	.global	typeOfAlarmscreen_keypressed
+  12               		.type	typeOfAlarmscreen_keypressed, @function
+  13               	typeOfAlarmscreen_keypressed:
+  14               	/* prologue: frame size=0 */
+  15               	/* prologue end (size=0) */
+  16               	/* epilogue: frame size=0 */
+  17 0000 0895      		ret
+  18               	/* epilogue end (size=1) */
+  19               	/* function typeOfAlarmscreen_keypressed size 1 (0) */
+  20               		.size	typeOfAlarmscreen_keypressed, .-typeOfAlarmscreen_keypressed
+  21               	.global	typeOfAlarmscreen_entry
+  22               		.type	typeOfAlarmscreen_entry, @function
+  23               	typeOfAlarmscreen_entry:
+  24               	/* prologue: frame size=0 */
+  25               	/* prologue end (size=0) */
+  26               	/* epilogue: frame size=0 */
+  27 0002 0895      		ret
+  28               	/* epilogue end (size=1) */
+  29               	/* function typeOfAlarmscreen_entry size 1 (0) */
+  30               		.size	typeOfAlarmscreen_entry, .-typeOfAlarmscreen_entry
+  31               	.global	typeOfAlarmscreen_loop
+  32               		.type	typeOfAlarmscreen_loop, @function
+  33               	typeOfAlarmscreen_loop:
+  34               	/* prologue: frame size=0 */
+  35               	/* prologue end (size=0) */
+  36               	/* epilogue: frame size=0 */
+  37 0004 0895      		ret
+  38               	/* epilogue end (size=1) */
+  39               	/* function typeOfAlarmscreen_loop size 1 (0) */
+  40               		.size	typeOfAlarmscreen_loop, .-typeOfAlarmscreen_loop
+  41               	.global	typeOfAlarmscreen_exit
+  42               		.type	typeOfAlarmscreen_exit, @function
+  43               	typeOfAlarmscreen_exit:
+  44               	/* prologue: frame size=0 */
+  45               	/* prologue end (size=0) */
+  46               	/* epilogue: frame size=0 */
+  47 0006 0895      		ret
+  48               	/* epilogue end (size=1) */
+  49               	/* function typeOfAlarmscreen_exit size 1 (0) */
+  50               		.size	typeOfAlarmscreen_exit, .-typeOfAlarmscreen_exit
+  51               	/* File "source/state_typeOfAlarmscreen.c": code    4 = 0x0004 (   0), prologues   0, epilogues   4
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccG9lfpc.s 			page 2
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccVkiagC.s 			page 2
+>>>>>>> BackLightBranch
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 state_typeOfAlarmscreen.c
+<<<<<<< HEAD
+C:\Users\Maarten\AppData\Local\Temp/ccG9lfpc.s:3      *ABS*:0000003f __SREG__
+C:\Users\Maarten\AppData\Local\Temp/ccG9lfpc.s:4      *ABS*:0000003e __SP_H__
+C:\Users\Maarten\AppData\Local\Temp/ccG9lfpc.s:5      *ABS*:0000003d __SP_L__
+C:\Users\Maarten\AppData\Local\Temp/ccG9lfpc.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\Maarten\AppData\Local\Temp/ccG9lfpc.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\Maarten\AppData\Local\Temp/ccG9lfpc.s:13     .text:00000000 typeOfAlarmscreen_keypressed
+C:\Users\Maarten\AppData\Local\Temp/ccG9lfpc.s:23     .text:00000002 typeOfAlarmscreen_entry
+C:\Users\Maarten\AppData\Local\Temp/ccG9lfpc.s:33     .text:00000004 typeOfAlarmscreen_loop
+C:\Users\Maarten\AppData\Local\Temp/ccG9lfpc.s:43     .text:00000006 typeOfAlarmscreen_exit
+=======
+C:\Users\jeffr\AppData\Local\Temp/ccVkiagC.s:3      *ABS*:0000003f __SREG__
+C:\Users\jeffr\AppData\Local\Temp/ccVkiagC.s:4      *ABS*:0000003e __SP_H__
+C:\Users\jeffr\AppData\Local\Temp/ccVkiagC.s:5      *ABS*:0000003d __SP_L__
+C:\Users\jeffr\AppData\Local\Temp/ccVkiagC.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\jeffr\AppData\Local\Temp/ccVkiagC.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\jeffr\AppData\Local\Temp/ccVkiagC.s:13     .text:00000000 typeOfAlarmscreen_keypressed
+C:\Users\jeffr\AppData\Local\Temp/ccVkiagC.s:23     .text:00000002 typeOfAlarmscreen_entry
+C:\Users\jeffr\AppData\Local\Temp/ccVkiagC.s:33     .text:00000004 typeOfAlarmscreen_loop
+C:\Users\jeffr\AppData\Local\Temp/ccVkiagC.s:43     .text:00000006 typeOfAlarmscreen_exit
+>>>>>>> BackLightBranch
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss

@@ -1,0 +1,175 @@
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccWiiocO.s 			page 1
+
+
+   1               		.file	"backlight.c"
+   2               		.arch atmega2561
+   3               	__SREG__ = 0x3f
+   4               	__SP_H__ = 0x3e
+   5               	__SP_L__ = 0x3d
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  10               		.text
+  11               	.global	changeStatusBacklight
+  12               		.type	changeStatusBacklight, @function
+  13               	changeStatusBacklight:
+  14               	/* prologue: frame size=0 */
+  15               	/* prologue end (size=0) */
+  16 0000 9093 0000 		sts (backlightStatus)+1,r25
+  17 0004 8093 0000 		sts backlightStatus,r24
+  18               	/* epilogue: frame size=0 */
+  19 0008 0895      		ret
+  20               	/* epilogue end (size=1) */
+  21               	/* function changeStatusBacklight size 5 (4) */
+  22               		.size	changeStatusBacklight, .-changeStatusBacklight
+  23               	.global	getStatusBacklight
+  24               		.type	getStatusBacklight, @function
+  25               	getStatusBacklight:
+  26               	/* prologue: frame size=0 */
+  27               	/* prologue end (size=0) */
+  28 000a 8091 0000 		lds r24,backlightStatus
+  29 000e 9091 0000 		lds r25,(backlightStatus)+1
+  30               	/* epilogue: frame size=0 */
+  31 0012 0895      		ret
+  32               	/* epilogue end (size=1) */
+  33               	/* function getStatusBacklight size 5 (4) */
+  34               		.size	getStatusBacklight, .-getStatusBacklight
+  35               	.global	turnOffBacklight
+  36               		.type	turnOffBacklight, @function
+  37               	turnOffBacklight:
+  38               	/* prologue: frame size=0 */
+  39               	/* prologue end (size=0) */
+  40 0014 80E0      		ldi r24,lo8(0)
+  41 0016 0E94 0000 		call LcdBackLight
+  42 001a 1092 0000 		sts (backlightStatus)+1,__zero_reg__
+  43 001e 1092 0000 		sts backlightStatus,__zero_reg__
+  44 0022 8091 0000 		lds r24,old
+  45 0026 9091 0000 		lds r25,(old)+1
+  46 002a 0E94 0000 		call free
+  47               	/* epilogue: frame size=0 */
+  48 002e 0895      		ret
+  49               	/* epilogue end (size=1) */
+  50               	/* function turnOffBacklight size 14 (13) */
+  51               		.size	turnOffBacklight, .-turnOffBacklight
+  52               	.global	checkTimerBacklight
+  53               		.type	checkTimerBacklight, @function
+  54               	checkTimerBacklight:
+  55               	/* prologue: frame size=0 */
+  56               	/* prologue end (size=0) */
+  57 0030 6091 0000 		lds r22,old
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccWiiocO.s 			page 2
+
+
+  58 0034 7091 0000 		lds r23,(old)+1
+  59 0038 0E94 0000 		call getSecondsBetween
+  60 003c 0B97      		sbiw r24,11
+  61 003e 04F0      		brlt .L10
+  62 0040 0E94 0000 		call turnOffBacklight
+  63               	.L10:
+  64 0044 0895      		ret
+  65               	/* epilogue: frame size=0 */
+  66               	/* epilogue: noreturn */
+  67               	/* epilogue end (size=0) */
+  68               	/* function checkTimerBacklight size 12 (12) */
+  69               		.size	checkTimerBacklight, .-checkTimerBacklight
+  70               	.global	resetTimerBacklight
+  71               		.type	resetTimerBacklight, @function
+  72               	resetTimerBacklight:
+  73               	/* prologue: frame size=0 */
+  74 0046 0F93      		push r16
+  75 0048 1F93      		push r17
+  76               	/* prologue end (size=2) */
+  77 004a 8C01      		movw r16,r24
+  78 004c 82E1      		ldi r24,lo8(18)
+  79 004e 90E0      		ldi r25,hi8(18)
+  80 0050 0E94 0000 		call malloc
+  81 0054 9093 0000 		sts (old)+1,r25
+  82 0058 8093 0000 		sts old,r24
+  83 005c DC01      		movw r26,r24
+  84 005e F801      		movw r30,r16
+  85 0060 82E1      		ldi r24,lo8(18)
+  86               	.L12:
+  87 0062 0190      		ld r0,Z+
+  88 0064 0D92      		st X+,r0
+  89 0066 8150      		subi r24,lo8(-(-1))
+  90 0068 01F4      		brne .L12
+  91               	/* epilogue: frame size=0 */
+  92 006a 1F91      		pop r17
+  93 006c 0F91      		pop r16
+  94 006e 0895      		ret
+  95               	/* epilogue end (size=3) */
+  96               	/* function resetTimerBacklight size 22 (17) */
+  97               		.size	resetTimerBacklight, .-resetTimerBacklight
+  98               	.global	turnOnBacklight
+  99               		.type	turnOnBacklight, @function
+ 100               	turnOnBacklight:
+ 101               	/* prologue: frame size=0 */
+ 102 0070 0F93      		push r16
+ 103 0072 1F93      		push r17
+ 104               	/* prologue end (size=2) */
+ 105 0074 8C01      		movw r16,r24
+ 106 0076 81E0      		ldi r24,lo8(1)
+ 107 0078 0E94 0000 		call LcdBackLight
+ 108 007c 81E0      		ldi r24,lo8(1)
+ 109 007e 90E0      		ldi r25,hi8(1)
+ 110 0080 9093 0000 		sts (backlightStatus)+1,r25
+ 111 0084 8093 0000 		sts backlightStatus,r24
+ 112 0088 82E1      		ldi r24,lo8(18)
+ 113 008a 90E0      		ldi r25,hi8(18)
+ 114 008c 0E94 0000 		call malloc
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccWiiocO.s 			page 3
+
+
+ 115 0090 9093 0000 		sts (old)+1,r25
+ 116 0094 8093 0000 		sts old,r24
+ 117 0098 DC01      		movw r26,r24
+ 118 009a F801      		movw r30,r16
+ 119 009c 82E1      		ldi r24,lo8(18)
+ 120               	.L17:
+ 121 009e 0190      		ld r0,Z+
+ 122 00a0 0D92      		st X+,r0
+ 123 00a2 8150      		subi r24,lo8(-(-1))
+ 124 00a4 01F4      		brne .L17
+ 125               	/* epilogue: frame size=0 */
+ 126 00a6 1F91      		pop r17
+ 127 00a8 0F91      		pop r16
+ 128 00aa 0895      		ret
+ 129               	/* epilogue end (size=3) */
+ 130               	/* function turnOnBacklight size 31 (26) */
+ 131               		.size	turnOnBacklight, .-turnOnBacklight
+ 132               	.global	backlightStatus
+ 133               	.global	backlightStatus
+ 134               		.section .bss
+ 135               		.type	backlightStatus, @object
+ 136               		.size	backlightStatus, 2
+ 137               	backlightStatus:
+ 138 0000 0000      		.skip 2,0
+ 139               		.comm old,2,1
+ 140               	/* File "source/backlight.c": code   89 = 0x0059 (  76), prologues   4, epilogues   9 */
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccWiiocO.s 			page 4
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 backlight.c
+C:\Users\jeffr\AppData\Local\Temp/ccWiiocO.s:3      *ABS*:0000003f __SREG__
+C:\Users\jeffr\AppData\Local\Temp/ccWiiocO.s:4      *ABS*:0000003e __SP_H__
+C:\Users\jeffr\AppData\Local\Temp/ccWiiocO.s:5      *ABS*:0000003d __SP_L__
+C:\Users\jeffr\AppData\Local\Temp/ccWiiocO.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\jeffr\AppData\Local\Temp/ccWiiocO.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\jeffr\AppData\Local\Temp/ccWiiocO.s:13     .text:00000000 changeStatusBacklight
+C:\Users\jeffr\AppData\Local\Temp/ccWiiocO.s:137    .bss:00000000 backlightStatus
+C:\Users\jeffr\AppData\Local\Temp/ccWiiocO.s:25     .text:0000000a getStatusBacklight
+C:\Users\jeffr\AppData\Local\Temp/ccWiiocO.s:37     .text:00000014 turnOffBacklight
+                            *COM*:00000002 old
+C:\Users\jeffr\AppData\Local\Temp/ccWiiocO.s:54     .text:00000030 checkTimerBacklight
+C:\Users\jeffr\AppData\Local\Temp/ccWiiocO.s:72     .text:00000046 resetTimerBacklight
+C:\Users\jeffr\AppData\Local\Temp/ccWiiocO.s:100    .text:00000070 turnOnBacklight
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
+LcdBackLight
+free
+getSecondsBetween
+malloc

@@ -8,7 +8,7 @@
 ** Target:			AVR mcu
 ** Author: 			maartenwn@gmail.com en aaron.israëls@home.nl
 ** -------------------------------------------------------------------------*/
-#define F_CPU 8000000
+	#define F_CPU 8000000
 
 #include <avr/io.h>
 #include <util/delay.h>

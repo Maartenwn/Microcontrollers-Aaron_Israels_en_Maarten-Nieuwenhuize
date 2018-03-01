@@ -1,0 +1,267 @@
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/cca0jgdq.s 			page 1
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cciJdTOY.s 			page 1
+>>>>>>> BackLightBranch
+
+
+   1               		.file	"uart0driver.c"
+   2               		.arch atmega2561
+   3               	__SREG__ = 0x3f
+   4               	__SP_H__ = 0x3e
+   5               	__SP_L__ = 0x3d
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  10               		.text
+  11               	.global	Uart0DriverGetStream
+  12               		.type	Uart0DriverGetStream, @function
+  13               	Uart0DriverGetStream:
+  14               	/* prologue: frame size=0 */
+  15               	/* prologue end (size=0) */
+  16 0000 8091 0000 		lds r24,stream
+  17 0004 9091 0000 		lds r25,(stream)+1
+  18               	/* epilogue: frame size=0 */
+  19 0008 0895      		ret
+  20               	/* epilogue end (size=1) */
+  21               	/* function Uart0DriverGetStream size 5 (4) */
+  22               		.size	Uart0DriverGetStream, .-Uart0DriverGetStream
+  23               	.global	Uart0DriverStop
+  24               		.type	Uart0DriverStop, @function
+  25               	Uart0DriverStop:
+  26               	/* prologue: frame size=0 */
+  27               	/* prologue end (size=0) */
+  28 000a 8091 0000 		lds r24,stream
+  29 000e 9091 0000 		lds r25,(stream)+1
+  30 0012 0097      		sbiw r24,0
+  31 0014 01F0      		breq .L6
+  32 0016 0E94 0000 		call fclose
+  33 001a 1092 0000 		sts (stream)+1,__zero_reg__
+  34 001e 1092 0000 		sts stream,__zero_reg__
+  35               	.L6:
+  36 0022 0895      		ret
+  37               	/* epilogue: frame size=0 */
+  38               	/* epilogue: noreturn */
+  39               	/* epilogue end (size=0) */
+  40               	/* function Uart0DriverStop size 13 (13) */
+  41               		.size	Uart0DriverStop, .-Uart0DriverStop
+  42               	.global	Uart0DriverSetCookedMode
+  43               		.type	Uart0DriverSetCookedMode, @function
+  44               	Uart0DriverSetCookedMode:
+  45               	/* prologue: frame size=4 */
+  46 0024 CF93      		push r28
+  47 0026 DF93      		push r29
+  48 0028 CDB7      		in r28,__SP_L__
+  49 002a DEB7      		in r29,__SP_H__
+  50 002c 2497      		sbiw r28,4
+  51 002e 0FB6      		in __tmp_reg__,__SREG__
+  52 0030 F894      		cli
+  53 0032 DEBF      		out __SP_H__,r29
+  54 0034 0FBE      		out __SREG__,__tmp_reg__
+  55 0036 CDBF      		out __SP_L__,r28
+  56               	/* prologue end (size=10) */
+  57 0038 6983      		std Y+1,r22
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/cca0jgdq.s 			page 2
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cciJdTOY.s 			page 2
+>>>>>>> BackLightBranch
+
+
+  58 003a 7A83      		std Y+2,r23
+  59 003c 8B83      		std Y+3,r24
+  60 003e 9C83      		std Y+4,r25
+  61 0040 8091 0000 		lds r24,stream
+  62 0044 9091 0000 		lds r25,(stream)+1
+  63 0048 0E94 0000 		call _fileno
+  64 004c AE01      		movw r20,r28
+  65 004e 4F5F      		subi r20,lo8(-(1))
+  66 0050 5F4F      		sbci r21,hi8(-(1))
+  67 0052 63E1      		ldi r22,lo8(275)
+  68 0054 71E0      		ldi r23,hi8(275)
+  69 0056 0E94 0000 		call _ioctl
+  70               	/* epilogue: frame size=4 */
+  71 005a 2496      		adiw r28,4
+  72 005c 0FB6      		in __tmp_reg__,__SREG__
+  73 005e F894      		cli
+  74 0060 DEBF      		out __SP_H__,r29
+  75 0062 0FBE      		out __SREG__,__tmp_reg__
+  76 0064 CDBF      		out __SP_L__,r28
+  77 0066 DF91      		pop r29
+  78 0068 CF91      		pop r28
+  79 006a 0895      		ret
+  80               	/* epilogue end (size=9) */
+  81               	/* function Uart0DriverSetCookedMode size 36 (17) */
+  82               		.size	Uart0DriverSetCookedMode, .-Uart0DriverSetCookedMode
+  83               	.global	Uart0DriverStart
+  84               		.type	Uart0DriverStart, @function
+  85               	Uart0DriverStart:
+  86               	/* prologue: frame size=13 */
+  87 006c EF92      		push r14
+  88 006e FF92      		push r15
+  89 0070 0F93      		push r16
+  90 0072 1F93      		push r17
+  91 0074 CF93      		push r28
+  92 0076 DF93      		push r29
+  93 0078 CDB7      		in r28,__SP_L__
+  94 007a DEB7      		in r29,__SP_H__
+  95 007c 2D97      		sbiw r28,13
+  96 007e 0FB6      		in __tmp_reg__,__SREG__
+  97 0080 F894      		cli
+  98 0082 DEBF      		out __SP_H__,r29
+  99 0084 0FBE      		out __SREG__,__tmp_reg__
+ 100 0086 CDBF      		out __SP_L__,r28
+ 101               	/* prologue end (size=14) */
+ 102 0088 80E0      		ldi r24,lo8(115200)
+ 103 008a 92EC      		ldi r25,hi8(115200)
+ 104 008c A1E0      		ldi r26,hlo8(115200)
+ 105 008e B0E0      		ldi r27,hhi8(115200)
+ 106 0090 8C83      		std Y+4,r24
+ 107 0092 9D83      		std Y+5,r25
+ 108 0094 AE83      		std Y+6,r26
+ 109 0096 BF83      		std Y+7,r27
+ 110 0098 88E0      		ldi r24,lo8(8)
+ 111 009a E82E      		mov r14,r24
+ 112 009c F12C      		mov r15,__zero_reg__
+ 113 009e EC0E      		add r14,r28
+ 114 00a0 FD1E      		adc r15,r29
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/cca0jgdq.s 			page 3
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cciJdTOY.s 			page 3
+>>>>>>> BackLightBranch
+
+
+ 115 00a2 60E0      		ldi r22,lo8(__c.2308)
+ 116 00a4 70E0      		ldi r23,hi8(__c.2308)
+ 117 00a6 C701      		movw r24,r14
+ 118 00a8 0E94 0000 		call strcpy_P
+ 119 00ac 60E0      		ldi r22,lo8(__c.2310)
+ 120 00ae 70E0      		ldi r23,hi8(__c.2310)
+ 121 00b0 8E01      		movw r16,r28
+ 122 00b2 0F5F      		subi r16,lo8(-(1))
+ 123 00b4 1F4F      		sbci r17,hi8(-(1))
+ 124 00b6 C801      		movw r24,r16
+ 125 00b8 0E94 0000 		call strcpy_P
+ 126 00bc 4091 0000 		lds r20,__iob+2
+ 127 00c0 5091 0000 		lds r21,(__iob+2)+1
+ 128 00c4 B801      		movw r22,r16
+ 129 00c6 C701      		movw r24,r14
+ 130 00c8 0E94 0000 		call freopen
+ 131 00cc 9093 0000 		sts (stream)+1,r25
+ 132 00d0 8093 0000 		sts stream,r24
+ 133 00d4 0097      		sbiw r24,0
+ 134 00d6 01F0      		breq .L12
+ 135 00d8 0E94 0000 		call _fileno
+ 136 00dc AE01      		movw r20,r28
+ 137 00de 4C5F      		subi r20,lo8(-(4))
+ 138 00e0 5F4F      		sbci r21,hi8(-(4))
+ 139 00e2 61E0      		ldi r22,lo8(257)
+ 140 00e4 71E0      		ldi r23,hi8(257)
+ 141 00e6 0E94 0000 		call _ioctl
+ 142               	.L12:
+ 143               	/* epilogue: frame size=13 */
+ 144 00ea 2D96      		adiw r28,13
+ 145 00ec 0FB6      		in __tmp_reg__,__SREG__
+ 146 00ee F894      		cli
+ 147 00f0 DEBF      		out __SP_H__,r29
+ 148 00f2 0FBE      		out __SREG__,__tmp_reg__
+ 149 00f4 CDBF      		out __SP_L__,r28
+ 150 00f6 DF91      		pop r29
+ 151 00f8 CF91      		pop r28
+ 152 00fa 1F91      		pop r17
+ 153 00fc 0F91      		pop r16
+ 154 00fe FF90      		pop r15
+ 155 0100 EF90      		pop r14
+ 156 0102 0895      		ret
+ 157               	/* epilogue end (size=13) */
+ 158               	/* function Uart0DriverStart size 76 (49) */
+ 159               		.size	Uart0DriverStart, .-Uart0DriverStart
+ 160               	.global	Uart0DriverInit
+ 161               		.type	Uart0DriverInit, @function
+ 162               	Uart0DriverInit:
+ 163               	/* prologue: frame size=0 */
+ 164               	/* prologue end (size=0) */
+ 165 0104 1092 0000 		sts (stream)+1,__zero_reg__
+ 166 0108 1092 0000 		sts stream,__zero_reg__
+ 167 010c 40E0      		ldi r20,lo8(0)
+ 168 010e 60E0      		ldi r22,lo8(0)
+ 169 0110 70E0      		ldi r23,hi8(0)
+ 170 0112 80E0      		ldi r24,lo8(devUart0)
+ 171 0114 90E0      		ldi r25,hi8(devUart0)
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/cca0jgdq.s 			page 4
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cciJdTOY.s 			page 4
+>>>>>>> BackLightBranch
+
+
+ 172 0116 0E94 0000 		call NutRegisterDevice
+ 173               	/* epilogue: frame size=0 */
+ 174 011a 0895      		ret
+ 175               	/* epilogue end (size=1) */
+ 176               	/* function Uart0DriverInit size 12 (11) */
+ 177               		.size	Uart0DriverInit, .-Uart0DriverInit
+ 178               		.lcomm stream,2
+ 179               		.section	.progmem.data,"a",@progbits
+ 180               		.type	__c.2310, @object
+ 181               		.size	__c.2310, 2
+ 182               	__c.2310:
+ 183 0000 7700      		.string	"w"
+ 184               		.type	__c.2308, @object
+ 185               		.size	__c.2308, 6
+ 186               	__c.2308:
+ 187 0002 7561 7274 		.string	"uart0"
+ 187      3000 
+ 188               	/* File "source/uart0driver.c": code  142 = 0x008e (  94), prologues  24, epilogues  24 */
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/cca0jgdq.s 			page 5
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cciJdTOY.s 			page 5
+>>>>>>> BackLightBranch
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 uart0driver.c
+<<<<<<< HEAD
+C:\Users\Maarten\AppData\Local\Temp/cca0jgdq.s:3      *ABS*:0000003f __SREG__
+C:\Users\Maarten\AppData\Local\Temp/cca0jgdq.s:4      *ABS*:0000003e __SP_H__
+C:\Users\Maarten\AppData\Local\Temp/cca0jgdq.s:5      *ABS*:0000003d __SP_L__
+C:\Users\Maarten\AppData\Local\Temp/cca0jgdq.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\Maarten\AppData\Local\Temp/cca0jgdq.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\Maarten\AppData\Local\Temp/cca0jgdq.s:13     .text:00000000 Uart0DriverGetStream
+                             .bss:00000000 stream
+C:\Users\Maarten\AppData\Local\Temp/cca0jgdq.s:25     .text:0000000a Uart0DriverStop
+C:\Users\Maarten\AppData\Local\Temp/cca0jgdq.s:44     .text:00000024 Uart0DriverSetCookedMode
+C:\Users\Maarten\AppData\Local\Temp/cca0jgdq.s:85     .text:0000006c Uart0DriverStart
+C:\Users\Maarten\AppData\Local\Temp/cca0jgdq.s:186    .progmem.data:00000002 __c.2308
+C:\Users\Maarten\AppData\Local\Temp/cca0jgdq.s:182    .progmem.data:00000000 __c.2310
+C:\Users\Maarten\AppData\Local\Temp/cca0jgdq.s:162    .text:00000104 Uart0DriverInit
+=======
+C:\Users\jeffr\AppData\Local\Temp/cciJdTOY.s:3      *ABS*:0000003f __SREG__
+C:\Users\jeffr\AppData\Local\Temp/cciJdTOY.s:4      *ABS*:0000003e __SP_H__
+C:\Users\jeffr\AppData\Local\Temp/cciJdTOY.s:5      *ABS*:0000003d __SP_L__
+C:\Users\jeffr\AppData\Local\Temp/cciJdTOY.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\jeffr\AppData\Local\Temp/cciJdTOY.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\jeffr\AppData\Local\Temp/cciJdTOY.s:13     .text:00000000 Uart0DriverGetStream
+                             .bss:00000000 stream
+C:\Users\jeffr\AppData\Local\Temp/cciJdTOY.s:25     .text:0000000a Uart0DriverStop
+C:\Users\jeffr\AppData\Local\Temp/cciJdTOY.s:44     .text:00000024 Uart0DriverSetCookedMode
+C:\Users\jeffr\AppData\Local\Temp/cciJdTOY.s:85     .text:0000006c Uart0DriverStart
+C:\Users\jeffr\AppData\Local\Temp/cciJdTOY.s:186    .progmem.data:00000002 __c.2308
+C:\Users\jeffr\AppData\Local\Temp/cciJdTOY.s:182    .progmem.data:00000000 __c.2310
+C:\Users\jeffr\AppData\Local\Temp/cciJdTOY.s:162    .text:00000104 Uart0DriverInit
+>>>>>>> BackLightBranch
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
+fclose
+_fileno
+_ioctl
+strcpy_P
+__iob
+freopen
+devUart0
+NutRegisterDevice

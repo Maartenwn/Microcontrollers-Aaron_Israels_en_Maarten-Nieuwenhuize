@@ -1,0 +1,698 @@
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccyQkMFt.s 			page 1
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cczLvjSX.s 			page 1
+>>>>>>> BackLightBranch
+
+
+   1               		.file	"statemachine.c"
+   2               		.arch atmega2561
+   3               	__SREG__ = 0x3f
+   4               	__SP_H__ = 0x3e
+   5               	__SP_L__ = 0x3d
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  10               		.text
+  11               	.global	sm_init
+  12               		.type	sm_init, @function
+  13               	sm_init:
+  14               	/* prologue: frame size=0 */
+  15               	/* prologue end (size=0) */
+  16 0000 1092 0000 		sts (currentstate)+1,__zero_reg__
+  17 0004 1092 0000 		sts currentstate,__zero_reg__
+<<<<<<< HEAD
+  18 0008 88E8      		ldi r24,lo8(136)
+  19 000a 90E0      		ldi r25,hi8(136)
+  20 000c 9093 0000 		sts (prevKey)+1,r25
+  21 0010 8093 0000 		sts prevKey,r24
+  22 0014 E091 0000 		lds r30,states+4
+  23 0018 F091 0000 		lds r31,(states+4)+1
+  24 001c 80E0      		ldi r24,lo8(0)
+  25 001e 90E0      		ldi r25,hi8(0)
+  26 0020 1995      		eicall
+  27               	/* epilogue: frame size=0 */
+  28 0022 0895      		ret
+  29               	/* epilogue end (size=1) */
+  30               	/* function sm_init size 18 (17) */
+  31               		.size	sm_init, .-sm_init
+  32               	.global	sm_setState
+  33               		.type	sm_setState, @function
+  34               	sm_setState:
+  35               	/* prologue: frame size=0 */
+  36 0024 CF92      		push r12
+  37 0026 DF92      		push r13
+  38 0028 EF92      		push r14
+  39 002a FF92      		push r15
+  40 002c 0F93      		push r16
+  41 002e 1F93      		push r17
+  42 0030 CF93      		push r28
+  43 0032 DF93      		push r29
+  44               	/* prologue end (size=8) */
+  45 0034 8C01      		movw r16,r24
+  46 0036 CB01      		movw r24,r22
+  47 0038 6A01      		movw r12,r20
+  48 003a E091 0000 		lds r30,currentstate
+  49 003e F091 0000 		lds r31,(currentstate)+1
+  50 0042 60E0      		ldi r22,lo8(states)
+  51 0044 E62E      		mov r14,r22
+  52 0046 60E0      		ldi r22,hi8(states)
+  53 0048 F62E      		mov r15,r22
+  54 004a 9F01      		movw r18,r30
+  55 004c 53E0      		ldi r21,3
+  56 004e 220F      	1:	lsl r18
+  57 0050 331F      		rol r19
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccyQkMFt.s 			page 2
+
+
+  58 0052 5A95      		dec r21
+  59 0054 01F4      		brne 1b
+  60 0056 EE0F      		lsl r30
+  61 0058 FF1F      		rol r31
+  62 005a E20F      		add r30,r18
+  63 005c F31F      		adc r31,r19
+  64 005e EE0D      		add r30,r14
+  65 0060 FF1D      		adc r31,r15
+  66 0062 0084      		ldd __tmp_reg__,Z+8
+  67 0064 F185      		ldd r31,Z+9
+  68 0066 E02D      		mov r30,__tmp_reg__
+  69 0068 1995      		eicall
+  70 006a 1093 0000 		sts (currentstate)+1,r17
+  71 006e 0093 0000 		sts currentstate,r16
+  72 0072 C801      		movw r24,r16
+  73 0074 33E0      		ldi r19,3
+  74 0076 880F      	1:	lsl r24
+  75 0078 991F      		rol r25
+  76 007a 3A95      		dec r19
+  77 007c 01F4      		brne 1b
+  78 007e 000F      		lsl r16
+  79 0080 111F      		rol r17
+  80 0082 800F      		add r24,r16
+  81 0084 911F      		adc r25,r17
+  82 0086 E80E      		add r14,r24
+  83 0088 F91E      		adc r15,r25
+  84 008a E701      		movw r28,r14
+  85 008c EC81      		ldd r30,Y+4
+  86 008e FD81      		ldd r31,Y+5
+  87 0090 C601      		movw r24,r12
+  88 0092 1995      		eicall
+  89               	/* epilogue: frame size=0 */
+  90 0094 DF91      		pop r29
+  91 0096 CF91      		pop r28
+  92 0098 1F91      		pop r17
+  93 009a 0F91      		pop r16
+  94 009c FF90      		pop r15
+  95 009e EF90      		pop r14
+  96 00a0 DF90      		pop r13
+  97 00a2 CF90      		pop r12
+  98 00a4 0895      		ret
+  99               	/* epilogue end (size=9) */
+ 100               	/* function sm_setState size 65 (48) */
+ 101               		.size	sm_setState, .-sm_setState
+ 102               	.global	sm_loop
+ 103               		.type	sm_loop, @function
+ 104               	sm_loop:
+ 105               	/* prologue: frame size=0 */
+ 106 00a6 CF93      		push r28
+ 107 00a8 DF93      		push r29
+ 108               	/* prologue end (size=2) */
+ 109 00aa E091 0000 		lds r30,currentstate
+ 110 00ae F091 0000 		lds r31,(currentstate)+1
+ 111 00b2 9F01      		movw r18,r30
+ 112 00b4 43E0      		ldi r20,3
+ 113 00b6 220F      	1:	lsl r18
+ 114 00b8 331F      		rol r19
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccyQkMFt.s 			page 3
+
+
+ 115 00ba 4A95      		dec r20
+ 116 00bc 01F4      		brne 1b
+ 117 00be EE0F      		lsl r30
+ 118 00c0 FF1F      		rol r31
+ 119 00c2 E20F      		add r30,r18
+ 120 00c4 F31F      		adc r31,r19
+ 121 00c6 E050      		subi r30,lo8(-(states))
+ 122 00c8 F040      		sbci r31,hi8(-(states))
+ 123 00ca 0680      		ldd __tmp_reg__,Z+6
+ 124 00cc F781      		ldd r31,Z+7
+ 125 00ce E02D      		mov r30,__tmp_reg__
+ 126 00d0 AC01      		movw r20,r24
+ 127 00d2 60E0      		ldi r22,lo8(gs(sm_setState))
+ 128 00d4 70E0      		ldi r23,hi8(gs(sm_setState))
+ 129 00d6 80E0      		ldi r24,lo8(0)
+ 130 00d8 90E0      		ldi r25,hi8(0)
+ 131 00da 1995      		eicall
+ 132 00dc 0E94 0000 		call KbGetKey
+ 133 00e0 C82F      		mov r28,r24
+ 134 00e2 DD27      		clr r29
+ 135 00e4 8838      		cpi r24,lo8(-120)
+ 136 00e6 01F0      		breq .L6
+ 137 00e8 8091 0000 		lds r24,prevKey
+ 138 00ec 9091 0000 		lds r25,(prevKey)+1
+ 139 00f0 C817      		cp r28,r24
+ 140 00f2 D907      		cpc r29,r25
+ 141 00f4 01F0      		breq .L6
+ 142 00f6 81E0      		ldi r24,lo8(1)
+ 143 00f8 0E94 0000 		call LcdBackLight
+ 144 00fc E091 0000 		lds r30,currentstate
+ 145 0100 F091 0000 		lds r31,(currentstate)+1
+ 146 0104 CF01      		movw r24,r30
+ 147 0106 A3E0      		ldi r26,3
+ 148 0108 880F      	1:	lsl r24
+ 149 010a 991F      		rol r25
+ 150 010c AA95      		dec r26
+ 151 010e 01F4      		brne 1b
+ 152 0110 EE0F      		lsl r30
+ 153 0112 FF1F      		rol r31
+ 154 0114 E80F      		add r30,r24
+ 155 0116 F91F      		adc r31,r25
+ 156 0118 E050      		subi r30,lo8(-(states))
+ 157 011a F040      		sbci r31,hi8(-(states))
+ 158 011c 0280      		ldd __tmp_reg__,Z+2
+ 159 011e F381      		ldd r31,Z+3
+ 160 0120 E02D      		mov r30,__tmp_reg__
+ 161 0122 60E0      		ldi r22,lo8(gs(sm_setState))
+ 162 0124 70E0      		ldi r23,hi8(gs(sm_setState))
+ 163 0126 CE01      		movw r24,r28
+ 164 0128 1995      		eicall
+ 165               	.L6:
+ 166 012a D093 0000 		sts (prevKey)+1,r29
+ 167 012e C093 0000 		sts prevKey,r28
+ 168               	/* epilogue: frame size=0 */
+ 169 0132 DF91      		pop r29
+ 170 0134 CF91      		pop r28
+ 171 0136 0895      		ret
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccyQkMFt.s 			page 4
+
+
+ 172               	/* epilogue end (size=3) */
+ 173               	/* function sm_loop size 73 (68) */
+ 174               		.size	sm_loop, .-sm_loop
+ 175               	.global	states
+ 176               		.data
+ 177               		.type	states, @object
+ 178               		.size	states, 160
+ 179               	states:
+ 180 0000 0000      		.word	0
+ 181 0002 0000      		.word	gs(welcomescreen_keypressed)
+ 182 0004 0000      		.word	gs(welcomescreen_entry)
+ 183 0006 0000      		.word	gs(welcomescreen_loop)
+ 184 0008 0000      		.word	gs(welcomescreen_exit)
+ 185 000a 0100      		.word	1
+ 186 000c 0000      		.word	gs(syncingscreen_keypressed)
+ 187 000e 0000      		.word	gs(syncingscreen_entry)
+ 188 0010 0000      		.word	gs(syncingscreen_loop)
+ 189 0012 0000      		.word	gs(syncingscreen_exit)
+ 190 0014 0200      		.word	2
+ 191 0016 0000      		.word	gs(timezoneStartscreen_keypressed)
+ 192 0018 0000      		.word	gs(timezoneStartscreen_entry)
+ 193 001a 0000      		.word	gs(timezoneStartscreen_loop)
+ 194 001c 0000      		.word	gs(timezoneStartscreen_exit)
+ 195 001e 0300      		.word	3
+ 196 0020 0000      		.word	gs(clockscreen_keypressed)
+ 197 0022 0000      		.word	gs(clockscreen_entry)
+ 198 0024 0000      		.word	gs(clockscreen_loop)
+ 199 0026 0000      		.word	gs(clockscreen_exit)
+ 200 0028 0400      		.word	4
+ 201 002a 0000      		.word	gs(menuscreen_keypressed)
+ 202 002c 0000      		.word	gs(menuscreen_entry)
+ 203 002e 0000      		.word	gs(menuscreen_loop)
+ 204 0030 0000      		.word	gs(menuscreen_exit)
+ 205 0032 0500      		.word	5
+ 206 0034 0000      		.word	gs(alarmcreen_keypressed)
+ 207 0036 0000      		.word	gs(alarmscreen_entry)
+ 208 0038 0000      		.word	gs(alarmscreen_loop)
+ 209 003a 0000      		.word	gs(alarmscreen_exit)
+ 210 003c 0600      		.word	6
+ 211 003e 0000      		.word	gs(typeOfAlarmscreen_keypressed)
+ 212 0040 0000      		.word	gs(typeOfAlarmscreen_entry)
+ 213 0042 0000      		.word	gs(typeOfAlarmscreen_loop)
+ 214 0044 0000      		.word	gs(typeOfAlarmscreen_exit)
+ 215 0046 0700      		.word	7
+ 216 0048 0000      		.word	gs(newDailyAlarmscreen_keypressed)
+ 217 004a 0000      		.word	gs(newDailyAlarmscreen_entry)
+ 218 004c 0000      		.word	gs(newDailyAlarmscreen_loop)
+ 219 004e 0000      		.word	gs(newDailyAlarmscreen_exit)
+ 220 0050 0800      		.word	8
+ 221 0052 0000      		.word	gs(newOnceAlarmscreen_keypressed)
+ 222 0054 0000      		.word	gs(newOnceAlarmscreen_entry)
+ 223 0056 0000      		.word	gs(newOnceAlarmscreen_loop)
+ 224 0058 0000      		.word	gs(newOnceAlarmscreen_exit)
+ 225 005a 0900      		.word	9
+ 226 005c 0000      		.word	gs(alarmSoundChooserscreen_keypressed)
+ 227 005e 0000      		.word	gs(alarmSoundChooserscreen_entry)
+ 228 0060 0000      		.word	gs(alarmSoundChooserscreen_loop)
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccyQkMFt.s 			page 5
+
+
+ 229 0062 0000      		.word	gs(alarmSoundChooserscreen_exit)
+ 230 0064 0A00      		.word	10
+ 231 0066 0000      		.word	gs(radioscreen_keypressed)
+ 232 0068 0000      		.word	gs(radioscreen_entry)
+ 233 006a 0000      		.word	gs(radioscreen_loop)
+ 234 006c 0000      		.word	gs(radioscreen_exit)
+ 235 006e 0B00      		.word	11
+ 236 0070 0000      		.word	gs(sleepTimerscreen_keypressed)
+ 237 0072 0000      		.word	gs(sleepTimerscreen_entry)
+ 238 0074 0000      		.word	gs(sleepTimerscreen_loop)
+ 239 0076 0000      		.word	gs(sleepTimerscreen_exit)
+ 240 0078 0C00      		.word	12
+ 241 007a 0000      		.word	gs(settingsscreen_keypressed)
+ 242 007c 0000      		.word	gs(settingsscreen_entry)
+ 243 007e 0000      		.word	gs(settingsscreen_loop)
+ 244 0080 0000      		.word	gs(settingsscreen_exit)
+ 245 0082 0D00      		.word	13
+ 246 0084 0000      		.word	gs(settingsTimeZonescreen_keypressed)
+ 247 0086 0000      		.word	gs(settingsTimeZonescreen_entry)
+ 248 0088 0000      		.word	gs(settingsTimeZonescreen_loop)
+ 249 008a 0000      		.word	gs(settingsTimeZonescreen_exit)
+ 250 008c 0E00      		.word	14
+ 251 008e 0000      		.word	gs(factoryResetscreen_keypressed)
+ 252 0090 0000      		.word	gs(factoryResetscreen_entry)
+ 253 0092 0000      		.word	gs(factoryResetscreen_loop)
+ 254 0094 0000      		.word	gs(factoryResetscreen_exit)
+ 255 0096 0F00      		.word	15
+ 256 0098 0000      		.word	gs(confirmationscreen_keypressed)
+ 257 009a 0000      		.word	gs(confirmationscreen_entry)
+ 258 009c 0000      		.word	gs(confirmationscreen_loop)
+ 259 009e 0000      		.word	gs(confirmationscreen_exit)
+ 260               		.comm currentstate,2,1
+ 261               		.comm prevKey,2,1
+ 262               	/* File "source/statemachine.c": code  156 = 0x009c ( 133), prologues  10, epilogues  13 */
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccyQkMFt.s 			page 6
+=======
+  18 0008 E091 0000 		lds r30,states+4
+  19 000c F091 0000 		lds r31,(states+4)+1
+  20 0010 80E0      		ldi r24,lo8(0)
+  21 0012 90E0      		ldi r25,hi8(0)
+  22 0014 1995      		eicall
+  23               	/* epilogue: frame size=0 */
+  24 0016 0895      		ret
+  25               	/* epilogue end (size=1) */
+  26               	/* function sm_init size 12 (11) */
+  27               		.size	sm_init, .-sm_init
+  28               	.global	sm_setState
+  29               		.type	sm_setState, @function
+  30               	sm_setState:
+  31               	/* prologue: frame size=0 */
+  32 0018 CF92      		push r12
+  33 001a DF92      		push r13
+  34 001c EF92      		push r14
+  35 001e FF92      		push r15
+  36 0020 0F93      		push r16
+  37 0022 1F93      		push r17
+  38 0024 CF93      		push r28
+  39 0026 DF93      		push r29
+  40               	/* prologue end (size=8) */
+  41 0028 8C01      		movw r16,r24
+  42 002a CB01      		movw r24,r22
+  43 002c 6A01      		movw r12,r20
+  44 002e E091 0000 		lds r30,currentstate
+  45 0032 F091 0000 		lds r31,(currentstate)+1
+  46 0036 60E0      		ldi r22,lo8(states)
+  47 0038 E62E      		mov r14,r22
+  48 003a 60E0      		ldi r22,hi8(states)
+  49 003c F62E      		mov r15,r22
+  50 003e 9F01      		movw r18,r30
+  51 0040 53E0      		ldi r21,3
+  52 0042 220F      	1:	lsl r18
+  53 0044 331F      		rol r19
+  54 0046 5A95      		dec r21
+  55 0048 01F4      		brne 1b
+  56 004a EE0F      		lsl r30
+  57 004c FF1F      		rol r31
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cczLvjSX.s 			page 2
+
+
+  58 004e E20F      		add r30,r18
+  59 0050 F31F      		adc r31,r19
+  60 0052 EE0D      		add r30,r14
+  61 0054 FF1D      		adc r31,r15
+  62 0056 0084      		ldd __tmp_reg__,Z+8
+  63 0058 F185      		ldd r31,Z+9
+  64 005a E02D      		mov r30,__tmp_reg__
+  65 005c 1995      		eicall
+  66 005e 1093 0000 		sts (currentstate)+1,r17
+  67 0062 0093 0000 		sts currentstate,r16
+  68 0066 C801      		movw r24,r16
+  69 0068 33E0      		ldi r19,3
+  70 006a 880F      	1:	lsl r24
+  71 006c 991F      		rol r25
+  72 006e 3A95      		dec r19
+  73 0070 01F4      		brne 1b
+  74 0072 000F      		lsl r16
+  75 0074 111F      		rol r17
+  76 0076 800F      		add r24,r16
+  77 0078 911F      		adc r25,r17
+  78 007a E80E      		add r14,r24
+  79 007c F91E      		adc r15,r25
+  80 007e E701      		movw r28,r14
+  81 0080 EC81      		ldd r30,Y+4
+  82 0082 FD81      		ldd r31,Y+5
+  83 0084 C601      		movw r24,r12
+  84 0086 1995      		eicall
+  85               	/* epilogue: frame size=0 */
+  86 0088 DF91      		pop r29
+  87 008a CF91      		pop r28
+  88 008c 1F91      		pop r17
+  89 008e 0F91      		pop r16
+  90 0090 FF90      		pop r15
+  91 0092 EF90      		pop r14
+  92 0094 DF90      		pop r13
+  93 0096 CF90      		pop r12
+  94 0098 0895      		ret
+  95               	/* epilogue end (size=9) */
+  96               	/* function sm_setState size 65 (48) */
+  97               		.size	sm_setState, .-sm_setState
+  98               	.global	sm_loop
+  99               		.type	sm_loop, @function
+ 100               	sm_loop:
+ 101               	/* prologue: frame size=0 */
+ 102 009a 1F93      		push r17
+ 103 009c CF93      		push r28
+ 104 009e DF93      		push r29
+ 105               	/* prologue end (size=3) */
+ 106 00a0 EC01      		movw r28,r24
+ 107 00a2 E091 0000 		lds r30,currentstate
+ 108 00a6 F091 0000 		lds r31,(currentstate)+1
+ 109 00aa CF01      		movw r24,r30
+ 110 00ac 13E0      		ldi r17,3
+ 111 00ae 880F      	1:	lsl r24
+ 112 00b0 991F      		rol r25
+ 113 00b2 1A95      		dec r17
+ 114 00b4 01F4      		brne 1b
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cczLvjSX.s 			page 3
+
+
+ 115 00b6 EE0F      		lsl r30
+ 116 00b8 FF1F      		rol r31
+ 117 00ba E80F      		add r30,r24
+ 118 00bc F91F      		adc r31,r25
+ 119 00be E050      		subi r30,lo8(-(states))
+ 120 00c0 F040      		sbci r31,hi8(-(states))
+ 121 00c2 0680      		ldd __tmp_reg__,Z+6
+ 122 00c4 F781      		ldd r31,Z+7
+ 123 00c6 E02D      		mov r30,__tmp_reg__
+ 124 00c8 AE01      		movw r20,r28
+ 125 00ca 60E0      		ldi r22,lo8(gs(sm_setState))
+ 126 00cc 70E0      		ldi r23,hi8(gs(sm_setState))
+ 127 00ce 80E0      		ldi r24,lo8(0)
+ 128 00d0 90E0      		ldi r25,hi8(0)
+ 129 00d2 1995      		eicall
+ 130 00d4 0E94 0000 		call KbGetKey
+ 131 00d8 182F      		mov r17,r24
+ 132 00da 8838      		cpi r24,lo8(-120)
+ 133 00dc 01F0      		breq .L6
+ 134 00de 0E94 0000 		call getStatusBacklight
+ 135 00e2 0197      		sbiw r24,1
+ 136 00e4 01F4      		brne .L8
+ 137 00e6 CE01      		movw r24,r28
+ 138 00e8 0E94 0000 		call resetTimerBacklight
+ 139 00ec E091 0000 		lds r30,currentstate
+ 140 00f0 F091 0000 		lds r31,(currentstate)+1
+ 141 00f4 CF01      		movw r24,r30
+ 142 00f6 A3E0      		ldi r26,3
+ 143 00f8 880F      	1:	lsl r24
+ 144 00fa 991F      		rol r25
+ 145 00fc AA95      		dec r26
+ 146 00fe 01F4      		brne 1b
+ 147 0100 EE0F      		lsl r30
+ 148 0102 FF1F      		rol r31
+ 149 0104 E80F      		add r30,r24
+ 150 0106 F91F      		adc r31,r25
+ 151 0108 E050      		subi r30,lo8(-(states))
+ 152 010a F040      		sbci r31,hi8(-(states))
+ 153 010c 0280      		ldd __tmp_reg__,Z+2
+ 154 010e F381      		ldd r31,Z+3
+ 155 0110 E02D      		mov r30,__tmp_reg__
+ 156 0112 60E0      		ldi r22,lo8(gs(sm_setState))
+ 157 0114 70E0      		ldi r23,hi8(gs(sm_setState))
+ 158 0116 812F      		mov r24,r17
+ 159 0118 9927      		clr r25
+ 160 011a 1995      		eicall
+ 161 011c 00C0      		rjmp .L6
+ 162               	.L8:
+ 163 011e CE01      		movw r24,r28
+ 164 0120 0E94 0000 		call turnOnBacklight
+ 165               	.L6:
+ 166 0124 0E94 0000 		call getStatusBacklight
+ 167 0128 0197      		sbiw r24,1
+ 168 012a 01F4      		brne .L12
+ 169 012c CE01      		movw r24,r28
+ 170 012e 0E94 0000 		call checkTimerBacklight
+ 171 0132 8881      		ld r24,Y
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cczLvjSX.s 			page 4
+
+
+ 172 0134 9981      		ldd r25,Y+1
+ 173 0136 9F93      		push r25
+ 174 0138 8F93      		push r24
+ 175 013a 8A81      		ldd r24,Y+2
+ 176 013c 9B81      		ldd r25,Y+3
+ 177 013e 9F93      		push r25
+ 178 0140 8F93      		push r24
+ 179 0142 8C81      		ldd r24,Y+4
+ 180 0144 9D81      		ldd r25,Y+5
+ 181 0146 9F93      		push r25
+ 182 0148 8F93      		push r24
+ 183 014a 80E0      		ldi r24,lo8(__c.2219)
+ 184 014c 90E0      		ldi r25,hi8(__c.2219)
+ 185 014e 9F93      		push r25
+ 186 0150 8F93      		push r24
+ 187 0152 86EC      		ldi r24,lo8(-58)
+ 188 0154 8F93      		push r24
+ 189 0156 0E94 0000 		call LogMsg_P
+ 190 015a 8DB7      		in r24,__SP_L__
+ 191 015c 9EB7      		in r25,__SP_H__
+ 192 015e 0996      		adiw r24,9
+ 193 0160 0FB6      		in __tmp_reg__,__SREG__
+ 194 0162 F894      		cli
+ 195 0164 9EBF      		out __SP_H__,r25
+ 196 0166 0FBE      		out __SREG__,__tmp_reg__
+ 197 0168 8DBF      		out __SP_L__,r24
+ 198               	.L12:
+ 199               	/* epilogue: frame size=0 */
+ 200 016a DF91      		pop r29
+ 201 016c CF91      		pop r28
+ 202 016e 1F91      		pop r17
+ 203 0170 0895      		ret
+ 204               	/* epilogue end (size=4) */
+ 205               	/* function sm_loop size 110 (103) */
+ 206               		.size	sm_loop, .-sm_loop
+ 207               	.global	states
+ 208               		.data
+ 209               		.type	states, @object
+ 210               		.size	states, 160
+ 211               	states:
+ 212 0000 0000      		.word	0
+ 213 0002 0000      		.word	gs(welcomescreen_keypressed)
+ 214 0004 0000      		.word	gs(welcomescreen_entry)
+ 215 0006 0000      		.word	gs(welcomescreen_loop)
+ 216 0008 0000      		.word	gs(welcomescreen_exit)
+ 217 000a 0100      		.word	1
+ 218 000c 0000      		.word	gs(syncingscreen_keypressed)
+ 219 000e 0000      		.word	gs(syncingscreen_entry)
+ 220 0010 0000      		.word	gs(syncingscreen_loop)
+ 221 0012 0000      		.word	gs(syncingscreen_exit)
+ 222 0014 0200      		.word	2
+ 223 0016 0000      		.word	gs(timezoneStartscreen_keypressed)
+ 224 0018 0000      		.word	gs(timezoneStartscreen_entry)
+ 225 001a 0000      		.word	gs(timezoneStartscreen_loop)
+ 226 001c 0000      		.word	gs(timezoneStartscreen_exit)
+ 227 001e 0300      		.word	3
+ 228 0020 0000      		.word	gs(clockscreen_keypressed)
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cczLvjSX.s 			page 5
+
+
+ 229 0022 0000      		.word	gs(clockscreen_entry)
+ 230 0024 0000      		.word	gs(clockscreen_loop)
+ 231 0026 0000      		.word	gs(clockscreen_exit)
+ 232 0028 0400      		.word	4
+ 233 002a 0000      		.word	gs(menuscreen_keypressed)
+ 234 002c 0000      		.word	gs(menuscreen_entry)
+ 235 002e 0000      		.word	gs(menuscreen_loop)
+ 236 0030 0000      		.word	gs(menuscreen_exit)
+ 237 0032 0500      		.word	5
+ 238 0034 0000      		.word	gs(alarmcreen_keypressed)
+ 239 0036 0000      		.word	gs(alarmscreen_entry)
+ 240 0038 0000      		.word	gs(alarmscreen_loop)
+ 241 003a 0000      		.word	gs(alarmscreen_exit)
+ 242 003c 0600      		.word	6
+ 243 003e 0000      		.word	gs(typeOfAlarmscreen_keypressed)
+ 244 0040 0000      		.word	gs(typeOfAlarmscreen_entry)
+ 245 0042 0000      		.word	gs(typeOfAlarmscreen_loop)
+ 246 0044 0000      		.word	gs(typeOfAlarmscreen_exit)
+ 247 0046 0700      		.word	7
+ 248 0048 0000      		.word	gs(newDailyAlarmscreen_keypressed)
+ 249 004a 0000      		.word	gs(newDailyAlarmscreen_entry)
+ 250 004c 0000      		.word	gs(newDailyAlarmscreen_loop)
+ 251 004e 0000      		.word	gs(newDailyAlarmscreen_exit)
+ 252 0050 0800      		.word	8
+ 253 0052 0000      		.word	gs(newOnceAlarmscreen_keypressed)
+ 254 0054 0000      		.word	gs(newOnceAlarmscreen_entry)
+ 255 0056 0000      		.word	gs(newOnceAlarmscreen_loop)
+ 256 0058 0000      		.word	gs(newOnceAlarmscreen_exit)
+ 257 005a 0900      		.word	9
+ 258 005c 0000      		.word	gs(alarmSoundChooserscreen_keypressed)
+ 259 005e 0000      		.word	gs(alarmSoundChooserscreen_entry)
+ 260 0060 0000      		.word	gs(alarmSoundChooserscreen_loop)
+ 261 0062 0000      		.word	gs(alarmSoundChooserscreen_exit)
+ 262 0064 0A00      		.word	10
+ 263 0066 0000      		.word	gs(radioscreen_keypressed)
+ 264 0068 0000      		.word	gs(radioscreen_entry)
+ 265 006a 0000      		.word	gs(radioscreen_loop)
+ 266 006c 0000      		.word	gs(radioscreen_exit)
+ 267 006e 0B00      		.word	11
+ 268 0070 0000      		.word	gs(sleepTimerscreen_keypressed)
+ 269 0072 0000      		.word	gs(sleepTimerscreen_entry)
+ 270 0074 0000      		.word	gs(sleepTimerscreen_loop)
+ 271 0076 0000      		.word	gs(sleepTimerscreen_exit)
+ 272 0078 0C00      		.word	12
+ 273 007a 0000      		.word	gs(settingsscreen_keypressed)
+ 274 007c 0000      		.word	gs(settingsscreen_entry)
+ 275 007e 0000      		.word	gs(settingsscreen_loop)
+ 276 0080 0000      		.word	gs(settingsscreen_exit)
+ 277 0082 0D00      		.word	13
+ 278 0084 0000      		.word	gs(settingsTimeZonescreen_keypressed)
+ 279 0086 0000      		.word	gs(settingsTimeZonescreen_entry)
+ 280 0088 0000      		.word	gs(settingsTimeZonescreen_loop)
+ 281 008a 0000      		.word	gs(settingsTimeZonescreen_exit)
+ 282 008c 0E00      		.word	14
+ 283 008e 0000      		.word	gs(factoryResetscreen_keypressed)
+ 284 0090 0000      		.word	gs(factoryResetscreen_entry)
+ 285 0092 0000      		.word	gs(factoryResetscreen_loop)
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cczLvjSX.s 			page 6
+
+
+ 286 0094 0000      		.word	gs(factoryResetscreen_exit)
+ 287 0096 0F00      		.word	15
+ 288 0098 0000      		.word	gs(confirmationscreen_keypressed)
+ 289 009a 0000      		.word	gs(confirmationscreen_entry)
+ 290 009c 0000      		.word	gs(confirmationscreen_loop)
+ 291 009e 0000      		.word	gs(confirmationscreen_exit)
+ 292               		.section	.progmem.data,"a",@progbits
+ 293               		.type	__c.2219, @object
+ 294               		.size	__c.2219, 26
+ 295               	__c.2219:
+ 296 0000 5254 4320 		.string	"RTC time [%02d:%02d:%02d]"
+ 296      7469 6D65 
+ 296      205B 2530 
+ 296      3264 3A25 
+ 296      3032 643A 
+ 297               		.comm currentstate,2,1
+ 298               	/* File "source/statemachine.c": code  187 = 0x00bb ( 162), prologues  11, epilogues  14 */
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cczLvjSX.s 			page 7
+>>>>>>> BackLightBranch
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 statemachine.c
+<<<<<<< HEAD
+C:\Users\Maarten\AppData\Local\Temp/ccyQkMFt.s:3      *ABS*:0000003f __SREG__
+C:\Users\Maarten\AppData\Local\Temp/ccyQkMFt.s:4      *ABS*:0000003e __SP_H__
+C:\Users\Maarten\AppData\Local\Temp/ccyQkMFt.s:5      *ABS*:0000003d __SP_L__
+C:\Users\Maarten\AppData\Local\Temp/ccyQkMFt.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\Maarten\AppData\Local\Temp/ccyQkMFt.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\Maarten\AppData\Local\Temp/ccyQkMFt.s:13     .text:00000000 sm_init
+                            *COM*:00000002 currentstate
+                            *COM*:00000002 prevKey
+C:\Users\Maarten\AppData\Local\Temp/ccyQkMFt.s:179    .data:00000000 states
+C:\Users\Maarten\AppData\Local\Temp/ccyQkMFt.s:34     .text:00000024 sm_setState
+C:\Users\Maarten\AppData\Local\Temp/ccyQkMFt.s:104    .text:000000a6 sm_loop
+=======
+C:\Users\jeffr\AppData\Local\Temp/cczLvjSX.s:3      *ABS*:0000003f __SREG__
+C:\Users\jeffr\AppData\Local\Temp/cczLvjSX.s:4      *ABS*:0000003e __SP_H__
+C:\Users\jeffr\AppData\Local\Temp/cczLvjSX.s:5      *ABS*:0000003d __SP_L__
+C:\Users\jeffr\AppData\Local\Temp/cczLvjSX.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\jeffr\AppData\Local\Temp/cczLvjSX.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\jeffr\AppData\Local\Temp/cczLvjSX.s:13     .text:00000000 sm_init
+                            *COM*:00000002 currentstate
+C:\Users\jeffr\AppData\Local\Temp/cczLvjSX.s:211    .data:00000000 states
+C:\Users\jeffr\AppData\Local\Temp/cczLvjSX.s:30     .text:00000018 sm_setState
+C:\Users\jeffr\AppData\Local\Temp/cczLvjSX.s:100    .text:0000009a sm_loop
+C:\Users\jeffr\AppData\Local\Temp/cczLvjSX.s:295    .progmem.data:00000000 __c.2219
+>>>>>>> BackLightBranch
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
+KbGetKey
+getStatusBacklight
+resetTimerBacklight
+turnOnBacklight
+checkTimerBacklight
+LogMsg_P
+welcomescreen_keypressed
+welcomescreen_entry
+welcomescreen_loop
+welcomescreen_exit
+syncingscreen_keypressed
+syncingscreen_entry
+syncingscreen_loop
+syncingscreen_exit
+timezoneStartscreen_keypressed
+timezoneStartscreen_entry
+timezoneStartscreen_loop
+timezoneStartscreen_exit
+clockscreen_keypressed
+clockscreen_entry
+clockscreen_loop
+clockscreen_exit
+menuscreen_keypressed
+menuscreen_entry
+menuscreen_loop
+menuscreen_exit
+alarmcreen_keypressed
+alarmscreen_entry
+alarmscreen_loop
+alarmscreen_exit
+typeOfAlarmscreen_keypressed
+typeOfAlarmscreen_entry
+typeOfAlarmscreen_loop
+typeOfAlarmscreen_exit
+newDailyAlarmscreen_keypressed
+newDailyAlarmscreen_entry
+newDailyAlarmscreen_loop
+newDailyAlarmscreen_exit
+newOnceAlarmscreen_keypressed
+newOnceAlarmscreen_entry
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cczLvjSX.s 			page 8
+
+
+newOnceAlarmscreen_loop
+newOnceAlarmscreen_exit
+alarmSoundChooserscreen_keypressed
+alarmSoundChooserscreen_entry
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccyQkMFt.s 			page 7
+
+
+=======
+>>>>>>> BackLightBranch
+alarmSoundChooserscreen_loop
+alarmSoundChooserscreen_exit
+radioscreen_keypressed
+radioscreen_entry
+radioscreen_loop
+radioscreen_exit
+sleepTimerscreen_keypressed
+sleepTimerscreen_entry
+sleepTimerscreen_loop
+sleepTimerscreen_exit
+settingsscreen_keypressed
+settingsscreen_entry
+settingsscreen_loop
+settingsscreen_exit
+settingsTimeZonescreen_keypressed
+settingsTimeZonescreen_entry
+settingsTimeZonescreen_loop
+settingsTimeZonescreen_exit
+factoryResetscreen_keypressed
+factoryResetscreen_entry
+factoryResetscreen_loop
+factoryResetscreen_exit
+confirmationscreen_keypressed
+confirmationscreen_entry
+confirmationscreen_loop
+confirmationscreen_exit

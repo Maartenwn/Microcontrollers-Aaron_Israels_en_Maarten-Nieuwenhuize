@@ -1,0 +1,771 @@
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccINPUNN.s 			page 1
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccLSlbsW.s 			page 1
+>>>>>>> BackLightBranch
+
+
+   1               		.file	"flash.c"
+   2               		.arch atmega2561
+   3               	__SREG__ = 0x3f
+   4               	__SP_H__ = 0x3e
+   5               	__SP_L__ = 0x3d
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  10               		.text
+  11               	.global	At45dbChipErase
+  12               		.type	At45dbChipErase, @function
+  13               	At45dbChipErase:
+  14               	/* prologue: frame size=0 */
+  15               	/* prologue end (size=0) */
+  16 0000 8FEF      		ldi r24,lo8(-1)
+  17 0002 9FEF      		ldi r25,hi8(-1)
+  18               	/* epilogue: frame size=0 */
+  19 0004 0895      		ret
+  20               	/* epilogue end (size=1) */
+  21               	/* function At45dbChipErase size 3 (2) */
+  22               		.size	At45dbChipErase, .-At45dbChipErase
+  23               		.type	At45dbTransfer, @function
+  24               	At45dbTransfer:
+  25               	/* prologue: frame size=0 */
+  26 0006 2F92      		push r2
+  27 0008 3F92      		push r3
+  28 000a 4F92      		push r4
+  29 000c 5F92      		push r5
+  30 000e 6F92      		push r6
+  31 0010 7F92      		push r7
+  32 0012 8F92      		push r8
+  33 0014 9F92      		push r9
+  34 0016 AF92      		push r10
+  35 0018 BF92      		push r11
+  36 001a CF92      		push r12
+  37 001c DF92      		push r13
+  38 001e EF92      		push r14
+  39 0020 FF92      		push r15
+  40 0022 0F93      		push r16
+  41 0024 1F93      		push r17
+  42 0026 CF93      		push r28
+  43 0028 DF93      		push r29
+  44               	/* prologue end (size=18) */
+  45 002a 5C01      		movw r10,r24
+  46 002c 6B01      		movw r12,r22
+  47 002e 4A01      		movw r8,r20
+  48 0030 2901      		movw r4,r18
+  49 0032 3801      		movw r6,r16
+  50 0034 1701      		movw r2,r14
+  51 0036 81E0      		ldi r24,lo8(1)
+  52 0038 90E0      		ldi r25,hi8(1)
+  53 003a 0E94 0000 		call SPIselect
+  54 003e C0E0      		ldi r28,lo8(0)
+  55 0040 D0E0      		ldi r29,hi8(0)
+  56 0042 7601      		movw r14,r12
+  57 0044 8501      		movw r16,r10
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccINPUNN.s 			page 2
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccLSlbsW.s 			page 2
+>>>>>>> BackLightBranch
+
+
+  58 0046 00C0      		rjmp .L4
+  59               	.L5:
+  60 0048 F801      		movw r30,r16
+  61 004a 8191      		ld r24,Z+
+  62 004c 8F01      		movw r16,r30
+  63 004e 0E94 0000 		call SPItransferByte
+  64 0052 F701      		movw r30,r14
+  65 0054 8193      		st Z+,r24
+  66 0056 7F01      		movw r14,r30
+  67 0058 2196      		adiw r28,1
+  68               	.L4:
+  69 005a C815      		cp r28,r8
+  70 005c D905      		cpc r29,r9
+  71 005e 04F0      		brlt .L5
+  72 0060 C0E0      		ldi r28,lo8(0)
+  73 0062 D0E0      		ldi r29,hi8(0)
+  74 0064 7301      		movw r14,r6
+  75 0066 8201      		movw r16,r4
+  76 0068 00C0      		rjmp .L7
+  77               	.L8:
+  78 006a F801      		movw r30,r16
+  79 006c 8191      		ld r24,Z+
+  80 006e 8F01      		movw r16,r30
+  81 0070 0E94 0000 		call SPItransferByte
+  82 0074 F701      		movw r30,r14
+  83 0076 8193      		st Z+,r24
+  84 0078 7F01      		movw r14,r30
+  85 007a 2196      		adiw r28,1
+  86               	.L7:
+  87 007c C215      		cp r28,r2
+  88 007e D305      		cpc r29,r3
+  89 0080 04F0      		brlt .L8
+  90 0082 0E94 0000 		call SPIdeselect
+  91 0086 80E0      		ldi r24,lo8(0)
+  92 0088 90E0      		ldi r25,hi8(0)
+  93               	/* epilogue: frame size=0 */
+  94 008a DF91      		pop r29
+  95 008c CF91      		pop r28
+  96 008e 1F91      		pop r17
+  97 0090 0F91      		pop r16
+  98 0092 FF90      		pop r15
+  99 0094 EF90      		pop r14
+ 100 0096 DF90      		pop r13
+ 101 0098 CF90      		pop r12
+ 102 009a BF90      		pop r11
+ 103 009c AF90      		pop r10
+ 104 009e 9F90      		pop r9
+ 105 00a0 8F90      		pop r8
+ 106 00a2 7F90      		pop r7
+ 107 00a4 6F90      		pop r6
+ 108 00a6 5F90      		pop r5
+ 109 00a8 4F90      		pop r4
+ 110 00aa 3F90      		pop r3
+ 111 00ac 2F90      		pop r2
+ 112 00ae 0895      		ret
+ 113               	/* epilogue end (size=19) */
+ 114               	/* function At45dbTransfer size 85 (48) */
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccINPUNN.s 			page 3
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccLSlbsW.s 			page 3
+>>>>>>> BackLightBranch
+
+
+ 115               		.size	At45dbTransfer, .-At45dbTransfer
+ 116               	.global	At45dbGetStatus
+ 117               		.type	At45dbGetStatus, @function
+ 118               	At45dbGetStatus:
+ 119               	/* prologue: frame size=2 */
+ 120 00b0 EF92      		push r14
+ 121 00b2 FF92      		push r15
+ 122 00b4 0F93      		push r16
+ 123 00b6 1F93      		push r17
+ 124 00b8 CF93      		push r28
+ 125 00ba DF93      		push r29
+ 126 00bc CDB7      		in r28,__SP_L__
+ 127 00be DEB7      		in r29,__SP_H__
+ 128 00c0 2297      		sbiw r28,2
+ 129 00c2 0FB6      		in __tmp_reg__,__SREG__
+ 130 00c4 F894      		cli
+ 131 00c6 DEBF      		out __SP_H__,r29
+ 132 00c8 0FBE      		out __SREG__,__tmp_reg__
+ 133 00ca CDBF      		out __SP_L__,r28
+ 134               	/* prologue end (size=14) */
+ 135 00cc 87ED      		ldi r24,lo8(-41)
+ 136 00ce 8983      		std Y+1,r24
+ 137 00d0 8FEF      		ldi r24,lo8(-1)
+ 138 00d2 8A83      		std Y+2,r24
+ 139 00d4 EE24      		clr r14
+ 140 00d6 FF24      		clr r15
+ 141 00d8 00E0      		ldi r16,lo8(0)
+ 142 00da 10E0      		ldi r17,hi8(0)
+ 143 00dc 20E0      		ldi r18,lo8(0)
+ 144 00de 30E0      		ldi r19,hi8(0)
+ 145 00e0 42E0      		ldi r20,lo8(2)
+ 146 00e2 50E0      		ldi r21,hi8(2)
+ 147 00e4 CE01      		movw r24,r28
+ 148 00e6 0196      		adiw r24,1
+ 149 00e8 BC01      		movw r22,r24
+ 150 00ea 0E94 0000 		call At45dbTransfer
+ 151 00ee 892B      		or r24,r25
+ 152 00f0 01F0      		breq .L12
+ 153 00f2 8FEF      		ldi r24,lo8(255)
+ 154 00f4 90E0      		ldi r25,hi8(255)
+ 155 00f6 00C0      		rjmp .L14
+ 156               	.L12:
+ 157 00f8 8A81      		ldd r24,Y+2
+ 158 00fa 9927      		clr r25
+ 159               	.L14:
+ 160               	/* epilogue: frame size=2 */
+ 161 00fc 2296      		adiw r28,2
+ 162 00fe 0FB6      		in __tmp_reg__,__SREG__
+ 163 0100 F894      		cli
+ 164 0102 DEBF      		out __SP_H__,r29
+ 165 0104 0FBE      		out __SREG__,__tmp_reg__
+ 166 0106 CDBF      		out __SP_L__,r28
+ 167 0108 DF91      		pop r29
+ 168 010a CF91      		pop r28
+ 169 010c 1F91      		pop r17
+ 170 010e 0F91      		pop r16
+ 171 0110 FF90      		pop r15
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccINPUNN.s 			page 4
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccLSlbsW.s 			page 4
+>>>>>>> BackLightBranch
+
+
+ 172 0112 EF90      		pop r14
+ 173 0114 0895      		ret
+ 174               	/* epilogue end (size=13) */
+ 175               	/* function At45dbGetStatus size 51 (24) */
+ 176               		.size	At45dbGetStatus, .-At45dbGetStatus
+ 177               	.global	At45dbInit
+ 178               		.type	At45dbInit, @function
+ 179               	At45dbInit:
+ 180               	/* prologue: frame size=0 */
+ 181 0116 0F93      		push r16
+ 182 0118 1F93      		push r17
+ 183               	/* prologue end (size=2) */
+ 184 011a 0E94 0000 		call At45dbGetStatus
+ 185 011e 0E94 0000 		call At45dbGetStatus
+ 186 0122 082F      		mov r16,r24
+ 187 0124 60E0      		ldi r22,lo8(0)
+ 188 0126 70E0      		ldi r23,hi8(0)
+ 189 0128 2091 0000 		lds r18,dcbtab
+ 190 012c 3091 0000 		lds r19,(dcbtab)+1
+ 191 0130 00C0      		rjmp .L17
+ 192               	.L18:
+ 193 0132 6F5F      		subi r22,lo8(-(1))
+ 194 0134 7F4F      		sbci r23,hi8(-(1))
+ 195 0136 8085      		ldd r24,Z+8
+ 196 0138 8023      		and r24,r16
+ 197 013a 9185      		ldd r25,Z+9
+ 198 013c 8917      		cp r24,r25
+ 199 013e 01F4      		brne .L17
+ 200 0140 8AE0      		ldi r24,lo8(10)
+ 201 0142 189F      		mul r17,r24
+ 202 0144 9001      		movw r18,r0
+ 203 0146 1124      		clr r1
+ 204 0148 2050      		subi r18,lo8(-(at45_devt))
+ 205 014a 3040      		sbci r19,hi8(-(at45_devt))
+ 206 014c 00C0      		rjmp .L22
+ 207               	.L17:
+ 208 014e 162F      		mov r17,r22
+ 209 0150 462F      		mov r20,r22
+ 210 0152 5527      		clr r21
+ 211 0154 FA01      		movw r30,r20
+ 212 0156 EE0F      		lsl r30
+ 213 0158 FF1F      		rol r31
+ 214 015a CA01      		movw r24,r20
+ 215 015c A3E0      		ldi r26,3
+ 216 015e 880F      	1:	lsl r24
+ 217 0160 991F      		rol r25
+ 218 0162 AA95      		dec r26
+ 219 0164 01F4      		brne 1b
+ 220 0166 E80F      		add r30,r24
+ 221 0168 F91F      		adc r31,r25
+ 222 016a E050      		subi r30,lo8(-(at45_devt))
+ 223 016c F040      		sbci r31,hi8(-(at45_devt))
+ 224 016e 8081      		ld r24,Z
+ 225 0170 9181      		ldd r25,Z+1
+ 226 0172 A281      		ldd r26,Z+2
+ 227 0174 B381      		ldd r27,Z+3
+ 228 0176 0097      		sbiw r24,0
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccINPUNN.s 			page 5
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccLSlbsW.s 			page 5
+>>>>>>> BackLightBranch
+
+
+ 229 0178 A105      		cpc r26,__zero_reg__
+ 230 017a B105      		cpc r27,__zero_reg__
+ 231 017c 01F4      		brne .L18
+ 232               	.L22:
+ 233 017e 3093 0000 		sts (dcbtab)+1,r19
+ 234 0182 2093 0000 		sts dcbtab,r18
+ 235 0186 CA01      		movw r24,r20
+ 236               	/* epilogue: frame size=0 */
+ 237 0188 1F91      		pop r17
+ 238 018a 0F91      		pop r16
+ 239 018c 0895      		ret
+ 240               	/* epilogue end (size=3) */
+ 241               	/* function At45dbInit size 60 (55) */
+ 242               		.size	At45dbInit, .-At45dbInit
+ 243               	.global	At45dbWaitReady
+ 244               		.type	At45dbWaitReady, @function
+ 245               	At45dbWaitReady:
+ 246               	/* prologue: frame size=0 */
+ 247 018e EF92      		push r14
+ 248 0190 FF92      		push r15
+ 249 0192 0F93      		push r16
+ 250 0194 1F93      		push r17
+ 251 0196 CF93      		push r28
+ 252 0198 DF93      		push r29
+ 253               	/* prologue end (size=6) */
+ 254 019a 7B01      		movw r14,r22
+ 255 019c 8C01      		movw r16,r24
+ 256 019e EA01      		movw r28,r20
+ 257 01a0 00C0      		rjmp .L26
+ 258               	.L27:
+ 259 01a2 2097      		sbiw r28,0
+ 260 01a4 01F4      		brne .L28
+ 261 01a6 61E0      		ldi r22,lo8(1)
+ 262 01a8 70E0      		ldi r23,hi8(1)
+ 263 01aa 80E0      		ldi r24,hlo8(1)
+ 264 01ac 90E0      		ldi r25,hhi8(1)
+ 265 01ae 0E94 0000 		call NutSleep
+ 266               	.L28:
+ 267 01b2 0894      		sec
+ 268 01b4 E108      		sbc r14,__zero_reg__
+ 269 01b6 F108      		sbc r15,__zero_reg__
+ 270 01b8 0109      		sbc r16,__zero_reg__
+ 271 01ba 1109      		sbc r17,__zero_reg__
+ 272 01bc 8FEF      		ldi r24,lo8(-1)
+ 273 01be E816      		cp r14,r24
+ 274 01c0 8FEF      		ldi r24,hi8(-1)
+ 275 01c2 F806      		cpc r15,r24
+ 276 01c4 8FEF      		ldi r24,hlo8(-1)
+ 277 01c6 0807      		cpc r16,r24
+ 278 01c8 8FEF      		ldi r24,hhi8(-1)
+ 279 01ca 1807      		cpc r17,r24
+ 280 01cc 01F4      		brne .L26
+ 281 01ce 8FEF      		ldi r24,lo8(-1)
+ 282 01d0 9FEF      		ldi r25,hi8(-1)
+ 283 01d2 00C0      		rjmp .L31
+ 284               	.L26:
+ 285 01d4 0E94 0000 		call At45dbGetStatus
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccINPUNN.s 			page 6
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccLSlbsW.s 			page 6
+>>>>>>> BackLightBranch
+
+
+ 286 01d8 87FF      		sbrs r24,7
+ 287 01da 00C0      		rjmp .L27
+ 288 01dc 80E0      		ldi r24,lo8(0)
+ 289 01de 90E0      		ldi r25,hi8(0)
+ 290               	.L31:
+ 291               	/* epilogue: frame size=0 */
+ 292 01e0 DF91      		pop r29
+ 293 01e2 CF91      		pop r28
+ 294 01e4 1F91      		pop r17
+ 295 01e6 0F91      		pop r16
+ 296 01e8 FF90      		pop r15
+ 297 01ea EF90      		pop r14
+ 298 01ec 0895      		ret
+ 299               	/* epilogue end (size=7) */
+ 300               	/* function At45dbWaitReady size 48 (35) */
+ 301               		.size	At45dbWaitReady, .-At45dbWaitReady
+ 302               	.global	At45dbSendCmd
+ 303               		.type	At45dbSendCmd, @function
+ 304               	At45dbSendCmd:
+ 305               	/* prologue: frame size=0 */
+ 306 01ee 5F92      		push r5
+ 307 01f0 6F92      		push r6
+ 308 01f2 7F92      		push r7
+ 309 01f4 8F92      		push r8
+ 310 01f6 9F92      		push r9
+ 311 01f8 AF92      		push r10
+ 312 01fa BF92      		push r11
+ 313 01fc CF92      		push r12
+ 314 01fe DF92      		push r13
+ 315 0200 EF92      		push r14
+ 316 0202 FF92      		push r15
+ 317 0204 0F93      		push r16
+ 318 0206 1F93      		push r17
+ 319 0208 CF93      		push r28
+ 320 020a DF93      		push r29
+ 321               	/* prologue end (size=15) */
+ 322 020c 582E      		mov r5,r24
+ 323 020e 4A01      		movw r8,r20
+ 324 0210 5B01      		movw r10,r22
+ 325 0212 E901      		movw r28,r18
+ 326 0214 3801      		movw r6,r16
+ 327 0216 8701      		movw r16,r14
+ 328 0218 2930      		cpi r18,9
+ 329 021a 3105      		cpc r19,__zero_reg__
+ 330 021c 04F0      		brlt .L37
+ 331 021e 8FEF      		ldi r24,lo8(-1)
+ 332 0220 9FEF      		ldi r25,hi8(-1)
+ 333 0222 00C0      		rjmp .L39
+ 334               	.L37:
+ 335 0224 A901      		movw r20,r18
+ 336 0226 60E0      		ldi r22,lo8(0)
+ 337 0228 70E0      		ldi r23,hi8(0)
+ 338 022a 80E0      		ldi r24,lo8(dcbtab+2)
+ 339 022c 90E0      		ldi r25,hi8(dcbtab+2)
+ 340 022e 0E94 0000 		call memset
+ 341 0232 5092 0000 		sts dcbtab+2,r5
+ 342 0236 8114      		cp r8,__zero_reg__
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccINPUNN.s 			page 7
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccLSlbsW.s 			page 7
+>>>>>>> BackLightBranch
+
+
+ 343 0238 9104      		cpc r9,__zero_reg__
+ 344 023a A104      		cpc r10,__zero_reg__
+ 345 023c B104      		cpc r11,__zero_reg__
+ 346 023e 01F0      		breq .L40
+ 347 0240 C501      		movw r24,r10
+ 348 0242 AA27      		clr r26
+ 349 0244 BB27      		clr r27
+ 350 0246 8093 0000 		sts dcbtab+3,r24
+ 351 024a BB27      		clr r27
+ 352 024c AB2D      		mov r26,r11
+ 353 024e 9A2D      		mov r25,r10
+ 354 0250 892D      		mov r24,r9
+ 355 0252 8093 0000 		sts dcbtab+4,r24
+ 356 0256 8092 0000 		sts dcbtab+5,r8
+ 357               	.L40:
+ 358 025a 7601      		movw r14,r12
+ 359 025c 9301      		movw r18,r6
+ 360 025e AE01      		movw r20,r28
+ 361 0260 60E0      		ldi r22,lo8(dcbtab+2)
+ 362 0262 70E0      		ldi r23,hi8(dcbtab+2)
+ 363 0264 CB01      		movw r24,r22
+ 364 0266 0E94 0000 		call At45dbTransfer
+ 365               	.L39:
+ 366               	/* epilogue: frame size=0 */
+ 367 026a DF91      		pop r29
+ 368 026c CF91      		pop r28
+ 369 026e 1F91      		pop r17
+ 370 0270 0F91      		pop r16
+ 371 0272 FF90      		pop r15
+ 372 0274 EF90      		pop r14
+ 373 0276 DF90      		pop r13
+ 374 0278 CF90      		pop r12
+ 375 027a BF90      		pop r11
+ 376 027c AF90      		pop r10
+ 377 027e 9F90      		pop r9
+ 378 0280 8F90      		pop r8
+ 379 0282 7F90      		pop r7
+ 380 0284 6F90      		pop r6
+ 381 0286 5F90      		pop r5
+ 382 0288 0895      		ret
+ 383               	/* epilogue end (size=16) */
+ 384               	/* function At45dbSendCmd size 78 (47) */
+ 385               		.size	At45dbSendCmd, .-At45dbSendCmd
+ 386               	.global	At45dbPageWrite
+ 387               		.type	At45dbPageWrite, @function
+ 388               	At45dbPageWrite:
+ 389               	/* prologue: frame size=0 */
+ 390 028a 8F92      		push r8
+ 391 028c 9F92      		push r9
+ 392 028e AF92      		push r10
+ 393 0290 BF92      		push r11
+ 394 0292 CF92      		push r12
+ 395 0294 DF92      		push r13
+ 396 0296 EF92      		push r14
+ 397 0298 FF92      		push r15
+ 398 029a 0F93      		push r16
+ 399 029c 1F93      		push r17
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccINPUNN.s 			page 8
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccLSlbsW.s 			page 8
+>>>>>>> BackLightBranch
+
+
+ 400 029e CF93      		push r28
+ 401 02a0 DF93      		push r29
+ 402               	/* prologue end (size=12) */
+ 403 02a2 4B01      		movw r8,r22
+ 404 02a4 5C01      		movw r10,r24
+ 405 02a6 8A01      		movw r16,r20
+ 406 02a8 6901      		movw r12,r18
+ 407 02aa C901      		movw r24,r18
+ 408 02ac 0E94 0000 		call malloc
+ 409 02b0 EC01      		movw r28,r24
+ 410 02b2 0097      		sbiw r24,0
+ 411 02b4 01F4      		brne .L44
+ 412 02b6 0FEF      		ldi r16,lo8(-1)
+ 413 02b8 1FEF      		ldi r17,hi8(-1)
+ 414 02ba 00C0      		rjmp .L46
+ 415               	.L44:
+ 416 02bc 7C01      		movw r14,r24
+ 417 02be 24E0      		ldi r18,lo8(4)
+ 418 02c0 30E0      		ldi r19,hi8(4)
+ 419 02c2 40E0      		ldi r20,lo8(0)
+ 420 02c4 50E0      		ldi r21,hi8(0)
+ 421 02c6 60E0      		ldi r22,hlo8(0)
+ 422 02c8 70E0      		ldi r23,hhi8(0)
+ 423 02ca 84E8      		ldi r24,lo8(-124)
+ 424 02cc 0E94 0000 		call At45dbSendCmd
+ 425 02d0 892B      		or r24,r25
+ 426 02d2 01F4      		brne .L47
+ 427 02d4 E091 0000 		lds r30,dcbtab
+ 428 02d8 F091 0000 		lds r31,(dcbtab)+1
+ 429 02dc 0680      		ldd r0,Z+6
+ 430 02de 00C0      		rjmp 2f
+ 431 02e0 880C      	1:	lsl r8
+ 432 02e2 991C      		rol r9
+ 433 02e4 AA1C      		rol r10
+ 434 02e6 BB1C      		rol r11
+ 435 02e8 0A94      	2:	dec r0
+ 436 02ea 02F4      		brpl 1b
+ 437 02ec CC24      		clr r12
+ 438 02ee DD24      		clr r13
+ 439 02f0 EE24      		clr r14
+ 440 02f2 FF24      		clr r15
+ 441 02f4 00E0      		ldi r16,lo8(0)
+ 442 02f6 10E0      		ldi r17,hi8(0)
+ 443 02f8 24E0      		ldi r18,lo8(4)
+ 444 02fa 30E0      		ldi r19,hi8(4)
+ 445 02fc B501      		movw r22,r10
+ 446 02fe A401      		movw r20,r8
+ 447 0300 83E8      		ldi r24,lo8(-125)
+ 448 0302 0E94 0000 		call At45dbSendCmd
+ 449 0306 892B      		or r24,r25
+ 450 0308 01F4      		brne .L47
+ 451 030a 41E0      		ldi r20,lo8(1)
+ 452 030c 50E0      		ldi r21,hi8(1)
+ 453 030e 68EE      		ldi r22,lo8(1000)
+ 454 0310 73E0      		ldi r23,hi8(1000)
+ 455 0312 80E0      		ldi r24,hlo8(1000)
+ 456 0314 90E0      		ldi r25,hhi8(1000)
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccINPUNN.s 			page 9
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccLSlbsW.s 			page 9
+>>>>>>> BackLightBranch
+
+
+ 457 0316 0E94 0000 		call At45dbWaitReady
+ 458 031a 8C01      		movw r16,r24
+ 459 031c 00C0      		rjmp .L50
+ 460               	.L47:
+ 461 031e 0FEF      		ldi r16,lo8(-1)
+ 462 0320 1FEF      		ldi r17,hi8(-1)
+ 463               	.L50:
+ 464 0322 CE01      		movw r24,r28
+ 465 0324 0E94 0000 		call free
+ 466               	.L46:
+ 467 0328 C801      		movw r24,r16
+ 468               	/* epilogue: frame size=0 */
+ 469 032a DF91      		pop r29
+ 470 032c CF91      		pop r28
+ 471 032e 1F91      		pop r17
+ 472 0330 0F91      		pop r16
+ 473 0332 FF90      		pop r15
+ 474 0334 EF90      		pop r14
+ 475 0336 DF90      		pop r13
+ 476 0338 CF90      		pop r12
+ 477 033a BF90      		pop r11
+ 478 033c AF90      		pop r10
+ 479 033e 9F90      		pop r9
+ 480 0340 8F90      		pop r8
+ 481 0342 0895      		ret
+ 482               	/* epilogue end (size=13) */
+ 483               	/* function At45dbPageWrite size 93 (68) */
+ 484               		.size	At45dbPageWrite, .-At45dbPageWrite
+ 485               	.global	At45dbPageRead
+ 486               		.type	At45dbPageRead, @function
+ 487               	At45dbPageRead:
+ 488               	/* prologue: frame size=0 */
+ 489 0344 CF92      		push r12
+ 490 0346 DF92      		push r13
+ 491 0348 EF92      		push r14
+ 492 034a FF92      		push r15
+ 493 034c 0F93      		push r16
+ 494 034e 1F93      		push r17
+ 495               	/* prologue end (size=6) */
+ 496 0350 E091 0000 		lds r30,dcbtab
+ 497 0354 F091 0000 		lds r31,(dcbtab)+1
+ 498 0358 0680      		ldd r0,Z+6
+ 499 035a 00C0      		rjmp 2f
+ 500 035c 660F      	1:	lsl r22
+ 501 035e 771F      		rol r23
+ 502 0360 881F      		rol r24
+ 503 0362 991F      		rol r25
+ 504 0364 0A94      	2:	dec r0
+ 505 0366 02F4      		brpl 1b
+ 506 0368 6901      		movw r12,r18
+ 507 036a 7A01      		movw r14,r20
+ 508 036c 8A01      		movw r16,r20
+ 509 036e 28E0      		ldi r18,lo8(8)
+ 510 0370 30E0      		ldi r19,hi8(8)
+ 511 0372 AB01      		movw r20,r22
+ 512 0374 BC01      		movw r22,r24
+ 513 0376 88EE      		ldi r24,lo8(-24)
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccINPUNN.s 			page 10
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccLSlbsW.s 			page 10
+>>>>>>> BackLightBranch
+
+
+ 514 0378 0E94 0000 		call At45dbSendCmd
+ 515               	/* epilogue: frame size=0 */
+ 516 037c 1F91      		pop r17
+ 517 037e 0F91      		pop r16
+ 518 0380 FF90      		pop r15
+ 519 0382 EF90      		pop r14
+ 520 0384 DF90      		pop r13
+ 521 0386 CF90      		pop r12
+ 522 0388 0895      		ret
+ 523               	/* epilogue end (size=7) */
+ 524               	/* function At45dbPageRead size 35 (22) */
+ 525               		.size	At45dbPageRead, .-At45dbPageRead
+ 526               	.global	At45dbPageErase
+ 527               		.type	At45dbPageErase, @function
+ 528               	At45dbPageErase:
+ 529               	/* prologue: frame size=0 */
+ 530 038a CF92      		push r12
+ 531 038c DF92      		push r13
+ 532 038e EF92      		push r14
+ 533 0390 FF92      		push r15
+ 534 0392 0F93      		push r16
+ 535 0394 1F93      		push r17
+ 536               	/* prologue end (size=6) */
+ 537 0396 AA27      		clr r26
+ 538 0398 BB27      		clr r27
+ 539 039a CC24      		clr r12
+ 540 039c DD24      		clr r13
+ 541 039e EE24      		clr r14
+ 542 03a0 FF24      		clr r15
+ 543 03a2 00E0      		ldi r16,lo8(0)
+ 544 03a4 10E0      		ldi r17,hi8(0)
+ 545 03a6 24E0      		ldi r18,lo8(4)
+ 546 03a8 30E0      		ldi r19,hi8(4)
+ 547 03aa AC01      		movw r20,r24
+ 548 03ac BD01      		movw r22,r26
+ 549 03ae 81E8      		ldi r24,lo8(-127)
+ 550 03b0 0E94 0000 		call At45dbSendCmd
+ 551               	/* epilogue: frame size=0 */
+ 552 03b4 1F91      		pop r17
+ 553 03b6 0F91      		pop r16
+ 554 03b8 FF90      		pop r15
+ 555 03ba EF90      		pop r14
+ 556 03bc DF90      		pop r13
+ 557 03be CF90      		pop r12
+ 558 03c0 0895      		ret
+ 559               	/* epilogue end (size=7) */
+ 560               	/* function At45dbPageErase size 28 (15) */
+ 561               		.size	At45dbPageErase, .-At45dbPageErase
+ 562               	.global	at45_devt
+ 563               		.data
+ 564               		.type	at45_devt, @object
+ 565               		.size	at45_devt, 80
+ 566               	at45_devt:
+ 567 0000 00        		.byte	0
+ 568 0001 02        		.byte	2
+ 569 0002 00        		.byte	0
+ 570 0003 00        		.byte	0
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccINPUNN.s 			page 11
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccLSlbsW.s 			page 11
+>>>>>>> BackLightBranch
+
+
+ 571 0004 0801      		.word	264
+ 572 0006 0900      		.word	9
+ 573 0008 3C        		.byte	60
+ 574 0009 0C        		.byte	12
+ 575 000a 01        		.byte	1
+ 576 000b 04        		.byte	4
+ 577 000c 00        		.byte	0
+ 578 000d 00        		.byte	0
+ 579 000e 0801      		.word	264
+ 580 0010 0900      		.word	9
+ 581 0012 3C        		.byte	60
+ 582 0013 14        		.byte	20
+ 583 0014 00        		.byte	0
+ 584 0015 08        		.byte	8
+ 585 0016 00        		.byte	0
+ 586 0017 00        		.byte	0
+ 587 0018 0801      		.word	264
+ 588 001a 0900      		.word	9
+ 589 001c 3C        		.byte	60
+ 590 001d 1C        		.byte	28
+ 591 001e 00        		.byte	0
+ 592 001f 10        		.byte	16
+ 593 0020 00        		.byte	0
+ 594 0021 00        		.byte	0
+ 595 0022 0801      		.word	264
+ 596 0024 0900      		.word	9
+ 597 0026 3C        		.byte	60
+ 598 0027 24        		.byte	36
+ 599 0028 00        		.byte	0
+ 600 0029 10        		.byte	16
+ 601 002a 00        		.byte	0
+ 602 002b 00        		.byte	0
+ 603 002c 1002      		.word	528
+ 604 002e 0A00      		.word	10
+ 605 0030 3C        		.byte	60
+ 606 0031 2C        		.byte	44
+ 607 0032 00        		.byte	0
+ 608 0033 20        		.byte	32
+ 609 0034 00        		.byte	0
+ 610 0035 00        		.byte	0
+ 611 0036 1002      		.word	528
+ 612 0038 0A00      		.word	10
+ 613 003a 3C        		.byte	60
+ 614 003b 34        		.byte	52
+ 615 003c 00        		.byte	0
+ 616 003d 20        		.byte	32
+ 617 003e 00        		.byte	0
+ 618 003f 00        		.byte	0
+ 619 0040 2004      		.word	1056
+ 620 0042 0B00      		.word	11
+ 621 0044 38        		.byte	56
+ 622 0045 38        		.byte	56
+ 623 0046 00        		.byte	0
+ 624 0047 00        		.byte	0
+ 625 0048 00        		.byte	0
+ 626 0049 00        		.byte	0
+ 627 004a 0000      		.word	0
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccINPUNN.s 			page 12
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccLSlbsW.s 			page 12
+>>>>>>> BackLightBranch
+
+
+ 628 004c 0000      		.word	0
+ 629 004e 00        		.byte	0
+ 630 004f 00        		.byte	0
+ 631               		.lcomm dcbtab,10
+ 632               	/* File "source/flash.c": code  481 = 0x01e1 ( 316), prologues  79, epilogues  86 */
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccINPUNN.s 			page 13
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccLSlbsW.s 			page 13
+>>>>>>> BackLightBranch
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 flash.c
+<<<<<<< HEAD
+C:\Users\Maarten\AppData\Local\Temp/ccINPUNN.s:3      *ABS*:0000003f __SREG__
+C:\Users\Maarten\AppData\Local\Temp/ccINPUNN.s:4      *ABS*:0000003e __SP_H__
+C:\Users\Maarten\AppData\Local\Temp/ccINPUNN.s:5      *ABS*:0000003d __SP_L__
+C:\Users\Maarten\AppData\Local\Temp/ccINPUNN.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\Maarten\AppData\Local\Temp/ccINPUNN.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\Maarten\AppData\Local\Temp/ccINPUNN.s:13     .text:00000000 At45dbChipErase
+C:\Users\Maarten\AppData\Local\Temp/ccINPUNN.s:24     .text:00000006 At45dbTransfer
+C:\Users\Maarten\AppData\Local\Temp/ccINPUNN.s:118    .text:000000b0 At45dbGetStatus
+C:\Users\Maarten\AppData\Local\Temp/ccINPUNN.s:179    .text:00000116 At45dbInit
+                             .bss:00000000 dcbtab
+C:\Users\Maarten\AppData\Local\Temp/ccINPUNN.s:566    .data:00000000 at45_devt
+C:\Users\Maarten\AppData\Local\Temp/ccINPUNN.s:245    .text:0000018e At45dbWaitReady
+C:\Users\Maarten\AppData\Local\Temp/ccINPUNN.s:304    .text:000001ee At45dbSendCmd
+C:\Users\Maarten\AppData\Local\Temp/ccINPUNN.s:388    .text:0000028a At45dbPageWrite
+C:\Users\Maarten\AppData\Local\Temp/ccINPUNN.s:487    .text:00000344 At45dbPageRead
+C:\Users\Maarten\AppData\Local\Temp/ccINPUNN.s:528    .text:0000038a At45dbPageErase
+=======
+C:\Users\jeffr\AppData\Local\Temp/ccLSlbsW.s:3      *ABS*:0000003f __SREG__
+C:\Users\jeffr\AppData\Local\Temp/ccLSlbsW.s:4      *ABS*:0000003e __SP_H__
+C:\Users\jeffr\AppData\Local\Temp/ccLSlbsW.s:5      *ABS*:0000003d __SP_L__
+C:\Users\jeffr\AppData\Local\Temp/ccLSlbsW.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\jeffr\AppData\Local\Temp/ccLSlbsW.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\jeffr\AppData\Local\Temp/ccLSlbsW.s:13     .text:00000000 At45dbChipErase
+C:\Users\jeffr\AppData\Local\Temp/ccLSlbsW.s:24     .text:00000006 At45dbTransfer
+C:\Users\jeffr\AppData\Local\Temp/ccLSlbsW.s:118    .text:000000b0 At45dbGetStatus
+C:\Users\jeffr\AppData\Local\Temp/ccLSlbsW.s:179    .text:00000116 At45dbInit
+                             .bss:00000000 dcbtab
+C:\Users\jeffr\AppData\Local\Temp/ccLSlbsW.s:566    .data:00000000 at45_devt
+C:\Users\jeffr\AppData\Local\Temp/ccLSlbsW.s:245    .text:0000018e At45dbWaitReady
+C:\Users\jeffr\AppData\Local\Temp/ccLSlbsW.s:304    .text:000001ee At45dbSendCmd
+C:\Users\jeffr\AppData\Local\Temp/ccLSlbsW.s:388    .text:0000028a At45dbPageWrite
+C:\Users\jeffr\AppData\Local\Temp/ccLSlbsW.s:487    .text:00000344 At45dbPageRead
+C:\Users\jeffr\AppData\Local\Temp/ccLSlbsW.s:528    .text:0000038a At45dbPageErase
+>>>>>>> BackLightBranch
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
+SPIselect
+SPItransferByte
+SPIdeselect
+NutSleep
+memset
+malloc
+free

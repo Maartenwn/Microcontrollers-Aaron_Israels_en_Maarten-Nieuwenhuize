@@ -1,0 +1,265 @@
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccLq5h5V.s 			page 1
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cctIqDeM.s 			page 1
+>>>>>>> BackLightBranch
+
+
+   1               		.file	"TimeCalculations.c"
+   2               		.arch atmega2561
+   3               	__SREG__ = 0x3f
+   4               	__SP_H__ = 0x3e
+   5               	__SP_L__ = 0x3d
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  10               		.text
+  11               	.global	getSecondsBetween
+  12               		.type	getSecondsBetween, @function
+  13               	getSecondsBetween:
+  14               	/* prologue: frame size=0 */
+  15 0000 CF93      		push r28
+  16 0002 DF93      		push r29
+  17               	/* prologue end (size=2) */
+  18 0004 FC01      		movw r30,r24
+  19 0006 DB01      		movw r26,r22
+  20 0008 8081      		ld r24,Z
+  21 000a 9181      		ldd r25,Z+1
+  22 000c 2D91      		ld r18,X+
+  23 000e 3C91      		ld r19,X
+  24 0010 821B      		sub r24,r18
+  25 0012 930B      		sbc r25,r19
+  26 0014 2281      		ldd r18,Z+2
+  27 0016 3381      		ldd r19,Z+3
+  28 0018 EB01      		movw r28,r22
+  29 001a 4A81      		ldd r20,Y+2
+  30 001c 5B81      		ldd r21,Y+3
+  31 001e 241B      		sub r18,r20
+  32 0020 350B      		sbc r19,r21
+  33 0022 4CE3      		ldi r20,lo8(60)
+  34 0024 50E0      		ldi r21,hi8(60)
+  35 0026 B901      		movw r22,r18
+  36 0028 649F      		mul r22,r20
+  37 002a 9001      		movw r18,r0
+  38 002c 659F      		mul r22,r21
+  39 002e 300D      		add r19,r0
+  40 0030 749F      		mul r23,r20
+  41 0032 300D      		add r19,r0
+  42 0034 1124      		clr r1
+  43 0036 820F      		add r24,r18
+  44 0038 931F      		adc r25,r19
+  45 003a 2481      		ldd r18,Z+4
+  46 003c 3581      		ldd r19,Z+5
+  47 003e 4C81      		ldd r20,Y+4
+  48 0040 5D81      		ldd r21,Y+5
+  49 0042 241B      		sub r18,r20
+  50 0044 350B      		sbc r19,r21
+  51 0046 40E1      		ldi r20,lo8(3600)
+  52 0048 5EE0      		ldi r21,hi8(3600)
+  53 004a E901      		movw r28,r18
+  54 004c C49F      		mul r28,r20
+  55 004e 9001      		movw r18,r0
+  56 0050 C59F      		mul r28,r21
+  57 0052 300D      		add r19,r0
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccLq5h5V.s 			page 2
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cctIqDeM.s 			page 2
+>>>>>>> BackLightBranch
+
+
+  58 0054 D49F      		mul r29,r20
+  59 0056 300D      		add r19,r0
+  60 0058 1124      		clr r1
+  61 005a 820F      		add r24,r18
+  62 005c 931F      		adc r25,r19
+  63               	/* epilogue: frame size=0 */
+  64 005e DF91      		pop r29
+  65 0060 CF91      		pop r28
+  66 0062 0895      		ret
+  67               	/* epilogue end (size=3) */
+  68               	/* function getSecondsBetween size 50 (45) */
+  69               		.size	getSecondsBetween, .-getSecondsBetween
+  70               	.global	getMinutesBetween
+  71               		.type	getMinutesBetween, @function
+  72               	getMinutesBetween:
+  73               	/* prologue: frame size=0 */
+  74 0064 EF92      		push r14
+  75 0066 FF92      		push r15
+  76 0068 0F93      		push r16
+  77 006a 1F93      		push r17
+  78 006c CF93      		push r28
+  79 006e DF93      		push r29
+  80               	/* prologue end (size=6) */
+  81 0070 8C01      		movw r16,r24
+  82 0072 7B01      		movw r14,r22
+  83 0074 EC01      		movw r28,r24
+  84 0076 EA81      		ldd r30,Y+2
+  85 0078 FB81      		ldd r31,Y+3
+  86 007a EB01      		movw r28,r22
+  87 007c 8A81      		ldd r24,Y+2
+  88 007e 9B81      		ldd r25,Y+3
+  89 0080 E81B      		sub r30,r24
+  90 0082 F90B      		sbc r31,r25
+  91 0084 D801      		movw r26,r16
+  92 0086 8D91      		ld r24,X+
+  93 0088 9C91      		ld r25,X
+  94 008a 2881      		ld r18,Y
+  95 008c 3981      		ldd r19,Y+1
+  96 008e 821B      		sub r24,r18
+  97 0090 930B      		sbc r25,r19
+  98 0092 6CE3      		ldi r22,lo8(60)
+  99 0094 70E0      		ldi r23,hi8(60)
+ 100 0096 0E94 0000 		call __divmodhi4
+ 101 009a E60F      		add r30,r22
+ 102 009c F71F      		adc r31,r23
+ 103 009e E801      		movw r28,r16
+ 104 00a0 8C81      		ldd r24,Y+4
+ 105 00a2 9D81      		ldd r25,Y+5
+ 106 00a4 E701      		movw r28,r14
+ 107 00a6 2C81      		ldd r18,Y+4
+ 108 00a8 3D81      		ldd r19,Y+5
+ 109 00aa 821B      		sub r24,r18
+ 110 00ac 930B      		sbc r25,r19
+ 111 00ae 2CE3      		ldi r18,lo8(60)
+ 112 00b0 30E0      		ldi r19,hi8(60)
+ 113 00b2 AC01      		movw r20,r24
+ 114 00b4 429F      		mul r20,r18
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccLq5h5V.s 			page 3
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cctIqDeM.s 			page 3
+>>>>>>> BackLightBranch
+
+
+ 115 00b6 C001      		movw r24,r0
+ 116 00b8 439F      		mul r20,r19
+ 117 00ba 900D      		add r25,r0
+ 118 00bc 529F      		mul r21,r18
+ 119 00be 900D      		add r25,r0
+ 120 00c0 1124      		clr r1
+ 121 00c2 8E0F      		add r24,r30
+ 122 00c4 9F1F      		adc r25,r31
+ 123               	/* epilogue: frame size=0 */
+ 124 00c6 DF91      		pop r29
+ 125 00c8 CF91      		pop r28
+ 126 00ca 1F91      		pop r17
+ 127 00cc 0F91      		pop r16
+ 128 00ce FF90      		pop r15
+ 129 00d0 EF90      		pop r14
+ 130 00d2 0895      		ret
+ 131               	/* epilogue end (size=7) */
+ 132               	/* function getMinutesBetween size 56 (43) */
+ 133               		.size	getMinutesBetween, .-getMinutesBetween
+ 134               	.global	getHoursBetween
+ 135               		.type	getHoursBetween, @function
+ 136               	getHoursBetween:
+ 137               	/* prologue: frame size=0 */
+ 138 00d4 CF93      		push r28
+ 139 00d6 DF93      		push r29
+ 140               	/* prologue end (size=2) */
+ 141 00d8 FB01      		movw r30,r22
+ 142 00da EC01      		movw r28,r24
+ 143 00dc 8A81      		ldd r24,Y+2
+ 144 00de 9B81      		ldd r25,Y+3
+ 145 00e0 2281      		ldd r18,Z+2
+ 146 00e2 3381      		ldd r19,Z+3
+ 147 00e4 821B      		sub r24,r18
+ 148 00e6 930B      		sbc r25,r19
+ 149               	/* epilogue: frame size=0 */
+ 150 00e8 DF91      		pop r29
+ 151 00ea CF91      		pop r28
+ 152 00ec 0895      		ret
+ 153               	/* epilogue end (size=3) */
+ 154               	/* function getHoursBetween size 13 (8) */
+ 155               		.size	getHoursBetween, .-getHoursBetween
+<<<<<<< HEAD
+ 156               	.global	deepCpyTime
+ 157               		.type	deepCpyTime, @function
+ 158               	deepCpyTime:
+ 159               	/* prologue: frame size=0 */
+ 160 00ee CF93      		push r28
+ 161 00f0 DF93      		push r29
+ 162               	/* prologue end (size=2) */
+ 163 00f2 DC01      		movw r26,r24
+ 164 00f4 FB01      		movw r30,r22
+ 165 00f6 8081      		ld r24,Z
+ 166 00f8 9181      		ldd r25,Z+1
+ 167 00fa 1196      		adiw r26,1
+ 168 00fc 9C93      		st X,r25
+ 169 00fe 8E93      		st -X,r24
+ 170 0100 8281      		ldd r24,Z+2
+ 171 0102 9381      		ldd r25,Z+3
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccLq5h5V.s 			page 4
+
+
+ 172 0104 ED01      		movw r28,r26
+ 173 0106 9B83      		std Y+3,r25
+ 174 0108 8A83      		std Y+2,r24
+ 175 010a 8481      		ldd r24,Z+4
+ 176 010c 9581      		ldd r25,Z+5
+ 177 010e 9D83      		std Y+5,r25
+ 178 0110 8C83      		std Y+4,r24
+ 179 0112 8089      		ldd r24,Z+16
+ 180 0114 9189      		ldd r25,Z+17
+ 181 0116 998B      		std Y+17,r25
+ 182 0118 888B      		std Y+16,r24
+ 183 011a 8085      		ldd r24,Z+8
+ 184 011c 9185      		ldd r25,Z+9
+ 185 011e 9987      		std Y+9,r25
+ 186 0120 8887      		std Y+8,r24
+ 187 0122 8485      		ldd r24,Z+12
+ 188 0124 9585      		ldd r25,Z+13
+ 189 0126 9D87      		std Y+13,r25
+ 190 0128 8C87      		std Y+12,r24
+ 191 012a 8685      		ldd r24,Z+14
+ 192 012c 9785      		ldd r25,Z+15
+ 193 012e 9F87      		std Y+15,r25
+ 194 0130 8E87      		std Y+14,r24
+ 195 0132 8285      		ldd r24,Z+10
+ 196 0134 9385      		ldd r25,Z+11
+ 197 0136 9B87      		std Y+11,r25
+ 198 0138 8A87      		std Y+10,r24
+ 199               	/* epilogue: frame size=0 */
+ 200 013a DF91      		pop r29
+ 201 013c CF91      		pop r28
+ 202 013e 0895      		ret
+ 203               	/* epilogue end (size=3) */
+ 204               	/* function deepCpyTime size 41 (36) */
+ 205               		.size	deepCpyTime, .-deepCpyTime
+ 206               	/* File "source/TimeCalculations.c": code  160 = 0x00a0 ( 132), prologues  12, epilogues  16 */
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccLq5h5V.s 			page 5
+=======
+ 156               	/* File "source/TimeCalculations.c": code  119 = 0x0077 (  96), prologues  10, epilogues  13 */
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cctIqDeM.s 			page 4
+>>>>>>> BackLightBranch
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 TimeCalculations.c
+<<<<<<< HEAD
+C:\Users\Maarten\AppData\Local\Temp/ccLq5h5V.s:3      *ABS*:0000003f __SREG__
+C:\Users\Maarten\AppData\Local\Temp/ccLq5h5V.s:4      *ABS*:0000003e __SP_H__
+C:\Users\Maarten\AppData\Local\Temp/ccLq5h5V.s:5      *ABS*:0000003d __SP_L__
+C:\Users\Maarten\AppData\Local\Temp/ccLq5h5V.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\Maarten\AppData\Local\Temp/ccLq5h5V.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\Maarten\AppData\Local\Temp/ccLq5h5V.s:13     .text:00000000 getSecondsBetween
+C:\Users\Maarten\AppData\Local\Temp/ccLq5h5V.s:72     .text:00000064 getMinutesBetween
+C:\Users\Maarten\AppData\Local\Temp/ccLq5h5V.s:136    .text:000000d4 getHoursBetween
+C:\Users\Maarten\AppData\Local\Temp/ccLq5h5V.s:158    .text:000000ee deepCpyTime
+=======
+C:\Users\jeffr\AppData\Local\Temp/cctIqDeM.s:3      *ABS*:0000003f __SREG__
+C:\Users\jeffr\AppData\Local\Temp/cctIqDeM.s:4      *ABS*:0000003e __SP_H__
+C:\Users\jeffr\AppData\Local\Temp/cctIqDeM.s:5      *ABS*:0000003d __SP_L__
+C:\Users\jeffr\AppData\Local\Temp/cctIqDeM.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\jeffr\AppData\Local\Temp/cctIqDeM.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\jeffr\AppData\Local\Temp/cctIqDeM.s:13     .text:00000000 getSecondsBetween
+C:\Users\jeffr\AppData\Local\Temp/cctIqDeM.s:72     .text:00000064 getMinutesBetween
+C:\Users\jeffr\AppData\Local\Temp/cctIqDeM.s:136    .text:000000d4 getHoursBetween
+>>>>>>> BackLightBranch
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
+__divmodhi4

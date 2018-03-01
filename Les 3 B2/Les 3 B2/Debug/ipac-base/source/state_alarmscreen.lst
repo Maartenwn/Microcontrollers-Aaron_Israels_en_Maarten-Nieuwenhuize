@@ -1,0 +1,92 @@
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccVtYfd9.s 			page 1
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cccsnv9j.s 			page 1
+>>>>>>> BackLightBranch
+
+
+   1               		.file	"state_alarmscreen.c"
+   2               		.arch atmega2561
+   3               	__SREG__ = 0x3f
+   4               	__SP_H__ = 0x3e
+   5               	__SP_L__ = 0x3d
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  10               		.text
+  11               	.global	alarmcreen_keypressed
+  12               		.type	alarmcreen_keypressed, @function
+  13               	alarmcreen_keypressed:
+  14               	/* prologue: frame size=0 */
+  15               	/* prologue end (size=0) */
+  16               	/* epilogue: frame size=0 */
+  17 0000 0895      		ret
+  18               	/* epilogue end (size=1) */
+  19               	/* function alarmcreen_keypressed size 1 (0) */
+  20               		.size	alarmcreen_keypressed, .-alarmcreen_keypressed
+  21               	.global	alarmscreen_entry
+  22               		.type	alarmscreen_entry, @function
+  23               	alarmscreen_entry:
+  24               	/* prologue: frame size=0 */
+  25               	/* prologue end (size=0) */
+  26               	/* epilogue: frame size=0 */
+  27 0002 0895      		ret
+  28               	/* epilogue end (size=1) */
+  29               	/* function alarmscreen_entry size 1 (0) */
+  30               		.size	alarmscreen_entry, .-alarmscreen_entry
+  31               	.global	alarmscreen_loop
+  32               		.type	alarmscreen_loop, @function
+  33               	alarmscreen_loop:
+  34               	/* prologue: frame size=0 */
+  35               	/* prologue end (size=0) */
+  36               	/* epilogue: frame size=0 */
+  37 0004 0895      		ret
+  38               	/* epilogue end (size=1) */
+  39               	/* function alarmscreen_loop size 1 (0) */
+  40               		.size	alarmscreen_loop, .-alarmscreen_loop
+  41               	.global	alarmscreen_exit
+  42               		.type	alarmscreen_exit, @function
+  43               	alarmscreen_exit:
+  44               	/* prologue: frame size=0 */
+  45               	/* prologue end (size=0) */
+  46               	/* epilogue: frame size=0 */
+  47 0006 0895      		ret
+  48               	/* epilogue end (size=1) */
+  49               	/* function alarmscreen_exit size 1 (0) */
+  50               		.size	alarmscreen_exit, .-alarmscreen_exit
+  51               	/* File "source/state_alarmscreen.c": code    4 = 0x0004 (   0), prologues   0, epilogues   4 */
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccVtYfd9.s 			page 2
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cccsnv9j.s 			page 2
+>>>>>>> BackLightBranch
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 state_alarmscreen.c
+<<<<<<< HEAD
+C:\Users\Maarten\AppData\Local\Temp/ccVtYfd9.s:3      *ABS*:0000003f __SREG__
+C:\Users\Maarten\AppData\Local\Temp/ccVtYfd9.s:4      *ABS*:0000003e __SP_H__
+C:\Users\Maarten\AppData\Local\Temp/ccVtYfd9.s:5      *ABS*:0000003d __SP_L__
+C:\Users\Maarten\AppData\Local\Temp/ccVtYfd9.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\Maarten\AppData\Local\Temp/ccVtYfd9.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\Maarten\AppData\Local\Temp/ccVtYfd9.s:13     .text:00000000 alarmcreen_keypressed
+C:\Users\Maarten\AppData\Local\Temp/ccVtYfd9.s:23     .text:00000002 alarmscreen_entry
+C:\Users\Maarten\AppData\Local\Temp/ccVtYfd9.s:33     .text:00000004 alarmscreen_loop
+C:\Users\Maarten\AppData\Local\Temp/ccVtYfd9.s:43     .text:00000006 alarmscreen_exit
+=======
+C:\Users\jeffr\AppData\Local\Temp/cccsnv9j.s:3      *ABS*:0000003f __SREG__
+C:\Users\jeffr\AppData\Local\Temp/cccsnv9j.s:4      *ABS*:0000003e __SP_H__
+C:\Users\jeffr\AppData\Local\Temp/cccsnv9j.s:5      *ABS*:0000003d __SP_L__
+C:\Users\jeffr\AppData\Local\Temp/cccsnv9j.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\jeffr\AppData\Local\Temp/cccsnv9j.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\jeffr\AppData\Local\Temp/cccsnv9j.s:13     .text:00000000 alarmcreen_keypressed
+C:\Users\jeffr\AppData\Local\Temp/cccsnv9j.s:23     .text:00000002 alarmscreen_entry
+C:\Users\jeffr\AppData\Local\Temp/cccsnv9j.s:33     .text:00000004 alarmscreen_loop
+C:\Users\jeffr\AppData\Local\Temp/cccsnv9j.s:43     .text:00000006 alarmscreen_exit
+>>>>>>> BackLightBranch
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss

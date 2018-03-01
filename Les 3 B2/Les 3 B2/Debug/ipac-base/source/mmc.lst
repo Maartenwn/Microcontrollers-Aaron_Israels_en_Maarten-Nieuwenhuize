@@ -1,0 +1,562 @@
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccQQvBQf.s 			page 1
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccE3dUXL.s 			page 1
+>>>>>>> BackLightBranch
+
+
+   1               		.file	"mmc.c"
+   2               		.arch atmega2561
+   3               	__SREG__ = 0x3f
+   4               	__SP_H__ = 0x3e
+   5               	__SP_L__ = 0x3d
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  10               		.text
+  11               	.global	CardCheckCard
+  12               		.type	CardCheckCard, @function
+  13               	CardCheckCard:
+  14               	/* prologue: frame size=0 */
+  15               	/* prologue end (size=0) */
+  16 0000 8091 0000 		lds r24,CardState
+  17 0004 9091 0000 		lds r25,(CardState)+1
+  18 0008 8130      		cpi r24,1
+  19 000a 9105      		cpc r25,__zero_reg__
+  20 000c 01F0      		breq .L4
+  21 000e 8130      		cpi r24,1
+  22 0010 9105      		cpc r25,__zero_reg__
+  23 0012 00F0      		brlo .L3
+  24 0014 8230      		cpi r24,2
+  25 0016 9105      		cpc r25,__zero_reg__
+  26 0018 01F0      		breq .L5
+  27 001a 0397      		sbiw r24,3
+  28 001c 01F4      		brne .L2
+  29 001e 00C0      		rjmp .L6
+  30               	.L3:
+  31 0020 7899      		sbic 47-0x20,0
+  32 0022 00C0      		rjmp .L2
+  33 0024 81E0      		ldi r24,lo8(1)
+  34 0026 8093 0000 		sts ValidateCounter,r24
+  35 002a 81E0      		ldi r24,lo8(1)
+  36 002c 90E0      		ldi r25,hi8(1)
+  37 002e 00C0      		rjmp .L15
+  38               	.L4:
+  39 0030 7899      		sbic 47-0x20,0
+  40 0032 00C0      		rjmp .L9
+  41 0034 8091 0000 		lds r24,ValidateCounter
+  42 0038 8F5F      		subi r24,lo8(-(1))
+  43 003a 8093 0000 		sts ValidateCounter,r24
+  44 003e 8E31      		cpi r24,lo8(30)
+  45 0040 01F4      		brne .L2
+  46 0042 81E0      		ldi r24,lo8(1)
+  47 0044 8093 0000 		sts CardPresentFlag,r24
+  48 0048 82E0      		ldi r24,lo8(2)
+  49 004a 90E0      		ldi r25,hi8(2)
+  50 004c 9093 0000 		sts (CardState)+1,r25
+  51 0050 8093 0000 		sts CardState,r24
+  52 0054 81E0      		ldi r24,lo8(1)
+  53 0056 00C0      		rjmp .L8
+  54               	.L9:
+  55 0058 1092 0000 		sts (CardState)+1,__zero_reg__
+  56 005c 1092 0000 		sts CardState,__zero_reg__
+  57 0060 00C0      		rjmp .L2
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccQQvBQf.s 			page 2
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccE3dUXL.s 			page 2
+>>>>>>> BackLightBranch
+
+
+  58               	.L5:
+  59 0062 789B      		sbis 47-0x20,0
+  60 0064 00C0      		rjmp .L2
+  61 0066 81E0      		ldi r24,lo8(1)
+  62 0068 8093 0000 		sts ValidateCounter,r24
+  63 006c 83E0      		ldi r24,lo8(3)
+  64 006e 90E0      		ldi r25,hi8(3)
+  65               	.L15:
+  66 0070 9093 0000 		sts (CardState)+1,r25
+  67 0074 8093 0000 		sts CardState,r24
+  68 0078 00C0      		rjmp .L2
+  69               	.L6:
+  70 007a 8091 0000 		lds r24,ValidateCounter
+  71 007e 8F5F      		subi r24,lo8(-(1))
+  72 0080 8093 0000 		sts ValidateCounter,r24
+  73 0084 8431      		cpi r24,lo8(20)
+  74 0086 01F4      		brne .L2
+  75 0088 1092 0000 		sts CardPresentFlag,__zero_reg__
+  76 008c 1092 0000 		sts (CardState)+1,__zero_reg__
+  77 0090 1092 0000 		sts CardState,__zero_reg__
+  78 0094 80E0      		ldi r24,lo8(0)
+  79 0096 00C0      		rjmp .L8
+  80               	.L2:
+  81 0098 82E0      		ldi r24,lo8(2)
+  82               	.L8:
+  83 009a 9927      		clr r25
+  84               	/* epilogue: frame size=0 */
+  85 009c 0895      		ret
+  86               	/* epilogue end (size=1) */
+  87               	/* function CardCheckCard size 80 (79) */
+  88               		.size	CardCheckCard, .-CardCheckCard
+  89               	.global	CardCheckPresent
+  90               		.type	CardCheckPresent, @function
+  91               	CardCheckPresent:
+  92               	/* prologue: frame size=0 */
+  93               	/* prologue end (size=0) */
+  94 009e 8091 0000 		lds r24,CardPresentFlag
+  95 00a2 9927      		clr r25
+  96               	/* epilogue: frame size=0 */
+  97 00a4 0895      		ret
+  98               	/* epilogue end (size=1) */
+  99               	/* function CardCheckPresent size 4 (3) */
+ 100               		.size	CardCheckPresent, .-CardCheckPresent
+ 101               	.global	CardStatus
+ 102               		.type	CardStatus, @function
+ 103               	CardStatus:
+ 104               	/* prologue: frame size=0 */
+ 105               	/* prologue end (size=0) */
+ 106 00a6 8091 0000 		lds r24,g_tStatus
+ 107 00aa 9091 0000 		lds r25,(g_tStatus)+1
+ 108               	/* epilogue: frame size=0 */
+ 109 00ae 0895      		ret
+ 110               	/* epilogue end (size=1) */
+ 111               	/* function CardStatus size 5 (4) */
+ 112               		.size	CardStatus, .-CardStatus
+ 113               	.global	CardClose
+ 114               		.type	CardClose, @function
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccQQvBQf.s 			page 3
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccE3dUXL.s 			page 3
+>>>>>>> BackLightBranch
+
+
+ 115               	CardClose:
+ 116               	/* prologue: frame size=0 */
+ 117               	/* prologue end (size=0) */
+ 118               	/* epilogue: frame size=0 */
+ 119 00b0 0895      		ret
+ 120               	/* epilogue end (size=1) */
+ 121               	/* function CardClose size 1 (0) */
+ 122               		.size	CardClose, .-CardClose
+ 123               	.global	CardInit
+ 124               		.type	CardInit, @function
+ 125               	CardInit:
+ 126               	/* prologue: frame size=10 */
+ 127 00b2 0F93      		push r16
+ 128 00b4 1F93      		push r17
+ 129 00b6 CF93      		push r28
+ 130 00b8 DF93      		push r29
+ 131 00ba CDB7      		in r28,__SP_L__
+ 132 00bc DEB7      		in r29,__SP_H__
+ 133 00be 2A97      		sbiw r28,10
+ 134 00c0 0FB6      		in __tmp_reg__,__SREG__
+ 135 00c2 F894      		cli
+ 136 00c4 DEBF      		out __SP_H__,r29
+ 137 00c6 0FBE      		out __SREG__,__tmp_reg__
+ 138 00c8 CDBF      		out __SP_L__,r28
+ 139               	/* prologue end (size=12) */
+ 140 00ca 1092 0000 		sts (CardState)+1,__zero_reg__
+ 141 00ce 1092 0000 		sts CardState,__zero_reg__
+ 142 00d2 1092 0000 		sts CardPresentFlag,__zero_reg__
+ 143 00d6 60E0      		ldi r22,lo8(__c.2564)
+ 144 00d8 70E0      		ldi r23,hi8(__c.2564)
+ 145 00da 8E01      		movw r16,r28
+ 146 00dc 0F5F      		subi r16,lo8(-(1))
+ 147 00de 1F4F      		sbci r17,hi8(-(1))
+ 148 00e0 C801      		movw r24,r16
+ 149 00e2 0E94 0000 		call strcpy_P
+ 150 00e6 C801      		movw r24,r16
+ 151 00e8 0E94 0000 		call GetThreadByName
+ 152 00ec 892B      		or r24,r25
+ 153 00ee 01F4      		brne .L26
+ 154 00f0 20E0      		ldi r18,lo8(768)
+ 155 00f2 33E0      		ldi r19,hi8(768)
+ 156 00f4 40E0      		ldi r20,lo8(0)
+ 157 00f6 50E0      		ldi r21,hi8(0)
+ 158 00f8 60E0      		ldi r22,lo8(gs(CardPresent))
+ 159 00fa 70E0      		ldi r23,hi8(gs(CardPresent))
+ 160 00fc C801      		movw r24,r16
+ 161 00fe 0E94 0000 		call NutThreadCreate
+ 162 0102 892B      		or r24,r25
+ 163 0104 01F4      		brne .L26
+ 164 0106 80E0      		ldi r24,lo8(__c.2566)
+ 165 0108 90E0      		ldi r25,hi8(__c.2566)
+ 166 010a 9F93      		push r25
+ 167 010c 8F93      		push r24
+ 168 010e 80EE      		ldi r24,lo8(-32)
+ 169 0110 8F93      		push r24
+ 170 0112 0E94 0000 		call LogMsg_P
+ 171 0116 0F90      		pop __tmp_reg__
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccQQvBQf.s 			page 4
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccE3dUXL.s 			page 4
+>>>>>>> BackLightBranch
+
+
+ 172 0118 0F90      		pop __tmp_reg__
+ 173 011a 0F90      	 	pop __tmp_reg__
+ 174               	.L26:
+ 175               	/* epilogue: frame size=10 */
+ 176 011c 2A96      		adiw r28,10
+ 177 011e 0FB6      		in __tmp_reg__,__SREG__
+ 178 0120 F894      		cli
+ 179 0122 DEBF      		out __SP_H__,r29
+ 180 0124 0FBE      		out __SREG__,__tmp_reg__
+ 181 0126 CDBF      		out __SP_L__,r28
+ 182 0128 DF91      		pop r29
+ 183 012a CF91      		pop r28
+ 184 012c 1F91      		pop r17
+ 185 012e 0F91      		pop r16
+ 186 0130 0895      		ret
+ 187               	/* epilogue end (size=11) */
+ 188               	/* function CardInit size 64 (41) */
+ 189               		.size	CardInit, .-CardInit
+ 190               	.global	CardInitCard
+ 191               		.type	CardInitCard, @function
+ 192               	CardInitCard:
+ 193               	/* prologue: frame size=10 */
+ 194 0132 FF92      		push r15
+ 195 0134 0F93      		push r16
+ 196 0136 1F93      		push r17
+ 197 0138 CF93      		push r28
+ 198 013a DF93      		push r29
+ 199 013c CDB7      		in r28,__SP_L__
+ 200 013e DEB7      		in r29,__SP_H__
+ 201 0140 2A97      		sbiw r28,10
+ 202 0142 0FB6      		in __tmp_reg__,__SREG__
+ 203 0144 F894      		cli
+ 204 0146 DEBF      		out __SP_H__,r29
+ 205 0148 0FBE      		out __SREG__,__tmp_reg__
+ 206 014a CDBF      		out __SP_L__,r28
+ 207               	/* prologue end (size=13) */
+ 208 014c 80E0      		ldi r24,lo8(devFAT+2)
+ 209 014e 90E0      		ldi r25,hi8(devFAT+2)
+ 210 0150 0E94 0000 		call NutDeviceLookup
+ 211 0154 892B      		or r24,r25
+ 212 0156 01F4      		brne .L28
+ 213 0158 80E0      		ldi r24,lo8(0)
+ 214 015a 0E94 0000 		call VsPlayerInterrupts
+ 215 015e F82E      		mov r15,r24
+ 216 0160 40E0      		ldi r20,lo8(0)
+ 217 0162 67E0      		ldi r22,lo8(7)
+ 218 0164 70E0      		ldi r23,hi8(7)
+ 219 0166 80E0      		ldi r24,lo8(devFAT)
+ 220 0168 90E0      		ldi r25,hi8(devFAT)
+ 221 016a 0E94 0000 		call NutRegisterDevice
+ 222 016e 8C01      		movw r16,r24
+ 223 0170 892B      		or r24,r25
+ 224 0172 01F4      		brne .L38
+ 225 0174 40E0      		ldi r20,lo8(0)
+ 226 0176 67E0      		ldi r22,lo8(7)
+ 227 0178 70E0      		ldi r23,hi8(7)
+ 228 017a 80E0      		ldi r24,lo8(devFATMMC0)
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccQQvBQf.s 			page 5
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccE3dUXL.s 			page 5
+>>>>>>> BackLightBranch
+
+
+ 229 017c 90E0      		ldi r25,hi8(devFATMMC0)
+ 230 017e 0E94 0000 		call NutRegisterDevice
+ 231 0182 8C01      		movw r16,r24
+ 232 0184 00C0      		rjmp .L38
+ 233               	.L28:
+ 234 0186 0E94 0000 		call FATRelease
+ 235 018a 80E0      		ldi r24,lo8(0)
+ 236 018c 0E94 0000 		call VsPlayerInterrupts
+ 237 0190 F82E      		mov r15,r24
+ 238 0192 E091 0000 		lds r30,devFAT+19
+ 239 0196 F091 0000 		lds r31,(devFAT+19)+1
+ 240 019a 3097      		sbiw r30,0
+ 241 019c 01F0      		breq .L33
+ 242 019e 80E0      		ldi r24,lo8(devFAT)
+ 243 01a0 90E0      		ldi r25,hi8(devFAT)
+ 244 01a2 1995      		eicall
+ 245 01a4 892B      		or r24,r25
+ 246 01a6 01F4      		brne .L35
+ 247               	.L33:
+ 248 01a8 E091 0000 		lds r30,devFATMMC0+19
+ 249 01ac F091 0000 		lds r31,(devFATMMC0+19)+1
+ 250 01b0 3097      		sbiw r30,0
+ 251 01b2 01F0      		breq .L36
+ 252 01b4 80E0      		ldi r24,lo8(devFATMMC0)
+ 253 01b6 90E0      		ldi r25,hi8(devFATMMC0)
+ 254 01b8 1995      		eicall
+ 255 01ba 892B      		or r24,r25
+ 256 01bc 01F0      		breq .L36
+ 257               	.L35:
+ 258 01be 0FEF      		ldi r16,lo8(-1)
+ 259 01c0 1FEF      		ldi r17,hi8(-1)
+ 260 01c2 00C0      		rjmp .L38
+ 261               	.L36:
+ 262 01c4 00E0      		ldi r16,lo8(0)
+ 263 01c6 10E0      		ldi r17,hi8(0)
+ 264               	.L38:
+ 265 01c8 8F2D      		mov r24,r15
+ 266 01ca 0E94 0000 		call VsPlayerInterrupts
+ 267 01ce 0115      		cp r16,__zero_reg__
+ 268 01d0 1105      		cpc r17,__zero_reg__
+ 269 01d2 01F4      		brne .L39
+ 270 01d4 80E0      		ldi r24,lo8(__c.2518)
+ 271 01d6 90E0      		ldi r25,hi8(__c.2518)
+ 272 01d8 9F93      		push r25
+ 273 01da 8F93      		push r24
+ 274 01dc 86EE      		ldi r24,lo8(-26)
+ 275 01de 8F93      		push r24
+ 276 01e0 0E94 0000 		call LogMsg_P
+ 277 01e4 60E0      		ldi r22,lo8(0)
+ 278 01e6 70E0      		ldi r23,hi8(0)
+ 279 01e8 CE01      		movw r24,r28
+ 280 01ea 0196      		adiw r24,1
+ 281 01ec 0E94 0000 		call _open
+ 282 01f0 0F90      		pop __tmp_reg__
+ 283 01f2 0F90      		pop __tmp_reg__
+ 284 01f4 0F90      	 	pop __tmp_reg__
+ 285 01f6 2FEF      		ldi r18,hi8(-1)
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccQQvBQf.s 			page 6
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccE3dUXL.s 			page 6
+>>>>>>> BackLightBranch
+
+
+ 286 01f8 8F3F      		cpi r24,lo8(-1)
+ 287 01fa 9207      		cpc r25,r18
+ 288 01fc 01F0      		breq .L41
+ 289 01fe 0E94 0000 		call _close
+ 290 0202 00C0      		rjmp .L41
+ 291               	.L39:
+ 292 0204 80E0      		ldi r24,lo8(__c.2520)
+ 293 0206 90E0      		ldi r25,hi8(__c.2520)
+ 294 0208 9F93      		push r25
+ 295 020a 8F93      		push r24
+ 296 020c 83EE      		ldi r24,lo8(-29)
+ 297 020e 8F93      		push r24
+ 298 0210 0E94 0000 		call LogMsg_P
+ 299 0214 0F90      		pop __tmp_reg__
+ 300 0216 0F90      		pop __tmp_reg__
+ 301 0218 0F90      	 	pop __tmp_reg__
+ 302               	.L41:
+ 303 021a C801      		movw r24,r16
+ 304               	/* epilogue: frame size=10 */
+ 305 021c 2A96      		adiw r28,10
+ 306 021e 0FB6      		in __tmp_reg__,__SREG__
+ 307 0220 F894      		cli
+ 308 0222 DEBF      		out __SP_H__,r29
+ 309 0224 0FBE      		out __SREG__,__tmp_reg__
+ 310 0226 CDBF      		out __SP_L__,r28
+ 311 0228 DF91      		pop r29
+ 312 022a CF91      		pop r28
+ 313 022c 1F91      		pop r17
+ 314 022e 0F91      		pop r16
+ 315 0230 FF90      		pop r15
+ 316 0232 0895      		ret
+ 317               	/* epilogue end (size=12) */
+ 318               	/* function CardInitCard size 129 (104) */
+ 319               		.size	CardInitCard, .-CardInitCard
+ 320               	.global	CardPresent
+ 321               		.type	CardPresent, @function
+ 322               	CardPresent:
+ 323               	/* prologue: frame size=0 */
+ 324               	/* prologue end (size=0) */
+ 325               	.L65:
+ 326 0234 8091 0000 		lds r24,CardPresentFlag
+ 327 0238 8093 0000 		sts OldCardStatus.2541,r24
+ 328               	.L66:
+ 329 023c 8091 0000 		lds r24,CardPresentFlag
+ 330 0240 8130      		cpi r24,lo8(1)
+ 331 0242 01F4      		brne .L46
+ 332 0244 8091 0000 		lds r24,OldCardStatus.2541
+ 333 0248 8823      		tst r24
+ 334 024a 01F4      		brne .L48
+ 335 024c 80E0      		ldi r24,lo8(__c.2542)
+ 336 024e 90E0      		ldi r25,hi8(__c.2542)
+ 337 0250 9F93      		push r25
+ 338 0252 8F93      		push r24
+ 339 0254 86EE      		ldi r24,lo8(-26)
+ 340 0256 8F93      		push r24
+ 341 0258 0E94 0000 		call LogMsg_P
+ 342 025c 0E94 0000 		call CardInitCard
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccQQvBQf.s 			page 7
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccE3dUXL.s 			page 7
+>>>>>>> BackLightBranch
+
+
+ 343 0260 0F90      		pop __tmp_reg__
+ 344 0262 0F90      		pop __tmp_reg__
+ 345 0264 0F90      	 	pop __tmp_reg__
+ 346 0266 892B      		or r24,r25
+ 347 0268 01F4      		brne .L65
+ 348 026a 80E1      		ldi r24,lo8(16)
+ 349 026c 0E94 0000 		call KbInjectKey
+ 350 0270 00C0      		rjmp .L65
+ 351               	.L46:
+ 352 0272 8823      		tst r24
+ 353 0274 01F4      		brne .L48
+ 354 0276 8091 0000 		lds r24,OldCardStatus.2541
+ 355 027a 8130      		cpi r24,lo8(1)
+ 356 027c 01F4      		brne .L48
+ 357 027e 80E0      		ldi r24,lo8(__c.2544)
+ 358 0280 90E0      		ldi r25,hi8(__c.2544)
+ 359 0282 9F93      		push r25
+ 360 0284 8F93      		push r24
+ 361 0286 86EE      		ldi r24,lo8(-26)
+ 362 0288 8F93      		push r24
+ 363 028a 0E94 0000 		call LogMsg_P
+ 364 028e 8091 0000 		lds r24,CardPresentFlag
+ 365 0292 8093 0000 		sts OldCardStatus.2541,r24
+ 366 0296 0F90      		pop __tmp_reg__
+ 367 0298 0F90      		pop __tmp_reg__
+ 368 029a 0F90      	 	pop __tmp_reg__
+ 369 029c 00C0      		rjmp .L66
+ 370               	.L48:
+ 371 029e 64EF      		ldi r22,lo8(500)
+ 372 02a0 71E0      		ldi r23,hi8(500)
+ 373 02a2 80E0      		ldi r24,hlo8(500)
+ 374 02a4 90E0      		ldi r25,hhi8(500)
+ 375 02a6 0E94 0000 		call NutSleep
+ 376 02aa 00C0      		rjmp .L66
+ 377               	/* epilogue: frame size=0 */
+ 378               	/* epilogue: noreturn */
+ 379               	/* epilogue end (size=0) */
+ 380               	/* function CardPresent size 60 (60) */
+ 381               		.size	CardPresent, .-CardPresent
+ 382               		.section	.progmem.data,"a",@progbits
+ 383               		.type	__c.2566, @object
+ 384               		.size	__c.2566, 14
+ 385               	__c.2566:
+ 386 0000 5468 7265 		.string	"Thread failed"
+ 386      6164 2066 
+ 386      6169 6C65 
+ 386      6400 
+ 387               		.type	__c.2564, @object
+ 388               		.size	__c.2564, 9
+ 389               	__c.2564:
+ 390 000e 4361 7264 		.string	"CardPres"
+ 390      5072 6573 
+ 390      00
+ 391               		.type	__c.2544, @object
+ 392               		.size	__c.2544, 13
+ 393               	__c.2544:
+ 394 0017 4361 7264 		.string	"Card removed"
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccQQvBQf.s 			page 8
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccE3dUXL.s 			page 8
+>>>>>>> BackLightBranch
+
+
+ 394      2072 656D 
+ 394      6F76 6564 
+ 394      00
+ 395               		.type	__c.2542, @object
+ 396               		.size	__c.2542, 14
+ 397               	__c.2542:
+ 398 0024 4361 7264 		.string	"Card inserted"
+ 398      2069 6E73 
+ 398      6572 7465 
+ 398      6400 
+ 399               		.lcomm OldCardStatus.2541,1
+ 400               		.type	__c.2520, @object
+ 401               		.size	__c.2520, 47
+ 402               	__c.2520:
+ 403 0032 4572 726F 		.string	"Error initialising File system and Card-driver"
+ 403      7220 696E 
+ 403      6974 6961 
+ 403      6C69 7369 
+ 403      6E67 2046 
+ 404               		.type	__c.2518, @object
+ 405               		.size	__c.2518, 13
+ 406               	__c.2518:
+ 407 0061 4361 7264 		.string	"Card mounted"
+ 407      206D 6F75 
+ 407      6E74 6564 
+ 407      00
+ 408               		.lcomm CardPresentFlag,1
+ 409               		.lcomm ValidateCounter,1
+ 410               		.lcomm CardState,2
+ 411               		.lcomm g_tStatus,2
+ 412               	/* File "source/mmc.c": code  343 = 0x0157 ( 291), prologues  25, epilogues  27 */
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccQQvBQf.s 			page 9
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccE3dUXL.s 			page 9
+>>>>>>> BackLightBranch
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 mmc.c
+<<<<<<< HEAD
+C:\Users\Maarten\AppData\Local\Temp/ccQQvBQf.s:3      *ABS*:0000003f __SREG__
+C:\Users\Maarten\AppData\Local\Temp/ccQQvBQf.s:4      *ABS*:0000003e __SP_H__
+C:\Users\Maarten\AppData\Local\Temp/ccQQvBQf.s:5      *ABS*:0000003d __SP_L__
+C:\Users\Maarten\AppData\Local\Temp/ccQQvBQf.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\Maarten\AppData\Local\Temp/ccQQvBQf.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\Maarten\AppData\Local\Temp/ccQQvBQf.s:13     .text:00000000 CardCheckCard
+C:\Users\Maarten\AppData\Local\Temp/ccQQvBQf.s:409    .bss:00000003 CardState
+C:\Users\Maarten\AppData\Local\Temp/ccQQvBQf.s:408    .bss:00000002 ValidateCounter
+C:\Users\Maarten\AppData\Local\Temp/ccQQvBQf.s:399    .bss:00000001 CardPresentFlag
+C:\Users\Maarten\AppData\Local\Temp/ccQQvBQf.s:91     .text:0000009e CardCheckPresent
+C:\Users\Maarten\AppData\Local\Temp/ccQQvBQf.s:103    .text:000000a6 CardStatus
+C:\Users\Maarten\AppData\Local\Temp/ccQQvBQf.s:410    .bss:00000005 g_tStatus
+C:\Users\Maarten\AppData\Local\Temp/ccQQvBQf.s:115    .text:000000b0 CardClose
+C:\Users\Maarten\AppData\Local\Temp/ccQQvBQf.s:125    .text:000000b2 CardInit
+C:\Users\Maarten\AppData\Local\Temp/ccQQvBQf.s:389    .progmem.data:0000000e __c.2564
+C:\Users\Maarten\AppData\Local\Temp/ccQQvBQf.s:322    .text:00000234 CardPresent
+C:\Users\Maarten\AppData\Local\Temp/ccQQvBQf.s:385    .progmem.data:00000000 __c.2566
+C:\Users\Maarten\AppData\Local\Temp/ccQQvBQf.s:192    .text:00000132 CardInitCard
+C:\Users\Maarten\AppData\Local\Temp/ccQQvBQf.s:406    .progmem.data:00000061 __c.2518
+C:\Users\Maarten\AppData\Local\Temp/ccQQvBQf.s:402    .progmem.data:00000032 __c.2520
+                             .bss:00000000 OldCardStatus.2541
+C:\Users\Maarten\AppData\Local\Temp/ccQQvBQf.s:397    .progmem.data:00000024 __c.2542
+C:\Users\Maarten\AppData\Local\Temp/ccQQvBQf.s:393    .progmem.data:00000017 __c.2544
+=======
+C:\Users\jeffr\AppData\Local\Temp/ccE3dUXL.s:3      *ABS*:0000003f __SREG__
+C:\Users\jeffr\AppData\Local\Temp/ccE3dUXL.s:4      *ABS*:0000003e __SP_H__
+C:\Users\jeffr\AppData\Local\Temp/ccE3dUXL.s:5      *ABS*:0000003d __SP_L__
+C:\Users\jeffr\AppData\Local\Temp/ccE3dUXL.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\jeffr\AppData\Local\Temp/ccE3dUXL.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\jeffr\AppData\Local\Temp/ccE3dUXL.s:13     .text:00000000 CardCheckCard
+C:\Users\jeffr\AppData\Local\Temp/ccE3dUXL.s:409    .bss:00000003 CardState
+C:\Users\jeffr\AppData\Local\Temp/ccE3dUXL.s:408    .bss:00000002 ValidateCounter
+C:\Users\jeffr\AppData\Local\Temp/ccE3dUXL.s:399    .bss:00000001 CardPresentFlag
+C:\Users\jeffr\AppData\Local\Temp/ccE3dUXL.s:91     .text:0000009e CardCheckPresent
+C:\Users\jeffr\AppData\Local\Temp/ccE3dUXL.s:103    .text:000000a6 CardStatus
+C:\Users\jeffr\AppData\Local\Temp/ccE3dUXL.s:410    .bss:00000005 g_tStatus
+C:\Users\jeffr\AppData\Local\Temp/ccE3dUXL.s:115    .text:000000b0 CardClose
+C:\Users\jeffr\AppData\Local\Temp/ccE3dUXL.s:125    .text:000000b2 CardInit
+C:\Users\jeffr\AppData\Local\Temp/ccE3dUXL.s:389    .progmem.data:0000000e __c.2564
+C:\Users\jeffr\AppData\Local\Temp/ccE3dUXL.s:322    .text:00000234 CardPresent
+C:\Users\jeffr\AppData\Local\Temp/ccE3dUXL.s:385    .progmem.data:00000000 __c.2566
+C:\Users\jeffr\AppData\Local\Temp/ccE3dUXL.s:192    .text:00000132 CardInitCard
+C:\Users\jeffr\AppData\Local\Temp/ccE3dUXL.s:406    .progmem.data:00000061 __c.2518
+C:\Users\jeffr\AppData\Local\Temp/ccE3dUXL.s:402    .progmem.data:00000032 __c.2520
+                             .bss:00000000 OldCardStatus.2541
+C:\Users\jeffr\AppData\Local\Temp/ccE3dUXL.s:397    .progmem.data:00000024 __c.2542
+C:\Users\jeffr\AppData\Local\Temp/ccE3dUXL.s:393    .progmem.data:00000017 __c.2544
+>>>>>>> BackLightBranch
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
+strcpy_P
+GetThreadByName
+NutThreadCreate
+LogMsg_P
+devFAT
+NutDeviceLookup
+VsPlayerInterrupts
+NutRegisterDevice
+devFATMMC0
+FATRelease
+_open
+_close
+KbInjectKey
+NutSleep

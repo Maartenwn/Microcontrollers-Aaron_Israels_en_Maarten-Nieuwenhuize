@@ -1,0 +1,92 @@
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccWhZg5m.s 			page 1
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cc2q1LJs.s 			page 1
+>>>>>>> BackLightBranch
+
+
+   1               		.file	"state_alarmSoundChooserscreen.c"
+   2               		.arch atmega2561
+   3               	__SREG__ = 0x3f
+   4               	__SP_H__ = 0x3e
+   5               	__SP_L__ = 0x3d
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  10               		.text
+  11               	.global	alarmSoundChooserscreen_keypressed
+  12               		.type	alarmSoundChooserscreen_keypressed, @function
+  13               	alarmSoundChooserscreen_keypressed:
+  14               	/* prologue: frame size=0 */
+  15               	/* prologue end (size=0) */
+  16               	/* epilogue: frame size=0 */
+  17 0000 0895      		ret
+  18               	/* epilogue end (size=1) */
+  19               	/* function alarmSoundChooserscreen_keypressed size 1 (0) */
+  20               		.size	alarmSoundChooserscreen_keypressed, .-alarmSoundChooserscreen_keypressed
+  21               	.global	alarmSoundChooserscreen_entry
+  22               		.type	alarmSoundChooserscreen_entry, @function
+  23               	alarmSoundChooserscreen_entry:
+  24               	/* prologue: frame size=0 */
+  25               	/* prologue end (size=0) */
+  26               	/* epilogue: frame size=0 */
+  27 0002 0895      		ret
+  28               	/* epilogue end (size=1) */
+  29               	/* function alarmSoundChooserscreen_entry size 1 (0) */
+  30               		.size	alarmSoundChooserscreen_entry, .-alarmSoundChooserscreen_entry
+  31               	.global	alarmSoundChooserscreen_loop
+  32               		.type	alarmSoundChooserscreen_loop, @function
+  33               	alarmSoundChooserscreen_loop:
+  34               	/* prologue: frame size=0 */
+  35               	/* prologue end (size=0) */
+  36               	/* epilogue: frame size=0 */
+  37 0004 0895      		ret
+  38               	/* epilogue end (size=1) */
+  39               	/* function alarmSoundChooserscreen_loop size 1 (0) */
+  40               		.size	alarmSoundChooserscreen_loop, .-alarmSoundChooserscreen_loop
+  41               	.global	alarmSoundChooserscreen_exit
+  42               		.type	alarmSoundChooserscreen_exit, @function
+  43               	alarmSoundChooserscreen_exit:
+  44               	/* prologue: frame size=0 */
+  45               	/* prologue end (size=0) */
+  46               	/* epilogue: frame size=0 */
+  47 0006 0895      		ret
+  48               	/* epilogue end (size=1) */
+  49               	/* function alarmSoundChooserscreen_exit size 1 (0) */
+  50               		.size	alarmSoundChooserscreen_exit, .-alarmSoundChooserscreen_exit
+  51               	/* File "source/state_alarmSoundChooserscreen.c": code    4 = 0x0004 (   0), prologues   0, epilogu
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccWhZg5m.s 			page 2
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cc2q1LJs.s 			page 2
+>>>>>>> BackLightBranch
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 state_alarmSoundChooserscreen.c
+<<<<<<< HEAD
+C:\Users\Maarten\AppData\Local\Temp/ccWhZg5m.s:3      *ABS*:0000003f __SREG__
+C:\Users\Maarten\AppData\Local\Temp/ccWhZg5m.s:4      *ABS*:0000003e __SP_H__
+C:\Users\Maarten\AppData\Local\Temp/ccWhZg5m.s:5      *ABS*:0000003d __SP_L__
+C:\Users\Maarten\AppData\Local\Temp/ccWhZg5m.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\Maarten\AppData\Local\Temp/ccWhZg5m.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\Maarten\AppData\Local\Temp/ccWhZg5m.s:13     .text:00000000 alarmSoundChooserscreen_keypressed
+C:\Users\Maarten\AppData\Local\Temp/ccWhZg5m.s:23     .text:00000002 alarmSoundChooserscreen_entry
+C:\Users\Maarten\AppData\Local\Temp/ccWhZg5m.s:33     .text:00000004 alarmSoundChooserscreen_loop
+C:\Users\Maarten\AppData\Local\Temp/ccWhZg5m.s:43     .text:00000006 alarmSoundChooserscreen_exit
+=======
+C:\Users\jeffr\AppData\Local\Temp/cc2q1LJs.s:3      *ABS*:0000003f __SREG__
+C:\Users\jeffr\AppData\Local\Temp/cc2q1LJs.s:4      *ABS*:0000003e __SP_H__
+C:\Users\jeffr\AppData\Local\Temp/cc2q1LJs.s:5      *ABS*:0000003d __SP_L__
+C:\Users\jeffr\AppData\Local\Temp/cc2q1LJs.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\jeffr\AppData\Local\Temp/cc2q1LJs.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\jeffr\AppData\Local\Temp/cc2q1LJs.s:13     .text:00000000 alarmSoundChooserscreen_keypressed
+C:\Users\jeffr\AppData\Local\Temp/cc2q1LJs.s:23     .text:00000002 alarmSoundChooserscreen_entry
+C:\Users\jeffr\AppData\Local\Temp/cc2q1LJs.s:33     .text:00000004 alarmSoundChooserscreen_loop
+C:\Users\jeffr\AppData\Local\Temp/cc2q1LJs.s:43     .text:00000006 alarmSoundChooserscreen_exit
+>>>>>>> BackLightBranch
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss

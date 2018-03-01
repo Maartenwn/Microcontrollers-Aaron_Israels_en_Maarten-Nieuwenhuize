@@ -1,0 +1,92 @@
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccNYiiOW.s 			page 1
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccwWPmzV.s 			page 1
+>>>>>>> BackLightBranch
+
+
+   1               		.file	"state_newDailyAlarmscreen.c"
+   2               		.arch atmega2561
+   3               	__SREG__ = 0x3f
+   4               	__SP_H__ = 0x3e
+   5               	__SP_L__ = 0x3d
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  10               		.text
+  11               	.global	newDailyAlarmscreen_keypressed
+  12               		.type	newDailyAlarmscreen_keypressed, @function
+  13               	newDailyAlarmscreen_keypressed:
+  14               	/* prologue: frame size=0 */
+  15               	/* prologue end (size=0) */
+  16               	/* epilogue: frame size=0 */
+  17 0000 0895      		ret
+  18               	/* epilogue end (size=1) */
+  19               	/* function newDailyAlarmscreen_keypressed size 1 (0) */
+  20               		.size	newDailyAlarmscreen_keypressed, .-newDailyAlarmscreen_keypressed
+  21               	.global	newDailyAlarmscreen_entry
+  22               		.type	newDailyAlarmscreen_entry, @function
+  23               	newDailyAlarmscreen_entry:
+  24               	/* prologue: frame size=0 */
+  25               	/* prologue end (size=0) */
+  26               	/* epilogue: frame size=0 */
+  27 0002 0895      		ret
+  28               	/* epilogue end (size=1) */
+  29               	/* function newDailyAlarmscreen_entry size 1 (0) */
+  30               		.size	newDailyAlarmscreen_entry, .-newDailyAlarmscreen_entry
+  31               	.global	newDailyAlarmscreen_loop
+  32               		.type	newDailyAlarmscreen_loop, @function
+  33               	newDailyAlarmscreen_loop:
+  34               	/* prologue: frame size=0 */
+  35               	/* prologue end (size=0) */
+  36               	/* epilogue: frame size=0 */
+  37 0004 0895      		ret
+  38               	/* epilogue end (size=1) */
+  39               	/* function newDailyAlarmscreen_loop size 1 (0) */
+  40               		.size	newDailyAlarmscreen_loop, .-newDailyAlarmscreen_loop
+  41               	.global	newDailyAlarmscreen_exit
+  42               		.type	newDailyAlarmscreen_exit, @function
+  43               	newDailyAlarmscreen_exit:
+  44               	/* prologue: frame size=0 */
+  45               	/* prologue end (size=0) */
+  46               	/* epilogue: frame size=0 */
+  47 0006 0895      		ret
+  48               	/* epilogue end (size=1) */
+  49               	/* function newDailyAlarmscreen_exit size 1 (0) */
+  50               		.size	newDailyAlarmscreen_exit, .-newDailyAlarmscreen_exit
+  51               	/* File "source/state_newDailyAlarmscreen.c": code    4 = 0x0004 (   0), prologues   0, epilogues  
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccNYiiOW.s 			page 2
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccwWPmzV.s 			page 2
+>>>>>>> BackLightBranch
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 state_newDailyAlarmscreen.c
+<<<<<<< HEAD
+C:\Users\Maarten\AppData\Local\Temp/ccNYiiOW.s:3      *ABS*:0000003f __SREG__
+C:\Users\Maarten\AppData\Local\Temp/ccNYiiOW.s:4      *ABS*:0000003e __SP_H__
+C:\Users\Maarten\AppData\Local\Temp/ccNYiiOW.s:5      *ABS*:0000003d __SP_L__
+C:\Users\Maarten\AppData\Local\Temp/ccNYiiOW.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\Maarten\AppData\Local\Temp/ccNYiiOW.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\Maarten\AppData\Local\Temp/ccNYiiOW.s:13     .text:00000000 newDailyAlarmscreen_keypressed
+C:\Users\Maarten\AppData\Local\Temp/ccNYiiOW.s:23     .text:00000002 newDailyAlarmscreen_entry
+C:\Users\Maarten\AppData\Local\Temp/ccNYiiOW.s:33     .text:00000004 newDailyAlarmscreen_loop
+C:\Users\Maarten\AppData\Local\Temp/ccNYiiOW.s:43     .text:00000006 newDailyAlarmscreen_exit
+=======
+C:\Users\jeffr\AppData\Local\Temp/ccwWPmzV.s:3      *ABS*:0000003f __SREG__
+C:\Users\jeffr\AppData\Local\Temp/ccwWPmzV.s:4      *ABS*:0000003e __SP_H__
+C:\Users\jeffr\AppData\Local\Temp/ccwWPmzV.s:5      *ABS*:0000003d __SP_L__
+C:\Users\jeffr\AppData\Local\Temp/ccwWPmzV.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\jeffr\AppData\Local\Temp/ccwWPmzV.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\jeffr\AppData\Local\Temp/ccwWPmzV.s:13     .text:00000000 newDailyAlarmscreen_keypressed
+C:\Users\jeffr\AppData\Local\Temp/ccwWPmzV.s:23     .text:00000002 newDailyAlarmscreen_entry
+C:\Users\jeffr\AppData\Local\Temp/ccwWPmzV.s:33     .text:00000004 newDailyAlarmscreen_loop
+C:\Users\jeffr\AppData\Local\Temp/ccwWPmzV.s:43     .text:00000006 newDailyAlarmscreen_exit
+>>>>>>> BackLightBranch
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss

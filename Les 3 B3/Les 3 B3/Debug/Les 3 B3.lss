@@ -1,0 +1,285 @@
+
+Les 3 B3.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000002  00800100  00000180  00000214  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         00000180  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          00000002  00800102  00800102  00000216  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  00000216  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000248  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000030  00000000  00000000  00000284  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   0000092a  00000000  00000000  000002b4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 00000851  00000000  00000000  00000bde  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   000004f6  00000000  00000000  0000142f  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  00000064  00000000  00000000  00001928  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    00007bc5  00000000  00000000  0000198c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    000000cb  00000000  00000000  00009551  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000020  00000000  00000000  0000961c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 13 .debug_macro  0000043f  00000000  00000000  0000963c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	45 c0       	rjmp	.+138    	; 0x8c <__ctors_end>
+   2:	00 00       	nop
+   4:	60 c0       	rjmp	.+192    	; 0xc6 <__bad_interrupt>
+   6:	00 00       	nop
+   8:	5e c0       	rjmp	.+188    	; 0xc6 <__bad_interrupt>
+   a:	00 00       	nop
+   c:	5c c0       	rjmp	.+184    	; 0xc6 <__bad_interrupt>
+   e:	00 00       	nop
+  10:	5a c0       	rjmp	.+180    	; 0xc6 <__bad_interrupt>
+  12:	00 00       	nop
+  14:	58 c0       	rjmp	.+176    	; 0xc6 <__bad_interrupt>
+  16:	00 00       	nop
+  18:	56 c0       	rjmp	.+172    	; 0xc6 <__bad_interrupt>
+  1a:	00 00       	nop
+  1c:	54 c0       	rjmp	.+168    	; 0xc6 <__bad_interrupt>
+  1e:	00 00       	nop
+  20:	52 c0       	rjmp	.+164    	; 0xc6 <__bad_interrupt>
+  22:	00 00       	nop
+  24:	5d c0       	rjmp	.+186    	; 0xe0 <__vector_9>
+  26:	00 00       	nop
+  28:	4e c0       	rjmp	.+156    	; 0xc6 <__bad_interrupt>
+  2a:	00 00       	nop
+  2c:	4c c0       	rjmp	.+152    	; 0xc6 <__bad_interrupt>
+  2e:	00 00       	nop
+  30:	4a c0       	rjmp	.+148    	; 0xc6 <__bad_interrupt>
+  32:	00 00       	nop
+  34:	48 c0       	rjmp	.+144    	; 0xc6 <__bad_interrupt>
+  36:	00 00       	nop
+  38:	46 c0       	rjmp	.+140    	; 0xc6 <__bad_interrupt>
+  3a:	00 00       	nop
+  3c:	44 c0       	rjmp	.+136    	; 0xc6 <__bad_interrupt>
+  3e:	00 00       	nop
+  40:	42 c0       	rjmp	.+132    	; 0xc6 <__bad_interrupt>
+  42:	00 00       	nop
+  44:	40 c0       	rjmp	.+128    	; 0xc6 <__bad_interrupt>
+  46:	00 00       	nop
+  48:	3e c0       	rjmp	.+124    	; 0xc6 <__bad_interrupt>
+  4a:	00 00       	nop
+  4c:	3c c0       	rjmp	.+120    	; 0xc6 <__bad_interrupt>
+  4e:	00 00       	nop
+  50:	3a c0       	rjmp	.+116    	; 0xc6 <__bad_interrupt>
+  52:	00 00       	nop
+  54:	38 c0       	rjmp	.+112    	; 0xc6 <__bad_interrupt>
+  56:	00 00       	nop
+  58:	36 c0       	rjmp	.+108    	; 0xc6 <__bad_interrupt>
+  5a:	00 00       	nop
+  5c:	34 c0       	rjmp	.+104    	; 0xc6 <__bad_interrupt>
+  5e:	00 00       	nop
+  60:	32 c0       	rjmp	.+100    	; 0xc6 <__bad_interrupt>
+  62:	00 00       	nop
+  64:	30 c0       	rjmp	.+96     	; 0xc6 <__bad_interrupt>
+  66:	00 00       	nop
+  68:	2e c0       	rjmp	.+92     	; 0xc6 <__bad_interrupt>
+  6a:	00 00       	nop
+  6c:	2c c0       	rjmp	.+88     	; 0xc6 <__bad_interrupt>
+  6e:	00 00       	nop
+  70:	2a c0       	rjmp	.+84     	; 0xc6 <__bad_interrupt>
+  72:	00 00       	nop
+  74:	28 c0       	rjmp	.+80     	; 0xc6 <__bad_interrupt>
+  76:	00 00       	nop
+  78:	26 c0       	rjmp	.+76     	; 0xc6 <__bad_interrupt>
+  7a:	00 00       	nop
+  7c:	24 c0       	rjmp	.+72     	; 0xc6 <__bad_interrupt>
+  7e:	00 00       	nop
+  80:	22 c0       	rjmp	.+68     	; 0xc6 <__bad_interrupt>
+  82:	00 00       	nop
+  84:	20 c0       	rjmp	.+64     	; 0xc6 <__bad_interrupt>
+  86:	00 00       	nop
+  88:	1e c0       	rjmp	.+60     	; 0xc6 <__bad_interrupt>
+	...
+
+0000008c <__ctors_end>:
+  8c:	11 24       	eor	r1, r1
+  8e:	1f be       	out	0x3f, r1	; 63
+  90:	cf ef       	ldi	r28, 0xFF	; 255
+  92:	d0 e1       	ldi	r29, 0x10	; 16
+  94:	de bf       	out	0x3e, r29	; 62
+  96:	cd bf       	out	0x3d, r28	; 61
+
+00000098 <__do_copy_data>:
+  98:	11 e0       	ldi	r17, 0x01	; 1
+  9a:	a0 e0       	ldi	r26, 0x00	; 0
+  9c:	b1 e0       	ldi	r27, 0x01	; 1
+  9e:	e0 e8       	ldi	r30, 0x80	; 128
+  a0:	f1 e0       	ldi	r31, 0x01	; 1
+  a2:	00 e0       	ldi	r16, 0x00	; 0
+  a4:	0b bf       	out	0x3b, r16	; 59
+  a6:	02 c0       	rjmp	.+4      	; 0xac <__do_copy_data+0x14>
+  a8:	07 90       	elpm	r0, Z+
+  aa:	0d 92       	st	X+, r0
+  ac:	a2 30       	cpi	r26, 0x02	; 2
+  ae:	b1 07       	cpc	r27, r17
+  b0:	d9 f7       	brne	.-10     	; 0xa8 <__do_copy_data+0x10>
+
+000000b2 <__do_clear_bss>:
+  b2:	21 e0       	ldi	r18, 0x01	; 1
+  b4:	a2 e0       	ldi	r26, 0x02	; 2
+  b6:	b1 e0       	ldi	r27, 0x01	; 1
+  b8:	01 c0       	rjmp	.+2      	; 0xbc <.do_clear_bss_start>
+
+000000ba <.do_clear_bss_loop>:
+  ba:	1d 92       	st	X+, r1
+
+000000bc <.do_clear_bss_start>:
+  bc:	a4 30       	cpi	r26, 0x04	; 4
+  be:	b2 07       	cpc	r27, r18
+  c0:	e1 f7       	brne	.-8      	; 0xba <.do_clear_bss_loop>
+  c2:	4a d0       	rcall	.+148    	; 0x158 <main>
+  c4:	5b c0       	rjmp	.+182    	; 0x17c <_exit>
+
+000000c6 <__bad_interrupt>:
+  c6:	9c cf       	rjmp	.-200    	; 0x0 <__vectors>
+
+000000c8 <wait>:
+				clock value is set. This is used by _delay_ms inside
+				util/delay.h
+Version :    	DMK, Initial code
+*******************************************************************/
+{
+	for (int i=0; i<ms; i++)
+  c8:	18 16       	cp	r1, r24
+  ca:	19 06       	cpc	r1, r25
+  cc:	44 f4       	brge	.+16     	; 0xde <wait+0x16>
+  ce:	20 e0       	ldi	r18, 0x00	; 0
+  d0:	30 e0       	ldi	r19, 0x00	; 0
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+  d2:	00 00       	nop
+  d4:	2f 5f       	subi	r18, 0xFF	; 255
+  d6:	3f 4f       	sbci	r19, 0xFF	; 255
+  d8:	82 17       	cp	r24, r18
+  da:	93 07       	cpc	r25, r19
+  dc:	d1 f7       	brne	.-12     	; 0xd2 <wait+0xa>
+  de:	08 95       	ret
+
+000000e0 <__vector_9>:
+
+int msCount = 0;
+int shouldHigh = 1;
+
+ISR( TIMER2_COMP_vect )
+{
+  e0:	1f 92       	push	r1
+  e2:	0f 92       	push	r0
+  e4:	0f b6       	in	r0, 0x3f	; 63
+  e6:	0f 92       	push	r0
+  e8:	11 24       	eor	r1, r1
+  ea:	2f 93       	push	r18
+  ec:	3f 93       	push	r19
+  ee:	8f 93       	push	r24
+  f0:	9f 93       	push	r25
+	msCount++;
+  f2:	80 91 02 01 	lds	r24, 0x0102	; 0x800102 <__data_end>
+  f6:	90 91 03 01 	lds	r25, 0x0103	; 0x800103 <__data_end+0x1>
+  fa:	01 96       	adiw	r24, 0x01	; 1
+  fc:	90 93 03 01 	sts	0x0103, r25	; 0x800103 <__data_end+0x1>
+ 100:	80 93 02 01 	sts	0x0102, r24	; 0x800102 <__data_end>
+	// Increment ms counter
+	if(shouldHigh && 15 == msCount){
+ 104:	20 91 00 01 	lds	r18, 0x0100	; 0x800100 <__data_start>
+ 108:	30 91 01 01 	lds	r19, 0x0101	; 0x800101 <__data_start+0x1>
+ 10c:	23 2b       	or	r18, r19
+ 10e:	69 f0       	breq	.+26     	; 0x12a <__vector_9+0x4a>
+ 110:	8f 30       	cpi	r24, 0x0F	; 15
+ 112:	91 05       	cpc	r25, r1
+ 114:	51 f4       	brne	.+20     	; 0x12a <__vector_9+0x4a>
+		PORTD = 0x00;
+ 116:	12 ba       	out	0x12, r1	; 18
+		msCount = 0;
+ 118:	10 92 03 01 	sts	0x0103, r1	; 0x800103 <__data_end+0x1>
+ 11c:	10 92 02 01 	sts	0x0102, r1	; 0x800102 <__data_end>
+		shouldHigh = 0;
+ 120:	10 92 01 01 	sts	0x0101, r1	; 0x800101 <__data_start+0x1>
+ 124:	10 92 00 01 	sts	0x0100, r1	; 0x800100 <__data_start>
+ 128:	0e c0       	rjmp	.+28     	; 0x146 <__vector_9+0x66>
+		}else if(25 == msCount){
+ 12a:	49 97       	sbiw	r24, 0x19	; 25
+ 12c:	61 f4       	brne	.+24     	; 0x146 <__vector_9+0x66>
+		PORTD = 0xFF;
+ 12e:	8f ef       	ldi	r24, 0xFF	; 255
+ 130:	82 bb       	out	0x12, r24	; 18
+		shouldHigh = 1;
+ 132:	81 e0       	ldi	r24, 0x01	; 1
+ 134:	90 e0       	ldi	r25, 0x00	; 0
+ 136:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <__data_start+0x1>
+ 13a:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <__data_start>
+		msCount = 0;
+ 13e:	10 92 03 01 	sts	0x0103, r1	; 0x800103 <__data_end+0x1>
+ 142:	10 92 02 01 	sts	0x0102, r1	; 0x800102 <__data_end>
+	}
+}
+ 146:	9f 91       	pop	r25
+ 148:	8f 91       	pop	r24
+ 14a:	3f 91       	pop	r19
+ 14c:	2f 91       	pop	r18
+ 14e:	0f 90       	pop	r0
+ 150:	0f be       	out	0x3f, r0	; 63
+ 152:	0f 90       	pop	r0
+ 154:	1f 90       	pop	r1
+ 156:	18 95       	reti
+
+00000158 <main>:
+int main (void)
+{
+
+	/* Insert application code here, after the board has been initialized. */
+
+	DDRD = 0xFF;
+ 158:	8f ef       	ldi	r24, 0xFF	; 255
+ 15a:	81 bb       	out	0x11, r24	; 17
+
+	OCR2 = 519;
+ 15c:	87 e0       	ldi	r24, 0x07	; 7
+ 15e:	83 bd       	out	0x23, r24	; 35
+	TCCR2 = 1<<WGM21;           /* CTC mode */
+ 160:	88 e0       	ldi	r24, 0x08	; 8
+ 162:	85 bd       	out	0x25, r24	; 37
+	/* Enable interrupts */
+	TIMSK = TIMSK | 1<<TOIE1 | 1<<OCIE2;
+ 164:	87 b7       	in	r24, 0x37	; 55
+ 166:	84 68       	ori	r24, 0x84	; 132
+ 168:	87 bf       	out	0x37, r24	; 55
+	TCCR2 |= 1<<CS22 | 0<<CS21 | 1<<CS20;
+ 16a:	85 b5       	in	r24, 0x25	; 37
+ 16c:	85 60       	ori	r24, 0x05	; 5
+ 16e:	85 bd       	out	0x25, r24	; 37
+	TCNT2 = 0;
+ 170:	14 bc       	out	0x24, r1	; 36
+	sei();
+ 172:	78 94       	sei
+
+	while(1){
+		
+		wait(100);
+ 174:	84 e6       	ldi	r24, 0x64	; 100
+ 176:	90 e0       	ldi	r25, 0x00	; 0
+ 178:	a7 df       	rcall	.-178    	; 0xc8 <wait>
+ 17a:	fc cf       	rjmp	.-8      	; 0x174 <main+0x1c>
+
+0000017c <_exit>:
+ 17c:	f8 94       	cli
+
+0000017e <__stop_program>:
+ 17e:	ff cf       	rjmp	.-2      	; 0x17e <__stop_program>

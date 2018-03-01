@@ -1,0 +1,1208 @@
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccD9xmJU.s 			page 1
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cczq6TCb.s 			page 1
+>>>>>>> BackLightBranch
+
+
+   1               		.file	"mmcdrv.c"
+   2               		.arch atmega2561
+   3               	__SREG__ = 0x3f
+   4               	__SP_H__ = 0x3e
+   5               	__SP_L__ = 0x3d
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  10               		.text
+  11               	.global	MMCIsCDROMDevice
+  12               		.type	MMCIsCDROMDevice, @function
+  13               	MMCIsCDROMDevice:
+  14               	/* prologue: frame size=0 */
+  15               	/* prologue end (size=0) */
+  16 0000 80E0      		ldi r24,lo8(0)
+  17 0002 90E0      		ldi r25,hi8(0)
+  18               	/* epilogue: frame size=0 */
+  19 0004 0895      		ret
+  20               	/* epilogue end (size=1) */
+  21               	/* function MMCIsCDROMDevice size 3 (2) */
+  22               		.size	MMCIsCDROMDevice, .-MMCIsCDROMDevice
+  23               	.global	MMCIsZIPDevice
+  24               		.type	MMCIsZIPDevice, @function
+  25               	MMCIsZIPDevice:
+  26               	/* prologue: frame size=0 */
+  27               	/* prologue end (size=0) */
+  28 0006 80E0      		ldi r24,lo8(0)
+  29 0008 90E0      		ldi r25,hi8(0)
+  30               	/* epilogue: frame size=0 */
+  31 000a 0895      		ret
+  32               	/* epilogue end (size=1) */
+  33               	/* function MMCIsZIPDevice size 3 (2) */
+  34               		.size	MMCIsZIPDevice, .-MMCIsZIPDevice
+  35               	.global	MMCUnMountDevice
+  36               		.type	MMCUnMountDevice, @function
+  37               	MMCUnMountDevice:
+  38               	/* prologue: frame size=0 */
+  39               	/* prologue end (size=0) */
+  40 000c 80E0      		ldi r24,lo8(0)
+  41 000e 90E0      		ldi r25,hi8(0)
+  42               	/* epilogue: frame size=0 */
+  43 0010 0895      		ret
+  44               	/* epilogue end (size=1) */
+  45               	/* function MMCUnMountDevice size 3 (2) */
+  46               		.size	MMCUnMountDevice, .-MMCUnMountDevice
+  47               		.type	MMCLock, @function
+  48               	MMCLock:
+  49               	/* prologue: frame size=0 */
+  50               	/* prologue end (size=0) */
+  51 0012 40E0      		ldi r20,lo8(0)
+  52 0014 50E0      		ldi r21,hi8(0)
+  53 0016 60E0      		ldi r22,hlo8(0)
+  54 0018 70E0      		ldi r23,hhi8(0)
+  55 001a 80E0      		ldi r24,lo8(hMMCSemaphore)
+  56 001c 90E0      		ldi r25,hi8(hMMCSemaphore)
+  57 001e 0E94 0000 		call NutEventWait
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccD9xmJU.s 			page 2
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cczq6TCb.s 			page 2
+>>>>>>> BackLightBranch
+
+
+  58               	/* epilogue: frame size=0 */
+  59 0022 0895      		ret
+  60               	/* epilogue end (size=1) */
+  61               	/* function MMCLock size 9 (8) */
+  62               		.size	MMCLock, .-MMCLock
+  63               		.type	MMCGet, @function
+  64               	MMCGet:
+  65               	/* prologue: frame size=0 */
+  66 0024 CF93      		push r28
+  67 0026 DF93      		push r29
+  68               	/* prologue end (size=2) */
+  69 0028 CEEF      		ldi r28,lo8(-2)
+  70 002a DFEF      		ldi r29,hi8(-2)
+  71               	.L10:
+  72 002c 0E94 0000 		call SPIgetByte
+  73 0030 8F3F      		cpi r24,lo8(-1)
+  74 0032 01F4      		brne .L11
+  75 0034 2197      		sbiw r28,1
+  76 0036 01F4      		brne .L10
+  77               	.L11:
+  78 0038 9927      		clr r25
+  79               	/* epilogue: frame size=0 */
+  80 003a DF91      		pop r29
+  81 003c CF91      		pop r28
+  82 003e 0895      		ret
+  83               	/* epilogue end (size=3) */
+  84               	/* function MMCGet size 15 (10) */
+  85               		.size	MMCGet, .-MMCGet
+  86               		.type	MMCDataToken, @function
+  87               	MMCDataToken:
+  88               	/* prologue: frame size=0 */
+  89 0040 CF93      		push r28
+  90 0042 DF93      		push r29
+  91               	/* prologue end (size=2) */
+  92 0044 CEEF      		ldi r28,lo8(-2)
+  93 0046 DFEF      		ldi r29,hi8(-2)
+  94               	.L16:
+  95 0048 0E94 0000 		call SPIgetByte
+  96 004c 8E3F      		cpi r24,lo8(-2)
+  97 004e 01F0      		breq .L17
+  98 0050 2197      		sbiw r28,1
+  99 0052 01F4      		brne .L16
+ 100               	.L17:
+ 101 0054 9927      		clr r25
+ 102               	/* epilogue: frame size=0 */
+ 103 0056 DF91      		pop r29
+ 104 0058 CF91      		pop r28
+ 105 005a 0895      		ret
+ 106               	/* epilogue end (size=3) */
+ 107               	/* function MMCDataToken size 15 (10) */
+ 108               		.size	MMCDataToken, .-MMCDataToken
+ 109               		.type	MMCCommand, @function
+ 110               	MMCCommand:
+ 111               	/* prologue: frame size=0 */
+ 112 005c DF92      		push r13
+ 113 005e EF92      		push r14
+ 114 0060 FF92      		push r15
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccD9xmJU.s 			page 3
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cczq6TCb.s 			page 3
+>>>>>>> BackLightBranch
+
+
+ 115 0062 0F93      		push r16
+ 116 0064 1F93      		push r17
+ 117               	/* prologue end (size=5) */
+ 118 0066 D82E      		mov r13,r24
+ 119 0068 8B01      		movw r16,r22
+ 120 006a 7A01      		movw r14,r20
+ 121 006c 82E0      		ldi r24,lo8(2)
+ 122 006e 90E0      		ldi r25,hi8(2)
+ 123 0070 0E94 0000 		call SPIselect
+ 124 0074 8FEF      		ldi r24,lo8(-1)
+ 125 0076 0E94 0000 		call SPIputByte
+ 126 007a 8D2D      		mov r24,r13
+ 127 007c 8064      		ori r24,lo8(64)
+ 128 007e 0E94 0000 		call SPIputByte
+ 129 0082 812F      		mov r24,r17
+ 130 0084 9927      		clr r25
+ 131 0086 0E94 0000 		call SPIputByte
+ 132 008a 802F      		mov r24,r16
+ 133 008c 0E94 0000 		call SPIputByte
+ 134 0090 8F2D      		mov r24,r15
+ 135 0092 9927      		clr r25
+ 136 0094 0E94 0000 		call SPIputByte
+ 137 0098 8E2D      		mov r24,r14
+ 138 009a 0E94 0000 		call SPIputByte
+ 139 009e 85E9      		ldi r24,lo8(-107)
+ 140 00a0 0E94 0000 		call SPIputByte
+ 141 00a4 8FEF      		ldi r24,lo8(-1)
+ 142 00a6 0E94 0000 		call SPIputByte
+ 143               	/* epilogue: frame size=0 */
+ 144 00aa 1F91      		pop r17
+ 145 00ac 0F91      		pop r16
+ 146 00ae FF90      		pop r15
+ 147 00b0 EF90      		pop r14
+ 148 00b2 DF90      		pop r13
+ 149 00b4 0895      		ret
+ 150               	/* epilogue end (size=6) */
+ 151               	/* function MMCCommand size 45 (34) */
+ 152               		.size	MMCCommand, .-MMCCommand
+ 153               		.type	ReadSectors, @function
+ 154               	ReadSectors:
+ 155               	/* prologue: frame size=0 */
+ 156 00b6 6F92      		push r6
+ 157 00b8 7F92      		push r7
+ 158 00ba 8F92      		push r8
+ 159 00bc 9F92      		push r9
+ 160 00be AF92      		push r10
+ 161 00c0 BF92      		push r11
+ 162 00c2 CF92      		push r12
+ 163 00c4 DF92      		push r13
+ 164 00c6 EF92      		push r14
+ 165 00c8 FF92      		push r15
+ 166 00ca 0F93      		push r16
+ 167 00cc 1F93      		push r17
+ 168 00ce CF93      		push r28
+ 169 00d0 DF93      		push r29
+ 170               	/* prologue end (size=14) */
+ 171 00d2 5B01      		movw r10,r22
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccD9xmJU.s 			page 4
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cczq6TCb.s 			page 4
+>>>>>>> BackLightBranch
+
+
+ 172 00d4 6901      		movw r12,r18
+ 173 00d6 7A01      		movw r14,r20
+ 174 00d8 3801      		movw r6,r16
+ 175 00da 8824      		clr r8
+ 176 00dc 9924      		clr r9
+ 177 00de 00C0      		rjmp .L24
+ 178               	.L25:
+ 179 00e0 A601      		movw r20,r12
+ 180 00e2 542F      		mov r21,r20
+ 181 00e4 4427      		clr r20
+ 182 00e6 550F      		lsl r21
+ 183 00e8 C701      		movw r24,r14
+ 184 00ea B601      		movw r22,r12
+ 185 00ec 27E0      		ldi r18,7
+ 186 00ee 9695      	1:	lsr r25
+ 187 00f0 8795      		ror r24
+ 188 00f2 7795      		ror r23
+ 189 00f4 6795      		ror r22
+ 190 00f6 2A95      		dec r18
+ 191 00f8 01F4      		brne 1b
+ 192 00fa 81E1      		ldi r24,lo8(17)
+ 193 00fc 0E94 0000 		call MMCCommand
+ 194 0100 0E94 0000 		call MMCDataToken
+ 195 0104 8E3F      		cpi r24,lo8(-2)
+ 196 0106 01F0      		breq .L26
+ 197 0108 0E94 0000 		call SPIdeselect
+ 198 010c 81E0      		ldi r24,lo8(1)
+ 199 010e 90E0      		ldi r25,hi8(1)
+ 200 0110 00C0      		rjmp .L28
+ 201               	.L26:
+ 202 0112 8501      		movw r16,r10
+ 203 0114 C0E0      		ldi r28,lo8(0)
+ 204 0116 D0E0      		ldi r29,hi8(0)
+ 205               	.L29:
+ 206 0118 0E94 0000 		call SPIgetByte
+ 207 011c F801      		movw r30,r16
+ 208 011e 8193      		st Z+,r24
+ 209 0120 8F01      		movw r16,r30
+ 210 0122 2196      		adiw r28,1
+ 211 0124 F2E0      		ldi r31,hi8(512)
+ 212 0126 C030      		cpi r28,lo8(512)
+ 213 0128 DF07      		cpc r29,r31
+ 214 012a 01F4      		brne .L29
+ 215 012c 80E0      		ldi r24,lo8(512)
+ 216 012e 92E0      		ldi r25,hi8(512)
+ 217 0130 A80E      		add r10,r24
+ 218 0132 B91E      		adc r11,r25
+ 219 0134 8FEF      		ldi r24,lo8(-1)
+ 220 0136 0E94 0000 		call SPIputByte
+ 221 013a 8FEF      		ldi r24,lo8(-1)
+ 222 013c 0E94 0000 		call SPIputByte
+ 223 0140 0E94 0000 		call SPIdeselect
+ 224 0144 0894      		sec
+ 225 0146 811C      		adc r8,__zero_reg__
+ 226 0148 911C      		adc r9,__zero_reg__
+ 227 014a 0894      		sec
+ 228 014c C11C      		adc r12,__zero_reg__
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccD9xmJU.s 			page 5
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cczq6TCb.s 			page 5
+>>>>>>> BackLightBranch
+
+
+ 229 014e D11C      		adc r13,__zero_reg__
+ 230 0150 E11C      		adc r14,__zero_reg__
+ 231 0152 F11C      		adc r15,__zero_reg__
+ 232               	.L24:
+ 233 0154 8614      		cp r8,r6
+ 234 0156 9704      		cpc r9,r7
+ 235 0158 01F4      		brne .L25
+ 236 015a 80E0      		ldi r24,lo8(0)
+ 237 015c 90E0      		ldi r25,hi8(0)
+ 238               	.L28:
+ 239               	/* epilogue: frame size=0 */
+ 240 015e DF91      		pop r29
+ 241 0160 CF91      		pop r28
+ 242 0162 1F91      		pop r17
+ 243 0164 0F91      		pop r16
+ 244 0166 FF90      		pop r15
+ 245 0168 EF90      		pop r14
+ 246 016a DF90      		pop r13
+ 247 016c CF90      		pop r12
+ 248 016e BF90      		pop r11
+ 249 0170 AF90      		pop r10
+ 250 0172 9F90      		pop r9
+ 251 0174 8F90      		pop r8
+ 252 0176 7F90      		pop r7
+ 253 0178 6F90      		pop r6
+ 254 017a 0895      		ret
+ 255               	/* epilogue end (size=15) */
+ 256               	/* function ReadSectors size 99 (70) */
+ 257               		.size	ReadSectors, .-ReadSectors
+ 258               		.type	MMCFree, @function
+ 259               	MMCFree:
+ 260               	/* prologue: frame size=0 */
+ 261               	/* prologue end (size=0) */
+ 262 017c 80E0      		ldi r24,lo8(hMMCSemaphore)
+ 263 017e 90E0      		ldi r25,hi8(hMMCSemaphore)
+ 264 0180 0E94 0000 		call NutEventPost
+ 265               	/* epilogue: frame size=0 */
+ 266 0184 0895      		ret
+ 267               	/* epilogue end (size=1) */
+ 268               	/* function MMCFree size 5 (4) */
+ 269               		.size	MMCFree, .-MMCFree
+ 270               	.global	MMCWriteSectors
+ 271               		.type	MMCWriteSectors, @function
+ 272               	MMCWriteSectors:
+ 273               	/* prologue: frame size=8 */
+ 274 0186 2F92      		push r2
+ 275 0188 3F92      		push r3
+ 276 018a 4F92      		push r4
+ 277 018c 5F92      		push r5
+ 278 018e 6F92      		push r6
+ 279 0190 7F92      		push r7
+ 280 0192 8F92      		push r8
+ 281 0194 9F92      		push r9
+ 282 0196 AF92      		push r10
+ 283 0198 BF92      		push r11
+ 284 019a CF92      		push r12
+ 285 019c DF92      		push r13
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccD9xmJU.s 			page 6
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cczq6TCb.s 			page 6
+>>>>>>> BackLightBranch
+
+
+ 286 019e EF92      		push r14
+ 287 01a0 FF92      		push r15
+ 288 01a2 0F93      		push r16
+ 289 01a4 1F93      		push r17
+ 290 01a6 CF93      		push r28
+ 291 01a8 DF93      		push r29
+ 292 01aa CDB7      		in r28,__SP_L__
+ 293 01ac DEB7      		in r29,__SP_H__
+ 294 01ae 2897      		sbiw r28,8
+ 295 01b0 0FB6      		in __tmp_reg__,__SREG__
+ 296 01b2 F894      		cli
+ 297 01b4 DEBF      		out __SP_H__,r29
+ 298 01b6 0FBE      		out __SREG__,__tmp_reg__
+ 299 01b8 CDBF      		out __SP_L__,r28
+ 300               	/* prologue end (size=26) */
+ 301 01ba F82E      		mov r15,r24
+ 302 01bc 6B01      		movw r12,r22
+ 303 01be 3901      		movw r6,r18
+ 304 01c0 4A01      		movw r8,r20
+ 305 01c2 1801      		movw r2,r16
+ 306 01c4 0E94 0000 		call MMCLock
+ 307 01c8 FF20      		tst r15
+ 308 01ca 01F0      		breq .L38
+ 309 01cc 22E0      		ldi r18,lo8(2)
+ 310 01ce 30E0      		ldi r19,hi8(2)
+ 311 01d0 00C0      		rjmp .L73
+ 312               	.L38:
+ 313 01d2 C801      		movw r24,r16
+ 314 01d4 AA27      		clr r26
+ 315 01d6 BB27      		clr r27
+ 316 01d8 860D      		add r24,r6
+ 317 01da 971D      		adc r25,r7
+ 318 01dc A81D      		adc r26,r8
+ 319 01de B91D      		adc r27,r9
+ 320 01e0 2091 0000 		lds r18,sDrive+3
+ 321 01e4 3091 0000 		lds r19,(sDrive+3)+1
+ 322 01e8 4091 0000 		lds r20,(sDrive+3)+2
+ 323 01ec 5091 0000 		lds r21,(sDrive+3)+3
+ 324 01f0 2817      		cp r18,r24
+ 325 01f2 3907      		cpc r19,r25
+ 326 01f4 4A07      		cpc r20,r26
+ 327 01f6 5B07      		cpc r21,r27
+ 328 01f8 00F4      		brsh .L41
+ 329 01fa 83E0      		ldi r24,lo8(3)
+ 330 01fc 90E0      		ldi r25,hi8(3)
+ 331 01fe 9E83      		std Y+6,r25
+ 332 0200 8D83      		std Y+5,r24
+ 333 0202 00C0      		rjmp .L43
+ 334               	.L41:
+ 335 0204 1E82      		std Y+6,__zero_reg__
+ 336 0206 1D82      		std Y+5,__zero_reg__
+ 337               	.L43:
+ 338 0208 8091 0000 		lds r24,sDrive
+ 339 020c 9091 0000 		lds r25,(sDrive)+1
+ 340 0210 97FD      		sbrc r25,7
+ 341 0212 00C0      		rjmp .L44
+ 342 0214 E2E0      		ldi r30,lo8(2)
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccD9xmJU.s 			page 7
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cczq6TCb.s 			page 7
+>>>>>>> BackLightBranch
+
+
+ 343 0216 F0E0      		ldi r31,hi8(2)
+ 344 0218 FE83      		std Y+6,r31
+ 345 021a ED83      		std Y+5,r30
+ 346               	.L44:
+ 347 021c 96FD      		sbrc r25,6
+ 348 021e 00C0      		rjmp .L46
+ 349 0220 2D81      		ldd r18,Y+5
+ 350 0222 3E81      		ldd r19,Y+6
+ 351 0224 232B      		or r18,r19
+ 352 0226 01F0      		breq .+2
+ 353 0228 00C0      		rjmp .L40
+ 354 022a DC82      		std Y+4,r13
+ 355 022c CB82      		std Y+3,r12
+ 356 022e 00C0      		rjmp .L49
+ 357               	.L50:
+ 358 0230 3FEF      		ldi r19,lo8(255)
+ 359 0232 2316      		cp r2,r19
+ 360 0234 3104      		cpc r3,__zero_reg__
+ 361 0236 01F0      		breq .+2
+ 362 0238 00F4      		brsh .L51
+ 363 023a 6101      		movw r12,r2
+ 364 023c 00C0      		rjmp .L53
+ 365               	.L51:
+ 366 023e C12C      		mov r12,__zero_reg__
+ 367 0240 A1E0      		ldi r26,hi8(256)
+ 368 0242 DA2E      		mov r13,r26
+ 369               	.L53:
+ 370 0244 4B80      		ldd r4,Y+3
+ 371 0246 5C80      		ldd r5,Y+4
+ 372 0248 8401      		movw r16,r8
+ 373 024a 7301      		movw r14,r6
+ 374 024c 1A82      		std Y+2,__zero_reg__
+ 375 024e 1982      		std Y+1,__zero_reg__
+ 376 0250 00C0      		rjmp .L54
+ 377               	.L55:
+ 378 0252 A701      		movw r20,r14
+ 379 0254 542F      		mov r21,r20
+ 380 0256 4427      		clr r20
+ 381 0258 550F      		lsl r21
+ 382 025a C801      		movw r24,r16
+ 383 025c B701      		movw r22,r14
+ 384 025e E7E0      		ldi r30,7
+ 385 0260 9695      	1:	lsr r25
+ 386 0262 8795      		ror r24
+ 387 0264 7795      		ror r23
+ 388 0266 6795      		ror r22
+ 389 0268 EA95      		dec r30
+ 390 026a 01F4      		brne 1b
+ 391 026c 88E1      		ldi r24,lo8(24)
+ 392 026e 0E94 0000 		call MMCCommand
+ 393 0272 0E94 0000 		call MMCGet
+ 394 0276 8F3F      		cpi r24,lo8(-1)
+ 395 0278 01F4      		brne .+2
+ 396 027a 00C0      		rjmp .L68
+ 397 027c 8EEF      		ldi r24,lo8(-2)
+ 398 027e 0E94 0000 		call SPIputByte
+ 399 0282 5201      		movw r10,r4
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccD9xmJU.s 			page 8
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cczq6TCb.s 			page 8
+>>>>>>> BackLightBranch
+
+
+ 400 0284 1886      		std Y+8,__zero_reg__
+ 401 0286 1F82      		std Y+7,__zero_reg__
+ 402               	.L59:
+ 403 0288 F501      		movw r30,r10
+ 404 028a 8191      		ld r24,Z+
+ 405 028c 5F01      		movw r10,r30
+ 406 028e 0E94 0000 		call SPIputByte
+ 407 0292 2F81      		ldd r18,Y+7
+ 408 0294 3885      		ldd r19,Y+8
+ 409 0296 2F5F      		subi r18,lo8(-(1))
+ 410 0298 3F4F      		sbci r19,hi8(-(1))
+ 411 029a 3887      		std Y+8,r19
+ 412 029c 2F83      		std Y+7,r18
+ 413 029e 2050      		subi r18,lo8(512)
+ 414 02a0 3240      		sbci r19,hi8(512)
+ 415 02a2 01F4      		brne .L59
+ 416 02a4 E0E0      		ldi r30,lo8(512)
+ 417 02a6 F2E0      		ldi r31,hi8(512)
+ 418 02a8 4E0E      		add r4,r30
+ 419 02aa 5F1E      		adc r5,r31
+ 420 02ac 8FEF      		ldi r24,lo8(-1)
+ 421 02ae 0E94 0000 		call SPIputByte
+ 422 02b2 8FEF      		ldi r24,lo8(-1)
+ 423 02b4 0E94 0000 		call SPIputByte
+ 424 02b8 8FEF      		ldi r24,lo8(-1)
+ 425 02ba 0E94 0000 		call SPIputByte
+ 426 02be 5FEF      		ldi r21,lo8(-1)
+ 427 02c0 A52E      		mov r10,r21
+ 428 02c2 B52E      		mov r11,r21
+ 429               	.L61:
+ 430 02c4 0E94 0000 		call SPIgetByte
+ 431 02c8 8823      		tst r24
+ 432 02ca 01F4      		brne .L62
+ 433 02cc 0894      		sec
+ 434 02ce A108      		sbc r10,__zero_reg__
+ 435 02d0 B108      		sbc r11,__zero_reg__
+ 436 02d2 A114      		cp r10,__zero_reg__
+ 437 02d4 B104      		cpc r11,__zero_reg__
+ 438 02d6 01F0      		breq .L68
+ 439 02d8 00C0      		rjmp .L61
+ 440               	.L62:
+ 441 02da 0894      		sec
+ 442 02dc E11C      		adc r14,__zero_reg__
+ 443 02de F11C      		adc r15,__zero_reg__
+ 444 02e0 011D      		adc r16,__zero_reg__
+ 445 02e2 111D      		adc r17,__zero_reg__
+ 446 02e4 AB28      		or r10,r11
+ 447 02e6 01F0      		breq .L68
+ 448 02e8 0E94 0000 		call SPIdeselect
+ 449 02ec 2981      		ldd r18,Y+1
+ 450 02ee 3A81      		ldd r19,Y+2
+ 451 02f0 2F5F      		subi r18,lo8(-(1))
+ 452 02f2 3F4F      		sbci r19,hi8(-(1))
+ 453 02f4 3A83      		std Y+2,r19
+ 454 02f6 2983      		std Y+1,r18
+ 455               	.L54:
+ 456 02f8 8981      		ldd r24,Y+1
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccD9xmJU.s 			page 9
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cczq6TCb.s 			page 9
+>>>>>>> BackLightBranch
+
+
+ 457 02fa 9A81      		ldd r25,Y+2
+ 458 02fc 8C15      		cp r24,r12
+ 459 02fe 9D05      		cpc r25,r13
+ 460 0300 01F0      		breq .+2
+ 461 0302 00C0      		rjmp .L55
+ 462 0304 00C0      		rjmp .L72
+ 463               	.L68:
+ 464 0306 0E94 0000 		call SPIdeselect
+ 465 030a E1E0      		ldi r30,lo8(1)
+ 466 030c F0E0      		ldi r31,hi8(1)
+ 467 030e FE83      		std Y+6,r31
+ 468 0310 ED83      		std Y+5,r30
+ 469 0312 00C0      		rjmp .L40
+ 470               	.L49:
+ 471 0314 2114      		cp r2,__zero_reg__
+ 472 0316 3104      		cpc r3,__zero_reg__
+ 473 0318 01F0      		breq .+2
+ 474 031a 00C0      		rjmp .L50
+ 475 031c 00C0      		rjmp .L40
+ 476               	.L46:
+ 477 031e 28E0      		ldi r18,lo8(8)
+ 478 0320 30E0      		ldi r19,hi8(8)
+ 479               	.L73:
+ 480 0322 3E83      		std Y+6,r19
+ 481 0324 2D83      		std Y+5,r18
+ 482 0326 00C0      		rjmp .L40
+ 483               	.L72:
+ 484 0328 C601      		movw r24,r12
+ 485 032a AA27      		clr r26
+ 486 032c BB27      		clr r27
+ 487 032e 680E      		add r6,r24
+ 488 0330 791E      		adc r7,r25
+ 489 0332 8A1E      		adc r8,r26
+ 490 0334 9B1E      		adc r9,r27
+ 491 0336 2C18      		sub r2,r12
+ 492 0338 3D08      		sbc r3,r13
+ 493 033a DC2C      		mov r13,r12
+ 494 033c CC24      		clr r12
+ 495 033e DD0C      		lsl r13
+ 496 0340 8B81      		ldd r24,Y+3
+ 497 0342 9C81      		ldd r25,Y+4
+ 498 0344 8C0D      		add r24,r12
+ 499 0346 9D1D      		adc r25,r13
+ 500 0348 9C83      		std Y+4,r25
+ 501 034a 8B83      		std Y+3,r24
+ 502 034c 00C0      		rjmp .L49
+ 503               	.L40:
+ 504 034e 0E94 0000 		call MMCFree
+ 505 0352 8D81      		ldd r24,Y+5
+ 506 0354 9E81      		ldd r25,Y+6
+ 507               	/* epilogue: frame size=8 */
+ 508 0356 2896      		adiw r28,8
+ 509 0358 0FB6      		in __tmp_reg__,__SREG__
+ 510 035a F894      		cli
+ 511 035c DEBF      		out __SP_H__,r29
+ 512 035e 0FBE      		out __SREG__,__tmp_reg__
+ 513 0360 CDBF      		out __SP_L__,r28
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccD9xmJU.s 			page 10
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cczq6TCb.s 			page 10
+>>>>>>> BackLightBranch
+
+
+ 514 0362 DF91      		pop r29
+ 515 0364 CF91      		pop r28
+ 516 0366 1F91      		pop r17
+ 517 0368 0F91      		pop r16
+ 518 036a FF90      		pop r15
+ 519 036c EF90      		pop r14
+ 520 036e DF90      		pop r13
+ 521 0370 CF90      		pop r12
+ 522 0372 BF90      		pop r11
+ 523 0374 AF90      		pop r10
+ 524 0376 9F90      		pop r9
+ 525 0378 8F90      		pop r8
+ 526 037a 7F90      		pop r7
+ 527 037c 6F90      		pop r6
+ 528 037e 5F90      		pop r5
+ 529 0380 4F90      		pop r4
+ 530 0382 3F90      		pop r3
+ 531 0384 2F90      		pop r2
+ 532 0386 0895      		ret
+ 533               	/* epilogue end (size=25) */
+ 534               	/* function MMCWriteSectors size 258 (207) */
+ 535               		.size	MMCWriteSectors, .-MMCWriteSectors
+ 536               	.global	MMCReadSectors
+ 537               		.type	MMCReadSectors, @function
+ 538               	MMCReadSectors:
+ 539               	/* prologue: frame size=0 */
+ 540 0388 8F92      		push r8
+ 541 038a 9F92      		push r9
+ 542 038c AF92      		push r10
+ 543 038e BF92      		push r11
+ 544 0390 CF92      		push r12
+ 545 0392 DF92      		push r13
+ 546 0394 EF92      		push r14
+ 547 0396 FF92      		push r15
+ 548 0398 0F93      		push r16
+ 549 039a 1F93      		push r17
+ 550 039c CF93      		push r28
+ 551 039e DF93      		push r29
+ 552               	/* prologue end (size=12) */
+ 553 03a0 F82E      		mov r15,r24
+ 554 03a2 EB01      		movw r28,r22
+ 555 03a4 4901      		movw r8,r18
+ 556 03a6 5A01      		movw r10,r20
+ 557 03a8 6801      		movw r12,r16
+ 558 03aa 0E94 0000 		call MMCLock
+ 559 03ae FF20      		tst r15
+ 560 03b0 01F4      		brne .L75
+ 561 03b2 8091 0000 		lds r24,sDrive
+ 562 03b6 9091 0000 		lds r25,(sDrive)+1
+ 563 03ba 97FF      		sbrs r25,7
+ 564 03bc 00C0      		rjmp .L75
+ 565 03be C801      		movw r24,r16
+ 566 03c0 AA27      		clr r26
+ 567 03c2 BB27      		clr r27
+ 568 03c4 880D      		add r24,r8
+ 569 03c6 991D      		adc r25,r9
+ 570 03c8 AA1D      		adc r26,r10
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccD9xmJU.s 			page 11
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cczq6TCb.s 			page 11
+>>>>>>> BackLightBranch
+
+
+ 571 03ca BB1D      		adc r27,r11
+ 572 03cc 2091 0000 		lds r18,sDrive+3
+ 573 03d0 3091 0000 		lds r19,(sDrive+3)+1
+ 574 03d4 4091 0000 		lds r20,(sDrive+3)+2
+ 575 03d8 5091 0000 		lds r21,(sDrive+3)+3
+ 576 03dc 2817      		cp r18,r24
+ 577 03de 3907      		cpc r19,r25
+ 578 03e0 4A07      		cpc r20,r26
+ 579 03e2 5B07      		cpc r21,r27
+ 580 03e4 00F0      		brlo .+2
+ 581 03e6 00C0      		rjmp .L78
+ 582 03e8 03E0      		ldi r16,lo8(3)
+ 583 03ea 10E0      		ldi r17,hi8(3)
+ 584 03ec 00C0      		rjmp .L80
+ 585               	.L75:
+ 586 03ee 02E0      		ldi r16,lo8(2)
+ 587 03f0 10E0      		ldi r17,hi8(2)
+ 588 03f2 00C0      		rjmp .L80
+ 589               	.L81:
+ 590 03f4 2FEF      		ldi r18,lo8(255)
+ 591 03f6 C216      		cp r12,r18
+ 592 03f8 D104      		cpc r13,__zero_reg__
+ 593 03fa 01F0      		breq .+2
+ 594 03fc 00F4      		brsh .L82
+ 595 03fe E601      		movw r28,r12
+ 596 0400 00C0      		rjmp .L84
+ 597               	.L82:
+ 598 0402 C0E0      		ldi r28,lo8(256)
+ 599 0404 D1E0      		ldi r29,hi8(256)
+ 600               	.L84:
+ 601 0406 8E01      		movw r16,r28
+ 602 0408 A501      		movw r20,r10
+ 603 040a 9401      		movw r18,r8
+ 604 040c B701      		movw r22,r14
+ 605 040e 80E0      		ldi r24,lo8(sDrive)
+ 606 0410 90E0      		ldi r25,hi8(sDrive)
+ 607 0412 0E94 0000 		call ReadSectors
+ 608 0416 8C01      		movw r16,r24
+ 609 0418 892B      		or r24,r25
+ 610 041a 01F4      		brne .L80
+ 611 041c CE01      		movw r24,r28
+ 612 041e AA27      		clr r26
+ 613 0420 BB27      		clr r27
+ 614 0422 880E      		add r8,r24
+ 615 0424 991E      		adc r9,r25
+ 616 0426 AA1E      		adc r10,r26
+ 617 0428 BB1E      		adc r11,r27
+ 618 042a CC1A      		sub r12,r28
+ 619 042c DD0A      		sbc r13,r29
+ 620 042e 8091 0000 		lds r24,sDrive+7
+ 621 0432 9091 0000 		lds r25,(sDrive+7)+1
+ 622 0436 9C01      		movw r18,r24
+ 623 0438 C29F      		mul r28,r18
+ 624 043a C001      		movw r24,r0
+ 625 043c C39F      		mul r28,r19
+ 626 043e 900D      		add r25,r0
+ 627 0440 D29F      		mul r29,r18
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccD9xmJU.s 			page 12
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cczq6TCb.s 			page 12
+>>>>>>> BackLightBranch
+
+
+ 628 0442 900D      		add r25,r0
+ 629 0444 1124      		clr r1
+ 630 0446 E80E      		add r14,r24
+ 631 0448 F91E      		adc r15,r25
+ 632               	.L90:
+ 633 044a C114      		cp r12,__zero_reg__
+ 634 044c D104      		cpc r13,__zero_reg__
+ 635 044e 01F4      		brne .L81
+ 636 0450 00E0      		ldi r16,lo8(0)
+ 637 0452 10E0      		ldi r17,hi8(0)
+ 638 0454 00C0      		rjmp .L80
+ 639               	.L91:
+ 640 0456 01E0      		ldi r16,lo8(1)
+ 641 0458 10E0      		ldi r17,hi8(1)
+ 642 045a A501      		movw r20,r10
+ 643 045c 9401      		movw r18,r8
+ 644 045e BE01      		movw r22,r28
+ 645 0460 80E0      		ldi r24,lo8(sDrive)
+ 646 0462 90E0      		ldi r25,hi8(sDrive)
+ 647 0464 0E94 0000 		call ReadSectors
+ 648 0468 8C01      		movw r16,r24
+ 649 046a 00C0      		rjmp .L80
+ 650               	.L78:
+ 651 046c 7E01      		movw r14,r28
+ 652 046e 0130      		cpi r16,1
+ 653 0470 1105      		cpc r17,__zero_reg__
+ 654 0472 01F4      		brne .L90
+ 655 0474 00C0      		rjmp .L91
+ 656               	.L80:
+ 657 0476 0E94 0000 		call MMCFree
+ 658 047a C801      		movw r24,r16
+ 659               	/* epilogue: frame size=0 */
+ 660 047c DF91      		pop r29
+ 661 047e CF91      		pop r28
+ 662 0480 1F91      		pop r17
+ 663 0482 0F91      		pop r16
+ 664 0484 FF90      		pop r15
+ 665 0486 EF90      		pop r14
+ 666 0488 DF90      		pop r13
+ 667 048a CF90      		pop r12
+ 668 048c BF90      		pop r11
+ 669 048e AF90      		pop r10
+ 670 0490 9F90      		pop r9
+ 671 0492 8F90      		pop r8
+ 672 0494 0895      		ret
+ 673               	/* epilogue end (size=13) */
+ 674               	/* function MMCReadSectors size 135 (110) */
+ 675               		.size	MMCReadSectors, .-MMCReadSectors
+ 676               	.global	MMCGetTotalSectors
+ 677               		.type	MMCGetTotalSectors, @function
+ 678               	MMCGetTotalSectors:
+ 679               	/* prologue: frame size=0 */
+ 680 0496 EF92      		push r14
+ 681 0498 FF92      		push r15
+ 682 049a 0F93      		push r16
+ 683 049c 1F93      		push r17
+ 684               	/* prologue end (size=4) */
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccD9xmJU.s 			page 13
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cczq6TCb.s 			page 13
+>>>>>>> BackLightBranch
+
+
+ 685 049e 182F      		mov r17,r24
+ 686 04a0 0E94 0000 		call MMCLock
+ 687 04a4 1123      		tst r17
+ 688 04a6 01F0      		breq .L93
+ 689 04a8 EE24      		clr r14
+ 690 04aa FF24      		clr r15
+ 691 04ac 8701      		movw r16,r14
+ 692 04ae 00C0      		rjmp .L95
+ 693               	.L93:
+ 694 04b0 E090 0000 		lds r14,sDrive+3
+ 695 04b4 F090 0000 		lds r15,(sDrive+3)+1
+ 696 04b8 0091 0000 		lds r16,(sDrive+3)+2
+ 697 04bc 1091 0000 		lds r17,(sDrive+3)+3
+ 698               	.L95:
+ 699 04c0 0E94 0000 		call MMCFree
+ 700 04c4 C801      		movw r24,r16
+ 701 04c6 B701      		movw r22,r14
+ 702               	/* epilogue: frame size=0 */
+ 703 04c8 1F91      		pop r17
+ 704 04ca 0F91      		pop r16
+ 705 04cc FF90      		pop r15
+ 706 04ce EF90      		pop r14
+ 707 04d0 0895      		ret
+ 708               	/* epilogue end (size=5) */
+ 709               	/* function MMCGetTotalSectors size 30 (21) */
+ 710               		.size	MMCGetTotalSectors, .-MMCGetTotalSectors
+ 711               	.global	MMCGetSectorSize
+ 712               		.type	MMCGetSectorSize, @function
+ 713               	MMCGetSectorSize:
+ 714               	/* prologue: frame size=0 */
+ 715 04d2 1F93      		push r17
+ 716 04d4 CF93      		push r28
+ 717 04d6 DF93      		push r29
+ 718               	/* prologue end (size=3) */
+ 719 04d8 182F      		mov r17,r24
+ 720 04da 0E94 0000 		call MMCLock
+ 721 04de 1123      		tst r17
+ 722 04e0 01F0      		breq .L98
+ 723 04e2 C0E0      		ldi r28,lo8(0)
+ 724 04e4 D0E0      		ldi r29,hi8(0)
+ 725 04e6 00C0      		rjmp .L100
+ 726               	.L98:
+ 727 04e8 C091 0000 		lds r28,sDrive+7
+ 728 04ec D091 0000 		lds r29,(sDrive+7)+1
+ 729               	.L100:
+ 730 04f0 0E94 0000 		call MMCFree
+ 731 04f4 CE01      		movw r24,r28
+ 732               	/* epilogue: frame size=0 */
+ 733 04f6 DF91      		pop r29
+ 734 04f8 CF91      		pop r28
+ 735 04fa 1F91      		pop r17
+ 736 04fc 0895      		ret
+ 737               	/* epilogue end (size=4) */
+ 738               	/* function MMCGetSectorSize size 22 (15) */
+ 739               		.size	MMCGetSectorSize, .-MMCGetSectorSize
+ 740               	.global	MMCMountAllDevices
+ 741               		.type	MMCMountAllDevices, @function
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccD9xmJU.s 			page 14
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cczq6TCb.s 			page 14
+>>>>>>> BackLightBranch
+
+
+ 742               	MMCMountAllDevices:
+ 743               	/* prologue: frame size=16 */
+ 744 04fe CF92      		push r12
+ 745 0500 DF92      		push r13
+ 746 0502 EF92      		push r14
+ 747 0504 FF92      		push r15
+ 748 0506 0F93      		push r16
+ 749 0508 1F93      		push r17
+ 750 050a CF93      		push r28
+ 751 050c DF93      		push r29
+ 752 050e CDB7      		in r28,__SP_L__
+ 753 0510 DEB7      		in r29,__SP_H__
+ 754 0512 6097      		sbiw r28,16
+ 755 0514 0FB6      		in __tmp_reg__,__SREG__
+ 756 0516 F894      		cli
+ 757 0518 DEBF      		out __SP_H__,r29
+ 758 051a 0FBE      		out __SREG__,__tmp_reg__
+ 759 051c CDBF      		out __SP_L__,r28
+ 760               	/* prologue end (size=16) */
+ 761 051e 6B01      		movw r12,r22
+ 762 0520 0E94 0000 		call MMCLock
+ 763 0524 8091 0000 		lds r24,sDrive
+ 764 0528 9091 0000 		lds r25,(sDrive)+1
+ 765 052c 97FF      		sbrs r25,7
+ 766 052e 00C0      		rjmp .L103
+ 767 0530 40E0      		ldi r20,lo8(0)
+ 768 0532 50E0      		ldi r21,hi8(0)
+ 769 0534 60E0      		ldi r22,lo8(0)
+ 770 0536 70E0      		ldi r23,hi8(0)
+ 771 0538 89E0      		ldi r24,lo8(9)
+ 772 053a 0E94 0000 		call MMCCommand
+ 773 053e 0E94 0000 		call MMCDataToken
+ 774 0542 8E3F      		cpi r24,lo8(-2)
+ 775 0544 01F0      		breq .L105
+ 776 0546 80E0      		ldi r24,lo8(__c.2275)
+ 777 0548 90E0      		ldi r25,hi8(__c.2275)
+ 778 054a 9F93      		push r25
+ 779 054c 8F93      		push r24
+ 780 054e 83EF      		ldi r24,lo8(-13)
+ 781 0550 8F93      		push r24
+ 782 0552 0E94 0000 		call LogMsg_P
+ 783 0556 0F90      		pop __tmp_reg__
+ 784 0558 0F90      		pop __tmp_reg__
+ 785 055a 0F90      	 	pop __tmp_reg__
+ 786 055c 00C0      		rjmp .L103
+ 787               	.L105:
+ 788 055e 8E01      		movw r16,r28
+ 789 0560 0F5F      		subi r16,lo8(-(1))
+ 790 0562 1F4F      		sbci r17,hi8(-(1))
+ 791               	.L107:
+ 792 0564 0E94 0000 		call SPIgetByte
+ 793 0568 F801      		movw r30,r16
+ 794 056a 8193      		st Z+,r24
+ 795 056c 8F01      		movw r16,r30
+ 796 056e CE01      		movw r24,r28
+ 797 0570 4196      		adiw r24,17
+ 798 0572 E817      		cp r30,r24
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccD9xmJU.s 			page 15
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cczq6TCb.s 			page 15
+>>>>>>> BackLightBranch
+
+
+ 799 0574 F907      		cpc r31,r25
+ 800 0576 01F4      		brne .L107
+ 801 0578 8FEF      		ldi r24,lo8(-1)
+ 802 057a 0E94 0000 		call SPIputByte
+ 803 057e 8FEF      		ldi r24,lo8(-1)
+ 804 0580 0E94 0000 		call SPIputByte
+ 805 0584 0E94 0000 		call SPIdeselect
+ 806 0588 EE80      		ldd r14,Y+6
+ 807 058a FFE0      		ldi r31,lo8(15)
+ 808 058c EF22      		and r14,r31
+ 809 058e 21E0      		ldi r18,lo8(1)
+ 810 0590 30E0      		ldi r19,hi8(1)
+ 811 0592 C901      		movw r24,r18
+ 812 0594 00C0      		rjmp 2f
+ 813 0596 880F      	1:	lsl r24
+ 814 0598 991F      		rol r25
+ 815 059a EA94      	2:	dec r14
+ 816 059c 02F4      		brpl 1b
+ 817 059e 7C01      		movw r14,r24
+ 818 05a0 6F81      		ldd r22,Y+7
+ 819 05a2 7727      		clr r23
+ 820 05a4 6370      		andi r22,lo8(3)
+ 821 05a6 7070      		andi r23,hi8(3)
+ 822 05a8 762F      		mov r23,r22
+ 823 05aa 6627      		clr r22
+ 824 05ac 770F      		lsl r23
+ 825 05ae 770F      		lsl r23
+ 826 05b0 E885      		ldd r30,Y+8
+ 827 05b2 FF27      		clr r31
+ 828 05b4 EE0F      		lsl r30
+ 829 05b6 FF1F      		rol r31
+ 830 05b8 EE0F      		lsl r30
+ 831 05ba FF1F      		rol r31
+ 832 05bc 6E2B      		or r22,r30
+ 833 05be 7F2B      		or r23,r31
+ 834 05c0 0985      		ldd r16,Y+9
+ 835 05c2 1127      		clr r17
+ 836 05c4 EA85      		ldd r30,Y+10
+ 837 05c6 FF27      		clr r31
+ 838 05c8 E370      		andi r30,lo8(3)
+ 839 05ca F070      		andi r31,hi8(3)
+ 840 05cc DF01      		movw r26,r30
+ 841 05ce AA0F      		lsl r26
+ 842 05d0 BB1F      		rol r27
+ 843 05d2 EA2B      		or r30,r26
+ 844 05d4 FB2B      		or r31,r27
+ 845 05d6 AB85      		ldd r26,Y+11
+ 846 05d8 BB27      		clr r27
+ 847 05da 86E0      		ldi r24,6
+ 848 05dc 1695      	1:	lsr r17
+ 849 05de 0795      		ror r16
+ 850 05e0 8A95      		dec r24
+ 851 05e2 01F4      		brne 1b
+ 852 05e4 602B      		or r22,r16
+ 853 05e6 712B      		or r23,r17
+ 854 05e8 6F5F      		subi r22,lo8(-(1))
+ 855 05ea 7F4F      		sbci r23,hi8(-(1))
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccD9xmJU.s 			page 16
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cczq6TCb.s 			page 16
+>>>>>>> BackLightBranch
+
+
+ 856 05ec 8827      		clr r24
+ 857 05ee 9927      		clr r25
+ 858 05f0 AA0F      		lsl r26
+ 859 05f2 AB2F      		mov r26,r27
+ 860 05f4 AA1F      		rol r26
+ 861 05f6 BB0B      		sbc r27,r27
+ 862 05f8 B195      		neg r27
+ 863 05fa EA2B      		or r30,r26
+ 864 05fc FB2B      		or r31,r27
+ 865 05fe 3296      		adiw r30,2
+ 866 0600 00C0      		rjmp 2f
+ 867 0602 220F      	1:	lsl r18
+ 868 0604 331F      		rol r19
+ 869 0606 EA95      	2:	dec r30
+ 870 0608 02F4      		brpl 1b
+ 871 060a 4427      		clr r20
+ 872 060c 5527      		clr r21
+ 873 060e 0E94 0000 		call __mulsi3
+ 874 0612 6093 0000 		sts sDrive+3,r22
+ 875 0616 7093 0000 		sts (sDrive+3)+1,r23
+ 876 061a 8093 0000 		sts (sDrive+3)+2,r24
+ 877 061e 9093 0000 		sts (sDrive+3)+3,r25
+ 878 0622 F092 0000 		sts (sDrive+7)+1,r15
+ 879 0626 E092 0000 		sts sDrive+7,r14
+ 880 062a 0E94 0000 		call MMCFree
+ 881 062e 01E0      		ldi r16,lo8(1)
+ 882 0630 10E0      		ldi r17,hi8(1)
+ 883 0632 20E0      		ldi r18,lo8(0)
+ 884 0634 30E0      		ldi r19,hi8(0)
+ 885 0636 40E0      		ldi r20,hlo8(0)
+ 886 0638 50E0      		ldi r21,hhi8(0)
+ 887 063a B601      		movw r22,r12
+ 888 063c 80E0      		ldi r24,lo8(0)
+ 889 063e 0E94 0000 		call MMCReadSectors
+ 890 0642 00C0      		rjmp .L109
+ 891               	.L103:
+ 892 0644 0E94 0000 		call MMCFree
+ 893 0648 81E0      		ldi r24,lo8(1)
+ 894 064a 90E0      		ldi r25,hi8(1)
+ 895               	.L109:
+ 896               	/* epilogue: frame size=16 */
+ 897 064c 6096      		adiw r28,16
+ 898 064e 0FB6      		in __tmp_reg__,__SREG__
+ 899 0650 F894      		cli
+ 900 0652 DEBF      		out __SP_H__,r29
+ 901 0654 0FBE      		out __SREG__,__tmp_reg__
+ 902 0656 CDBF      		out __SP_L__,r28
+ 903 0658 DF91      		pop r29
+ 904 065a CF91      		pop r28
+ 905 065c 1F91      		pop r17
+ 906 065e 0F91      		pop r16
+ 907 0660 FF90      		pop r15
+ 908 0662 EF90      		pop r14
+ 909 0664 DF90      		pop r13
+ 910 0666 CF90      		pop r12
+ 911 0668 0895      		ret
+ 912               	/* epilogue end (size=15) */
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccD9xmJU.s 			page 17
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cczq6TCb.s 			page 17
+>>>>>>> BackLightBranch
+
+
+ 913               	/* function MMCMountAllDevices size 184 (153) */
+ 914               		.size	MMCMountAllDevices, .-MMCMountAllDevices
+ 915               	.global	MMCInit
+ 916               		.type	MMCInit, @function
+ 917               	MMCInit:
+ 918               	/* prologue: frame size=0 */
+ 919 066a CF93      		push r28
+ 920 066c DF93      		push r29
+ 921               	/* prologue end (size=2) */
+ 922 066e 7093 0000 		sts (pUserMountFunc)+1,r23
+ 923 0672 6093 0000 		sts pUserMountFunc,r22
+ 924 0676 5093 0000 		sts (pUserUnMountFunc)+1,r21
+ 925 067a 4093 0000 		sts pUserUnMountFunc,r20
+ 926 067e 89E0      		ldi r24,lo8(9)
+ 927 0680 E0E0      		ldi r30,lo8(sDrive)
+ 928 0682 F0E0      		ldi r31,hi8(sDrive)
+ 929 0684 1192      		st Z+,__zero_reg__
+ 930 0686 8A95      	        dec r24
+ 931 0688 01F4      		brne .-6
+ 932 068a 1092 0000 		sts sDrive+2,__zero_reg__
+ 933 068e 80E0      		ldi r24,lo8(hMMCSemaphore)
+ 934 0690 90E0      		ldi r25,hi8(hMMCSemaphore)
+ 935 0692 0E94 0000 		call NutEventPost
+ 936 0696 C0E0      		ldi r28,lo8(0)
+ 937 0698 D0E0      		ldi r29,hi8(0)
+ 938               	.L114:
+ 939 069a 8FEF      		ldi r24,lo8(-1)
+ 940 069c 0E94 0000 		call SPIputByte
+ 941 06a0 2196      		adiw r28,1
+ 942 06a2 CA30      		cpi r28,10
+ 943 06a4 D105      		cpc r29,__zero_reg__
+ 944 06a6 01F4      		brne .L114
+ 945 06a8 40E0      		ldi r20,lo8(0)
+ 946 06aa 50E0      		ldi r21,hi8(0)
+ 947 06ac 60E0      		ldi r22,lo8(0)
+ 948 06ae 70E0      		ldi r23,hi8(0)
+ 949 06b0 80E0      		ldi r24,lo8(0)
+ 950 06b2 0E94 0000 		call MMCCommand
+ 951 06b6 0E94 0000 		call MMCGet
+ 952 06ba 8130      		cpi r24,lo8(1)
+ 953 06bc 01F4      		brne .L123
+ 954 06be CFEF      		ldi r28,lo8(-1)
+ 955 06c0 DFEF      		ldi r29,hi8(-1)
+ 956 06c2 00C0      		rjmp .L118
+ 957               	.L120:
+ 958 06c4 40E0      		ldi r20,lo8(0)
+ 959 06c6 50E0      		ldi r21,hi8(0)
+ 960 06c8 60E0      		ldi r22,lo8(0)
+ 961 06ca 70E0      		ldi r23,hi8(0)
+ 962 06cc 81E0      		ldi r24,lo8(1)
+ 963 06ce 0E94 0000 		call MMCCommand
+ 964               	.L118:
+ 965 06d2 0E94 0000 		call SPIgetByte
+ 966 06d6 8823      		tst r24
+ 967 06d8 01F0      		breq .L121
+ 968 06da 2197      		sbiw r28,1
+ 969 06dc 01F4      		brne .L120
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccD9xmJU.s 			page 18
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cczq6TCb.s 			page 18
+>>>>>>> BackLightBranch
+
+
+ 970 06de 00C0      		rjmp .L123
+ 971               	.L121:
+ 972 06e0 CD2B      		or r28,r29
+ 973 06e2 01F4      		brne .L124
+ 974               	.L123:
+ 975 06e4 0E94 0000 		call SPIdeselect
+ 976 06e8 81E0      		ldi r24,lo8(1)
+ 977 06ea 90E0      		ldi r25,hi8(1)
+ 978 06ec 00C0      		rjmp .L119
+ 979               	.L124:
+ 980 06ee 0E94 0000 		call SPIdeselect
+ 981 06f2 80E0      		ldi r24,lo8(-32768)
+ 982 06f4 90E8      		ldi r25,hi8(-32768)
+ 983 06f6 9093 0000 		sts (sDrive)+1,r25
+ 984 06fa 8093 0000 		sts sDrive,r24
+ 985 06fe 80E0      		ldi r24,lo8(0)
+ 986 0700 90E0      		ldi r25,hi8(0)
+ 987               	.L119:
+ 988               	/* epilogue: frame size=0 */
+ 989 0702 DF91      		pop r29
+ 990 0704 CF91      		pop r28
+ 991 0706 0895      		ret
+ 992               	/* epilogue end (size=3) */
+ 993               	/* function MMCInit size 80 (75) */
+ 994               		.size	MMCInit, .-MMCInit
+ 995               		.section	.progmem.data,"a",@progbits
+ 996               		.type	__c.2275, @object
+ 997               		.size	__c.2275, 22
+ 998               	__c.2275:
+ 999 0000 6572 726F 		.string	"error during CSD read"
+ 999      7220 6475 
+ 999      7269 6E67 
+ 999      2043 5344 
+ 999      2072 6561 
+ 1000               		.lcomm hMMCSemaphore,2
+ 1001               		.lcomm sDrive,9
+ 1002               		.lcomm pUserMountFunc,2
+ 1003               		.lcomm pUserUnMountFunc,2
+ 1004               	/* File "source/mmcdrv.c": code  906 = 0x038a ( 723), prologues  86, epilogues  97 */
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccD9xmJU.s 			page 19
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cczq6TCb.s 			page 19
+>>>>>>> BackLightBranch
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 mmcdrv.c
+<<<<<<< HEAD
+C:\Users\Maarten\AppData\Local\Temp/ccD9xmJU.s:3      *ABS*:0000003f __SREG__
+C:\Users\Maarten\AppData\Local\Temp/ccD9xmJU.s:4      *ABS*:0000003e __SP_H__
+C:\Users\Maarten\AppData\Local\Temp/ccD9xmJU.s:5      *ABS*:0000003d __SP_L__
+C:\Users\Maarten\AppData\Local\Temp/ccD9xmJU.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\Maarten\AppData\Local\Temp/ccD9xmJU.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\Maarten\AppData\Local\Temp/ccD9xmJU.s:13     .text:00000000 MMCIsCDROMDevice
+C:\Users\Maarten\AppData\Local\Temp/ccD9xmJU.s:25     .text:00000006 MMCIsZIPDevice
+C:\Users\Maarten\AppData\Local\Temp/ccD9xmJU.s:37     .text:0000000c MMCUnMountDevice
+C:\Users\Maarten\AppData\Local\Temp/ccD9xmJU.s:48     .text:00000012 MMCLock
+                             .bss:00000000 hMMCSemaphore
+C:\Users\Maarten\AppData\Local\Temp/ccD9xmJU.s:64     .text:00000024 MMCGet
+C:\Users\Maarten\AppData\Local\Temp/ccD9xmJU.s:87     .text:00000040 MMCDataToken
+C:\Users\Maarten\AppData\Local\Temp/ccD9xmJU.s:110    .text:0000005c MMCCommand
+C:\Users\Maarten\AppData\Local\Temp/ccD9xmJU.s:154    .text:000000b6 ReadSectors
+C:\Users\Maarten\AppData\Local\Temp/ccD9xmJU.s:259    .text:0000017c MMCFree
+C:\Users\Maarten\AppData\Local\Temp/ccD9xmJU.s:272    .text:00000186 MMCWriteSectors
+C:\Users\Maarten\AppData\Local\Temp/ccD9xmJU.s:1000   .bss:00000002 sDrive
+C:\Users\Maarten\AppData\Local\Temp/ccD9xmJU.s:538    .text:00000388 MMCReadSectors
+C:\Users\Maarten\AppData\Local\Temp/ccD9xmJU.s:678    .text:00000496 MMCGetTotalSectors
+C:\Users\Maarten\AppData\Local\Temp/ccD9xmJU.s:713    .text:000004d2 MMCGetSectorSize
+C:\Users\Maarten\AppData\Local\Temp/ccD9xmJU.s:742    .text:000004fe MMCMountAllDevices
+C:\Users\Maarten\AppData\Local\Temp/ccD9xmJU.s:998    .progmem.data:00000000 __c.2275
+C:\Users\Maarten\AppData\Local\Temp/ccD9xmJU.s:917    .text:0000066a MMCInit
+C:\Users\Maarten\AppData\Local\Temp/ccD9xmJU.s:1001   .bss:0000000b pUserMountFunc
+C:\Users\Maarten\AppData\Local\Temp/ccD9xmJU.s:1002   .bss:0000000d pUserUnMountFunc
+=======
+C:\Users\jeffr\AppData\Local\Temp/cczq6TCb.s:3      *ABS*:0000003f __SREG__
+C:\Users\jeffr\AppData\Local\Temp/cczq6TCb.s:4      *ABS*:0000003e __SP_H__
+C:\Users\jeffr\AppData\Local\Temp/cczq6TCb.s:5      *ABS*:0000003d __SP_L__
+C:\Users\jeffr\AppData\Local\Temp/cczq6TCb.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\jeffr\AppData\Local\Temp/cczq6TCb.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\jeffr\AppData\Local\Temp/cczq6TCb.s:13     .text:00000000 MMCIsCDROMDevice
+C:\Users\jeffr\AppData\Local\Temp/cczq6TCb.s:25     .text:00000006 MMCIsZIPDevice
+C:\Users\jeffr\AppData\Local\Temp/cczq6TCb.s:37     .text:0000000c MMCUnMountDevice
+C:\Users\jeffr\AppData\Local\Temp/cczq6TCb.s:48     .text:00000012 MMCLock
+                             .bss:00000000 hMMCSemaphore
+C:\Users\jeffr\AppData\Local\Temp/cczq6TCb.s:64     .text:00000024 MMCGet
+C:\Users\jeffr\AppData\Local\Temp/cczq6TCb.s:87     .text:00000040 MMCDataToken
+C:\Users\jeffr\AppData\Local\Temp/cczq6TCb.s:110    .text:0000005c MMCCommand
+C:\Users\jeffr\AppData\Local\Temp/cczq6TCb.s:154    .text:000000b6 ReadSectors
+C:\Users\jeffr\AppData\Local\Temp/cczq6TCb.s:259    .text:0000017c MMCFree
+C:\Users\jeffr\AppData\Local\Temp/cczq6TCb.s:272    .text:00000186 MMCWriteSectors
+C:\Users\jeffr\AppData\Local\Temp/cczq6TCb.s:1000   .bss:00000002 sDrive
+C:\Users\jeffr\AppData\Local\Temp/cczq6TCb.s:538    .text:00000388 MMCReadSectors
+C:\Users\jeffr\AppData\Local\Temp/cczq6TCb.s:678    .text:00000496 MMCGetTotalSectors
+C:\Users\jeffr\AppData\Local\Temp/cczq6TCb.s:713    .text:000004d2 MMCGetSectorSize
+C:\Users\jeffr\AppData\Local\Temp/cczq6TCb.s:742    .text:000004fe MMCMountAllDevices
+C:\Users\jeffr\AppData\Local\Temp/cczq6TCb.s:998    .progmem.data:00000000 __c.2275
+C:\Users\jeffr\AppData\Local\Temp/cczq6TCb.s:917    .text:0000066a MMCInit
+C:\Users\jeffr\AppData\Local\Temp/cczq6TCb.s:1001   .bss:0000000b pUserMountFunc
+C:\Users\jeffr\AppData\Local\Temp/cczq6TCb.s:1002   .bss:0000000d pUserUnMountFunc
+>>>>>>> BackLightBranch
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
+NutEventWait
+SPIgetByte
+SPIselect
+SPIputByte
+SPIdeselect
+NutEventPost
+LogMsg_P
+__mulsi3

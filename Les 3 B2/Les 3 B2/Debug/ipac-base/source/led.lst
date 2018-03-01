@@ -1,0 +1,129 @@
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccG6zOS6.s 			page 1
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccHrgbVd.s 			page 1
+>>>>>>> BackLightBranch
+
+
+   1               		.file	"led.c"
+   2               		.arch atmega2561
+   3               	__SREG__ = 0x3f
+   4               	__SP_H__ = 0x3e
+   5               	__SP_L__ = 0x3d
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  10               		.text
+  11               	.global	LedControl
+  12               		.type	LedControl, @function
+  13               	LedControl:
+  14               	/* prologue: frame size=0 */
+  15               	/* prologue end (size=0) */
+  16 0000 8330      		cpi r24,lo8(3)
+  17 0002 01F0      		breq .L3
+  18 0004 8430      		cpi r24,lo8(4)
+  19 0006 00F4      		brsh .L6
+  20 0008 8823      		tst r24
+  21 000a 01F0      		breq .L3
+  22 000c 00C0      		rjmp .L4
+  23               	.L6:
+  24 000e 8530      		cpi r24,lo8(5)
+  25 0010 01F0      		breq .L4
+  26 0012 8530      		cpi r24,lo8(5)
+  27 0014 00F0      		brlo .L5
+  28 0016 8630      		cpi r24,lo8(6)
+  29 0018 01F4      		brne .L9
+  30               	.L3:
+  31 001a 8B98      		cbi 49-0x20,3
+  32 001c 00C0      		rjmp .L10
+  33               	.L4:
+  34 001e 8B9A      		sbi 49-0x20,3
+  35               	.L10:
+  36 0020 8093 0000 		sts LedStatus,r24
+  37 0024 0895      		ret
+  38               	.L5:
+  39 0026 8091 0000 		lds r24,LedStatus
+  40 002a 8130      		cpi r24,lo8(1)
+  41 002c 01F4      		brne .L7
+  42 002e 8B98      		cbi 49-0x20,3
+  43 0030 1092 0000 		sts LedStatus,__zero_reg__
+  44 0034 0895      		ret
+  45               	.L7:
+  46 0036 8B9A      		sbi 49-0x20,3
+  47 0038 81E0      		ldi r24,lo8(1)
+  48 003a 8093 0000 		sts LedStatus,r24
+  49               	.L9:
+  50 003e 0895      		ret
+  51               	/* epilogue: frame size=0 */
+  52               	/* epilogue: noreturn */
+  53               	/* epilogue end (size=0) */
+  54               	/* function LedControl size 32 (32) */
+  55               		.size	LedControl, .-LedControl
+  56               	.global	LedInit
+  57               		.type	LedInit, @function
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccG6zOS6.s 			page 2
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccHrgbVd.s 			page 2
+>>>>>>> BackLightBranch
+
+
+  58               	LedInit:
+  59               	/* prologue: frame size=0 */
+  60               	/* prologue end (size=0) */
+  61 0040 8B98      		cbi 49-0x20,3
+  62 0042 1092 0000 		sts LedStatus,__zero_reg__
+  63               	/* epilogue: frame size=0 */
+  64 0046 0895      		ret
+  65               	/* epilogue end (size=1) */
+  66               	/* function LedInit size 4 (3) */
+  67               		.size	LedInit, .-LedInit
+  68               	.global	LedGetStatus
+  69               		.type	LedGetStatus, @function
+  70               	LedGetStatus:
+  71               	/* prologue: frame size=0 */
+  72               	/* prologue end (size=0) */
+  73 0048 8091 0000 		lds r24,LedStatus
+  74 004c 9927      		clr r25
+  75               	/* epilogue: frame size=0 */
+  76 004e 0895      		ret
+  77               	/* epilogue end (size=1) */
+  78               	/* function LedGetStatus size 4 (3) */
+  79               		.size	LedGetStatus, .-LedGetStatus
+  80               		.lcomm LedStatus,1
+  81               	/* File "source/led.c": code   40 = 0x0028 (  38), prologues   0, epilogues   2 */
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccG6zOS6.s 			page 3
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccHrgbVd.s 			page 3
+>>>>>>> BackLightBranch
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 led.c
+<<<<<<< HEAD
+C:\Users\Maarten\AppData\Local\Temp/ccG6zOS6.s:3      *ABS*:0000003f __SREG__
+C:\Users\Maarten\AppData\Local\Temp/ccG6zOS6.s:4      *ABS*:0000003e __SP_H__
+C:\Users\Maarten\AppData\Local\Temp/ccG6zOS6.s:5      *ABS*:0000003d __SP_L__
+C:\Users\Maarten\AppData\Local\Temp/ccG6zOS6.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\Maarten\AppData\Local\Temp/ccG6zOS6.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\Maarten\AppData\Local\Temp/ccG6zOS6.s:13     .text:00000000 LedControl
+                             .bss:00000000 LedStatus
+C:\Users\Maarten\AppData\Local\Temp/ccG6zOS6.s:58     .text:00000040 LedInit
+C:\Users\Maarten\AppData\Local\Temp/ccG6zOS6.s:70     .text:00000048 LedGetStatus
+=======
+C:\Users\jeffr\AppData\Local\Temp/ccHrgbVd.s:3      *ABS*:0000003f __SREG__
+C:\Users\jeffr\AppData\Local\Temp/ccHrgbVd.s:4      *ABS*:0000003e __SP_H__
+C:\Users\jeffr\AppData\Local\Temp/ccHrgbVd.s:5      *ABS*:0000003d __SP_L__
+C:\Users\jeffr\AppData\Local\Temp/ccHrgbVd.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\jeffr\AppData\Local\Temp/ccHrgbVd.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\jeffr\AppData\Local\Temp/ccHrgbVd.s:13     .text:00000000 LedControl
+                             .bss:00000000 LedStatus
+C:\Users\jeffr\AppData\Local\Temp/ccHrgbVd.s:58     .text:00000040 LedInit
+C:\Users\jeffr\AppData\Local\Temp/ccHrgbVd.s:70     .text:00000048 LedGetStatus
+>>>>>>> BackLightBranch
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss

@@ -1,0 +1,462 @@
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccYakbDA.s 			page 1
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cc99cjuo.s 			page 1
+>>>>>>> BackLightBranch
+
+
+   1               		.file	"keyboard.c"
+   2               		.arch atmega2561
+   3               	__SREG__ = 0x3f
+   4               	__SP_H__ = 0x3e
+   5               	__SP_L__ = 0x3d
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  10               		.text
+  11               	.global	KbScan
+  12               		.type	KbScan, @function
+  13               	KbScan:
+  14               	/* prologue: frame size=0 */
+  15               	/* prologue end (size=0) */
+  16 0000 A398      		cbi 52-0x20,3
+  17               	/* #APP */
+  18 0002 0000      		nop
+  19 0004 0000      		nop
+  20               	/* #NOAPP */
+  21 0006 4FB1      		in r20,47-0x20
+  22 0008 A39A      		sbi 52-0x20,3
+  23 000a A498      		cbi 52-0x20,4
+  24               	/* #APP */
+  25 000c 0000      		nop
+  26 000e 0000      		nop
+  27               	/* #NOAPP */
+  28 0010 6FB1      		in r22,47-0x20
+  29 0012 A49A      		sbi 52-0x20,4
+  30 0014 5B98      		cbi 43-0x20,3
+  31               	/* #APP */
+  32 0016 0000      		nop
+  33 0018 0000      		nop
+  34               	/* #NOAPP */
+  35 001a 8FB1      		in r24,47-0x20
+  36 001c 5B9A      		sbi 43-0x20,3
+  37 001e 5A98      		cbi 43-0x20,2
+  38               	/* #APP */
+  39 0020 0000      		nop
+  40 0022 0000      		nop
+  41               	/* #NOAPP */
+  42 0024 2FB1      		in r18,47-0x20
+  43 0026 5A9A      		sbi 43-0x20,2
+  44 0028 4295      		swap r20
+  45 002a 4F70      		andi r20,0x0f
+  46 002c 5527      		clr r21
+  47 002e 607F      		andi r22,lo8(-16)
+  48 0030 7727      		clr r23
+  49 0032 462B      		or r20,r22
+  50 0034 572B      		or r21,r23
+  51 0036 807F      		andi r24,lo8(-16)
+  52 0038 9927      		clr r25
+  53 003a 34E0      		ldi r19,4
+  54 003c 880F      	1:	lsl r24
+  55 003e 991F      		rol r25
+  56 0040 3A95      		dec r19
+  57 0042 01F4      		brne 1b
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccYakbDA.s 			page 2
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cc99cjuo.s 			page 2
+>>>>>>> BackLightBranch
+
+
+  58 0044 482B      		or r20,r24
+  59 0046 592B      		or r21,r25
+  60 0048 207F      		andi r18,lo8(-16)
+  61 004a 3327      		clr r19
+  62 004c 322F      		mov r19,r18
+  63 004e 2227      		clr r18
+  64 0050 422B      		or r20,r18
+  65 0052 532B      		or r21,r19
+  66 0054 5093 0000 		sts (KeyFound)+1,r21
+  67 0058 4093 0000 		sts KeyFound,r20
+  68               	/* epilogue: frame size=0 */
+  69 005c 0895      		ret
+  70               	/* epilogue end (size=1) */
+  71               	/* function KbScan size 55 (54) */
+  72               		.size	KbScan, .-KbScan
+  73               	.global	KbSetKeyRepeating
+  74               		.type	KbSetKeyRepeating, @function
+  75               	KbSetKeyRepeating:
+  76               	/* prologue: frame size=0 */
+  77               	/* prologue end (size=0) */
+  78 005e E82F      		mov r30,r24
+  79 0060 862F      		mov r24,r22
+  80 0062 8150      		subi r24,lo8(-(-1))
+  81 0064 8230      		cpi r24,lo8(2)
+  82 0066 00F4      		brsh .L7
+  83 0068 E031      		cpi r30,lo8(16)
+  84 006a 00F4      		brsh .L7
+  85 006c FF27      		clr r31
+  86 006e E050      		subi r30,lo8(-(KeyRepeatArray))
+  87 0070 F040      		sbci r31,hi8(-(KeyRepeatArray))
+  88 0072 6083      		st Z,r22
+  89               	.L7:
+  90 0074 0895      		ret
+  91               	/* epilogue: frame size=0 */
+  92               	/* epilogue: noreturn */
+  93               	/* epilogue end (size=0) */
+  94               	/* function KbSetKeyRepeating size 12 (12) */
+  95               		.size	KbSetKeyRepeating, .-KbSetKeyRepeating
+  96               	.global	KbGetKey
+  97               		.type	KbGetKey, @function
+  98               	KbGetKey:
+  99               	/* prologue: frame size=0 */
+ 100               	/* prologue end (size=0) */
+ 101 0076 8091 0000 		lds r24,KeyFound
+ 102 007a 9091 0000 		lds r25,(KeyFound)+1
+ 103 007e 2FEF      		ldi r18,hi8(-65)
+ 104 0080 8F3B      		cpi r24,lo8(-65)
+ 105 0082 9207      		cpc r25,r18
+ 106 0084 01F4      		brne .+2
+ 107 0086 00C0      		rjmp .L16
+ 108 0088 2FEF      		ldi r18,hi8(-64)
+ 109 008a 803C      		cpi r24,lo8(-64)
+ 110 008c 9207      		cpc r25,r18
+ 111 008e 00F4      		brsh .L24
+ 112 0090 2BEF      		ldi r18,hi8(-1025)
+ 113 0092 8F3F      		cpi r24,lo8(-1025)
+ 114 0094 9207      		cpc r25,r18
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccYakbDA.s 			page 3
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cc99cjuo.s 			page 3
+>>>>>>> BackLightBranch
+
+
+ 115 0096 01F4      		brne .+2
+ 116 0098 00C0      		rjmp .L12
+ 117 009a 2CEF      		ldi r18,hi8(-1024)
+ 118 009c 8030      		cpi r24,lo8(-1024)
+ 119 009e 9207      		cpc r25,r18
+ 120 00a0 00F4      		brsh .L25
+ 121 00a2 2FEE      		ldi r18,hi8(-4097)
+ 122 00a4 8F3F      		cpi r24,lo8(-4097)
+ 123 00a6 9207      		cpc r25,r18
+ 124 00a8 01F4      		brne .+2
+ 125 00aa 00C0      		rjmp .L10
+ 126 00ac 8F5F      		subi r24,lo8(-2049)
+ 127 00ae 974F      		sbci r25,hi8(-2049)
+ 128 00b0 01F4      		brne .L9
+ 129 00b2 00C0      		rjmp .L11
+ 130               	.L25:
+ 131 00b4 2EEF      		ldi r18,hi8(-257)
+ 132 00b6 8F3F      		cpi r24,lo8(-257)
+ 133 00b8 9207      		cpc r25,r18
+ 134 00ba 01F4      		brne .+2
+ 135 00bc 00C0      		rjmp .L14
+ 136 00be 2FEF      		ldi r18,hi8(-129)
+ 137 00c0 8F37      		cpi r24,lo8(-129)
+ 138 00c2 9207      		cpc r25,r18
+ 139 00c4 01F0      		breq .L15
+ 140 00c6 8F5F      		subi r24,lo8(-513)
+ 141 00c8 9D4F      		sbci r25,hi8(-513)
+ 142 00ca 01F4      		brne .L9
+ 143 00cc 00C0      		rjmp .L13
+ 144               	.L24:
+ 145 00ce 2FEF      		ldi r18,hi8(-9)
+ 146 00d0 873F      		cpi r24,lo8(-9)
+ 147 00d2 9207      		cpc r25,r18
+ 148 00d4 01F0      		breq .L20
+ 149 00d6 2FEF      		ldi r18,hi8(-8)
+ 150 00d8 883F      		cpi r24,lo8(-8)
+ 151 00da 9207      		cpc r25,r18
+ 152 00dc 00F4      		brsh .L26
+ 153 00de 2FEF      		ldi r18,hi8(-33)
+ 154 00e0 8F3D      		cpi r24,lo8(-33)
+ 155 00e2 9207      		cpc r25,r18
+ 156 00e4 01F0      		breq .L18
+ 157 00e6 2FEF      		ldi r18,hi8(-17)
+ 158 00e8 8F3E      		cpi r24,lo8(-17)
+ 159 00ea 9207      		cpc r25,r18
+ 160 00ec 01F0      		breq .L19
+ 161 00ee 8F5C      		subi r24,lo8(-49)
+ 162 00f0 9F4F      		sbci r25,hi8(-49)
+ 163 00f2 01F4      		brne .L9
+ 164 00f4 00C0      		rjmp .L17
+ 165               	.L26:
+ 166 00f6 2FEF      		ldi r18,hi8(-3)
+ 167 00f8 8D3F      		cpi r24,lo8(-3)
+ 168 00fa 9207      		cpc r25,r18
+ 169 00fc 01F0      		breq .L22
+ 170 00fe 2FEF      		ldi r18,hi8(-2)
+ 171 0100 8E3F      		cpi r24,lo8(-2)
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccYakbDA.s 			page 4
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cc99cjuo.s 			page 4
+>>>>>>> BackLightBranch
+
+
+ 172 0102 9207      		cpc r25,r18
+ 173 0104 01F0      		breq .L23
+ 174 0106 8B5F      		subi r24,lo8(-5)
+ 175 0108 9F4F      		sbci r25,hi8(-5)
+ 176 010a 01F4      		brne .L9
+ 177 010c 00C0      		rjmp .L21
+ 178               	.L17:
+ 179 010e 8EE0      		ldi r24,lo8(14)
+ 180 0110 90E0      		ldi r25,hi8(14)
+ 181 0112 0895      		ret
+ 182               	.L9:
+ 183 0114 88E8      		ldi r24,lo8(136)
+ 184 0116 90E0      		ldi r25,hi8(136)
+ 185 0118 0895      		ret
+ 186               	.L21:
+ 187 011a 81E0      		ldi r24,lo8(1)
+ 188 011c 90E0      		ldi r25,hi8(1)
+ 189 011e 0895      		ret
+ 190               	.L22:
+ 191 0120 82E0      		ldi r24,lo8(2)
+ 192 0122 90E0      		ldi r25,hi8(2)
+ 193 0124 0895      		ret
+ 194               	.L15:
+ 195 0126 83E0      		ldi r24,lo8(3)
+ 196 0128 90E0      		ldi r25,hi8(3)
+ 197 012a 0895      		ret
+ 198               	.L20:
+ 199 012c 84E0      		ldi r24,lo8(4)
+ 200 012e 90E0      		ldi r25,hi8(4)
+ 201 0130 0895      		ret
+ 202               	.L23:
+ 203 0132 85E0      		ldi r24,lo8(5)
+ 204 0134 90E0      		ldi r25,hi8(5)
+ 205 0136 0895      		ret
+ 206               	.L16:
+ 207 0138 86E0      		ldi r24,lo8(6)
+ 208 013a 90E0      		ldi r25,hi8(6)
+ 209 013c 0895      		ret
+ 210               	.L19:
+ 211 013e 87E0      		ldi r24,lo8(7)
+ 212 0140 90E0      		ldi r25,hi8(7)
+ 213 0142 0895      		ret
+ 214               	.L11:
+ 215 0144 88E0      		ldi r24,lo8(8)
+ 216 0146 90E0      		ldi r25,hi8(8)
+ 217 0148 0895      		ret
+ 218               	.L18:
+ 219 014a 89E0      		ldi r24,lo8(9)
+ 220 014c 90E0      		ldi r25,hi8(9)
+ 221 014e 0895      		ret
+ 222               	.L14:
+ 223 0150 8AE0      		ldi r24,lo8(10)
+ 224 0152 90E0      		ldi r25,hi8(10)
+ 225 0154 0895      		ret
+ 226               	.L12:
+ 227 0156 8BE0      		ldi r24,lo8(11)
+ 228 0158 90E0      		ldi r25,hi8(11)
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccYakbDA.s 			page 5
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cc99cjuo.s 			page 5
+>>>>>>> BackLightBranch
+
+
+ 229 015a 0895      		ret
+ 230               	.L13:
+ 231 015c 8CE0      		ldi r24,lo8(12)
+ 232 015e 90E0      		ldi r25,hi8(12)
+ 233 0160 0895      		ret
+ 234               	.L10:
+ 235 0162 8DE0      		ldi r24,lo8(13)
+ 236 0164 90E0      		ldi r25,hi8(13)
+ 237 0166 0895      		ret
+ 238               	/* epilogue: frame size=0 */
+ 239               	/* epilogue: noreturn */
+ 240               	/* epilogue end (size=0) */
+ 241               	/* function KbGetKey size 125 (125) */
+ 242               		.size	KbGetKey, .-KbGetKey
+ 243               	.global	KbInjectKey
+ 244               		.type	KbInjectKey, @function
+ 245               	KbInjectKey:
+ 246               	/* prologue: frame size=0 */
+ 247               	/* prologue end (size=0) */
+ 248 0168 8093 0000 		sts KeyBuffer,r24
+ 249 016c E091 0000 		lds r30,hKBEvent
+ 250 0170 F091 0000 		lds r31,(hKBEvent)+1
+ 251 0174 3097      		sbiw r30,0
+ 252 0176 01F4      		brne .L30
+ 253 0178 8FEF      		ldi r24,lo8(-1)
+ 254 017a 9FEF      		ldi r25,hi8(-1)
+ 255 017c 9093 0000 		sts (hKBEvent)+1,r25
+ 256 0180 8093 0000 		sts hKBEvent,r24
+ 257 0184 0895      		ret
+ 258               	.L30:
+ 259 0186 8FEF      		ldi r24,hi8(-1)
+ 260 0188 EF3F      		cpi r30,lo8(-1)
+ 261 018a F807      		cpc r31,r24
+ 262 018c 01F0      		breq .L34
+ 263 018e 8481      		ldd r24,Z+4
+ 264 0190 9581      		ldd r25,Z+5
+ 265 0192 0196      		adiw r24,1
+ 266 0194 9583      		std Z+5,r25
+ 267 0196 8483      		std Z+4,r24
+ 268               	.L34:
+ 269 0198 0895      		ret
+ 270               	/* epilogue: frame size=0 */
+ 271               	/* epilogue: noreturn */
+ 272               	/* epilogue end (size=0) */
+ 273               	/* function KbInjectKey size 25 (25) */
+ 274               		.size	KbInjectKey, .-KbInjectKey
+ 275               	.global	KbInit
+ 276               		.type	KbInit, @function
+ 277               	KbInit:
+ 278               	/* prologue: frame size=0 */
+ 279               	/* prologue end (size=0) */
+ 280 019a A39A      		sbi 52-0x20,3
+ 281 019c A49A      		sbi 52-0x20,4
+ 282 019e 5B9A      		sbi 43-0x20,3
+ 283 01a0 5A9A      		sbi 43-0x20,2
+ 284 01a2 1092 0000 		sts KbState,__zero_reg__
+ 285 01a6 8FEF      		ldi r24,lo8(-1)
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccYakbDA.s 			page 6
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cc99cjuo.s 			page 6
+>>>>>>> BackLightBranch
+
+
+ 286 01a8 9FEF      		ldi r25,hi8(-1)
+ 287 01aa 9093 0000 		sts (KeyFound)+1,r25
+ 288 01ae 8093 0000 		sts KeyFound,r24
+ 289               	/* #APP */
+ 290 01b2 0FB6      		in  __tmp_reg__, __SREG__
+ 291 01b4 F894      		cli
+ 292 01b6 0F92      		push __tmp_reg__
+ 293               		
+ 294               	/* #NOAPP */
+ 295 01b8 1092 0000 		sts (hKBEvent)+1,__zero_reg__
+ 296 01bc 1092 0000 		sts hKBEvent,__zero_reg__
+ 297               	/* #APP */
+ 298 01c0 0F90      		pop __tmp_reg__
+ 299 01c2 0FBE      		out __SREG__, __tmp_reg__
+ 300               		
+ 301               	/* #NOAPP */
+ 302 01c4 8FEF      		ldi r24,lo8(-1)
+ 303 01c6 8093 0000 		sts KeyBuffer,r24
+ 304 01ca E0E0      		ldi r30,lo8(KeyRepeatArray)
+ 305 01cc F0E0      		ldi r31,hi8(KeyRepeatArray)
+ 306 01ce 82E0      		ldi r24,lo8(2)
+ 307               	.L36:
+ 308 01d0 8193      		st Z+,r24
+ 309 01d2 90E0      		ldi r25,hi8(KeyRepeatArray+16)
+ 310 01d4 E030      		cpi r30,lo8(KeyRepeatArray+16)
+ 311 01d6 F907      		cpc r31,r25
+ 312 01d8 01F4      		brne .L36
+ 313 01da 1092 0000 		sts (HoldCounter)+1,__zero_reg__
+ 314 01de 1092 0000 		sts HoldCounter,__zero_reg__
+ 315 01e2 62E0      		ldi r22,lo8(2)
+ 316 01e4 88E0      		ldi r24,lo8(8)
+ 317 01e6 0E94 0000 		call KbSetKeyRepeating
+ 318 01ea 62E0      		ldi r22,lo8(2)
+ 319 01ec 8BE0      		ldi r24,lo8(11)
+ 320 01ee 0E94 0000 		call KbSetKeyRepeating
+ 321 01f2 61E0      		ldi r22,lo8(1)
+ 322 01f4 8AE0      		ldi r24,lo8(10)
+ 323 01f6 0E94 0000 		call KbSetKeyRepeating
+ 324 01fa 61E0      		ldi r22,lo8(1)
+ 325 01fc 8CE0      		ldi r24,lo8(12)
+ 326 01fe 0E94 0000 		call KbSetKeyRepeating
+ 327               	/* epilogue: frame size=0 */
+ 328 0202 0895      		ret
+ 329               	/* epilogue end (size=1) */
+ 330               	/* function KbInit size 62 (61) */
+ 331               		.size	KbInit, .-KbInit
+ 332               	.global	KbWaitForKeyEvent
+ 333               		.type	KbWaitForKeyEvent, @function
+ 334               	KbWaitForKeyEvent:
+ 335               	/* prologue: frame size=0 */
+ 336               	/* prologue end (size=0) */
+ 337 0204 AB01      		movw r20,r22
+ 338 0206 BC01      		movw r22,r24
+ 339 0208 80E0      		ldi r24,lo8(hKBEvent)
+ 340 020a 90E0      		ldi r25,hi8(hKBEvent)
+ 341 020c 0E94 0000 		call NutEventWait
+ 342 0210 20E0      		ldi r18,lo8(0)
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccYakbDA.s 			page 7
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cc99cjuo.s 			page 7
+>>>>>>> BackLightBranch
+
+
+ 343 0212 30E0      		ldi r19,hi8(0)
+ 344 0214 8F5F      		subi r24,lo8(-1)
+ 345 0216 9F4F      		sbci r25,hi8(-1)
+ 346 0218 01F4      		brne .L42
+ 347 021a 21E0      		ldi r18,lo8(1)
+ 348 021c 30E0      		ldi r19,hi8(1)
+ 349               	.L42:
+ 350 021e C901      		movw r24,r18
+ 351               	/* epilogue: frame size=0 */
+ 352 0220 0895      		ret
+ 353               	/* epilogue end (size=1) */
+ 354               	/* function KbWaitForKeyEvent size 16 (15) */
+ 355               		.size	KbWaitForKeyEvent, .-KbWaitForKeyEvent
+ 356               		.lcomm hKBEvent,2
+ 357               		.lcomm KeyFound,2
+ 358               		.lcomm KeyBuffer,1
+ 359               		.lcomm HoldCounter,2
+ 360               		.lcomm KbState,1
+ 361               		.lcomm KeyRepeatArray,16
+ 362               	/* File "source/keyboard.c": code  295 = 0x0127 ( 292), prologues   0, epilogues   3 */
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccYakbDA.s 			page 8
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cc99cjuo.s 			page 8
+>>>>>>> BackLightBranch
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 keyboard.c
+<<<<<<< HEAD
+C:\Users\Maarten\AppData\Local\Temp/ccYakbDA.s:3      *ABS*:0000003f __SREG__
+C:\Users\Maarten\AppData\Local\Temp/ccYakbDA.s:4      *ABS*:0000003e __SP_H__
+C:\Users\Maarten\AppData\Local\Temp/ccYakbDA.s:5      *ABS*:0000003d __SP_L__
+C:\Users\Maarten\AppData\Local\Temp/ccYakbDA.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\Maarten\AppData\Local\Temp/ccYakbDA.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\Maarten\AppData\Local\Temp/ccYakbDA.s:13     .text:00000000 KbScan
+C:\Users\Maarten\AppData\Local\Temp/ccYakbDA.s:356    .bss:00000002 KeyFound
+C:\Users\Maarten\AppData\Local\Temp/ccYakbDA.s:75     .text:0000005e KbSetKeyRepeating
+C:\Users\Maarten\AppData\Local\Temp/ccYakbDA.s:360    .bss:00000008 KeyRepeatArray
+C:\Users\Maarten\AppData\Local\Temp/ccYakbDA.s:98     .text:00000076 KbGetKey
+C:\Users\Maarten\AppData\Local\Temp/ccYakbDA.s:245    .text:00000168 KbInjectKey
+C:\Users\Maarten\AppData\Local\Temp/ccYakbDA.s:357    .bss:00000004 KeyBuffer
+                             .bss:00000000 hKBEvent
+C:\Users\Maarten\AppData\Local\Temp/ccYakbDA.s:277    .text:0000019a KbInit
+C:\Users\Maarten\AppData\Local\Temp/ccYakbDA.s:359    .bss:00000007 KbState
+C:\Users\Maarten\AppData\Local\Temp/ccYakbDA.s:358    .bss:00000005 HoldCounter
+C:\Users\Maarten\AppData\Local\Temp/ccYakbDA.s:334    .text:00000204 KbWaitForKeyEvent
+=======
+C:\Users\jeffr\AppData\Local\Temp/cc99cjuo.s:3      *ABS*:0000003f __SREG__
+C:\Users\jeffr\AppData\Local\Temp/cc99cjuo.s:4      *ABS*:0000003e __SP_H__
+C:\Users\jeffr\AppData\Local\Temp/cc99cjuo.s:5      *ABS*:0000003d __SP_L__
+C:\Users\jeffr\AppData\Local\Temp/cc99cjuo.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\jeffr\AppData\Local\Temp/cc99cjuo.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\jeffr\AppData\Local\Temp/cc99cjuo.s:13     .text:00000000 KbScan
+C:\Users\jeffr\AppData\Local\Temp/cc99cjuo.s:356    .bss:00000002 KeyFound
+C:\Users\jeffr\AppData\Local\Temp/cc99cjuo.s:75     .text:0000005e KbSetKeyRepeating
+C:\Users\jeffr\AppData\Local\Temp/cc99cjuo.s:360    .bss:00000008 KeyRepeatArray
+C:\Users\jeffr\AppData\Local\Temp/cc99cjuo.s:98     .text:00000076 KbGetKey
+C:\Users\jeffr\AppData\Local\Temp/cc99cjuo.s:245    .text:00000168 KbInjectKey
+C:\Users\jeffr\AppData\Local\Temp/cc99cjuo.s:357    .bss:00000004 KeyBuffer
+                             .bss:00000000 hKBEvent
+C:\Users\jeffr\AppData\Local\Temp/cc99cjuo.s:277    .text:0000019a KbInit
+C:\Users\jeffr\AppData\Local\Temp/cc99cjuo.s:359    .bss:00000007 KbState
+C:\Users\jeffr\AppData\Local\Temp/cc99cjuo.s:358    .bss:00000005 HoldCounter
+C:\Users\jeffr\AppData\Local\Temp/cc99cjuo.s:334    .text:00000204 KbWaitForKeyEvent
+>>>>>>> BackLightBranch
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
+NutEventWait

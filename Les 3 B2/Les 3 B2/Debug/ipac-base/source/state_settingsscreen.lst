@@ -1,0 +1,92 @@
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/cc0KE1KM.s 			page 1
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccu5Pd3f.s 			page 1
+>>>>>>> BackLightBranch
+
+
+   1               		.file	"state_settingsscreen.c"
+   2               		.arch atmega2561
+   3               	__SREG__ = 0x3f
+   4               	__SP_H__ = 0x3e
+   5               	__SP_L__ = 0x3d
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  10               		.text
+  11               	.global	settingsscreen_keypressed
+  12               		.type	settingsscreen_keypressed, @function
+  13               	settingsscreen_keypressed:
+  14               	/* prologue: frame size=0 */
+  15               	/* prologue end (size=0) */
+  16               	/* epilogue: frame size=0 */
+  17 0000 0895      		ret
+  18               	/* epilogue end (size=1) */
+  19               	/* function settingsscreen_keypressed size 1 (0) */
+  20               		.size	settingsscreen_keypressed, .-settingsscreen_keypressed
+  21               	.global	settingsscreen_entry
+  22               		.type	settingsscreen_entry, @function
+  23               	settingsscreen_entry:
+  24               	/* prologue: frame size=0 */
+  25               	/* prologue end (size=0) */
+  26               	/* epilogue: frame size=0 */
+  27 0002 0895      		ret
+  28               	/* epilogue end (size=1) */
+  29               	/* function settingsscreen_entry size 1 (0) */
+  30               		.size	settingsscreen_entry, .-settingsscreen_entry
+  31               	.global	settingsscreen_loop
+  32               		.type	settingsscreen_loop, @function
+  33               	settingsscreen_loop:
+  34               	/* prologue: frame size=0 */
+  35               	/* prologue end (size=0) */
+  36               	/* epilogue: frame size=0 */
+  37 0004 0895      		ret
+  38               	/* epilogue end (size=1) */
+  39               	/* function settingsscreen_loop size 1 (0) */
+  40               		.size	settingsscreen_loop, .-settingsscreen_loop
+  41               	.global	settingsscreen_exit
+  42               		.type	settingsscreen_exit, @function
+  43               	settingsscreen_exit:
+  44               	/* prologue: frame size=0 */
+  45               	/* prologue end (size=0) */
+  46               	/* epilogue: frame size=0 */
+  47 0006 0895      		ret
+  48               	/* epilogue end (size=1) */
+  49               	/* function settingsscreen_exit size 1 (0) */
+  50               		.size	settingsscreen_exit, .-settingsscreen_exit
+  51               	/* File "source/state_settingsscreen.c": code    4 = 0x0004 (   0), prologues   0, epilogues   4 */
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/cc0KE1KM.s 			page 2
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccu5Pd3f.s 			page 2
+>>>>>>> BackLightBranch
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 state_settingsscreen.c
+<<<<<<< HEAD
+C:\Users\Maarten\AppData\Local\Temp/cc0KE1KM.s:3      *ABS*:0000003f __SREG__
+C:\Users\Maarten\AppData\Local\Temp/cc0KE1KM.s:4      *ABS*:0000003e __SP_H__
+C:\Users\Maarten\AppData\Local\Temp/cc0KE1KM.s:5      *ABS*:0000003d __SP_L__
+C:\Users\Maarten\AppData\Local\Temp/cc0KE1KM.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\Maarten\AppData\Local\Temp/cc0KE1KM.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\Maarten\AppData\Local\Temp/cc0KE1KM.s:13     .text:00000000 settingsscreen_keypressed
+C:\Users\Maarten\AppData\Local\Temp/cc0KE1KM.s:23     .text:00000002 settingsscreen_entry
+C:\Users\Maarten\AppData\Local\Temp/cc0KE1KM.s:33     .text:00000004 settingsscreen_loop
+C:\Users\Maarten\AppData\Local\Temp/cc0KE1KM.s:43     .text:00000006 settingsscreen_exit
+=======
+C:\Users\jeffr\AppData\Local\Temp/ccu5Pd3f.s:3      *ABS*:0000003f __SREG__
+C:\Users\jeffr\AppData\Local\Temp/ccu5Pd3f.s:4      *ABS*:0000003e __SP_H__
+C:\Users\jeffr\AppData\Local\Temp/ccu5Pd3f.s:5      *ABS*:0000003d __SP_L__
+C:\Users\jeffr\AppData\Local\Temp/ccu5Pd3f.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\jeffr\AppData\Local\Temp/ccu5Pd3f.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\jeffr\AppData\Local\Temp/ccu5Pd3f.s:13     .text:00000000 settingsscreen_keypressed
+C:\Users\jeffr\AppData\Local\Temp/ccu5Pd3f.s:23     .text:00000002 settingsscreen_entry
+C:\Users\jeffr\AppData\Local\Temp/ccu5Pd3f.s:33     .text:00000004 settingsscreen_loop
+C:\Users\jeffr\AppData\Local\Temp/ccu5Pd3f.s:43     .text:00000006 settingsscreen_exit
+>>>>>>> BackLightBranch
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss

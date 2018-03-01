@@ -1,0 +1,274 @@
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccr3L1Bv.s 			page 1
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cc2D2Tc7.s 			page 1
+>>>>>>> BackLightBranch
+
+
+   1               		.file	"spidrv.c"
+   2               		.arch atmega2561
+   3               	__SREG__ = 0x3f
+   4               	__SP_H__ = 0x3e
+   5               	__SP_L__ = 0x3d
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  10               		.text
+  11               	.global	SPIdeselect
+  12               		.type	SPIdeselect, @function
+  13               	SPIdeselect:
+  14               	/* prologue: frame size=0 */
+  15               	/* prologue end (size=0) */
+  16 0000 779A      		sbi 46-0x20,7
+  17 0002 2E98      		cbi 37-0x20,6
+  18 0004 2D9A      		sbi 37-0x20,5
+  19               	/* epilogue: frame size=0 */
+  20 0006 0895      		ret
+  21               	/* epilogue end (size=1) */
+  22               	/* function SPIdeselect size 4 (3) */
+  23               		.size	SPIdeselect, .-SPIdeselect
+  24               	.global	SPImode
+  25               		.type	SPImode, @function
+  26               	SPImode:
+  27               	/* prologue: frame size=0 */
+  28               	/* prologue end (size=0) */
+  29 0008 8093 0000 		sts g_Speedmode,r24
+  30               	/* epilogue: frame size=0 */
+  31 000c 0895      		ret
+  32               	/* epilogue end (size=1) */
+  33               	/* function SPImode size 3 (2) */
+  34               		.size	SPImode, .-SPImode
+  35               	.global	SPIgetmode
+  36               		.type	SPIgetmode, @function
+  37               	SPIgetmode:
+  38               	/* prologue: frame size=0 */
+  39               	/* prologue end (size=0) */
+  40 000e 8091 0000 		lds r24,g_Speedmode
+  41 0012 9927      		clr r25
+  42               	/* epilogue: frame size=0 */
+  43 0014 0895      		ret
+  44               	/* epilogue end (size=1) */
+  45               	/* function SPIgetmode size 4 (3) */
+  46               		.size	SPIgetmode, .-SPIgetmode
+  47               	.global	SPIputByte
+  48               		.type	SPIputByte, @function
+  49               	SPIputByte:
+  50               	/* prologue: frame size=0 */
+  51               	/* prologue end (size=0) */
+  52 0016 8EBD      		out 78-0x20,r24
+  53               	.L8:
+  54 0018 0DB4      		in __tmp_reg__,77-0x20
+  55 001a 07FE      		sbrs __tmp_reg__,7
+  56 001c 00C0      		rjmp .L8
+  57               	/* epilogue: frame size=0 */
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccr3L1Bv.s 			page 2
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cc2D2Tc7.s 			page 2
+>>>>>>> BackLightBranch
+
+
+  58 001e 0895      		ret
+  59               	/* epilogue end (size=1) */
+  60               	/* function SPIputByte size 5 (4) */
+  61               		.size	SPIputByte, .-SPIputByte
+  62               	.global	SPIgetByte
+  63               		.type	SPIgetByte, @function
+  64               	SPIgetByte:
+  65               	/* prologue: frame size=0 */
+  66               	/* prologue end (size=0) */
+  67 0020 8FEF      		ldi r24,lo8(-1)
+  68 0022 8EBD      		out 78-0x20,r24
+  69               	.L14:
+  70 0024 0DB4      		in __tmp_reg__,77-0x20
+  71 0026 07FE      		sbrs __tmp_reg__,7
+  72 0028 00C0      		rjmp .L14
+  73 002a 8EB5      		in r24,78-0x20
+  74 002c 9927      		clr r25
+  75               	/* epilogue: frame size=0 */
+  76 002e 0895      		ret
+  77               	/* epilogue end (size=1) */
+  78               	/* function SPIgetByte size 8 (7) */
+  79               		.size	SPIgetByte, .-SPIgetByte
+  80               	.global	SPItransferByte
+  81               		.type	SPItransferByte, @function
+  82               	SPItransferByte:
+  83               	/* prologue: frame size=0 */
+  84               	/* prologue end (size=0) */
+  85 0030 8EBD      		out 78-0x20,r24
+  86               	.L20:
+  87 0032 0DB4      		in __tmp_reg__,77-0x20
+  88 0034 07FE      		sbrs __tmp_reg__,7
+  89 0036 00C0      		rjmp .L20
+  90 0038 8EB5      		in r24,78-0x20
+  91 003a 9927      		clr r25
+  92               	/* epilogue: frame size=0 */
+  93 003c 0895      		ret
+  94               	/* epilogue end (size=1) */
+  95               	/* function SPItransferByte size 7 (6) */
+  96               		.size	SPItransferByte, .-SPItransferByte
+  97               	.global	SPIinit
+  98               		.type	SPIinit, @function
+  99               	SPIinit:
+ 100               	/* prologue: frame size=0 */
+ 101               	/* prologue end (size=0) */
+ 102 003e 779A      		sbi 46-0x20,7
+ 103 0040 2E98      		cbi 37-0x20,6
+ 104 0042 2D9A      		sbi 37-0x20,5
+ 105               	/* epilogue: frame size=0 */
+ 106 0044 0895      		ret
+ 107               	/* epilogue end (size=1) */
+ 108               	/* function SPIinit size 4 (3) */
+ 109               		.size	SPIinit, .-SPIinit
+ 110               	.global	SPIselect
+ 111               		.type	SPIselect, @function
+ 112               	SPIselect:
+ 113               	/* prologue: frame size=0 */
+ 114               	/* prologue end (size=0) */
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccr3L1Bv.s 			page 3
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cc2D2Tc7.s 			page 3
+>>>>>>> BackLightBranch
+
+
+ 115 0046 9C01      		movw r18,r24
+ 116 0048 0097      		sbiw r24,0
+ 117 004a 01F4      		brne .L28
+ 118 004c 8091 0000 		lds r24,g_Speedmode
+ 119 0050 8823      		tst r24
+ 120 0052 01F4      		brne .L30
+ 121 0054 81E0      		ldi r24,lo8(1)
+ 122 0056 8DBD      		out 77-0x20,r24
+ 123 0058 81E5      		ldi r24,lo8(81)
+ 124 005a 00C0      		rjmp .L43
+ 125               	.L30:
+ 126 005c 8130      		cpi r24,lo8(1)
+ 127 005e 01F4      		brne .L33
+ 128 0060 1DBC      		out 77-0x20,__zero_reg__
+ 129               	.L44:
+ 130 0062 80E5      		ldi r24,lo8(80)
+ 131               	.L43:
+ 132 0064 8CBD      		out 76-0x20,r24
+ 133 0066 00C0      		rjmp .L32
+ 134               	.L33:
+ 135 0068 8230      		cpi r24,lo8(2)
+ 136 006a 01F4      		brne .L35
+ 137 006c 81E0      		ldi r24,lo8(1)
+ 138 006e 8DBD      		out 77-0x20,r24
+ 139 0070 00C0      		rjmp .L44
+ 140               	.L35:
+ 141 0072 80E0      		ldi r24,lo8(__c.2038)
+ 142 0074 90E0      		ldi r25,hi8(__c.2038)
+ 143 0076 9F93      		push r25
+ 144 0078 8F93      		push r24
+ 145 007a 8BE7      		ldi r24,lo8(123)
+ 146 007c 8F93      		push r24
+ 147 007e 0E94 0000 		call LogMsg_P
+ 148 0082 0F90      		pop __tmp_reg__
+ 149 0084 0F90      		pop __tmp_reg__
+ 150 0086 0F90      	 	pop __tmp_reg__
+ 151 0088 00C0      		rjmp .L32
+ 152               	.L28:
+ 153 008a 0197      		sbiw r24,1
+ 154 008c 01F4      		brne .L37
+ 155 008e 81E0      		ldi r24,lo8(1)
+ 156 0090 8DBD      		out 77-0x20,r24
+ 157 0092 80E5      		ldi r24,lo8(80)
+ 158 0094 8CBD      		out 76-0x20,r24
+ 159 0096 2D9A      		sbi 37-0x20,5
+ 160 0098 2E98      		cbi 37-0x20,6
+ 161 009a 7798      		cbi 46-0x20,7
+ 162 009c 0895      		ret
+ 163               	.L37:
+ 164 009e 1DBC      		out 77-0x20,__zero_reg__
+ 165 00a0 80E5      		ldi r24,lo8(80)
+ 166 00a2 8CBD      		out 76-0x20,r24
+ 167 00a4 2130      		cpi r18,1
+ 168 00a6 3105      		cpc r19,__zero_reg__
+ 169 00a8 00F0      		brlo .L32
+ 170 00aa 2230      		cpi r18,2
+ 171 00ac 3105      		cpc r19,__zero_reg__
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccr3L1Bv.s 			page 4
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cc2D2Tc7.s 			page 4
+>>>>>>> BackLightBranch
+
+
+ 172 00ae 01F4      		brne .L42
+ 173 00b0 00C0      		rjmp .L41
+ 174               	.L32:
+ 175 00b2 779A      		sbi 46-0x20,7
+ 176 00b4 2D9A      		sbi 37-0x20,5
+ 177 00b6 2E9A      		sbi 37-0x20,6
+ 178 00b8 0895      		ret
+ 179               	.L41:
+ 180 00ba 779A      		sbi 46-0x20,7
+ 181 00bc 2E98      		cbi 37-0x20,6
+ 182 00be 2D98      		cbi 37-0x20,5
+ 183               	.L42:
+ 184 00c0 0895      		ret
+ 185               	/* epilogue: frame size=0 */
+ 186               	/* epilogue: noreturn */
+ 187               	/* epilogue end (size=0) */
+ 188               	/* function SPIselect size 63 (63) */
+ 189               		.size	SPIselect, .-SPIselect
+ 190               		.section	.progmem.data,"a",@progbits
+ 191               		.type	__c.2038, @object
+ 192               		.size	__c.2038, 14
+ 193               	__c.2038:
+ 194 0000 696E 7661 		.string	"invalid Speed"
+ 194      6C69 6420 
+ 194      5370 6565 
+ 194      6400 
+ 195               		.lcomm g_Speedmode,1
+ 196               	/* File "source/spidrv.c": code   98 = 0x0062 (  91), prologues   0, epilogues   7 */
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccr3L1Bv.s 			page 5
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/cc2D2Tc7.s 			page 5
+>>>>>>> BackLightBranch
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 spidrv.c
+<<<<<<< HEAD
+C:\Users\Maarten\AppData\Local\Temp/ccr3L1Bv.s:3      *ABS*:0000003f __SREG__
+C:\Users\Maarten\AppData\Local\Temp/ccr3L1Bv.s:4      *ABS*:0000003e __SP_H__
+C:\Users\Maarten\AppData\Local\Temp/ccr3L1Bv.s:5      *ABS*:0000003d __SP_L__
+C:\Users\Maarten\AppData\Local\Temp/ccr3L1Bv.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\Maarten\AppData\Local\Temp/ccr3L1Bv.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\Maarten\AppData\Local\Temp/ccr3L1Bv.s:13     .text:00000000 SPIdeselect
+C:\Users\Maarten\AppData\Local\Temp/ccr3L1Bv.s:26     .text:00000008 SPImode
+                             .bss:00000000 g_Speedmode
+C:\Users\Maarten\AppData\Local\Temp/ccr3L1Bv.s:37     .text:0000000e SPIgetmode
+C:\Users\Maarten\AppData\Local\Temp/ccr3L1Bv.s:49     .text:00000016 SPIputByte
+C:\Users\Maarten\AppData\Local\Temp/ccr3L1Bv.s:64     .text:00000020 SPIgetByte
+C:\Users\Maarten\AppData\Local\Temp/ccr3L1Bv.s:82     .text:00000030 SPItransferByte
+C:\Users\Maarten\AppData\Local\Temp/ccr3L1Bv.s:99     .text:0000003e SPIinit
+C:\Users\Maarten\AppData\Local\Temp/ccr3L1Bv.s:112    .text:00000046 SPIselect
+C:\Users\Maarten\AppData\Local\Temp/ccr3L1Bv.s:193    .progmem.data:00000000 __c.2038
+=======
+C:\Users\jeffr\AppData\Local\Temp/cc2D2Tc7.s:3      *ABS*:0000003f __SREG__
+C:\Users\jeffr\AppData\Local\Temp/cc2D2Tc7.s:4      *ABS*:0000003e __SP_H__
+C:\Users\jeffr\AppData\Local\Temp/cc2D2Tc7.s:5      *ABS*:0000003d __SP_L__
+C:\Users\jeffr\AppData\Local\Temp/cc2D2Tc7.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\jeffr\AppData\Local\Temp/cc2D2Tc7.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\jeffr\AppData\Local\Temp/cc2D2Tc7.s:13     .text:00000000 SPIdeselect
+C:\Users\jeffr\AppData\Local\Temp/cc2D2Tc7.s:26     .text:00000008 SPImode
+                             .bss:00000000 g_Speedmode
+C:\Users\jeffr\AppData\Local\Temp/cc2D2Tc7.s:37     .text:0000000e SPIgetmode
+C:\Users\jeffr\AppData\Local\Temp/cc2D2Tc7.s:49     .text:00000016 SPIputByte
+C:\Users\jeffr\AppData\Local\Temp/cc2D2Tc7.s:64     .text:00000020 SPIgetByte
+C:\Users\jeffr\AppData\Local\Temp/cc2D2Tc7.s:82     .text:00000030 SPItransferByte
+C:\Users\jeffr\AppData\Local\Temp/cc2D2Tc7.s:99     .text:0000003e SPIinit
+C:\Users\jeffr\AppData\Local\Temp/cc2D2Tc7.s:112    .text:00000046 SPIselect
+C:\Users\jeffr\AppData\Local\Temp/cc2D2Tc7.s:193    .progmem.data:00000000 __c.2038
+>>>>>>> BackLightBranch
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
+LogMsg_P

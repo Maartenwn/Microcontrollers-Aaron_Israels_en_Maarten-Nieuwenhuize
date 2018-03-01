@@ -1,0 +1,143 @@
+<<<<<<< HEAD
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccNNb85F.s 			page 1
+=======
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccjhBerp.s 			page 1
+>>>>>>> BackLightBranch
+
+
+   1               		.file	"state_syncingscreen.c"
+   2               		.arch atmega2561
+   3               	__SREG__ = 0x3f
+   4               	__SP_H__ = 0x3e
+   5               	__SP_L__ = 0x3d
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  10               		.text
+  11               	.global	syncingscreen_keypressed
+  12               		.type	syncingscreen_keypressed, @function
+  13               	syncingscreen_keypressed:
+  14               	/* prologue: frame size=0 */
+  15               	/* prologue end (size=0) */
+  16               	/* epilogue: frame size=0 */
+  17 0000 0895      		ret
+  18               	/* epilogue end (size=1) */
+  19               	/* function syncingscreen_keypressed size 1 (0) */
+  20               		.size	syncingscreen_keypressed, .-syncingscreen_keypressed
+  21               	.global	syncingscreen_loop
+  22               		.type	syncingscreen_loop, @function
+  23               	syncingscreen_loop:
+  24               	/* prologue: frame size=0 */
+  25               	/* prologue end (size=0) */
+<<<<<<< HEAD
+  26 0002 FB01      		movw r30,r22
+  27 0004 40E0      		ldi r20,lo8(0)
+  28 0006 50E0      		ldi r21,hi8(0)
+  29 0008 60E0      		ldi r22,lo8(0)
+  30 000a 70E0      		ldi r23,hi8(0)
+  31 000c 83E0      		ldi r24,lo8(3)
+  32 000e 90E0      		ldi r25,hi8(3)
+  33 0010 1995      		eicall
+  34               	/* epilogue: frame size=0 */
+  35 0012 0895      		ret
+  36               	/* epilogue end (size=1) */
+  37               	/* function syncingscreen_loop size 9 (8) */
+  38               		.size	syncingscreen_loop, .-syncingscreen_loop
+  39               	.global	syncingscreen_exit
+  40               		.type	syncingscreen_exit, @function
+  41               	syncingscreen_exit:
+  42               	/* prologue: frame size=0 */
+  43               	/* prologue end (size=0) */
+  44 0014 0E94 0000 		call LcdClear
+  45               	/* epilogue: frame size=0 */
+  46 0018 0895      		ret
+  47               	/* epilogue end (size=1) */
+  48               	/* function syncingscreen_exit size 3 (2) */
+  49               		.size	syncingscreen_exit, .-syncingscreen_exit
+  50               		.data
+  51               	.LC0:
+  52 0000 2053 796E 		.string	" Synching NTP.. "
+  52      6368 696E 
+  52      6720 4E54 
+  52      502E 2E20 
+  52      00
+  53               		.text
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccNNb85F.s 			page 2
+
+
+  54               	.global	syncingscreen_entry
+  55               		.type	syncingscreen_entry, @function
+  56               	syncingscreen_entry:
+  57               	/* prologue: frame size=0 */
+  58               	/* prologue end (size=0) */
+  59 001a 80E0      		ldi r24,lo8(.LC0)
+  60 001c 90E0      		ldi r25,hi8(.LC0)
+  61 001e 0E94 0000 		call LcdDisplayStr
+  62               	/* epilogue: frame size=0 */
+  63 0022 0895      		ret
+  64               	/* epilogue end (size=1) */
+  65               	/* function syncingscreen_entry size 5 (4) */
+  66               		.size	syncingscreen_entry, .-syncingscreen_entry
+  67               	/* File "source/state_syncingscreen.c": code   18 = 0x0012 (  14), prologues   0, epilogues   4 */
+GAS LISTING C:\Users\Maarten\AppData\Local\Temp/ccNNb85F.s 			page 3
+=======
+  26               	/* epilogue: frame size=0 */
+  27 0002 0895      		ret
+  28               	/* epilogue end (size=1) */
+  29               	/* function syncingscreen_entry size 1 (0) */
+  30               		.size	syncingscreen_entry, .-syncingscreen_entry
+  31               	.global	syncingscreen_loop
+  32               		.type	syncingscreen_loop, @function
+  33               	syncingscreen_loop:
+  34               	/* prologue: frame size=0 */
+  35               	/* prologue end (size=0) */
+  36               	/* epilogue: frame size=0 */
+  37 0004 0895      		ret
+  38               	/* epilogue end (size=1) */
+  39               	/* function syncingscreen_loop size 1 (0) */
+  40               		.size	syncingscreen_loop, .-syncingscreen_loop
+  41               	.global	syncingscreen_exit
+  42               		.type	syncingscreen_exit, @function
+  43               	syncingscreen_exit:
+  44               	/* prologue: frame size=0 */
+  45               	/* prologue end (size=0) */
+  46               	/* epilogue: frame size=0 */
+  47 0006 0895      		ret
+  48               	/* epilogue end (size=1) */
+  49               	/* function syncingscreen_exit size 1 (0) */
+  50               		.size	syncingscreen_exit, .-syncingscreen_exit
+  51               	/* File "source/state_syncingscreen.c": code    4 = 0x0004 (   0), prologues   0, epilogues   4 */
+GAS LISTING C:\Users\jeffr\AppData\Local\Temp/ccjhBerp.s 			page 2
+>>>>>>> BackLightBranch
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 state_syncingscreen.c
+<<<<<<< HEAD
+C:\Users\Maarten\AppData\Local\Temp/ccNNb85F.s:3      *ABS*:0000003f __SREG__
+C:\Users\Maarten\AppData\Local\Temp/ccNNb85F.s:4      *ABS*:0000003e __SP_H__
+C:\Users\Maarten\AppData\Local\Temp/ccNNb85F.s:5      *ABS*:0000003d __SP_L__
+C:\Users\Maarten\AppData\Local\Temp/ccNNb85F.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\Maarten\AppData\Local\Temp/ccNNb85F.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\Maarten\AppData\Local\Temp/ccNNb85F.s:13     .text:00000000 syncingscreen_keypressed
+C:\Users\Maarten\AppData\Local\Temp/ccNNb85F.s:23     .text:00000002 syncingscreen_loop
+C:\Users\Maarten\AppData\Local\Temp/ccNNb85F.s:41     .text:00000014 syncingscreen_exit
+C:\Users\Maarten\AppData\Local\Temp/ccNNb85F.s:56     .text:0000001a syncingscreen_entry
+=======
+C:\Users\jeffr\AppData\Local\Temp/ccjhBerp.s:3      *ABS*:0000003f __SREG__
+C:\Users\jeffr\AppData\Local\Temp/ccjhBerp.s:4      *ABS*:0000003e __SP_H__
+C:\Users\jeffr\AppData\Local\Temp/ccjhBerp.s:5      *ABS*:0000003d __SP_L__
+C:\Users\jeffr\AppData\Local\Temp/ccjhBerp.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\jeffr\AppData\Local\Temp/ccjhBerp.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\jeffr\AppData\Local\Temp/ccjhBerp.s:13     .text:00000000 syncingscreen_keypressed
+C:\Users\jeffr\AppData\Local\Temp/ccjhBerp.s:23     .text:00000002 syncingscreen_entry
+C:\Users\jeffr\AppData\Local\Temp/ccjhBerp.s:33     .text:00000004 syncingscreen_loop
+C:\Users\jeffr\AppData\Local\Temp/ccjhBerp.s:43     .text:00000006 syncingscreen_exit
+>>>>>>> BackLightBranch
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
+LcdClear
+LcdDisplayStr
