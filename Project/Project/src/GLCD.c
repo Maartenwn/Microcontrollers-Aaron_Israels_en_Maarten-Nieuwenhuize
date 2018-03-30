@@ -4,38 +4,19 @@
  * Created: 15/03/2018 13:35:58
  *  Author: Maarten
  */ 
-  #define F_CPU 8000000
+ #define F_CPU 8000000
 
- #include "Touchpanel.h"
+ #include "Images.h"
+ #include "GLCD.h"
  #include <avr/io.h>
  #include <util/delay.h>
 
  #define GETBITFROM(n,k) ( ((n >> k) & 1))
  #define BIT(x) ( 1<<x )
 
- /******************************************************************/
-void wait( int ms )
-/* 
-short:			Busy wait number of millisecs
-inputs:			int ms (Number of millisecs to busy wait)
-outputs:	
-notes:			Busy wait, not very accurate. Make sure (external)
-				clock value is set. This is used by _delay_ms inside
-				util/delay.h
-Version :    	DMK, Initial code
-*******************************************************************/
-{
-	int tms;
-	for (tms=0; tms<ms; tms++)
-	{
-		_delay_ms( 1 );		// library function (max 30 ms at 8MHz)
-	}
-}
-
- void initTouch(){
+ void GLCD_init(){
 	DDRA = 0xFF;
 	DDRE = 0xFF;
-	DDRB = 0xFF;
 
 	PORTE |= BIT(2);
 	PORTE |= BIT(3);
@@ -44,28 +25,17 @@ Version :    	DMK, Initial code
 
 	DisplayOn();
 	GLCD_CLR();
-
-	
-	int y;
-	int x;
-
-	for(y=0; y<64; y++){
-		for (x=0; x<128; x++){
-			GOTO_XY(x,y);
-			GLCD_Write(0x00);
-		}
-	}
-
-	Set_Start_Line(0);
-	for(y=0; y<64; y+=2){
-		for (x=0; x<128; x+=2){
-			Draw_Point(x, y, 1);
-		}
-	}
-		
  }
 
  void EnableCmd(void);
+
+ void GLCD_DisplayImage(POSITION *image){
+	int i =0;
+	while(image[i].x != -1 && image[i].y != -1){
+		Draw_Point(image[i].x,image[i].y,1);
+		i++;
+	}
+ }
 
 
  void Draw_Point(unsigned short x,unsigned short y, unsigned short color)
@@ -154,10 +124,17 @@ Version :    	DMK, Initial code
 
  void GLCD_CLR()
  {
-	 unsigned short m;
-	 for(m=0;m<8;m++){
-		 GLCD_Clrln(m);
+	 int y;
+	 int x;
+
+	 for(y=0; y<64; y++){
+		 for (x=0; x<128; x++){
+			 GOTO_XY(x,y);
+			 GLCD_Write(0x00);
+		 }
 	 }
+
+	 Set_Start_Line(0);
  }
 
  void GOTO_XY(unsigned int x,unsigned int y)

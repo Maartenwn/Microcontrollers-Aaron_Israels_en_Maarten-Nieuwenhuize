@@ -52,7 +52,11 @@ SUBDIRS :=  \
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
-../src/Touchpanel.c \
+../src/GLCD.c \
+../src/images.c \
+../src/lcd.c \
+../src/tamagotchi.c \
+../src/Touch.c \
 ../src/ASF/mega/boards/stk600/rcx_x/init.c \
 ../src/main.c
 
@@ -64,22 +68,38 @@ ASM_SRCS +=
 
 
 OBJS +=  \
-src/Touchpanel.o \
+src/GLCD.o \
+src/images.o \
+src/lcd.o \
+src/tamagotchi.o \
+src/Touch.o \
 src/ASF/mega/boards/stk600/rcx_x/init.o \
 src/main.o
 
 OBJS_AS_ARGS +=  \
-src/Touchpanel.o \
+src/GLCD.o \
+src/images.o \
+src/lcd.o \
+src/tamagotchi.o \
+src/Touch.o \
 src/ASF/mega/boards/stk600/rcx_x/init.o \
 src/main.o
 
 C_DEPS +=  \
-src/Touchpanel.d \
+src/GLCD.d \
+src/images.d \
+src/lcd.d \
+src/tamagotchi.d \
+src/Touch.d \
 src/ASF/mega/boards/stk600/rcx_x/init.d \
 src/main.d
 
 C_DEPS_AS_ARGS +=  \
-src/Touchpanel.d \
+src/GLCD.d \
+src/images.d \
+src/lcd.d \
+src/tamagotchi.d \
+src/Touch.d \
 src/ASF/mega/boards/stk600/rcx_x/init.d \
 src/main.d
 
@@ -97,6 +117,14 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
+
+
+
+
+
+
 
 
 
